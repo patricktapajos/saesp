@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Usuario */
 
 $this->title = $model->USU_ID;
-$this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Gerenciar Usuário', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="usuario-view">
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->USU_ID], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->USU_ID], [
+        <?= Html::a('Atualizar', ['update', 'id' => $model->USU_ID], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Excluir', ['delete', 'id' => $model->USU_ID], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,18 +28,36 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'usu_id',
-            'usu_nome',
-            'usu_cpf',
-            'usu_email:email',
-            'usu_dt_nasc',
-            'usu_sexo',
-            'usu_telefone_1',
-            'usu_telefone_2',
-            'usu_senha',
-            'usu_situacao',
-            'usu_permissao',
-            '',
+            'USU_NOME',
+            'USU_CPF',
+            'USU_EMAIL',
+            'USU_DT_NASC',
+             [
+                'label'=>'Sexo',
+                'attribute'=>'USU_SEXO',
+                'format' => 'raw',
+                'value' => function ($model) {
+                     return  $model->getSexoText();
+                }
+            ],
+            [
+                'label'=>'Permissão',
+                'attribute'=>'USU_PERMISSAO',
+                'format' => 'raw',
+                'value' => function ($model) {
+                     return  $model->getPermissaoText();
+                }
+            ],
+            [
+                'label'=>'Situação',
+                'attribute'=>'USU_SITUACAO',
+                'format' => 'raw',
+                'value' => function ($model) {
+                     return  $model->getSituacaoText();
+                }
+            ],
+            'USU_TELEFONE_1',
+            'USU_TELEFONE_2',
         ],
     ]) ?>
 

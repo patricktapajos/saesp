@@ -22,7 +22,9 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]); ?>
 
-        <?= $form->field($model, 'username')->textInput(['autofocus' => true]) ?>
+        <?= $form->field($model, 'username')->widget(\yii\widgets\MaskedInput::className(), [
+                'mask'=>'999.999.999-99'
+            ]) ?>
 
         <?= $form->field($model, 'password')->passwordInput() ?>
 

@@ -12,17 +12,17 @@ use Yii;
 /**
  * This is the model class for table "usuario".
  *
- * @property integer $usu_id
- * @property string $usu_nome
- * @property string $usu_cpf
- * @property string $usu_email
- * @property string $usu_dt_nasc
- * @property string $usu_sexo
- * @property string $usu_telefone_1
- * @property string $usu_telefone_2
- * @property string $usu_senha
- * @property string $usu_situacao
- * @property string $usu_permissao
+ * @property integer $USU_ID
+ * @property string $USU_NOME
+ * @property string $USU_CPF
+ * @property string $USU_EMAIL
+ * @property string $USU_DT_NASC
+ * @property string $USU_SEXO
+ * @property string $USU_TELEFONE_1
+ * @property string $USU_TELEFONE_2
+ * @property string $USU_SENHA
+ * @property string $USU_SITUACAO
+ * @property string $USU_PERMISSAO
  * @property  $
  */
 class Usuario extends \yii\db\ActiveRecord
@@ -36,7 +36,7 @@ class Usuario extends \yii\db\ActiveRecord
     }
 
     /*public static function primaryKey(){
-        return 'usu_id';
+        return 'USU_ID';
     }*/
 
     /**
@@ -45,18 +45,18 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['usu_id', 'usu_nome', 'usu_cpf', 'usu_email', 'usu_sexo', 'usu_dt_nasc','usu_permissao'], 'required'],
-            [['usu_nome', 'usu_email', 'usu_senha'], 'string', 'max' => 255],
-            ['usu_email','email'],
-            [['usu_email'],'validarHostEmail','on' =>'insert, update'],
-            [['usu_dt_nasc'], 'date'],
-            [['usu_cpf'],CpfValidator::className()],
-            [['usu_cpf'], 'string', 'max' => 14],
-            [['usu_dt_nasc'], 'string', 'max' => 10],
-            [['usu_sexo'], 'string', 'max' => 15],
-            [['usu_telefone_1', 'usu_telefone_2', 'usu_situacao'], 'string', 'max' => 14],
-            [['usu_permissao'], 'string', 'max' => 20],
-            [['usu_cpf'], 'unique'],
+            [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO'], 'required'],
+            [['USU_NOME', 'USU_EMAIL', 'USU_SENHA'], 'string', 'max' => 255],
+            ['USU_EMAIL','email'],
+            [['USU_EMAIL'],'validarHostEmail'],
+            [['USU_DT_NASC'], 'date'],
+            [['USU_CPF'], CpfValidator::className()],
+            [['USU_CPF'], 'string', 'max' => 14],
+            [['USU_DT_NASC'], 'string', 'max' => 10],
+            [['USU_SEXO'], 'string', 'max' => 15],
+            [['USU_TELEFONE_1', 'USU_TELEFONE_2', 'USU_SITUACAO'], 'string', 'max' => 14],
+            [['USU_PERMISSAO'], 'string', 'max' => 20],
+            [['USU_CPF'], 'unique'],
         ];
     }
 
@@ -66,43 +66,61 @@ class Usuario extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'usu_id' => 'Código',
-            'usu_nome' => 'Nome',
-            'usu_cpf' => 'CPF',
-            'usu_email' => 'Email',
-            'usu_dt_nasc' => 'Data de Nascimento',
-            'usu_sexo' => 'Sexo',
-            'usu_telefone_1' => 'Telefone 1',
-            'usu_telefone_2' => 'Telefone 2',
-            'usu_senha' => 'Senha',
-            'usu_situacao' => 'Situação',
-            'usu_permissao' => 'Permissão', 
+            'USU_ID' => 'Código',
+            'USU_NOME' => 'Nome',
+            'USU_CPF' => 'CPF',
+            'USU_EMAIL' => 'Email',
+            'USU_DT_NASC' => 'Data de Nascimento',
+            'USU_SEXO' => 'Sexo',
+            'USU_TELEFONE_1' => 'Telefone 1',
+            'USU_TELEFONE_2' => 'Telefone 2',
+            'USU_SENHA' => 'Senha',
+            'USU_SITUACAO' => 'Situação',
+            'USU_PERMISSAO' => 'Permissão', 
         ];
     }
 
+    /*
+    * Relations
+    *
+    */
+
+     public function getCoordenador(){
+        return $this->hasOne(Coordenador::className(), ['USU_ID'=>'USU_ID']);
+    }
+
+     /*
+    * Fim das Relations
+    *
+    */
+
     public function validarHostEmail($attribute, $params){
-        if(strpos( $this->$attribute, 'pmm.am.gov.br' ) !== false){
-            $this->addError($this,$attribute, 'O email deve ser institucional (@pmm.am.gov.br)');
-            //return true;
+        if(strpos( $this->$attribute, 'pmm.am.gov.br' ) !== false){            
+            return true;
         }
         $this->addError($attribute, 'O email deve ser institucional (@pmm.am.gov.br)');
+        return false;
     }
 
     public function beforeValidate(){
-        $this->usu_cpf = preg_replace('/[^0-9]/', '', $this->usu_cpf);
+        $this->USU_CPF = preg_replace('/[^0-9]/', '', $this->USU_CPF);
+        $this->USU_TELEFONE_1 = preg_replace('/[^0-9]/', '', $this->USU_TELEFONE_1);
+        $this->USU_TELEFONE_2 = preg_replace('/[^0-9]/', '', $this->USU_TELEFONE_2);
         return parent::beforeValidate();
     }
 
     public function salvarUsuarioPorPermissao(){
-        switch ($this->usu_permissao) {
+        switch ($this->USU_PERMISSAO) {
             case PermissaoEnum::PERMISSAO_ADMIN:
                 $admin = new Administrador();
-                $admin->usu_id = $this->usu_id;
+                $admin->USU_ID = $this->USU_ID;
+                $admin->save(false);
                 break;
             
             case PermissaoEnum::PERMISSAO_COORDENADOR:
                 $coord = new Coordenador();
-                $coord->usu_id = $this->usu_id;
+                $coord->USU_ID = $this->USU_ID;
+                $coord->save(false);
                 break;
         }
     }
@@ -114,29 +132,28 @@ class Usuario extends \yii\db\ActiveRecord
         return parent::beforeSave();
     }
 
-    public function afterSave(){
-        if($this->isNewRecord){
+    public function afterSave($insert, $changedAttributes){
+        if($insert){
             $this->salvarUsuarioPorPermissao();
         }
-        return afterSave();
     }
 
     public function getSexoText(){
-        return SexoEnum::listar()[$this->usu_sexo];
+        return SexoEnum::listar()[$this->USU_SEXO];
     }
 
     public function getPermissaoText(){
-        return PermissaoEnum::listar()[$this->usu_permissao];
+        return PermissaoEnum::listar()[$this->USU_PERMISSAO];
     }
 
     public function getSituacaoText(){
-        return SituacaoEnum::listar()[$this->usu_situacao];
+        return SituacaoEnum::listar()[$this->USU_SITUACAO];
     }
 
     /*public function enviarEmail(){
         
         $mailer=new CMailer();
-        $mailer->AddAddress($this->usu_email);
+        $mailer->AddAddress($this->USU_EMAIL);
                 
         //Cabeçalho
         if($this->scenario == 'esqueci')
@@ -161,7 +178,7 @@ class Usuario extends \yii\db\ActiveRecord
         /*Gera senha aleatória*/
         $senha = strtolower($this->getRandomString());
         /*Encripta para salvar*/
-        $this->usu_senha = md5($senha); 
+        $this->USU_SENHA = md5($senha); 
         /*Retorna senha não encriptada para enviar para email*/
         return $senha; 
     }

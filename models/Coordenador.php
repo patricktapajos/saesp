@@ -7,8 +7,8 @@ use Yii;
 /**
  * This is the model class for table "coordenador".
  *
- * @property string $crd_id
- * @property integer $usu_id
+ * @property string $CRD_ID
+ * @property integer $USU_ID
  * @property  $
  */
 class Coordenador extends \yii\db\ActiveRecord
@@ -27,10 +27,7 @@ class Coordenador extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['crd_id', ''], 'required'],
-            [['crd_id'], 'number'],
-            [['usu_id'], 'integer'],
-            [['usu_id'], 'exist', 'skipOnError' => true, 'targetClass' => USUARIO::className(), 'targetAttribute' => ['usu_id' => 'usu_id']],
+            [['USU_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['USU_ID' => 'USU_ID']],
         ];
     }
 
@@ -40,8 +37,16 @@ class Coordenador extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'crd_id' => 'Código',
-            'usu_id' => 'Usuário',
+            'CRD_ID' => 'Código',
+            'USU_ID' => 'Usuário',
         ];
+    }
+
+    public function getUsuario(){
+        return $this->hasOne(Usuario::className(), ['USU_ID'=>'USU_ID']);
+    }
+
+    public function getCel(){
+        return $this->hasOne(Cel::className(), ['CRD_ID'=>'CRD_ID']);
     }
 }

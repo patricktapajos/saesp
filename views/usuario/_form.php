@@ -17,45 +17,45 @@ use app\models\SexoEnum;
 
     <div class="row">
         <div class="col-lg-6 col-sm-12">
-            <?= $form->field($model, 'usu_nome')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'USU_NOME')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-lg-6 col-sm-12">
-            <?= $form->field($model, 'usu_email')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'USU_EMAIL')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="col-lg-3 col-sm-12">
-            <?= $form->field($model, 'usu_cpf')->widget(\yii\widgets\MaskedInput::className(), [
+            <?= $form->field($model, 'USU_CPF')->widget(\yii\widgets\MaskedInput::className(), [
                 'mask'=>'999.999.999-99'
             ]) ?>
         </div>
 
          <div class="col-lg-3 col-sm-12">
-            <?= $form->field($model, 'usu_dt_nasc')->widget(\yii\widgets\MaskedInput::className(), [
+            <?= $form->field($model, 'USU_DT_NASC')->widget(\yii\widgets\MaskedInput::className(), [
                 'mask'=>'99/99/9999'
             ]) ?>
         </div>
 
          <div class="col-lg-3 col-sm-12">
-            <?= $form->field($model, 'usu_telefone_1')->widget(\yii\widgets\MaskedInput::className(), [
+            <?= $form->field($model, 'USU_TELEFONE_1')->widget(\yii\widgets\MaskedInput::className(), [
                 'mask'=>'(99)\99999-9999'
             ]) ?>
         </div>
         <div class="col-lg-3 col-sm-12">
-            <?= $form->field($model, 'usu_telefone_2')->widget(\yii\widgets\MaskedInput::className(), [
+            <?= $form->field($model, 'USU_TELEFONE_2')->widget(\yii\widgets\MaskedInput::className(), [
                 'mask'=>'(99)\99999-9999'
             ]) ?>
         </div>
         
         <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'usu_situacao')->dropDownList(SituacaoEnum::listar()) ?>
+            <?= $form->field($model, 'USU_SITUACAO')->dropDownList(SituacaoEnum::listar()) ?>
         </div>
 
         <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'usu_sexo')->radioList(SexoEnum::listar()) ?>
+            <?= $form->field($model, 'USU_SEXO')->radioList(SexoEnum::listar()) ?>
         </div>
        
         <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'usu_permissao')->radioList(PermissaoEnum::listar()) ?>
+            <?= $form->field($model, 'USU_PERMISSAO')->radioList(PermissaoEnum::listar()) ?>
         </div>
     </div>
 

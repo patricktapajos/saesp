@@ -16,10 +16,10 @@ body {
 
 .footer {
     height: 60px;
-    background-color: rgba(3, 169, 244, 0.3);
-    border-top: 1px solid rgba(3, 169, 244, 0.3);
+    background-color: rgba(48, 20, 97, 0.9);
+    border-top: 1px solid rgba(48, 20, 97, 0.9);
     padding-top: 20px;
-    color: #337ab7;
+    color: #f0f0f0;
 }
 
 .jumbotron {
@@ -106,24 +106,65 @@ a.desc:after {
     }
 }
 
-.nav > li > form > button.logout:focus,
-.nav > li > form > button.logout:hover {
-    text-decoration: none;
-}
-
-.nav > li > form > button.logout:focus {
-    outline: none;
-}
 
 /* Customizações */
 .sys-navbar {
-    background-color: rgba(3, 169, 244, 0.3);
-    border-color: #80d4f9;
-    /*background-color: rgba(76, 175, 80, 0.3);
-    border-color: #4caf504d;*/
+    background-color: rgba(48, 20, 97, 0.9);
+    border-color:  rgba(48, 20, 97, 0.9);
 }
 
 .sys-navbar .navbar-brand {
-    color: #337ab7;
-    /*color: #009688;*/
+    color: rgb(238, 238, 238);
+}
+
+.sys-navbar .navbar-nav > li > a {
+    color: rgb(238, 238, 238);
+}
+
+.sys-navbar .navbar-nav > .active > a,
+.sys-navbar .navbar-nav > .active > a:hover,
+.sys-navbar .navbar-nav > .active > a:focus {
+    color: rgb(238, 238, 238);
+    background-color: rgba(48, 20, 97, 0.9) !important;
+}
+
+.sys-navbar .navbar-nav > .open > a,
+.sys-navbar .navbar-nav > .open > a:hover,
+.sys-navbar .navbar-nav > .open > a:focus {
+    color: rgb(238, 238, 238);
+    background-color: rgba(48, 20, 97, 0.9);
+}
+
+.nav > li > a:hover, .nav > li > a:focus {
+    text-decoration: none;
+    background-color: rgba(48, 20, 97, 0.9);
+}
+
+.nav li > form > button.logout {
+    color: rgb(238, 238, 238);
+}
+
+.navbar-logo {
+    height: 48px;
+    width: 48px;
+    background: url(../images/simbolo-logo.png);
+    background-size: cover;
+    margin-top : -12px;
+}
+
+.navbar-sys-name {
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+@media (max-width: 996px){
+    .navbar-logo {
+        height: 48px;
+        width: 136px;
+        background: url(../images/logo.png);
+        background-size: cover;
+    }
+    .navbar-sys-name {
+        display: none;
+    }
 }

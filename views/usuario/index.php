@@ -2,6 +2,9 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\models\SexoEnum;
+use app\models\PermissaoEnum;
+use app\models\SituacaoEnum;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UsuarioSearch */
@@ -23,32 +26,34 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'usu_nome',
-            'usu_cpf',
-            'usu_email:email',
+            'USU_NOME',
+            'USU_CPF',
             [
                 'label'=>'Sexo',
-                'attribute'=>'usu_sexo',
+                'attribute'=>'USU_SEXO',
                 'format' => 'raw',
                 'value' => function ($model) {
                      return  $model->getSexoText();
-                }
+                },
+                'filter'=> Html::dropDownList("UsuarioSearch[USU_SEXO]", $model->USU_SEXO, SexoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
             [
                 'label'=>'Permissão',
-                'attribute'=>'usu_permissao',
+                'attribute'=>'USU_PERMISSAO',
                 'format' => 'raw',
                 'value' => function ($model) {
                      return  $model->getPermissaoText();
-                }
+                },
+                 'filter'=> Html::dropDownList("UsuarioSearch[USU_PERMISSAO]", $model->USU_PERMISSAO, PermissaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
             [
                 'label'=>'Situação',
-                'attribute'=>'usu_situacao',
+                'attribute'=>'USU_SITUACAO',
                 'format' => 'raw',
                 'value' => function ($model) {
                      return  $model->getSituacaoText();
-                }
+                },
+                'filter'=> Html::dropDownList("UsuarioSearch[USU_SITUACAO]", $model->USU_SITUACAO, SituacaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
             ['class' => 'yii\grid\ActionColumn'],
         ],

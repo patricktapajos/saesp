@@ -8,7 +8,7 @@ use yii\web\Controller;
 use yii\web\Response;
 use yii\filters\VerbFilter;
 use app\models\LoginForm;
-use app\models\ContactForm;
+use app\models\PermissaoEnum;
 
 class SiteController extends Controller
 {
@@ -77,11 +77,19 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
+            $this->redirecionarPorPermissao();
         }
         return $this->render('login', [
             'model' => $model,
         ]);
+    }
+
+    public function redirecionarPorPermissao(){
+        $endpoint = $this->goBack();
+        if(Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)){
+           $endpoint = $this->redirect(['/coordenador/default']);
+        }
+        return $endpoint;
     }
 
     /**

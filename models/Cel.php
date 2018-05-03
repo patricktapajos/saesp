@@ -1,23 +1,23 @@
 <?php
 
 namespace app\models;
-
+use app\models\Coordenador;
 use Yii;
 
 /**
  * This is the model class for table "cel".
  *
- * @property string $cel_nome
- * @property string $cel_email
- * @property string $cel_telefone
- * @property string $cel_latitude
- * @property string $cel_longitude
- * @property string $cel_logradouro
- * @property string $cel_cep
- * @property string $cel_bairro
- * @property string $cel_complemento_end
+ * @property string $CEL_NOME
+ * @property string $CEL_EMAIL
+ * @property string $CEL_TELEFONE
+ * @property string $CEL_LATITUDE
+ * @property string $CEL_LONGITUDE
+ * @property string $CEL_LOGRADOURO
+ * @property string $CEL_CEP
+ * @property string $CEL_BAIRRO
+ * @property string $CEL_COMPLEMENTO_END
  * @property string $cel_id
- * @property string $crd_id
+ * @property string $CRD_ID
  * @property  $
  */
 class Cel extends \yii\db\ActiveRecord
@@ -36,13 +36,13 @@ class Cel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['cel_nome', 'crd_id'], 'required'],
-            [['cel_id', 'crd_id'], 'number'],
-            [['cel_nome', 'cel_latitude', 'cel_longitude', 'cel_logradouro', 'cel_bairro', 'cel_complemento_end'], 'string', 'max' => 255],
-            [['cel_email'], 'string', 'max' => 18],
-            [['cel_telefone'], 'string', 'max' => 10],
-            [['cel_cep'], 'string', 'max' => 8],
-            [['crd_id'], 'exist', 'skipOnError' => true, 'targetClass' => Coordenador::className(), 'targetAttribute' => ['crd_id' => 'crd_id']],
+            [['CEL_NOME','CRD_ID'], 'required'],
+            [['CRD_ID'], 'number'],
+            [['CEL_NOME', 'CEL_LATITUDE', 'CEL_LONGITUDE', 'CEL_LOGRADOURO', 'CEL_BAIRRO', 'CEL_COMPLEMENTO_END'], 'string', 'max' => 255],
+            [['CEL_EMAIL'], 'string', 'max' => 150],
+            [['CEL_TELEFONE'], 'string', 'max' => 10],
+            [['CEL_CEP'], 'string', 'max' => 8],
+            [['CRD_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Coordenador::className(), 'targetAttribute' => ['CRD_ID' => 'CRD_ID']],
         ];
     }
 
@@ -52,17 +52,21 @@ class Cel extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'crd_id' => 'Código',
-            'cel_nome' => 'Nome',
-            'cel_email' => 'Email',
-            'cel_telefone' => 'Telefone',
-            'cel_latitude' => 'Latitude',
-            'cel_longitude' => 'Longitude',
-            'cel_logradouro' => 'Logradouro',
-            'cel_cep' => 'CEP',
-            'cel_bairro' => 'Bairro',
-            'cel_complemento_end' => 'Complemento',
-            'crd_id' => 'Coordenador',
+            'CEL_ID' => 'Código',
+            'CEL_NOME' => 'Nome',
+            'CEL_EMAIL' => 'Email',
+            'CEL_TELEFONE' => 'Telefone',
+            'CEL_LATITUDE' => 'Latitude',
+            'CEL_LONGITUDE' => 'Longitude',
+            'CEL_LOGRADOURO' => 'Logradouro',
+            'CEL_CEP' => 'CEP',
+            'CEL_BAIRRO' => 'Bairro',
+            'CEL_COMPLEMENTO_END' => 'Complemento',
+            'CRD_ID' => 'Coordenador',
         ];
+    }
+
+    public function getCoordenador(){
+        return $this->hasOne(Coordenador::className(), ['CRD_ID'=>'CRD_ID']);
     }
 }

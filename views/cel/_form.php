@@ -16,43 +16,43 @@ use app\models\Coordenador;
 
      <div class="row">
         <div class="col-lg-6 col-sm-12">
-            <?= $form->field($model, 'cel_nome')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'CEL_NOME')->textInput(['maxlength' => true]) ?>
         </div>
         <div class="col-lg-6 col-sm-12">
-            <?= $form->field($model, 'cel_email')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'CEL_EMAIL')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'cel_telefone')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'CEL_TELEFONE')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'cel_latitude')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'CEL_LATITUDE')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'cel_longitude')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'CEL_LONGITUDE')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="col-lg-3 col-sm-12">
-            <?= $form->field($model, 'cel_cep')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'CEL_CEP')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="col-lg-3 col-sm-12">
 
-            <?= $form->field($model, 'cel_logradouro')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'CEL_LOGRADOURO')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="col-lg-3 col-sm-12">
-            <?= $form->field($model, 'cel_bairro')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'CEL_BAIRRO')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="col-lg-3 col-sm-12">
-            <?= $form->field($model, 'cel_complemento_end')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'CEL_COMPLEMENTO_END')->textInput(['maxlength' => true]) ?>
         </div>
 
         <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'crd_id')->dropDownList(ArrayHelper::map(Coordenador::find()->all(), 'crd_id','crd_nome'),['prompt'=>'Selecione >>']) ?>
+            <?= $form->field($model, 'CRD_ID')->dropDownList(ArrayHelper::map(Coordenador::find()->with('usuario')->all(), 'CRD_ID','usuario.USU_NOME'),['prompt'=>'Selecione >>']) ?>
         </div>
     </div>
 

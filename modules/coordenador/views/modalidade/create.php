@@ -4,13 +4,13 @@ use yii\helpers\Html;
 
 
 /* @var $this yii\web\View */
-/* @var $model app\models\Cel */
+/* @var $model app\models\Modalidade */
 
-$this->title = 'Cadastrar CEL';
-$this->params['breadcrumbs'][] = ['label' => 'Gerenciar CEL', 'url' => ['index']];
+$this->title = 'Cadastrar Modalidade';
+$this->params['breadcrumbs'][] = ['label' => 'Gerenciar Modalidade', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="cel-create">
+<div class="modalidade-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
 

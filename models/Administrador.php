@@ -18,7 +18,7 @@ class Administrador extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'administrador';
+        return 'ADMINISTRADOR';
     }
 
     /**
@@ -27,12 +27,9 @@ class Administrador extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['adm_id', ''], 'required'],
-            [['adm_id'], 'number'],
-            [['usu_id'], 'integer'],
-            [[''], 'string'],
-            [[''], 'unique'],
-            [['USU_ID'], 'exist', 'skipOnError' => true, 'targetClass' => USUARIO::className(), 'targetAttribute' => ['USU_ID' => 'USU_ID']],
+            [['ADM_ID'], 'number'],
+            [['USU_ID'], 'integer'],
+            [['USU_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['USU_ID' => 'USU_ID']],
         ];
     }
 
@@ -42,9 +39,8 @@ class Administrador extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'adm_id' => 'Adm ID',
+            'ADM_ID' => 'Adm ID',
             'usu_id' => 'Usu ID',
-            '' => '',
         ];
     }
 }

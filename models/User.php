@@ -8,6 +8,8 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public $id;
     public $name;
     public $username;
+    public $cel_nome;
+    public $cel_id;
     public $password;
     public $authKey;
     public $accessToken;
@@ -20,9 +22,13 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
         $model = Usuario::findOne(['USU_ID'=>$id]);
         if($model){
             $user = new User;
-            $user->name = $model->usu_nome;
-            $user->username = $model->usu_cpf;
+            $user->name = $model->USU_NOME;
+            $user->username = $model->USU_CPF;
             $user->id = $id;
+            if($model->coordenador){
+                $user->cel_nome = $model->coordenador->cel->CEL_NOME;
+                $user->cel_id = $model->coordenador->cel->CEL_ID;
+            }
             return $user;
         }
 
@@ -49,9 +55,9 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
 
         if($model){
             $user = new User;
-            $user->username = $model->usu_cpf;
-            $user->password = $model->usu_senha;
-            $user->id = $model->usu_id;
+            $user->username = $model->USU_CPF;
+            $user->password = $model->USU_SENHA;
+            $user->id = $model->USU_ID;
             return $user;
         }
 

@@ -5,12 +5,12 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Usuario;
+use app\models\Selecao;
 
 /**
- * UsuarioSearch represents the model behind the search form about `app\models\Usuario`.
+ * SelecaoSearch represents the model behind the search form about `app\models\Selecao`.
  */
-class UsuarioSearch extends Usuario
+class SelecaoSearch extends Selecao
 {
     /**
      * @inheritdoc
@@ -18,8 +18,8 @@ class UsuarioSearch extends Usuario
     public function rules()
     {
         return [
-            [['USU_ID'], 'integer'],
-            [['USU_NOME', 'USU_CPF','USU_SEXO', 'USU_SITUACAO', 'USU_PERMISSAO'], 'safe'],
+            [['SEL_ID'], 'number'],
+            [['SEL_DESCRICAO','SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_SITUACAO'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class UsuarioSearch extends Usuario
      */
     public function search($params)
     {
-        $query = Usuario::find();
+        $query = Selecao::find();
 
         // add conditions that should always apply here
 
@@ -58,11 +58,14 @@ class UsuarioSearch extends Usuario
         }
 
         // grid filtering conditions
-        $query->andFilterWhere(['like', 'USU_NOME', $this->USU_NOME])
-            ->andFilterWhere(['like', 'USU_CPF', $this->USU_CPF])
-            ->andFilterWhere(['like', 'USU_SEXO', $this->USU_SEXO])
-            ->andFilterWhere(['like', 'USU_SITUACAO', $this->USU_SITUACAO])
-            ->andFilterWhere(['like', 'USU_PERMISSAO', $this->USU_PERMISSAO]);
+        $query->andFilterWhere([
+            'SEL_ID' => $this->SEL_ID,
+        ]);
+
+        $query->andFilterWhere(['like', 'SEL_DT_INICIO', $this->SEL_DT_INICIO])
+            ->andFilterWhere(['like', 'SEL_DESCRICAO', $this->SEL_DESCRICAO])
+            ->andFilterWhere(['like', 'SEL_DT_FIM', $this->SEL_DT_FIM])
+            ->andFilterWhere(['like', 'SEL_SITUACAO', $this->SEL_SITUACAO]);
 
         return $dataProvider;
     }

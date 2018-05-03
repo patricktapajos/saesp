@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\Cel */
 
 $this->title = $model->CEL_ID;
-$this->params['breadcrumbs'][] = ['label' => 'Cels', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Gerenciar CEL', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="cel-view">
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->CEL_ID], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->CEL_ID], [
+        <?= Html::a('Atualizar', ['update', 'id' => $model->CEL_ID], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Excluir', ['delete', 'id' => $model->CEL_ID], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -28,18 +28,21 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'cel_nome',
-            'cel_email:email',
-            'cel_telefone',
-            'cel_latitude',
-            'cel_longitude',
-            'cel_logradouro',
-            'cel_cep',
-            'cel_bairro',
-            'cel_complemento_end',
-            'cel_id',
-            'crd_id',
-            '',
+            'CEL_NOME',
+            'CEL_EMAIL',
+            'CEL_TELEFONE',
+            'CEL_LATITUDE',
+            'CEL_LONGITUDE',
+            'CEL_LOGRADOURO',
+            'CEL_CEP',
+            'CEL_BAIRRO',
+            'CEL_COMPLEMENTO_END',
+            [
+                'label'=>'Coordenador',
+                'value' => function ($model) {
+                     return $model->coordenador->usuario->USU_NOME;
+                }
+            ],
         ],
     ]) ?>
 

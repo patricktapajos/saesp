@@ -1,18 +1,18 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\coordenador\controllers;
 
 use Yii;
-use app\models\Usuario;
-use app\models\UsuarioSearch;
+use app\modules\coordenador\models\Modalidade;
+use app\modules\coordenador\models\ModalidadeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * UsuarioController implements the CRUD actions for Usuario model.
+ * ModalidadeController implements the CRUD actions for Modalidade model.
  */
-class UsuarioController extends Controller
+class ModalidadeController extends Controller
 {
     /**
      * @inheritdoc
@@ -30,12 +30,12 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Lists all Usuario models.
+     * Lists all Modalidade models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new UsuarioSearch();
+        $searchModel = new ModalidadeSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -45,8 +45,8 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Displays a single Usuario model.
-     * @param  $id
+     * Displays a single Modalidade model.
+     * @param string $id
      * @return mixed
      */
     public function actionView($id)
@@ -57,29 +57,18 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Creates a new Usuario model.
+     * Creates a new Modalidade model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Usuario();
+        $model = new Modalidade();
+        $model->CEL_ID = Yii::$app->user->identity->cel_id;    
 
-
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $trans = Yii::$app->db->beginTransaction();
-            try{
-                $model->save();
-                $trans->commit();
-                return $this->redirect(['view', 'id' => $model->USU_ID]);    
-            }catch(\Exception $e){
-                $trans->rollBack();
-                throw $e;
-                
-            }
-            
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->MOD_ID]);
         } else {
-            //var_dump($model->errors);
             return $this->render('create', [
                 'model' => $model,
             ]);
@@ -87,9 +76,9 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Updates an existing Usuario model.
+     * Updates an existing Modalidade model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param  $id
+     * @param string $id
      * @return mixed
      */
     public function actionUpdate($id)
@@ -97,7 +86,7 @@ class UsuarioController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->USU_ID]);
+            return $this->redirect(['view', 'id' => $model->MOD_ID]);
         } else {
             return $this->render('update', [
                 'model' => $model,
@@ -106,9 +95,9 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Deletes an existing Usuario model.
+     * Deletes an existing Modalidade model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param  $id
+     * @param string $id
      * @return mixed
      */
     public function actionDelete($id)
@@ -119,15 +108,15 @@ class UsuarioController extends Controller
     }
 
     /**
-     * Finds the Usuario model based on its primary key value.
+     * Finds the Modalidade model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param  $id
-     * @return Usuario the loaded model
+     * @param string $id
+     * @return Modalidade the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Usuario::findOne($id)) !== null) {
+        if (($model = Modalidade::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
