@@ -64,6 +64,10 @@ class SelecaoController extends Controller
      */
     public function actionCreate()
     {
+        if(Selecao::find()->andWhere("SEL_SITUACAO <> :SEL_SITUACAO", [':SEL_SITUACAO'=>SituacaoSelecaoEnum::CONCLUIDO])){
+            throw new \yii\web\HttpException(403,"Já existe um Processo Seletivo em andamento.");
+        }
+
         $model = new Selecao();
         $model->SEL_SITUACAO = SituacaoSelecaoEnum::CADASTRADO;    
 

@@ -18,11 +18,30 @@ $config = [
         'coordenador' => [
             'class' => 'app\modules\coordenador\Coordenador',
         ],
+        'professor' => [
+            'class' => 'app\modules\professor\Professor',
+        ],
+        'inscricao' => [
+            'class' => 'app\modules\inscricao\Inscricao',
+        ],
     ],
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => 'xZoZWeuvXp77Wpp877JaDe5xY3lFBAIO',
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ]
+
+        ],
+        'response' => [
+            'formatters' => [
+                \yii\web\Response::FORMAT_JSON => [
+                    'class' => 'yii\web\JsonResponseFormatter',
+                    'prettyPrint' => YII_DEBUG, // use "pretty" output in debug mode
+                    'encodeOptions' => JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE,
+                ],
+            ],
         ],
         'authManager'=>[
             'class'=>'app\components\rbac\SAESPAuthManager'
@@ -68,7 +87,9 @@ $config = [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            //'enableStrictParsing' => true,
             /*'rules' => [
+                ['class' => 'yii\rest\UrlRule', 'controller' => 'rest'],
             ],*/
         ],
         

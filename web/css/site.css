@@ -16,8 +16,8 @@ body {
 
 .footer {
     height: 60px;
-    background-color: rgba(48, 20, 97, 0.9);
-    border-top: 1px solid rgba(48, 20, 97, 0.9);
+    background-color: rgb(51, 122, 183);
+    border-top: 1px solid rgb(51, 122, 183);
     padding-top: 20px;
     color: #f0f0f0;
 }
@@ -109,8 +109,8 @@ a.desc:after {
 
 /* Customizações */
 .sys-navbar {
-    background-color: rgba(48, 20, 97, 0.9);
-    border-color:  rgba(48, 20, 97, 0.9);
+    background-color: rgb(51, 122, 183)/*rgba(48, 20, 97, 0.9)*/;
+    border-color:  rgb(51, 122, 183);
 }
 
 .sys-navbar .navbar-brand {
@@ -125,19 +125,19 @@ a.desc:after {
 .sys-navbar .navbar-nav > .active > a:hover,
 .sys-navbar .navbar-nav > .active > a:focus {
     color: rgb(238, 238, 238);
-    background-color: rgba(48, 20, 97, 0.9) !important;
+    background-color: rgb(51, 122, 183) !important;
 }
 
 .sys-navbar .navbar-nav > .open > a,
 .sys-navbar .navbar-nav > .open > a:hover,
 .sys-navbar .navbar-nav > .open > a:focus {
     color: rgb(238, 238, 238);
-    background-color: rgba(48, 20, 97, 0.9);
+    background-color: rgb(51, 122, 183);
 }
 
 .nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
-    background-color: rgba(48, 20, 97, 0.9);
+    background-color: rgb(51, 122, 183);
 }
 
 .nav li > form > button.logout {

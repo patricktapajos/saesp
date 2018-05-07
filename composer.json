@@ -19,7 +19,8 @@
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "yiibr/yii2-br-validator": "*",
-        "yiisoft/yii2-jui": "*"
+        "yiisoft/yii2-jui": "*",
+        "npm-asset/vue": "^2.5"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

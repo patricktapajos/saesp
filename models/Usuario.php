@@ -3,6 +3,7 @@
 namespace app\models;
 use app\models\Administrador;
 use app\models\Coordenador;
+use app\models\Professor;
 use app\models\SexoEnum;
 use app\models\PermissaoEnum;
 use app\models\SituacaoEnum;
@@ -27,12 +28,20 @@ use Yii;
  */
 class Usuario extends \yii\db\ActiveRecord
 {
+    const SCENARIO_PROFESSOR = 'professor';
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
         return 'USUARIO';
+    }
+
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios [self::SCENARIO_PROFESSOR] = ['USU_NOME', 'USU_CPF','USU_EMAIL','USU_SEXO','USU_DT_NASC','USU_PERMISSAO'];
+        return $scenarios;
     }
 
     /*public static function primaryKey(){
@@ -48,7 +57,7 @@ class Usuario extends \yii\db\ActiveRecord
             [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO'], 'required'],
             [['USU_NOME', 'USU_EMAIL', 'USU_SENHA'], 'string', 'max' => 255],
             ['USU_EMAIL','email'],
-            [['USU_EMAIL'],'validarHostEmail'],
+            [['USU_EMAIL'],'validarHostEmail','on'=>['insert','']],
             [['USU_DT_NASC'], 'date'],
             [['USU_CPF'], CpfValidator::className()],
             [['USU_CPF'], 'string', 'max' => 14],
@@ -89,6 +98,14 @@ class Usuario extends \yii\db\ActiveRecord
         return $this->hasOne(Coordenador::className(), ['USU_ID'=>'USU_ID']);
     }
 
+    public function getProfessor(){
+        return $this->hasOne(Professor::className(), ['USU_ID'=>'USU_ID']);
+    }
+
+    public function getAdministrador(){
+        return $this->hasOne(Administrador::className(), ['USU_ID'=>'USU_ID']);
+    }
+
      /*
     * Fim das Relations
     *
@@ -125,6 +142,13 @@ class Usuario extends \yii\db\ActiveRecord
         }
     }
 
+    /*public function init(){
+        parent::init();
+        if($this->scenario == Usuario::SCENARIO_PROFESSOR){
+            $this->USU_PERMISSAO = PermissaoEnum::PERMISSAO_COORDENADOR;
+        }
+    }*/
+
     public function beforeSave(){
         if($this->isNewRecord){
             $this->gerarSenha();
@@ -133,9 +157,9 @@ class Usuario extends \yii\db\ActiveRecord
     }
 
     public function afterSave($insert, $changedAttributes){
-        if($insert){
+        //if($insert && $this->scenario != self::SCENARIO_PROFESSOR){
             $this->salvarUsuarioPorPermissao();
-        }
+        //}
     }
 
     public function getSexoText(){

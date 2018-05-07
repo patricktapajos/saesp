@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "865d518ec0f3096162b9557bb8209eef",
+    "content-hash": "55f308188b179d5e2fcbcf26e0ff3585",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -235,6 +235,20 @@
                 "html"
             ],
             "time": "2017-06-03T02:28:16+00:00"
+        },
+        {
+            "name": "npm-asset/vue",
+            "version": "2.5.16",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/vue/-/vue-2.5.16.tgz",
+                "reference": null,
+                "shasum": null
+            },
+            "type": "npm-asset",
+            "license": [
+                "MIT"
+            ]
         },
         {
             "name": "swiftmailer/swiftmailer",
