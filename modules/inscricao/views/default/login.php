@@ -18,8 +18,7 @@ $this->title = 'Login';
 </div>
 
  <div class="jumbotron">
-     <h2>Olá, <?= Yii::$app->user->identity->name != null?Yii::$app->user->identity->name:'Visitante' ?>!</h2>
-    <h3>Bem vindo ao SAESP - Sistema de Atividades Esportivas.</h3>
+    <h2>Bem vindo ao SAESP - Sistema de Atividades Esportivas.</h2>
 </div>
 
 <div class="site-login col-lg-offset-3 col-lg-6 col-lg-offset-3">
@@ -32,12 +31,10 @@ $this->title = 'Login';
             ]) ?>
         <?= $form->field($model, 'password')->passwordInput() ?>
 
-         <?= $form->field($model, 'rememberMe')->checkbox() ?>
-
         <div class="form-group text-center">
             <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+            <?= Html::a('Realizar Cadastro', ['candidato/create'] ,['class' => 'btn btn-success', 'name' => 'login-button']) ?>
         </div>
 
     <?php ActiveForm::end(); ?>
 </div>
-
