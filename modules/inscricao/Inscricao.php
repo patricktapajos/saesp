@@ -1,6 +1,8 @@
 <?php
 
 namespace app\modules\inscricao;
+use Yii;
+use yii\helpers\Url;
 
 /**
  * inscricao module definition class
@@ -19,6 +21,7 @@ class Inscricao extends \yii\base\Module
     {
         parent::init();
         $this->layout = '@app/modules/inscricao/views/layouts/main';
+        Yii::$app->setHomeUrl(Url::to(['/inscricao/default/index']));
 
         // custom initialization code goes here
     }

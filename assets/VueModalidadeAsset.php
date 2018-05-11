@@ -21,10 +21,13 @@ class VueModalidadeAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [];
     public $js = [
+        'js/jqueryBlockUI/jquery.blockUI.js',
+        'js/constants/constants.js',
     	'js/vue-components/modules-coord/modalidade.js'
     ];
     public $depends = [
         'app\assets\VueAsset',
-        'yii\jui\JuiAsset',
+        'yii\widgets\MaskedInputAsset',
+        'yii\jui\JuiAsset'
     ];
 }

@@ -7,11 +7,13 @@ var modal = Vue.component('tabela-modalidade',{
 		return {
 			id:'',
 			modalidades : [],
-			dias : ['Seg','Ter','Qua','Qui','Sex','Sab']
+			dias : ['Seg','Ter','Qua','Qui','Sex','Sab'],
+			erroForm: '',
 		}
 	},
 	methods:{
 		carregarModalidades: function(){
+			$().blockScreen("Carregando");
 			const url = '/../rest/modalidades';
 		    $.get(url).then(data => {
 		      	const items = data;
@@ -19,11 +21,16 @@ var modal = Vue.component('tabela-modalidade',{
 			    	item['complemento'] = [];
 			      	this.modalidades.push(item);
 			    })
-		    }).fail(function() {
+			    $().unblockScreen();
+		    }).fail(function(error) {
+		    	$().unblockScreen();
 			    console.log(error);
 			 });
 		},
 
+		setMascaraHorario: function(event){
+			$('#'+event.target.id).inputmask({"mask": "99:99", "clearIncomplete" : true});
+		},
 		setAutocomplete: function(input, c, i) {
 			var self = this;
 			$('#' + input).autocomplete({
@@ -44,21 +51,21 @@ var modal = Vue.component('tabela-modalidade',{
 			});
 		},
 
-
 		adicionarComplemento: function(id){
-			/*this.modalidades[id].complemento.splice(
-				this.modalidades[id].complemento.length+ 1, 0,{
-						professor:'',
-						dias:[],
-						horario:''
-				}
-			);*/
 			this.modalidades[id].complemento.push({
 				professor:'',
 				dias:[],
 				hora_inicio:'',
 				hora_fim:''
 			});
+		},
+
+		adicionarDia: function(m, c, val){			
+			if($.inArray(val, this.modalidades[m].complemento[c].dias) == -1){
+				this.modalidades[m].complemento[c].dias.push(val);
+			}else{
+				this.modalidades[m].complemento[c].dias.splice($.inArray(val, this.modalidades[m].complemento[c].dias),1)
+			}
 		},
 
 		removerComplemento: function(l, m){
@@ -68,13 +75,41 @@ var modal = Vue.component('tabela-modalidade',{
 			this.modalidades[l].complemento.splice(m, 1);
 		},
 
-		adicionarDia: function(m, c, val){			
-			if($.inArray(val, this.modalidades[m].complemento[c].dias) == -1){
-				this.modalidades[m].complemento[c].dias.push(val);
-			}else{
-				this.modalidades[m].complemento[c].dias.splice($.inArray(val, this.modalidades[m].complemento[c].dias),1)
-			}
-		}
+		validate: function() {
+
+			$(".errorMessage").each(function() {
+				$(this).text('');
+			});
+
+			var self = this;
+
+			$.ajax({
+				url: '/../rest/salvarCelSelecao',
+				type: 'POST',
+				data: {
+					'modalidades': this.modalidades
+				},
+				dataType: 'json',
+				success: function(dados, textStatus, jqXHR) {
+					if (dados.success) {
+						self.erroForm = false;
+						$('#selecaocel-form').submit();
+					} else {
+						$().unblockScreen();
+						if(dados.erros.plan){
+							$.each(dados.erros.plan, function(name, msg) {
+								jQuery('#'+name).css('border-color', '#da9391');
+								jQuery('#erro_'+name).text(msg);
+							});
+						}
+						self.erroForm = true;
+					}
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					console.log('ERRORS: ' + errorThrown);
+				}
+			});
+		},
 	},
 
 	mounted:function(){

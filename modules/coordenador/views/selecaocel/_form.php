@@ -3,7 +3,9 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\assets\VueModalidadeAsset;
+//use yii\widgets\MaskedInputAsset;
 
+//MaskedInputAsset::register($this);
 VueModalidadeAsset::register($this);
 
 /* @var $this yii\web\View */
@@ -12,7 +14,7 @@ VueModalidadeAsset::register($this);
 ?>
 
 <div class="selecao-cel-form" id="selecaocel">
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['id'=>'selecaocel-form']); ?>
 
     <tabela-modalidade></tabela-modalidade>	
 
@@ -26,8 +28,7 @@ VueModalidadeAsset::register($this);
  	<table class="table table-bordered table-centered">
     	<thead>
     		<tr>
-                <th>Selecionar</th>
-    			<th>Modalidade</th>
+    			<th colspan="2">Modalidade</th>
     			<th>Professor</th>
     			<th>Dias da Semana</th>
     			<th>Horário</th>
@@ -35,13 +36,14 @@ VueModalidadeAsset::register($this);
     	</thead>
     	<tbody>
     		<tr v-for="(mod, m) in modalidades">
-                <td><input type="checkbox" :id="'check_'+m" :name="'selecaocel[modalidades]['+m+'][check]'"/></td>
     			<td>
     				<span class="text-left">{{ mod.MOD_DESCRICAO }}</span>
-    				<div class="buttons text-right">
-						<i title="Adicionar Ação" v-on:click="adicionarComplemento(m)" class="icones-plan-action add glyphicon glyphicon-plus"></i>
-					</div>
     			</td>
+                <td>
+                    <div class="buttons">
+                        <i title="Adicionar Ação" v-on:click="adicionarComplemento(m)" class="icones-plan-action add glyphicon glyphicon-plus"></i>
+                    </div>
+                </td>
     			<td colspan="4">
     				<table class="table">
     					<tbody>
@@ -55,9 +57,15 @@ VueModalidadeAsset::register($this);
                                     </span>
     							</td>
     							<td>
-									<input type="text" class="form-control" v-model="com.hora_inicio" :name="'selecaocel[modalidades]['+m+'][complemento]['+c+'][hora_inicio]'" /> 
-                                    a
-                                    <input type="text" class="form-control" v-model="com.hora_fim" :name="'selecaocel[modalidades]['+m+'][complemento]['+c+'][hora_fim]'"/>
+                                    <div class="col-lg-3">
+									       <input type="text" class="form-control" v-model="com.hora_inicio" v-on:focus="setMascaraHorario" :id="'horario_inicio_'+m+'_'+c" :name="'selecaocel[modalidades]['+m+'][complemento]['+c+'][hora_inicio]'" /> 
+                                    </div>
+                                    <div class="col-lg-1">
+                                        a
+                                    </div>
+                                    <div class="col-lg-3">
+                                            <input type="text" class="form-control" v-model="com.hora_fim" v-on:focus="setMascaraHorario" :id="'horario_fim_'+m+'_'+c" :name="'selecaocel[modalidades]['+m+'][complemento]['+c+'][hora_fim]'"/>
+                                    </div>
     							</td>
                                 <td>
                                     <i title="Remover ação" v-on:click="removerComplemento(m, c)" class="icones-plan-action remove glyphicon glyphicon-trash"></i>
