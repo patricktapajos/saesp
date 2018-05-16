@@ -1,6 +1,7 @@
 <?php
 
 namespace app\modules\coordenador\models;
+use app\modules\coordenador\models\ModalidadeDataHora;
 
 use Yii;
 
@@ -13,7 +14,7 @@ use Yii;
  */
 class ModalidadeDiaSemana extends \yii\db\ActiveRecord
 {
-    const SCENARIO_VALIDACAO_JSON = 'validacaojson';
+    //const SCENARIO_VALIDACAO_JSON = 'validacaojson';
     /**
      * @inheritdoc
      */
@@ -22,12 +23,12 @@ class ModalidadeDiaSemana extends \yii\db\ActiveRecord
         return 'MODALIDADE_DIASEMANA';
     }
     
-    public function scenarios()
+    /*public function scenarios()
     {
         $scenarios = parent::scenarios();
         $scenarios [self::SCENARIO_VALIDACAO_JSON] = [];
         return $scenarios;
-    }
+    }*/
 
     /**
      * @inheritdoc
@@ -39,7 +40,7 @@ class ModalidadeDiaSemana extends \yii\db\ActiveRecord
             [['MDT_ID'], 'number'],
             [['MDS_ID'], 'string', 'max' => 18],
             [['MDS_DESCRICAO'], 'string', 'max' => 10],
-            [['MDT_ID'], 'exist', 'skipOnError' => true, 'targetClass' => MODALIDADEDATAHORA::className(), 'targetAttribute' => ['MDT_ID' => 'MDT_ID']],
+            [['MDT_ID'], 'exist', 'skipOnError' => true, 'targetClass' => ModalidadeDataHora::className(), 'targetAttribute' => ['MDT_ID' => 'MDT_ID']],
         ];
     }
 

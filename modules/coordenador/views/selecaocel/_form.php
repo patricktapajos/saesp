@@ -14,11 +14,15 @@ VueModalidadeAsset::register($this);
 <div class="selecao-cel-form" id="selecaocel">
     <?php $form = ActiveForm::begin(['id'=>'selecaocel-form']); ?>
 
+    <div class="alert alert-danger" v-show="erroForm">
+        <ul v-for="e in erros">
+            <li>{{ e }}</li>
+    </div>
+
 
      <div class="col-lg-12 col-sm-12">
         <?= $form->field($model, 'SEL_ID')->dropDownList(SelecaoCel::selecoesAtivas(),['prompt'=>'Selecione >>','v-model'=>'id']) ?>
     </div>
-    <p v-show="erro" class="errorMessage text-danger">{{ msgerro }}</p>
     <br clear="left" />
     <fieldset>
         <legend>Quadro de Modalidades</legend>
@@ -46,6 +50,7 @@ VueModalidadeAsset::register($this);
     		<tr v-for="(mod, m) in modalidades">
     			<td>
     				<span class="text-left">{{ mod.MOD_DESCRICAO }}</span>
+                    <input type="hidden" v-model="mod.MOD_ID" :name="'SelecaoCel[modalidades]['+m+'][MOD_ID]'" />
     			</td>
                 <td>
                     <div class="buttons">
@@ -57,26 +62,27 @@ VueModalidadeAsset::register($this);
     					<tbody>
     						<tr v-for="(com, c) in mod.complemento">
     							<td>
-									<input type="text" class="form-control" v-on:click="setAutocomplete('professor_'+ m +'_'+ c, m, c)" :id="'professor_'+m+'_'+c" :name="'selecaocel[modalidades]['+m+'][complemento]['+c+'][PROF_ID]'" />
+									<input type="text" class="form-control" v-on:click="setAutocomplete('professor_'+ m +'_'+ c, m, c)" :id="'professor_'+m+'_'+c" />
+                                    <input type="hidden" v-model="com.PROF_ID" :name="'SelecaoCel[modalidades]['+m+'][complemento]['+c+'][PROF_ID]'" />
                                     <div v-bind:id="'erro_PROF_ID_'+m+'_'+c" class="errorMessage text-danger"></div>
     							</td>
     							<td>
                                     <span v-for="(dia, d) in dias">
-									   <input type="checkbox" v-on:click="adicionarDia(m, c, d)" :name="'selecaocel[modalidades]['+m+'][complemento]['+c+'][dias][]'" class="form-checkbox" />{{dia}}
+									   <input type="checkbox" v-on:click="adicionarDia(m, c, d)" :name="'SelecaoCel[modalidades]['+m+'][complemento]['+c+'][dias]['+dia+']'" class="form-checkbox" />{{dia}}
                                     </span>
                                     <div v-bind:id="'erro_dias_'+m+'_'+c" class="errorMessage text-danger"></div>
     							</td>
     							<td>
 							       <input type="text" class="form-control" v-input-mask data-inputmask="'mask': '99:99'" 
-                                   v-on:blur="setValorHorarioInicioSemMascara($event, m , c)"  :id="'horario_inicio_'+m+'_'+c" :name="'selecaocel[modalidades]['+m+'][complemento]['+c+'][MDT_HORARIO_INICIO]'" /> 
+                                   v-on:blur="setValorHorarioInicioSemMascara($event, m , c)"  :id="'horario_inicio_'+m+'_'+c" :name="'SelecaoCel[modalidades]['+m+'][complemento]['+c+'][MDT_HORARIO_INICIO]'" /> 
                                   <div v-bind:id="'erro_MDT_HORARIO_INICIO_'+m+'_'+c" class="errorMessage text-danger"></div>
                                     <input type="text" class="form-control" v-input-mask data-inputmask="'mask': '99:99'" 
                                     v-on:blur="setValorHorarioFimSemMascara($event, m , c)"
-                                    :id="'horario_fim_'+m+'_'+c" :name="'selecaocel[modalidades]['+m+'][complemento]['+c+'][MDT_HORARIO_FIM]'"/>
+                                    :id="'horario_fim_'+m+'_'+c" :name="'SelecaoCel[modalidades]['+m+'][complemento]['+c+'][MDT_HORARIO_FIM]'"/>
                                    <div v-bind:id="'erro_MDT_HORARIO_FIM_'+m+'_'+c" class="errorMessage text-danger"></div>
     							</td>
                                 <td>
-                                    <input type="text" class="form-control" v-model="com.MDT_QTDE_VAGAS" :name="'selecaocel[modalidades]['+m+'][complemento]['+c+'][MDT_QTDE_VAGAS]'" />
+                                    <input type="text" class="form-control" v-model="com.MDT_QTDE_VAGAS" :name="'SelecaoCel[modalidades]['+m+'][complemento]['+c+'][MDT_QTDE_VAGAS]'" />
                                     <div v-bind:id="'erro_MDT_QTDE_VAGAS_'+m+'_'+c" class="errorMessage text-danger"></div>
                                 </td>
                                 <td>

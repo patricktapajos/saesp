@@ -37,12 +37,12 @@ class RestController extends \yii\web\Controller
         $listaUsuarios = [];
         $descricao = strtolower($_GET['term']);
     
-        $sql = "SELECT U.USU_ID, USU_NOME FROM USUARIO U INNER JOIN PROFESSOR P ON U.USU_ID = P.USU_ID WHERE USU_SITUACAO = 'ATIVO' AND lower(USU_NOME) LIKE '%{$descricao}%'";
+        $sql = "SELECT P.PROF_ID, U.USU_ID, USU_NOME FROM USUARIO U INNER JOIN PROFESSOR P ON U.USU_ID = P.USU_ID WHERE USU_SITUACAO = 'ATIVO' AND lower(USU_NOME) LIKE '%{$descricao}%'";
         $createCommand = Yii::$app->db->createCommand($sql);
         $usuarios = $createCommand->queryAll();
     
         foreach ($usuarios as $key=>$value) {
-            $listaUsuarios[$key]['id'] = "{$value['USU_ID']}";
+            $listaUsuarios[$key]['id'] = "{$value['PROF_ID']}";
             $listaUsuarios[$key]['label'] = $value['USU_NOME'];
         }
     
@@ -54,13 +54,18 @@ class RestController extends \yii\web\Controller
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         
         $scel = new SelecaoCel();
+        $scel->setScenario(SelecaoCel::SCENARIO_VALIDACAO);
+
         $scel->load(Yii::$app->request->post());
 
         /* Lista de objetos a serem validados */
         $retorno = array('success'=>1,'erros'=>null);
 
         if(!$scel->validate()){
-            $retorno['erros']['selecaocel'] = $scel->errors;
+            foreach($scel->getErrors() as $n=>$erro){
+                $retorno['erros']['selecaocel'][$n] = implode(',',$erro);
+            }
+            //$retorno['erros']['selecaocel'] = $scel->errors;
             $retorno['success'] = 0;
         }
 

@@ -41,8 +41,8 @@ class SelecaoModalidade extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['complemento'],'required', 'on'=>[self::SCENARIO_VALIDACAO]],
-            [['SEL_ID'],'required', 'on'=>['insert','']],
+            /*[['complemento'],'required', 'on'=>[self::SCENARIO_VALIDACAO]],*/
+            [['SEL_ID'],'required', 'on'=>['insert']],
             [['PROF_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Professor::className(), 'targetAttribute' => ['PROF_ID' => 'PROF_ID']],
             [['complemento'],'safe']
         ];

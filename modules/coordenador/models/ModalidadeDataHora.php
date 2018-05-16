@@ -1,7 +1,7 @@
 <?php
 
 namespace app\modules\coordenador\models;
-
+use app\models\Professor;
 use Yii;
 
 /**
@@ -36,7 +36,9 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
             [['MDT_QTDE_VAGAS', 'SMOD_ID','PROF_ID'], 'number'],
             [['MDT_DIA_SEMANA'], 'string', 'max' => 18],
             [['MDT_HORARIO_INICIO', 'MDT_HORARIO_FIM'], 'string', 'max' => 5],
-            [['MDT_HORARIO_INICIO', 'MDT_HORARIO_FIM'], 'validarHorario'],
+            [['MDT_HORARIO_INICIO', 'MDT_HORARIO_FIM'], 'validarValorHorario'],
+            [['MDT_HORARIO_FIM'], 'validarHorario'],
+            [['PROF_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Professor::className(), 'targetAttribute' => ['PROF_ID' => 'PROF_ID']],
             /*[['SMOD_ID'], 'exist', 'skipOnError' => true, 'targetClass' => SelecaoModalidade::className(), 'targetAttribute' => ['SMOD_ID' => 'SMOD_ID']],*/
         ];
     }
@@ -65,7 +67,7 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
         return $this->dias;
     }
 
-    public function validarHorario($attribute, $params){
+    public function validarValorHorario($attribute, $params){
         $horario = explode(':', $this->$attribute);
 
         $hora = (int)$horario[0];
@@ -73,6 +75,18 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
 
         if(($hora < 0 || $hora > 23) || ($minuto < 0 || $minuto > 59)){            
             $this->addError($attribute, 'Horário inválido. Escolha um horário entre 00:00 e 23:59');
+            return false;
+        }
+
+        return true;
+    }
+
+    public function validarHorario($attribute, $params){
+        $hora_inicio = preg_replace('/[^0-9]/', '', $this->MDT_HORARIO_INICIO);
+        $hora_fim = preg_replace('/[^0-9]/', '', $this->$attribute);
+
+        if((int)$hora_inicio > (int)$hora_fim){            
+            $this->addError($attribute, 'Horário final não pode ser menor que o horário inicial');
             return false;
         }
 

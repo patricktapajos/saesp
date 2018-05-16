@@ -4,6 +4,9 @@ namespace app\modules\coordenador\controllers;
 
 use Yii;
 use app\modules\coordenador\models\SelecaoCel;
+use app\modules\coordenador\models\SelecaoModalidade;
+use app\modules\coordenador\models\ModalidadeDataHora;
+use app\modules\coordenador\models\ModalidadeDiaSemana;
 use app\modules\coordenador\models\SelecaoCelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -69,30 +72,26 @@ class SelecaocelController extends Controller
             $trans = Yii::$app->db->beginTransaction();
             try{
                 if ($model->save()){
+
                     foreach ($model->getModalidades() as $n=>$modalidade) {
                         $selecaoModalidade = new SelecaoModalidade;
                         $selecaoModalidade->SEL_ID = $model->SEL_ID;
                         $selecaoModalidade->MOD_ID = $modalidade['MOD_ID'];
-                        $selecaoModalidade->setComplemento($modalidade['complemento']);
-
-                        if (!$selecaoModalidade->save()) die($selecaoModalidade->errors);
+                        $selecaoModalidade->setComplemento($modalidade['complemento']);                        
+                        $selecaoModalidade->save();
 
                         foreach ($selecaoModalidade->getComplemento() as $o=>$com) {
-                            
                             $mdatahora = new ModalidadeDataHora;
                             $mdatahora->setAttributes($com);
                             $mdatahora->setDias($com['dias']);
-                            $mdatahora->SMOD_ID = $selecaoModalidade->MOD_ID;
-
-                            if (!$mdatahora->save()) die($mdatahora->errors);
+                            $mdatahora->SMOD_ID = $selecaoModalidade->SMOD_ID;
+                            $mdatahora->save();
                             
-                            foreach ($com['dias'] as $dia) {
-                                
+                            foreach ($mdatahora->getDias() as $dia=>$checked) {
                                 $mdiasemana = new ModalidadeDiaSemana;
                                 $mdiasemana->MDS_DESCRICAO = $dia;
                                 $mdiasemana->MDT_ID = $mdatahora->MDT_ID;
-
-                                if (!$mdiasemana->save()) die($mdiasemana->errors);
+                                $mdiasemana->save();
                             }
                         }
                     }

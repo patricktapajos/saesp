@@ -14,7 +14,6 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 			id:'',
 			modalidades : [],
 			dias : ['Seg','Ter','Qua','Qui','Sex','Sab'],
-			erroForm: '',
 		}
 	},
 	methods:{
@@ -66,9 +65,9 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 
 		adicionarDia: function(m, c, val){			
 			if($.inArray(val, this.modalidades[m].complemento[c].dias) == -1){
-				this.modalidades[m].complemento[c].dias.push(val);
+				this.modalidades[m].complemento[c].dias.push(this.dias[val]);
 			}else{
-				this.modalidades[m].complemento[c].dias.splice($.inArray(val, this.modalidades[m].complemento[c].dias),1)
+				this.modalidades[m].complemento[c].dias.splice($.inArray(this.dias[val], this.modalidades[m].complemento[c].dias),1)
 			}
 		},
 
@@ -111,13 +110,12 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 				dataType: 'json',
 				success: function(dados, textStatus, jqXHR) {
 					if (dados.success) {
-						self.erroForm = false;
 						$('#selecaocel-form').submit();
 					} else {
 						$().unblockScreen();
 						if(dados.erros.selecaocel){
-							self.$parent.erro = true;				
-							self.$parent.msgerro = "Seleção é obrigatória";
+							self.$parent.erroForm = true;				
+							self.$parent.erros = dados.erros.selecaocel;
 						}
 						$.each(dados.erros.modalidades, function(mod_id, complemento) {
 							$.each(complemento, function(com_id, com_erros){
@@ -149,15 +147,15 @@ var vue = new Vue({
 	el:'#selecaocel',
 	data:{
 		id:'',
-		erro:'',
-		msgerro:''
+		erroForm: false,
+		erros : [],
 	},
 	components: { 'tabelamodalidade': tabelamodalidade },
 	watch: {
 		    id: function(currentValue) {
-		    	if(currentValue != ''){
-		    		this.$children[0].id = currentValue;
-		    	}
+		    	//if(currentValue != ''){
+		    	this.$children[0].id = currentValue;
+		    	//}
 		    },
 		},
 });

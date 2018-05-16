@@ -15,7 +15,9 @@ use Yii;
  */
 class SelecaoCel extends \yii\db\ActiveRecord
 {
+    const SCENARIO_VALIDACAO = 'validacaojson';
     public $modalidades;
+
     /**
      * @inheritdoc
      */
@@ -24,16 +26,24 @@ class SelecaoCel extends \yii\db\ActiveRecord
         return 'SELECAO_CEL';
     }
 
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios [self::SCENARIO_VALIDACAO] = ['SEL_ID','modalidades'];
+        return $scenarios;
+    }
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['SEL_ID','modalidades'], 'required'],
+            [['SEL_ID'], 'required', 'on'=>['insert',self::SCENARIO_VALIDACAO]],
+            [['modalidades'], 'validarModalidades', 'on'=>[self::SCENARIO_VALIDACAO]],
             [['SCEL_ID', 'CEL_ID', 'SEL_ID'], 'number'],
             [['SEL_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Selecao::className(), 'targetAttribute' => ['SEL_ID' => 'SEL_ID']],
-            [['modalidades'], 'safe'],
+            [['SEL_ID','modalidades'], 'safe'],
 
         ];
     }
@@ -56,6 +66,16 @@ class SelecaoCel extends \yii\db\ActiveRecord
 
     public function getModalidades(){
         return $this->modalidades;
+    }
+
+     public function validarModalidades($attribute, $params){
+        foreach ($this->getModalidades() as $modalidade) {
+            if(count($modalidade['complemento']) > 0){
+                return true;
+            }
+        }
+        $this->addError($attribute, 'É necessário preencher ao menos uma modalidade.');
+        return false;
     }
 
     public function init(){
