@@ -65,8 +65,46 @@ class SelecaocelController extends Controller
     {
         $model = new SelecaoCel();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->SCEL_ID]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $trans = Yii::$app->db->beginTransaction();
+            try{
+                if ($model->save()){
+                    foreach ($model->getModalidades() as $n=>$modalidade) {
+                        $selecaoModalidade = new SelecaoModalidade;
+                        $selecaoModalidade->SEL_ID = $model->SEL_ID;
+                        $selecaoModalidade->MOD_ID = $modalidade['MOD_ID'];
+                        $selecaoModalidade->setComplemento($modalidade['complemento']);
+
+                        if (!$selecaoModalidade->save()) die($selecaoModalidade->errors);
+
+                        foreach ($selecaoModalidade->getComplemento() as $o=>$com) {
+                            
+                            $mdatahora = new ModalidadeDataHora;
+                            $mdatahora->setAttributes($com);
+                            $mdatahora->setDias($com['dias']);
+                            $mdatahora->SMOD_ID = $selecaoModalidade->MOD_ID;
+
+                            if (!$mdatahora->save()) die($mdatahora->errors);
+                            
+                            foreach ($com['dias'] as $dia) {
+                                
+                                $mdiasemana = new ModalidadeDiaSemana;
+                                $mdiasemana->MDS_DESCRICAO = $dia;
+                                $mdiasemana->MDT_ID = $mdatahora->MDT_ID;
+
+                                if (!$mdiasemana->save()) die($mdiasemana->errors);
+                            }
+                        }
+                    }
+
+
+                    $trans->commit();
+                    return $this->redirect(['view', 'id' => $model->SCEL_ID]);
+                }
+            }catch(\Exception $e){
+                $trans->rollBack();
+                throw $e;
+            }        
         } else {
             return $this->render('create', [
                 'model' => $model                

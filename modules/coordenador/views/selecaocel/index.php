@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'SEL_ID',
                 'format' => 'raw',
                 'value' => function ($model) {
-                     return  $model->selecao->SEL_DESCRICAO;
+                     return $model->selecao->SEL_DESCRICAO;
                 },
                 'filter'=> Html::dropDownList("SelecaoCelSearch[SEL_ID]", $model->SEL_ID, [], ['class'=>'form-control','prompt'=>'Selecione'])
             ],

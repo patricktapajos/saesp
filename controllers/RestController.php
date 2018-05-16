@@ -4,6 +4,8 @@ namespace app\controllers;
 use app\modules\coordenador\models\Modalidade;
 use app\modules\coordenador\models\SelecaoCel;
 use app\modules\coordenador\models\SelecaoModalidade;
+use app\modules\coordenador\models\ModalidadeDataHora;
+use app\modules\coordenador\models\ModalidadeDiaSemana;
 use yii\filters\VerbFilter;
 use Yii;
 use yii\web\Response;
@@ -17,6 +19,7 @@ class RestController extends \yii\web\Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'modalidades' => ['GET'],
+                    'salvarcelselecao' => ['POST'],
                 ],
             ],
         ];
@@ -46,39 +49,42 @@ class RestController extends \yii\web\Controller
         return $listaUsuarios;
     }
 
-      public function actionSalvarCelSelecao(){
+      public function actionSalvarcelselecao(){
 
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         
         $scel = new SelecaoCel();
         $scel->load(Yii::$app->request->post());
-        
+
         /* Lista de objetos a serem validados */
         $retorno = array('success'=>1,'erros'=>null);
 
         if(!$scel->validate()){
-            $retorno['erros']['plan'] = $scel->errors;
+            $retorno['erros']['selecaocel'] = $scel->errors;
             $retorno['success'] = 0;
         }
 
-        foreach ($scel->modalidades as $n=>$modalidade) {
-            $selecaoModalidade = new SelecaoModalidade;
-            $selecaoModalidade = $modalidade;
-            $selecaoModalidade->complemento = $acao['complement'];
+        foreach ($scel->getModalidades() as $n=>$modalidade) {
 
-            if(!$novaacao->validate()){
-                $retorno['erros']['actions'][$n] = $novaacao->errors;
+            $selecaoModalidade = new SelecaoModalidade;
+            $selecaoModalidade->setScenario(SelecaoModalidade::SCENARIO_VALIDACAO);
+            $selecaoModalidade->SEL_ID = $scel->SEL_ID;
+            $selecaoModalidade->MOD_ID = $modalidade['MOD_ID'];
+            $selecaoModalidade->setComplemento($modalidade['complemento']);
+            
+            if(!$selecaoModalidade->validate()){
+                $retorno['erros']['modalidades'][$n]['complemento'] = $selecaoModalidade->errors;
                 $retorno['success'] = 0;
             }
 
-            foreach ($novaacao->complement as $o=>$comp) {
-                $complemento = new complementoacao;
-                $complemento->scenario = $scenario;
-                $complemento->attributes = $comp;
-                $novaacao->complement[] = $complemento;             
+            foreach ($selecaoModalidade->getComplemento() as $o=>$com) {
+                $mdatahora = new ModalidadeDataHora;
+                $mdatahora->setAttributes($com);
+                $mdatahora->setDias($com['dias']);
+                $mdatahora->SMOD_ID = $selecaoModalidade->MOD_ID;
 
-                if(!$complemento->validate()){
-                    $retorno['erros']['actions'][$n]['complement'][$o] = $complemento->errors;
+                if(!$mdatahora->validate()){
+                    $retorno['erros']['modalidades'][$n]['complemento'][$o] = $mdatahora->errors;
                     $retorno['success'] = 0;
                 }
             }

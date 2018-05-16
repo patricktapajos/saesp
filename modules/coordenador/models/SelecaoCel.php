@@ -2,6 +2,8 @@
 
 namespace app\modules\coordenador\models;
 use app\models\Selecao;
+use yii\helpers\ArrayHelper;
+use app\models\SituacaoSelecaoEnum;
 use Yii;
 
 /**
@@ -13,6 +15,7 @@ use Yii;
  */
 class SelecaoCel extends \yii\db\ActiveRecord
 {
+    public $modalidades;
     /**
      * @inheritdoc
      */
@@ -27,8 +30,11 @@ class SelecaoCel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['SEL_ID','modalidades'], 'required'],
             [['SCEL_ID', 'CEL_ID', 'SEL_ID'], 'number'],
             [['SEL_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Selecao::className(), 'targetAttribute' => ['SEL_ID' => 'SEL_ID']],
+            [['modalidades'], 'safe'],
+
         ];
     }
 
@@ -44,8 +50,24 @@ class SelecaoCel extends \yii\db\ActiveRecord
         ];
     }
 
+    public function setModalidades($modalidades){
+        $this->modalidades = $modalidades;
+    }
+
+    public function getModalidades(){
+        return $this->modalidades;
+    }
+
     public function init(){
         $this->CEL_ID = Yii::$app->user->identity->cel_id;
         return parent::init();
+    }
+
+    public static function selecoesAtivas(){
+        return ArrayHelper::map(Selecao::find()->andWhere("SEL_SITUACAO =:SEL_SITUACAO",[':SEL_SITUACAO'=>SituacaoSelecaoEnum::CADASTRADO])->all(), 'SEL_ID','SEL_DESCRICAO');
+    }
+
+     public function getSelecao(){
+        return $this->hasOne(Selecao::className(), ['SEL_ID'=>'SEL_ID']);
     }
 }

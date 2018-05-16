@@ -25,7 +25,7 @@ let nome_sistema = "saesp";
 
 	$.fn.blockScreen = function($text){
 		 $.blockUI({
-	           'message':'<br><img width="20%"/><h4>'+$text+'</h4><img src="'+$().getUrl()+'/js/constants/images/reload.gif" /><br>',
+	           'message':'<br><img width="20%"/><h4>'+$text+'</h4><img src="/images/reload.gif" /><br>',
 	            css: {
 	                border: 'none',
 	                padding: '15px',

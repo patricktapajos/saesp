@@ -1,4 +1,10 @@
-var modal = Vue.component('tabela-modalidade',{
+Vue.directive('input-mask', {
+  bind: function(el) {
+    $(el).inputmask();
+  }
+});
+
+var tabelamodalidade = Vue.component('tabela-modalidade',{
 	template: '#tabela-modalidade-template',
 	props: {
 		
@@ -13,7 +19,7 @@ var modal = Vue.component('tabela-modalidade',{
 	},
 	methods:{
 		carregarModalidades: function(){
-			$().blockScreen("Carregando");
+			$().blockScreen("Carregando Quadro");
 			const url = '/../rest/modalidades';
 		    $.get(url).then(data => {
 		      	const items = data;
@@ -28,9 +34,6 @@ var modal = Vue.component('tabela-modalidade',{
 			 });
 		},
 
-		setMascaraHorario: function(event){
-			$('#'+event.target.id).inputmask({"mask": "99:99", "clearIncomplete" : true});
-		},
 		setAutocomplete: function(input, c, i) {
 			var self = this;
 			$('#' + input).autocomplete({
@@ -38,14 +41,14 @@ var modal = Vue.component('tabela-modalidade',{
 				showAnim: 'fold',
 				minLength: 2,
 				select: function(event, ui) {
-					self.modalidades[c].complemento[i].professor = ui.item.id;
+					self.modalidades[c].complemento[i].PROF_ID = ui.item.id;
 				},
 				change: function(event, ui) {
 					if(ui.item != null){
-						self.modalidades[c].complemento[i].professor = ui.item.id
+						self.modalidades[c].complemento[i].PROF_ID = ui.item.id
 					}
 					else{
-						self.modalidades[c].complemento[i].professor = ''
+						self.modalidades[c].complemento[i].PROF_ID = ''
 					}
 				}
 			});
@@ -53,10 +56,11 @@ var modal = Vue.component('tabela-modalidade',{
 
 		adicionarComplemento: function(id){
 			this.modalidades[id].complemento.push({
-				professor:'',
+				PROF_ID:'',
 				dias:[],
-				hora_inicio:'',
-				hora_fim:''
+				MDT_HORARIO_INICIO:'',
+				MDT_HORARIO_FIM:'',
+				MDT_QTDE_VAGAS:''
 			});
 		},
 
@@ -75,7 +79,21 @@ var modal = Vue.component('tabela-modalidade',{
 			this.modalidades[l].complemento.splice(m, 1);
 		},
 
-		validate: function() {
+		setValorHorarioInicioSemMascara($event, m, c){
+			this.modalidades[m].complemento[c].MDT_HORARIO_INICIO = $event.target.value;
+		},
+
+		setValorHorarioFimSemMascara($event, m, c){
+			this.modalidades[m].complemento[c].MDT_HORARIO_FIM = $event.target.value;
+		},
+
+		setValorHorarioSemMascara($event, m, c){
+			this.modalidades[m].complemento[c].campo = $event.target.value;
+		},
+
+		salvar: function() {
+
+			$().blockScreen("Validando Quadro");
 
 			$(".errorMessage").each(function() {
 				$(this).text('');
@@ -84,10 +102,11 @@ var modal = Vue.component('tabela-modalidade',{
 			var self = this;
 
 			$.ajax({
-				url: '/../rest/salvarCelSelecao',
+				url: '/../rest/salvarcelselecao',
 				type: 'POST',
 				data: {
-					'modalidades': this.modalidades
+					'SelecaoCel[SEL_ID]':self.id,
+					'SelecaoCel[modalidades]': this.modalidades
 				},
 				dataType: 'json',
 				success: function(dados, textStatus, jqXHR) {
@@ -96,13 +115,20 @@ var modal = Vue.component('tabela-modalidade',{
 						$('#selecaocel-form').submit();
 					} else {
 						$().unblockScreen();
-						if(dados.erros.plan){
-							$.each(dados.erros.plan, function(name, msg) {
-								jQuery('#'+name).css('border-color', '#da9391');
-								jQuery('#erro_'+name).text(msg);
-							});
+						if(dados.erros.selecaocel){
+							self.$parent.erro = true;				
+							self.$parent.msgerro = "Seleção é obrigatória";
 						}
-						self.erroForm = true;
+						$.each(dados.erros.modalidades, function(mod_id, complemento) {
+							$.each(complemento, function(com_id, com_erros){
+								$.each(com_erros, function(campo_id, campos){
+									$.each(campos, function(erro_id, erro){
+										$('#'+erro_id+'_'+mod_id+'_'+campo_id).css('border-color', '#da9391');
+										$('#erro_'+erro_id+'_'+mod_id+'_'+campo_id).text(erro);
+									});
+								});
+							});
+						});
 					}
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
@@ -121,5 +147,17 @@ var modal = Vue.component('tabela-modalidade',{
 
 var vue = new Vue({
 	el:'#selecaocel',
-	data:{}
+	data:{
+		id:'',
+		erro:'',
+		msgerro:''
+	},
+	components: { 'tabelamodalidade': tabelamodalidade },
+	watch: {
+		    id: function(currentValue) {
+		    	if(currentValue != ''){
+		    		this.$children[0].id = currentValue;
+		    	}
+		    },
+		},
 });
