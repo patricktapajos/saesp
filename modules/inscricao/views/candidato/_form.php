@@ -2,52 +2,47 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\tabs\TabsX;
 
 /* @var $this yii\web\View */
-/* @var $model app\modules\inscricao\models\Candidato */
+/* @var $candidato app\modules\inscricao\candidatos\Candidato */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
+<?php $form = ActiveForm::begin(); ?>
+
 <div class="candidato-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php echo TabsX::widget([
+            //'position'=>TabsX::POS_LEFT,
+            'encodeLabels'=>false,
+            'bordered'=>true,
+            'items'=>[
+                [
+                'label'=>'<i class="glyphicon glyphicon-user"></i> Dados Gerais',
+                'content'=>$this->render('_form_partial', [
+                    'form'=>$form,
+                    'model'=>$model,
+                    'candidato'=>$candidato]), 
+                'active'=>true,
+                ],
+                [
+                'label'=>'<i class="glyphicon glyphicon-home"></i> Modalidade',
+                'content'=>$this->render('_form_modalidade_partial', [
+                    'modalidades'=>$modalidades,
+                    'candidato'=>$candidato
+                    ]), 
+                'active'=>false,
+                ]
+            ]
+    ]); ?>
 
-    <?= $form->field($model, 'CAND_ESTADO_CIVIL')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_CPF')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_LOGRADOURO')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_COMPLEMENTO_END')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_CEP')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_BAIRRO')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_ID')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'USU_ID')->textInput() ?>
-
-    <?= $form->field($model, 'CAND_NOME_EMERGENCIA')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_TEL_EMERGENCIA')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_NOME_RESPONSAVEL')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_TEM_COMORBIDADE')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_COMORBIDADE_DESC')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_TEM_MEDICACAO')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_MEDICACAO_DESC')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'CAND_OBSERVACOES')->textInput(['maxlength' => true]) ?>
-
+    
+</div>
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton($candidato->isNewRecord ? 'Salvar' : 'Atualizar', ['class' => $candidato->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
-    <?php ActiveForm::end(); ?>
+<?php ActiveForm::end(); ?>
 
-</div>
+

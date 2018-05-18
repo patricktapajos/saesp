@@ -10,6 +10,7 @@ use app\modules\coordenador\models\ModalidadeDiaSemana;
 use app\modules\coordenador\models\SelecaoCelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\MethodNotAllowedHttpException;
 use yii\filters\VerbFilter;
 
 /**
@@ -66,6 +67,11 @@ class SelecaocelController extends Controller
      */
     public function actionCreate()
     {
+        $selecao = SelecaoCel::find()->where(['CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
+        if($selecao){
+            throw new MethodNotAllowedHttpException ('CEL já possui modalidades cadastradas no processo seletivo vigente.');
+        }
+
         $model = new SelecaoCel();
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
@@ -119,7 +125,7 @@ class SelecaocelController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->SCEL_ID]);
         } else {

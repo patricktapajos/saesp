@@ -157,6 +157,20 @@ a.desc:after {
     vertical-align: middle;
 }
 
+.candidato-form {
+    background-color: #f6d00138 !important;
+    padding: 20px;
+    border: 1px solid #c3c3c3;
+    border-radius: 5px;
+}
+
+/*.candidato-create {
+    background-color: #338cb76e;
+    padding: 20px;
+    border: 1px solid #c3c3c3;
+    border-radius: 5px;
+}*/
+
 @media (max-width: 996px){
     .navbar-logo {
         height: 48px;
@@ -167,4 +181,9 @@ a.desc:after {
     .navbar-sys-name {
         display: none;
     }
+}
+
+.glyphicon-edit {
+    background: url(../images/inscricao.png);
+    background-repeat: no-repeat;
 }

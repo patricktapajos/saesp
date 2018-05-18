@@ -1,6 +1,7 @@
 <?php
 
 namespace app\modules\coordenador\models;
+use app\modules\coordenador\models\ModalidadeDataHora;
 use app\models\Professor;
 use Yii;
 
@@ -67,5 +68,30 @@ class SelecaoModalidade extends \yii\db\ActiveRecord
             'MOD_ID' => 'Modalidade',
             'complemento'=>'Complemento'
         ];
+    }
+
+    public function getModalidade(){
+        return $this->hasOne(Modalidade::className(), ['MOD_ID'=>'MOD_ID']);
+    }
+
+    public function getModalidadeDataHora(){
+        return $this->hasMany(ModalidadeDataHora::className(), ['SMOD_ID'=>'SMOD_ID']);
+    }
+
+    public function getDiasSemana(){
+
+        $descricao = [];
+        foreach ($this->getModalidadeDataHora()->all() as $id => $mdatahora) {
+            
+            $dias = [];
+            $mdiasemana = $mdatahora->getModalidadeDiaSemana()->all();
+
+            foreach ($mdiasemana as $key => $dia) {
+                $dias[] = $dia->MDS_DESCRICAO;
+            }
+            
+            $descricao[] =  implode(',',$dias) . ' / ' . $mdatahora->MDT_HORARIO_INICIO. ' - '. $mdatahora->MDT_HORARIO_FIM;
+        }
+        return implode(',',$descricao);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace app\modules\coordenador\models;
 use app\models\Selecao;
+use app\models\Cel;
 use yii\helpers\ArrayHelper;
 use app\models\SituacaoSelecaoEnum;
 use Yii;
@@ -89,5 +90,9 @@ class SelecaoCel extends \yii\db\ActiveRecord
 
      public function getSelecao(){
         return $this->hasOne(Selecao::className(), ['SEL_ID'=>'SEL_ID']);
+    }
+
+    public function getCel(){
+        return $this->hasOne(Cel::className(), ['CEL_ID'=>'CEL_ID']);
     }
 }

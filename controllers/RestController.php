@@ -1,6 +1,8 @@
 <?php
 
 namespace app\controllers;
+use app\models\Selecao;
+use app\models\SituacaoSelecaoEnum;
 use app\modules\coordenador\models\Modalidade;
 use app\modules\coordenador\models\SelecaoCel;
 use app\modules\coordenador\models\SelecaoModalidade;
@@ -19,6 +21,7 @@ class RestController extends \yii\web\Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'modalidades' => ['GET'],
+                    'alterarmodalidades' => ['GET'],
                     'salvarcelselecao' => ['POST'],
                 ],
             ],
@@ -28,6 +31,37 @@ class RestController extends \yii\web\Controller
 	 public function actionModalidades(){
 	 	Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $modalidades = Modalidade::find()->andWhere('CEL_ID = :CEL_ID', [':CEL_ID'=>Yii::$app->user->identity->cel_id])->all();
+        return $modalidades;
+    }
+
+    public function actionAlterarmodalidades(){
+
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $selecao = Selecao::find()->where(['SEL_SITUACAO'=>SituacaoSelecaoEnum::CADASTRADO])->one();
+        $scel = SelecaoCel::find()->where(['SEL_ID'=>$selecao->SEL_ID, 'CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
+
+        $modalidades = ['SEL_ID'=>$selecao->SEL_ID];
+
+        foreach ($scel->cel->modalidades as $o=>$modalidade) {
+            $modalidades['modalidades'][$o]['MOD_ID'] = $modalidade->MOD_ID;
+            $modalidades['modalidades'][$o]['MOD_DESCRICAO'] = $modalidade->MOD_DESCRICAO;
+            $modalidades['modalidades'][$o]['complemento'] = [];
+
+            foreach ($modalidade->selecaoModalidades as $smod) {
+                foreach ($smod->modalidadeDataHora as $n=>$mdh) {
+                    $modalidades['modalidades'][$o]['complemento'][$n]['MDT_HORARIO_INICIO'] = $mdh->MDT_HORARIO_INICIO;
+                    $modalidades['modalidades'][$o]['complemento'][$n]['MDT_HORARIO_FIM'] = $mdh->MDT_HORARIO_FIM;
+                    $modalidades['modalidades'][$o]['complemento'][$n]['MDT_QTDE_VAGAS'] = $mdh->MDT_QTDE_VAGAS;
+                    $modalidades['modalidades'][$o]['complemento'][$n]['PROF_ID'] = $mdh->PROF_ID;
+                    $modalidades['modalidades'][$o]['complemento'][$n]['_nome_professor'] = $mdh->professor->usuario->USU_NOME;
+                    $modalidades['modalidades'][$o]['complemento'][$n]['dias'] = [];
+                    foreach ($mdh->modalidadeDiaSemana as $p=>$mds) {
+                        $modalidades['modalidades'][$o]['complemento'][$n]['dias'][$p] = $mds->MDS_DESCRICAO; 
+                    }
+                }
+            }
+        }
+
         return $modalidades;
     }
 

@@ -3,7 +3,12 @@
 namespace app\modules\inscricao\controllers;
 
 use Yii;
+use app\models\Usuario;
 use app\modules\inscricao\models\Candidato;
+use app\modules\coordenador\models\SelecaoModalidade;
+use app\modules\coordenador\models\SelecaoCel;
+use app\models\Selecao;
+use app\models\SituacaoSelecaoEnum;
 use app\modules\inscricao\models\CandidatoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -63,13 +68,18 @@ class CandidatoController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Candidato();
+        $model = new Usuario();
+        $candidato = new Candidato();
+        $selecao = Selecao::find()->where(['SEL_SITUACAO'=>SituacaoSelecaoEnum::CADASTRADO])->one();
+        $modalidades = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->CAND_ID]);
+            return $this->redirect(['view', 'id' => $candidato->CAND_ID]);
         } else {
             return $this->render('create', [
                 'model' => $model,
+                'candidato' => $candidato,
+                'modalidades' => $modalidades
             ]);
         }
     }

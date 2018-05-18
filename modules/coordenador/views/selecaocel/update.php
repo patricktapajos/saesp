@@ -5,10 +5,10 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\coordenador\models\SelecaoCel */
 
-$this->title = 'Update Selecao Cel: ' . $model->SCEL_ID;
-$this->params['breadcrumbs'][] = ['label' => 'Selecao Cels', 'url' => ['index']];
+$this->title = 'Atualizar CEL/Seleção';
+$this->params['breadcrumbs'][] = ['label' => 'Gerenciar CEL/Seleção', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->SCEL_ID, 'url' => ['view', 'id' => $model->SCEL_ID]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->params['breadcrumbs'][] = 'Atualizar';
 ?>
 <div class="selecao-cel-update">
 

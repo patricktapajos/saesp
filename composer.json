@@ -20,7 +20,8 @@
         "yiisoft/yii2-swiftmailer": "~2.0.0",
         "yiibr/yii2-br-validator": "*",
         "yiisoft/yii2-jui": "*",
-        "npm-asset/vue": "^2.5"
+        "npm-asset/vue": "^2.5",
+        "kartik-v/yii2-tabs-x": "*"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

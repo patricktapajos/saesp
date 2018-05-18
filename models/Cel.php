@@ -2,6 +2,8 @@
 
 namespace app\models;
 use app\models\Coordenador;
+use app\modules\coordenador\models\SelecaoModalidade;
+use app\modules\coordenador\models\Modalidade;
 use Yii;
 
 /**
@@ -68,5 +70,13 @@ class Cel extends \yii\db\ActiveRecord
 
     public function getCoordenador(){
         return $this->hasOne(Coordenador::className(), ['CRD_ID'=>'CRD_ID']);
+    }
+
+    public function getSelecaomodalidades(){
+        return $this->hasMany(SelecaoModalidade::className(), ['CEL_ID'=>'CEL_ID']);
+    }
+
+    public function getModalidades(){
+        return $this->hasMany(Modalidade::className(), ['CEL_ID'=>'CEL_ID']);
     }
 }

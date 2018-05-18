@@ -4,7 +4,13 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\modules\coordenador\models\SelecaoCel;
 use app\assets\VueModalidadeAsset;
-VueModalidadeAsset::register($this);
+use app\assets\VueModalidadeAlteracaoAsset;
+
+if($model->isNewRecord){
+    VueModalidadeAsset::register($this);    
+}else{
+    VueModalidadeAlteracaoAsset::register($this);
+}
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\coordenador\models\SelecaoCel */
@@ -18,7 +24,6 @@ VueModalidadeAsset::register($this);
         <ul v-for="e in erros">
             <li>{{ e }}</li>
     </div>
-
 
      <div class="col-lg-12 col-sm-12">
         <?= $form->field($model, 'SEL_ID')->dropDownList(SelecaoCel::selecoesAtivas(),['prompt'=>'Selecione >>','v-model'=>'id']) ?>
@@ -68,7 +73,7 @@ VueModalidadeAsset::register($this);
     							</td>
     							<td>
                                     <span v-for="(dia, d) in dias">
-									   <input type="checkbox" v-on:click="adicionarDia(m, c, d)" :name="'SelecaoCel[modalidades]['+m+'][complemento]['+c+'][dias]['+dia+']'" class="form-checkbox" />{{dia}}
+									   <input type="checkbox" v-on:click="adicionarDia(m, c, d)" :name="'SelecaoCel[modalidades]['+m+'][complemento]['+c+'][dias]['+dia+']'" class="form-checkbox" :id="dia+'_'+m+'_'+c"/>{{dia}}
                                     </span>
                                     <div v-bind:id="'erro_dias_'+m+'_'+c" class="errorMessage text-danger"></div>
     							</td>

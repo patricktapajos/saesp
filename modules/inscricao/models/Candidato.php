@@ -26,6 +26,7 @@ use Yii;
  */
 class Candidato extends \yii\db\ActiveRecord
 {
+    public $modalidades;
     /**
      * @inheritdoc
      */
@@ -40,6 +41,7 @@ class Candidato extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
+            [['modalidades'], 'required'],
             [['CAND_ID'], 'number'],
             [['USU_ID'], 'integer'],
             [['CAND_ESTADO_CIVIL'], 'string', 'max' => 15],

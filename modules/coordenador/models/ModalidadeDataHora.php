@@ -1,6 +1,7 @@
 <?php
 
 namespace app\modules\coordenador\models;
+use app\modules\coordenador\modelsModalidadeDataHora;
 use app\models\Professor;
 use Yii;
 
@@ -91,5 +92,17 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
         }
 
         return true;
+    }
+
+    public function getProfessor(){
+        return $this->hasOne(Professor::className(), ['PROF_ID'=>'PROF_ID']);
+    }
+
+     public function getSelecaoModalidade(){
+        return $this->hasMany(SelecaoModalidade::className(), ['SMOD_ID'=>'SMOD_ID']);
+    }
+
+    public function getModalidadeDiaSemana(){
+        return $this->hasMany(ModalidadeDiaSemana::className(), ['MDT_ID'=>'MDT_ID']);
     }
 }
