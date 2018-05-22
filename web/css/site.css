@@ -187,3 +187,8 @@ a.desc:after {
     background: url(../images/inscricao.png);
     background-repeat: no-repeat;
 }
+
+.table-saesp {
+    margin: auto;
+    border: 0;
+}

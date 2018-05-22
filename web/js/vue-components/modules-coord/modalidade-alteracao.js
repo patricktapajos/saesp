@@ -79,6 +79,7 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 			this.modalidades[id].complemento.push({
 				PROF_ID:'',
 				dias:[],
+				MDT_ID:'',
 				MDT_HORARIO_INICIO:'',
 				MDT_HORARIO_FIM:'',
 				MDT_QTDE_VAGAS:''
@@ -97,6 +98,7 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 			if (confirm('Deseja mesmo remover estes dados?') == false) {
 				return false;
 			}
+			this.$parent.complementoexclusao.push(this.modalidades[l].complemento[m].MDT_CODIGO);
 			this.modalidades[l].complemento.splice(m, 1);
 		},
 
@@ -171,6 +173,7 @@ var vue = new Vue({
 		id:'',
 		erroForm: false,
 		erros : [],
+		complementoexclusao: []
 	},
 	components: { 'tabelamodalidade': tabelamodalidade },
 	watch: {

@@ -2,7 +2,6 @@
 
 namespace app\modules\coordenador\models;
 use app\modules\coordenador\models\ModalidadeDataHora;
-use app\models\Professor;
 use Yii;
 
 /**
@@ -44,7 +43,6 @@ class SelecaoModalidade extends \yii\db\ActiveRecord
         return [
             /*[['complemento'],'required', 'on'=>[self::SCENARIO_VALIDACAO]],*/
             [['SEL_ID'],'required', 'on'=>['insert']],
-            [['PROF_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Professor::className(), 'targetAttribute' => ['PROF_ID' => 'PROF_ID']],
             [['complemento'],'safe']
         ];
     }

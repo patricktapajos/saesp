@@ -35,12 +35,11 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
         return [
             [['MDT_QTDE_VAGAS', 'MDT_HORARIO_INICIO', 'MDT_HORARIO_FIM', 'PROF_ID', 'dias'], 'required'],
             [['MDT_QTDE_VAGAS', 'SMOD_ID','PROF_ID'], 'number'],
-            [['MDT_DIA_SEMANA'], 'string', 'max' => 18],
             [['MDT_HORARIO_INICIO', 'MDT_HORARIO_FIM'], 'string', 'max' => 5],
             [['MDT_HORARIO_INICIO', 'MDT_HORARIO_FIM'], 'validarValorHorario'],
             [['MDT_HORARIO_FIM'], 'validarHorario'],
+            /*[['MDT_HORARIO_INICIO', 'MDT_HORARIO_FIM','dias','PROF_ID'], 'unique', 'message'=>'Dados já cadastrados'],*/
             [['PROF_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Professor::className(), 'targetAttribute' => ['PROF_ID' => 'PROF_ID']],
-            /*[['SMOD_ID'], 'exist', 'skipOnError' => true, 'targetClass' => SelecaoModalidade::className(), 'targetAttribute' => ['SMOD_ID' => 'SMOD_ID']],*/
         ];
     }
 
@@ -50,7 +49,6 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'MDT_DIA_SEMANA' => 'Dia da Semana',
             'MDT_HORARIO_INICIO' => 'Início',
             'MDT_QTDE_VAGAS' => 'Qtde. de Vagas',
             'MDT_ID' => 'Modalidade',

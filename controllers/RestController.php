@@ -48,7 +48,9 @@ class RestController extends \yii\web\Controller
             $modalidades['modalidades'][$o]['complemento'] = [];
 
             foreach ($modalidade->selecaoModalidades as $smod) {
+                $modalidades['modalidades'][$o]['SMOD_ID'] = $smod->SMOD_ID;
                 foreach ($smod->modalidadeDataHora as $n=>$mdh) {
+                    $modalidades['modalidades'][$o]['complemento'][$n]['MDT_ID'] = $mdh->MDT_ID;
                     $modalidades['modalidades'][$o]['complemento'][$n]['MDT_HORARIO_INICIO'] = $mdh->MDT_HORARIO_INICIO;
                     $modalidades['modalidades'][$o]['complemento'][$n]['MDT_HORARIO_FIM'] = $mdh->MDT_HORARIO_FIM;
                     $modalidades['modalidades'][$o]['complemento'][$n]['MDT_QTDE_VAGAS'] = $mdh->MDT_QTDE_VAGAS;

@@ -17,6 +17,7 @@ use Yii;
 class SelecaoCel extends \yii\db\ActiveRecord
 {
     const SCENARIO_VALIDACAO = 'validacaojson';
+    public $complementoexclusao;
     public $modalidades;
 
     /**
@@ -44,7 +45,7 @@ class SelecaoCel extends \yii\db\ActiveRecord
             [['modalidades'], 'validarModalidades', 'on'=>[self::SCENARIO_VALIDACAO]],
             [['SCEL_ID', 'CEL_ID', 'SEL_ID'], 'number'],
             [['SEL_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Selecao::className(), 'targetAttribute' => ['SEL_ID' => 'SEL_ID']],
-            [['SEL_ID','modalidades'], 'safe'],
+            [['SEL_ID','modalidades','complementoexclusao'], 'safe'],
 
         ];
     }

@@ -126,8 +126,67 @@ class SelecaocelController extends Controller
     {
         $model = $this->findModel($id);
         
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->SCEL_ID]);
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $trans = Yii::$app->db->beginTransaction();
+            try{
+                if ($model->save()){
+                    if($model->complementoexclusao){
+                        foreach (explode(',', $model->complementoexclusao) as $codigo) {
+                            $complemento = ModalidadeDataHora::findOne($codigo);
+                            foreach ($complemento->modalidadeDiaSemana as $dia) {
+                                $dia->delete();    
+                            }
+                            $complemento->delete();
+                        }
+                    }
+
+                    foreach ($model->getModalidades() as $n=>$modalidade) {
+
+                        $selecaoModalidade = new SelecaoModalidade;
+
+                        if($modalidade['SMOD_ID'] != null){
+                            $selecaoModalidade->isNewRecord = false;
+                        }
+                        $selecaoModalidade->SMOD_ID = $modalidade['SMOD_ID'];
+                        $selecaoModalidade->SEL_ID = $model->SEL_ID;
+                        $selecaoModalidade->MOD_ID = $modalidade['MOD_ID'];
+                        $selecaoModalidade->setComplemento($modalidade['complemento']);                        
+                        $selecaoModalidade->save();
+
+                        foreach ($selecaoModalidade->getComplemento() as $o=>$com) {
+                            $mdatahora = new ModalidadeDataHora;
+                            $mdatahora->setAttributes($com);
+
+                            if($com['MDT_ID'] != null){
+                                $mdatahora->isNewRecord = false;
+                            }
+
+                            $mdatahora->MDT_ID = $com['MDT_ID'];
+                            $mdatahora->setDias($com['dias']);
+                            $mdatahora->SMOD_ID = $selecaoModalidade->SMOD_ID;
+                            $mdatahora->save();
+
+                            foreach ($mdatahora->modalidadeDiaSemana as $d) {
+                                $d->delete();
+                            }
+                            
+                            foreach ($mdatahora->getDias() as $dia=>$checked) {
+                                $mdiasemana = new ModalidadeDiaSemana;
+                                $mdiasemana->MDS_DESCRICAO = $dia;
+                                $mdiasemana->MDT_ID = $mdatahora->MDT_ID;
+                                $mdiasemana->save();
+                            }
+                        }
+                    }
+
+
+                    $trans->commit();
+                    return $this->redirect(['view', 'id' => $model->SCEL_ID]);
+                }
+            }catch(\Exception $e){
+                $trans->rollBack();
+                throw $e;
+            }        
         } else {
             return $this->render('update', [
                 'model' => $model,
