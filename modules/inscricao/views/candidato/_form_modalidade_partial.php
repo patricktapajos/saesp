@@ -1,25 +1,40 @@
 <?php 
 	use yii\helpers\Html;
 ?>
-<div class="row">
-	<table class="table table-bordered">
-		<thead>
-			<tr>
-				<th>Centro de Lazer e Esporte</th>
-				<th>Modalidade</th>
-				<th>Dia(s) - Horário(s)</th>
-				<th>Selecionar</th>
-            </tr>
-		</thead>
-		<tbody>
-		<?php foreach ($modalidades as $key => $smod) : ?>
-			<tr>
-				<td><?php echo $smod->modalidade->cel->CEL_NOME; ?></td>
-				<td><?php echo $smod->modalidade->MOD_DESCRICAO; ?></td>
-				<td><?php echo $smod->getDiasSemana(); ?></td>
-				<td><?= Html::activeCheckBox($candidato,'modalidades',[]); ?></td>
-			</tr>
+<div class="row table-saesp">
+	<div class="row text-center div-header">
+        <div class="col-lg-3">Centro de Lazer e Esporte</div>
+        <div class="col-lg-3">Modalidade</div>
+        <div class="col-lg-2">Dia(s)</div>
+        <div class="col-lg-2">Horário(s)</div>
+        <div class="col-lg-2">Selecionar</div>
+    </div>
+
+     <div class="row div-body text-center">
+		<?php foreach ($smods as $smod) : ?>
+			<div class="ptable-row">
+				<div class="col-lg-3">
+					<?php echo $smod->modalidade->cel->CEL_NOME; ?>
+				</div>	
+				<div class="col-lg-3">
+					<?php echo $smod->modalidade->MOD_NOME; ?>
+				</div>	
+				<div class="col-lg-6">
+					<?php foreach ($smod->modalidadeDataHora as $mdh) : ?>
+		            	<div class="pinner-row">		
+		            		<div class="col-lg-4">
+								<?php echo $mdh->getDiasSemana(); ?>
+							</div>	
+							<div class="col-lg-4">
+								<?php echo $mdh->getHorario(); ?>
+							</div>	
+							<div class="col-lg-4">
+								<?= Html::activeCheckBox($candidato,'modalidades['.$mdh->MDT_ID.']',['label'=>'']); ?>
+							</div>	
+		            	</div>
+		            <?php endforeach; ?>
+	            </div>
+	        </div>
 		<?php endforeach; ?>
-		</tbody>
-	</table>
+    </div>
 </div>

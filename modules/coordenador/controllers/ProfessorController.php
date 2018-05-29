@@ -101,7 +101,7 @@ class ProfessorController extends Controller
         $model = $professor->usuario;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->PROF_ID]);
+            return $this->redirect(['view', 'id' => $professor->PROF_ID]);
         } else {
             return $this->render('update', [
                 'model' => $model,

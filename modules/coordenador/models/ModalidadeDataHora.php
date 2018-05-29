@@ -103,4 +103,18 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
     public function getModalidadeDiaSemana(){
         return $this->hasMany(ModalidadeDiaSemana::className(), ['MDT_ID'=>'MDT_ID']);
     }
+
+    public function getDiasSemana(){
+        $dias = [];
+        $mdiasemana = $this->getModalidadeDiaSemana()->all();
+
+        foreach ($mdiasemana as $key => $dia) {
+            $dias[] = $dia->MDS_DESCRICAO;
+        }
+        return implode(', ',$dias);
+    }
+
+    public function getHorario(){
+        return $this->MDT_HORARIO_INICIO. ' - '. $this->MDT_HORARIO_FIM;
+    }
 }

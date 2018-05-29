@@ -27,9 +27,9 @@ use kartik\tabs\TabsX;
                 'active'=>true,
                 ],
                 [
-                'label'=>'<i class="glyphicon glyphicon-home"></i> Modalidade',
+                'label'=>'<i class="glyphicon glyphicon-list-alt"></i> Modalidade',
                 'content'=>$this->render('_form_modalidade_partial', [
-                    'modalidades'=>$modalidades,
+                    'smods'=>$smods,
                     'candidato'=>$candidato
                     ]), 
                 'active'=>false,
@@ -39,9 +39,10 @@ use kartik\tabs\TabsX;
 
     
 </div>
-    <div class="form-group">
-        <?= Html::submitButton($candidato->isNewRecord ? 'Salvar' : 'Atualizar', ['class' => $candidato->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-    </div>
+<br>
+<div class="form-group">
+    <?= Html::submitButton($candidato->isNewRecord ? 'Salvar' : 'Atualizar', ['class' => $candidato->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+</div>
 
 <?php ActiveForm::end(); ?>
 

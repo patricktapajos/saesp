@@ -40,7 +40,7 @@ class Usuario extends \yii\db\ActiveRecord
     public function scenarios()
     {
         $scenarios = parent::scenarios();
-        $scenarios [self::SCENARIO_PROFESSOR] = ['USU_NOME', 'USU_CPF','USU_EMAIL','USU_SEXO','USU_DT_NASC','USU_PERMISSAO'];
+        $scenarios [self::SCENARIO_PROFESSOR] = ['USU_NOME', 'USU_CPF','USU_EMAIL','USU_SEXO','USU_DT_NASC','USU_PERMISSAO','USU_SITUACAO'];
         return $scenarios;
     }
 
@@ -54,7 +54,7 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO'], 'required'],
+            [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO','USU_SITUACAO'], 'required'],
             [['USU_NOME', 'USU_EMAIL', 'USU_SENHA'], 'string', 'max' => 255],
             ['USU_EMAIL','email'],
             [['USU_EMAIL'],'validarHostEmail','on'=>['insert','']],
@@ -62,6 +62,7 @@ class Usuario extends \yii\db\ActiveRecord
             [['USU_CPF'], CpfValidator::className()],
             [['USU_CPF'], 'string', 'max' => 14],
             [['USU_DT_NASC'], 'string', 'max' => 10],
+            [['USU_DT_NASC'], 'date', 'format'=>'d/m/Y'],
             [['USU_SEXO'], 'string', 'max' => 15],
             [['USU_TELEFONE_1', 'USU_TELEFONE_2', 'USU_SITUACAO'], 'string', 'max' => 14],
             [['USU_PERMISSAO'], 'string', 'max' => 20],
@@ -152,14 +153,15 @@ class Usuario extends \yii\db\ActiveRecord
     public function beforeSave(){
         if($this->isNewRecord){
             $this->gerarSenha();
+            $this->USU_SITUACAO = SituacaoEnum::ATIVO;
         }
         return parent::beforeSave();
     }
 
     public function afterSave($insert, $changedAttributes){
-        //if($insert && $this->scenario != self::SCENARIO_PROFESSOR){
+        if($insert){
             $this->salvarUsuarioPorPermissao();
-        //}
+        }
     }
 
     public function getSexoText(){

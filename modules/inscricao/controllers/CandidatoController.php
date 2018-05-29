@@ -70,8 +70,15 @@ class CandidatoController extends Controller
     {
         $model = new Usuario();
         $candidato = new Candidato();
-        $selecao = Selecao::find()->where(['SEL_SITUACAO'=>SituacaoSelecaoEnum::CADASTRADO])->one();
-        $modalidades = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+        $selecao = Selecao::inscricoesAbertas();
+       
+        if(!$selecao){
+            throw new \yii\web\HttpException(403,"Não há processo seletivo aberto!");
+        }
+
+        $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+
+        //var_dump($scels[0]->cels[0]);die;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $candidato->CAND_ID]);
@@ -79,7 +86,7 @@ class CandidatoController extends Controller
             return $this->render('create', [
                 'model' => $model,
                 'candidato' => $candidato,
-                'modalidades' => $modalidades
+                'smods' => $smods
             ]);
         }
     }

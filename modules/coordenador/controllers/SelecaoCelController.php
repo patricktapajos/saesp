@@ -4,6 +4,7 @@ namespace app\modules\coordenador\controllers;
 
 use Yii;
 use app\modules\coordenador\models\SelecaoCel;
+use app\models\Selecao;
 use app\modules\coordenador\models\SelecaoModalidade;
 use app\modules\coordenador\models\ModalidadeDataHora;
 use app\modules\coordenador\models\ModalidadeDiaSemana;
@@ -124,6 +125,10 @@ class SelecaocelController extends Controller
      */
     public function actionUpdate($id)
     {
+        if(Selecao::inscricoesAbertas()){
+            throw new \yii\web\HttpException(403,"Processo seletivo com inscrições abertas não pode mais ser alterado!");
+        }
+
         $model = $this->findModel($id);
         
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {

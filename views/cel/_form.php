@@ -2,7 +2,6 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
 use app\models\Coordenador;
 
 /* @var $this yii\web\View */
@@ -23,7 +22,9 @@ use app\models\Coordenador;
         </div>
 
         <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'CEL_TELEFONE')->textInput(['maxlength' => true]) ?>
+            <?= $form->field($model, 'CEL_TELEFONE')->widget(\yii\widgets\MaskedInput::className(), [
+                'mask'=>'(99)\99999-9999'
+            ]) ?>
         </div>
 
         <div class="col-lg-4 col-sm-12">
@@ -52,7 +53,7 @@ use app\models\Coordenador;
         </div>
 
         <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'CRD_ID')->dropDownList(ArrayHelper::map(Coordenador::find()->with('usuario')->all(), 'CRD_ID','usuario.USU_NOME'),['prompt'=>'Selecione >>']) ?>
+            <?= $form->field($model, 'CRD_ID')->dropDownList(Coordenador::listarNaoRelacionados(),['prompt'=>'Selecione >>']) ?>
         </div>
     </div>
 

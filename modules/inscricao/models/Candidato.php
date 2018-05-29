@@ -41,16 +41,26 @@ class Candidato extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['modalidades'], 'required'],
-            [['CAND_ID'], 'number'],
-            [['USU_ID'], 'integer'],
+            [['modalidades','CAND_ESTADO_CIVIL','CAND_CEP','CAND_LOGRADOURO','CAND_BAIRRO'], 'required'],
+            ['CAND_NOME_RESPONSAVEL', 'required', 'when' => function($model) {
+                return $model->CAND_MENOR_IDADE == '1';
+            }],
+            ['CAND_PCD_DESC', 'required', 'when' => function($model) {
+                return $model->CAND_PCD == '1';
+            }],
+            ['CAND_MEDICACAO_DESC', 'required', 'when' => function($model) {
+                return $model->CAND_TEM_MEDICACAO == '1';
+            }],
+            ['CAND_COMORBIDADE_DESC', 'required', 'when' => function($model) {
+                return $model->CAND_TEM_COMORBIDADE == '1';
+            }],
             [['CAND_ESTADO_CIVIL'], 'string', 'max' => 15],
             [['CAND_CPF'], 'string', 'max' => 11],
             [['CAND_LOGRADOURO', 'CAND_COMPLEMENTO_END', 'CAND_BAIRRO', 'CAND_NOME_EMERGENCIA', 'CAND_NOME_RESPONSAVEL'], 'string', 'max' => 255],
-            [['CAND_CEP'], 'string', 'max' => 8],
+            [['CAND_CEP'], 'string', 'max' => 10],
             [['CAND_TEL_EMERGENCIA'], 'string', 'max' => 10],
-            [['CAND_TEM_COMORBIDADE', 'CAND_TEM_MEDICACAO'], 'string', 'max' => 3],
-            [['CAND_COMORBIDADE_DESC', 'CAND_MEDICACAO_DESC'], 'string', 'max' => 500],
+            [['CAND_TEM_COMORBIDADE', 'CAND_TEM_MEDICACAO', 'CAND_PCD', 'CAND_MENOR_IDADE'], 'string', 'max' => 3],
+            [['CAND_COMORBIDADE_DESC', 'CAND_MEDICACAO_DESC','CAND_PCD_DESC'], 'string', 'max' => 500],
             [['CAND_OBSERVACOES'], 'string', 'max' => 1500],
             [['USU_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['USU_ID' => 'USU_ID']],
         ];
@@ -73,11 +83,14 @@ class Candidato extends \yii\db\ActiveRecord
             'CAND_NOME_EMERGENCIA' => 'Em caso de emergência, chamar?',
             'CAND_TEL_EMERGENCIA' => 'Número de Emergência',
             'CAND_NOME_RESPONSAVEL' => 'Nome do Responsavel',
-            'CAND_TEM_COMORBIDADE' => 'Comorbidade',
-            'CAND_COMORBIDADE_DESC' => 'Descrição Comorbidade',
-            'CAND_TEM_MEDICACAO' => 'Medicamento',
-            'CAND_MEDICACAO_DESC' => 'Descrição Medicamento',
+            'CAND_TEM_COMORBIDADE' => 'Possui alguma comorbidade?',
+            'CAND_COMORBIDADE_DESC' => 'Comorbidade(s)',
+            'CAND_TEM_MEDICACAO' => 'Ingere algum medicamento?',
+            'CAND_MEDICACAO_DESC' => 'Medicamento(s)',
             'CAND_OBSERVACOES' => 'Observações',
+            'CAND_PCD' => 'PcD (Pessoa Com Deficiência)',
+            'CAND_PCD_DESC' => 'Descrição da Deficiência',
+            'CAND_MENOR_IDADE' => 'Candidato Menor de Idade',
         ];
     }
 }

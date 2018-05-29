@@ -15,7 +15,7 @@ $this->title = 'Ficha de Inscrição';
     <?= $this->render('_form', [
         'model' => $model,
         'candidato' => $candidato,
-        'modalidades' => $modalidades
+        'smods' => $smods
     ]) ?>
 
 </div>

@@ -29,7 +29,12 @@ class Selecao extends \yii\db\ActiveRecord
     {
         return [
             [['SEL_DESCRICAO'], 'required'],
-            [['SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_SITUACAO'], 'string', 'max' => 18],
+            [['SEL_DT_INICIO', 'SEL_DT_FIM'], 'string', 'max' => 10],
+            [['SEL_DT_INICIO', 'SEL_DT_FIM'], 'date', 'format'=>'d/m/Y'],
+            [['SEL_DT_INICIO', 'SEL_DT_FIM'], 'required', 'when' => function($model) {
+                return $model->SEL_SITUACAO == SituacaoSelecaoEnum::INSCRICOES_ABERTAS;
+            }],
+            [['SEL_SITUACAO'], 'string', 'max' => 30],
         ];
     }
 
@@ -47,6 +52,10 @@ class Selecao extends \yii\db\ActiveRecord
         ];
     }
 
+    public static function inscricoesAbertas(){
+        return self::find()->where("SEL_SITUACAO=:SEL_SITUACAO and trunc(sysdate) between SEL_DT_INICIO and SEL_DT_FIM",['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();
+
+    }
 
     public function getSituacaoText(){
         return SituacaoSelecaoEnum::listar()[$this->SEL_SITUACAO];

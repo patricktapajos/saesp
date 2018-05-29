@@ -46,9 +46,11 @@ use app\models\SexoEnum;
             ]) ?>
         </div>
         
-        <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'USU_SITUACAO')->dropDownList(SituacaoEnum::listar()) ?>
-        </div>
+        <?php if(!$model->isNewRecord): ?>
+            <div class="col-lg-4 col-sm-12">
+                <?= $form->field($model, 'USU_SITUACAO')->dropDownList(SituacaoEnum::listar()) ?>
+            </div>
+        <?php endif; ?>
 
         <div class="col-lg-4 col-sm-12">
             <?= $form->field($model, 'USU_SEXO')->radioList(SexoEnum::listar()) ?>

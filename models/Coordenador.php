@@ -1,7 +1,7 @@
 <?php
 
 namespace app\models;
-
+use yii\helpers\ArrayHelper;
 use Yii;
 
 /**
@@ -48,5 +48,9 @@ class Coordenador extends \yii\db\ActiveRecord
 
     public function getCel(){
         return $this->hasOne(Cel::className(), ['CRD_ID'=>'CRD_ID']);
+    }
+
+    public function listarNaoRelacionados(){
+        return ArrayHelper::map(Coordenador::find()->with('usuario')->joinWith('cel', false, 'LEFT OUTER JOIN')->andWhere('"CEL".CRD_ID is null')->all(), 'CRD_ID','usuario.USU_NOME');
     }
 }

@@ -52,9 +52,13 @@ class Modalidade extends \yii\db\ActiveRecord
         return $this->hasOne(Cel::className(), ['CEL_ID'=>'CEL_ID']);
     }
 
-      public function getSelecaoModalidades(){
+    public function getSelecaoModalidades(){
         return $this->hasMany(SelecaoModalidade::className(), ['MOD_ID'=>'MOD_ID']);
     }
+
+    /*public function getModalidadeDataHora(){
+        return $this->hasOne(ModalidadeDataHora::className(), ['MOD_ID'=>'MOD_ID']);
+    }*/
 
     /*public function beforeSave(){
         if($this->isNewRecord){
