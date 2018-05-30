@@ -51,6 +51,6 @@ class Coordenador extends \yii\db\ActiveRecord
     }
 
     public function listarNaoRelacionados(){
-        return ArrayHelper::map(Coordenador::find()->with('usuario')->joinWith('cel', false, 'LEFT OUTER JOIN')->andWhere('"CEL".CRD_ID is null')->all(), 'CRD_ID','usuario.USU_NOME');
+        return ArrayHelper::map(Coordenador::find()->with('usuario')->joinWith('cel', true, 'LEFT OUTER JOIN')->andWhere('"CEL".CRD_ID is null')->all(), 'CRD_ID','usuario.USU_NOME');
     }
 }

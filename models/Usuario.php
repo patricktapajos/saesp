@@ -86,7 +86,7 @@ class Usuario extends \yii\db\ActiveRecord
             'USU_TELEFONE_2' => 'Telefone 2',
             'USU_SENHA' => 'Senha',
             'USU_SITUACAO' => 'Situação',
-            'USU_PERMISSAO' => 'Permissão', 
+            'USU_PERMISSAO' => 'Perfil', 
         ];
     }
 

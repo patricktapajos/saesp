@@ -125,7 +125,7 @@ class SelecaocelController extends Controller
      */
     public function actionUpdate($id)
     {
-        if(Selecao::inscricoesAbertas()){
+        if(Selecao::cadastrarNaSelecao()){
             throw new \yii\web\HttpException(403,"Processo seletivo com inscrições abertas não pode mais ser alterado!");
         }
 

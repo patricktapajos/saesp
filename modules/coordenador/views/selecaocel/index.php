@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use app\modules\coordenador\models\SelecaoCel;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\coordenador\models\SelecaoCelSearch */
@@ -13,8 +14,6 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="selecao-cel-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-
     <p>
         <?= Html::a('Novo', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
@@ -30,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                      return $model->selecao->SEL_DESCRICAO;
                 },
-                'filter'=> Html::dropDownList("SelecaoCelSearch[SEL_ID]", $model->SEL_ID, [], ['class'=>'form-control','prompt'=>'Selecione'])
+                'filter'=> Html::dropDownList("SelecaoCelSearch[SEL_ID]", $searchModel->SEL_ID, SelecaoCel::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
             ['class' => 'yii\grid\ActionColumn'],
         ],

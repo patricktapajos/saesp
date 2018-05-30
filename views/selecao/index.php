@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                      return  $model->getSituacaoText();
                 },
-                'filter'=> Html::dropDownList("SelecaoSearch[SEL_SITUACAO]", $model->SEL_SITUACAO, SituacaoSelecaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
+                'filter'=> Html::dropDownList("SelecaoSearch[SEL_SITUACAO]", $searchModel->SEL_SITUACAO, SituacaoSelecaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
 
             ['class' => 'yii\grid\ActionColumn'],

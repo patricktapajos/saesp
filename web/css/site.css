@@ -108,6 +108,28 @@ a.desc:after {
 
 
 /* Customizações */
+
+.site-index{
+    /*position: relative;*/
+    height: 75rem;
+}
+
+.vertical-center {
+   position: absolute;
+   top: 50%;
+   left:50%;
+   transform: translate(-50%,-50%);
+}
+
+/*
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+}*/
+
 .sys-navbar {
     background-color: rgb(51, 122, 183)/*rgba(48, 20, 97, 0.9)*/;
     border-color:  rgb(51, 122, 183);

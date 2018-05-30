@@ -50,7 +50,6 @@ AppAsset::register($this);
 
             /* Opções de menu para coordenador */
             ['label' => 'Modalidade', 'url' => ['/coordenador/modalidade/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
-            ['label' => 'Professor', 'url' => ['/coordenador/professor/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
             ['label' => 'Seleção', 'url' => ['/coordenador/selecaocel/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
 
             Yii::$app->user->isGuest ? (

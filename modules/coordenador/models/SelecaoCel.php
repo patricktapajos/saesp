@@ -89,11 +89,15 @@ class SelecaoCel extends \yii\db\ActiveRecord
         return ArrayHelper::map(Selecao::find()->andWhere("SEL_SITUACAO =:SEL_SITUACAO",[':SEL_SITUACAO'=>SituacaoSelecaoEnum::CADASTRADO])->all(), 'SEL_ID','SEL_DESCRICAO');
     }
 
-     public function getSelecao(){
+    public function getSelecao(){
         return $this->hasOne(Selecao::className(), ['SEL_ID'=>'SEL_ID']);
     }
 
     public function getCel(){
         return $this->hasOne(Cel::className(), ['CEL_ID'=>'CEL_ID']);
+    }
+
+    public static function listar(){
+        return ArrayHelper::map(self::find()->with('selecao')->andWhere("CEL_ID =:CEL_ID",[':CEL_ID'=>Yii::$app->user->identity->cel_id])->all(), 'selecao.SEL_ID','selecao.SEL_DESCRICAO');
     }
 }

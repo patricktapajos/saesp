@@ -57,11 +57,6 @@ class SelecaoSearch extends Selecao
             return $dataProvider;
         }
 
-        // grid filtering conditions
-        $query->andFilterWhere([
-            'SEL_ID' => $this->SEL_ID,
-        ]);
-
         $query->andFilterWhere(['like', 'SEL_DT_INICIO', $this->SEL_DT_INICIO])
             ->andFilterWhere(['like', 'SEL_DESCRICAO', $this->SEL_DESCRICAO])
             ->andFilterWhere(['like', 'SEL_DT_FIM', $this->SEL_DT_FIM])

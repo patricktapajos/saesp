@@ -25,6 +25,7 @@ class SelecaoController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                    'index' => ['GET']
                 ],
             ],
         ];
@@ -64,13 +65,12 @@ class SelecaoController extends Controller
      */
     public function actionCreate()
     {
-        if(Selecao::find()->andWhere("SEL_SITUACAO <> :SEL_SITUACAO", [':SEL_SITUACAO'=>SituacaoSelecaoEnum::CONCLUIDO])){
+        if(Selecao::find()->andWhere("SEL_SITUACAO <> :SEL_SITUACAO", [':SEL_SITUACAO'=>SituacaoSelecaoEnum::CONCLUIDO])->one()){
             throw new \yii\web\HttpException(403,"Já existe um Processo Seletivo em andamento.");
         }
 
         $model = new Selecao();
         $model->SEL_SITUACAO = SituacaoSelecaoEnum::CADASTRADO;    
-
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->SEL_ID]);

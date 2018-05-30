@@ -55,10 +55,11 @@ use app\models\SexoEnum;
         <div class="col-lg-4 col-sm-12">
             <?= $form->field($model, 'USU_SEXO')->radioList(SexoEnum::listar()) ?>
         </div>
-       
-        <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'USU_PERMISSAO')->radioList(PermissaoEnum::listar()) ?>
-        </div>
+        <?php  if($model->isNewRecord): ?>
+            <div class="col-lg-4 col-sm-12">
+                <?= $form->field($model, 'USU_PERMISSAO')->radioList(PermissaoEnum::listar()) ?>
+            </div>
+        <?php  endif; ?>
     </div>
 
     <div class="form-group">

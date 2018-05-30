@@ -21,6 +21,7 @@ class RestController extends \yii\web\Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'modalidades' => ['GET'],
+                    'coordenadores' => ['GET'],
                     'alterarmodalidades' => ['GET'],
                     'salvarcelselecao' => ['POST'],
                 ],
@@ -65,6 +66,24 @@ class RestController extends \yii\web\Controller
         }
 
         return $modalidades;
+    }
+
+    public function actionCoordenadores(){
+
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $listaUsuarios = [];
+        $descricao = strtolower($_GET['term']);
+    
+        $sql = "SELECT C.CRD_ID, U.USU_ID, USU_NOME FROM USUARIO U INNER JOIN COORDENADOR C ON U.USU_ID = C.USU_ID LEFT OUTER JOIN CEL ON C.CRD_ID = CEL.CRD_ID WHERE CEL.CRD_ID is null AND lower(USU_NOME) LIKE '%{$descricao}%'";
+        $createCommand = Yii::$app->db->createCommand($sql);
+        $usuarios = $createCommand->queryAll();
+    
+        foreach ($usuarios as $key=>$value) {
+            $listaUsuarios[$key]['id'] = "{$value['CRD_ID']}";
+            $listaUsuarios[$key]['label'] = $value['USU_NOME'];
+        }
+    
+        return $listaUsuarios;
     }
 
      public function actionProfessores(){

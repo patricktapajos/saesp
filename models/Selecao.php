@@ -46,14 +46,19 @@ class Selecao extends \yii\db\ActiveRecord
         return [
             'SEL_ID' => 'Código',
             'SEL_DESCRICAO'=>'Descrição',
-            'SEL_DT_INICIO' => 'Data Início',
-            'SEL_DT_FIM' => 'Data Fim',
+            'SEL_DT_INICIO' => 'Data Início Inscrições',
+            'SEL_DT_FIM' => 'Data Fim Inscrições',
             'SEL_SITUACAO' => 'Situação',
         ];
     }
 
     public static function inscricoesAbertas(){
         return self::find()->where("SEL_SITUACAO=:SEL_SITUACAO and trunc(sysdate) between SEL_DT_INICIO and SEL_DT_FIM",['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();
+
+    }
+
+     public static function cadastrarNaSelecao(){
+        return self::find()->where("SEL_SITUACAO=:SEL_SITUACAO or trunc(sysdate) between SEL_DT_INICIO and SEL_DT_FIM",['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();
 
     }
 

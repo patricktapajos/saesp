@@ -35,7 +35,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                      return  $model->getSexoText();
                 },
-                'filter'=> Html::dropDownList("UsuarioSearch[USU_SEXO]", $model->USU_SEXO, SexoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
+                'filter'=> Html::dropDownList("UsuarioSearch[USU_SEXO]", $searchModel->USU_SEXO, SexoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
             [
                 'label'=>'Permissão',
@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                      return  $model->getPermissaoText();
                 },
-                 'filter'=> Html::dropDownList("UsuarioSearch[USU_PERMISSAO]", $model->USU_PERMISSAO, PermissaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
+                 'filter'=> Html::dropDownList("UsuarioSearch[USU_PERMISSAO]", $searchModel->USU_PERMISSAO, PermissaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
             [
                 'label'=>'Situação',
@@ -53,7 +53,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                      return  $model->getSituacaoText();
                 },
-                'filter'=> Html::dropDownList("UsuarioSearch[USU_SITUACAO]", $model->USU_SITUACAO, SituacaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
+                'filter'=> Html::dropDownList("UsuarioSearch[USU_SITUACAO]", $searchModel->USU_SITUACAO, SituacaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
             ['class' => 'yii\grid\ActionColumn'],
         ],

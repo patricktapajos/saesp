@@ -27,18 +27,16 @@ SelecaoAsset::register($this);
 	<?php endif; ?>
     <div v-show="show_data_inscricao">
 	    <div class="col-sm-12 col-lg-6">
-		    <?= $form->field($model, 'SEL_DT_INICIO')->widget(\yii\jui\DatePicker::class, [
+		    <?= $form->field($model, 'SEL_DT_INICIO')->widget(\yii\jui\DatePicker::className(), [
 		    	'language'=>'pt-BR',
-			    'options'=>['id'=>'sel_dt_inicio','class'=>'form-control'],
-			    'clientEvents' => [
-				    'change' => 'function () { var date2 = $("#sel_dt_inicio").datepicker("getDate");
-		    			$("#sel_dt_fim").datepicker("option", "minDate", date2);}'
-				],
+		    	'dateFormat' => 'dd/MM/yyyy',
+			    'options'=>['id'=>'sel_dt_inicio','class'=>'form-control','v-on:blur'=>'atualizarData()'],
 			]) ?>
 		</div>
 	    <div class="col-sm-12 col-lg-6">
-		    <?= $form->field($model, 'SEL_DT_FIM')->widget(\yii\jui\DatePicker::class, [
+		    <?= $form->field($model, 'SEL_DT_FIM')->widget(\yii\jui\DatePicker::className(), [
 		    	'language'=>'pt-BR',
+		    	'dateFormat' => 'dd/MM/yyyy',
 			    'options'=>['id'=>'sel_dt_fim','class'=>'form-control'],
 			]) ?>
 		</div>
