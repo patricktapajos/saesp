@@ -4533,3 +4533,2397 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1527522386.45
     'REQUEST_TIME' => 1527522386
 ]
+2018-05-29 16:46:20 [127.0.0.1][63][dk2gi2dmbmqra8klojartfck06][error][yii\web\HttpException:403] exception 'yii\web\HttpException' with message 'Já existe um Processo Seletivo em andamento.' in C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php:68
+Stack trace:
+#0 [internal function]: app\controllers\SelecaoController->actionCreate()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('selecao/create', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-29 16:46:20 [127.0.0.1][63][dk2gi2dmbmqra8klojartfck06][info][application] $_COOKIE = [
+    '_csrf' => '023cc94be5147bf3bb12a10aaa5b0d02ec5afb07ff2a3ac1f442c70b61ed8a26a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"hcIdtYzlz6oA6-ERxLAtd11vVjFuuEUV\";}'
+    'PHPSESSID' => 'dk2gi2dmbmqra8klojartfck06'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=023cc94be5147bf3bb12a10aaa5b0d02ec5afb07ff2a3ac1f442c70b61ed8a26a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22hcIdtYzlz6oA6-ERxLAtd11vVjFuuEUV%22%3B%7D; PHPSESSID=dk2gi2dmbmqra8klojartfck06; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '61202'
+    'REDIRECT_URL' => '/selecao/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/selecao/create'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527626780.733
+    'REQUEST_TIME' => 1527626780
+]
+2018-05-29 17:00:02 [127.0.0.1][63][dk2gi2dmbmqra8klojartfck06][error][yii\base\UnknownMethodException] exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\jui\DatePicker::publish()' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Component.php:294
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\AssetManager.php(268): yii\base\Component->__call('publish', Array)
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\AssetManager.php(268): yii\jui\DatePicker->publish(Object(yii\web\AssetManager))
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\AssetManager.php(239): yii\web\AssetManager->loadBundle('yii\\jui\\DatePic...', Array, true)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\View.php(286): yii\web\AssetManager->getBundle('yii\\jui\\DatePic...')
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\View.php(291): yii\web\View->registerAssetBundle('yii\\jui\\DatePic...', NULL)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\AssetBundle.php(125): yii\web\View->registerAssetBundle('app\\assets\\Sele...')
+#6 C:\wamp\www\dsv\saespdev\views\selecao\_form.php(8): yii\web\AssetBundle::register(Object(yii\web\View))
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, NULL)
+#10 C:\wamp\www\dsv\saespdev\views\selecao\update.php(19): yii\base\View->render('_form', Array)
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\controllers\SelecaoController))
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('update', Array, Object(app\controllers\SelecaoController))
+#15 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(99): yii\base\Controller->render('update', Array)
+#16 [internal function]: app\controllers\SelecaoController->actionUpdate('22')
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#19 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('update', Array)
+#20 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('selecao/update', Array)
+#21 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#22 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#23 {main}
+2018-05-29 17:00:01 [127.0.0.1][63][dk2gi2dmbmqra8klojartfck06][info][application] $_GET = [
+    'id' => '22'
+]
+
+$_COOKIE = [
+    '_csrf' => '023cc94be5147bf3bb12a10aaa5b0d02ec5afb07ff2a3ac1f442c70b61ed8a26a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"hcIdtYzlz6oA6-ERxLAtd11vVjFuuEUV\";}'
+    'PHPSESSID' => 'dk2gi2dmbmqra8klojartfck06'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/view?id=22'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=023cc94be5147bf3bb12a10aaa5b0d02ec5afb07ff2a3ac1f442c70b61ed8a26a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22hcIdtYzlz6oA6-ERxLAtd11vVjFuuEUV%22%3B%7D; PHPSESSID=dk2gi2dmbmqra8klojartfck06; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '64515'
+    'REDIRECT_URL' => '/selecao/update'
+    'REDIRECT_QUERY_STRING' => 'id=22'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=22'
+    'REQUEST_URI' => '/selecao/update?id=22'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527627601.827
+    'REQUEST_TIME' => 1527627601
+]
+2018-05-30 09:49:26 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'SelecaoCel' not found' in C:\wamp\www\dsv\saespdev\modules\coordenador\views\selecaocel\index.php:31
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#3 C:\wamp\www\dsv\saespdev\modules\coordenador\controllers\SelecaoCelController.php(49): yii\base\Controller->render()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): app\modules\coordenador\controllers\SelecaocelController->actionIndex()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#11 {main}
+2018-05-30 09:49:26 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][info][application] $_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '4mi6kpj2itc2tvdrrqrpjgb9v3'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/coordenador/modalidade/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=4mi6kpj2itc2tvdrrqrpjgb9v3; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '65357'
+    'REDIRECT_URL' => '/coordenador/selecaocel/index'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/coordenador/selecaocel/index'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527688166.355
+    'REQUEST_TIME' => 1527688166
+]
+2018-05-30 09:50:09 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][error][yii\base\UnknownPropertyException] exception 'yii\base\UnknownPropertyException' with message 'Getting unknown property: app\modules\coordenador\models\SelecaoCel::SEL_DESCRICAO' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Component.php:148
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\BaseActiveRecord.php(288): yii\base\Component->__get('SEL_DESCRICAO')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\helpers\BaseArrayHelper.php(209): yii\db\BaseActiveRecord->__get('SEL_DESCRICAO')
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\helpers\BaseArrayHelper.php(580): yii\helpers\BaseArrayHelper::getValue(Object(app\modules\coordenador\models\SelecaoCel), 'SEL_DESCRICAO')
+#3 C:\wamp\www\dsv\saespdev\modules\coordenador\models\SelecaoCel.php(101): yii\helpers\BaseArrayHelper::map(Array, 'SEL_ID', 'SEL_DESCRICAO')
+#4 C:\wamp\www\dsv\saespdev\modules\coordenador\views\selecaocel\index.php(32): app\modules\coordenador\models\SelecaoCel::listar()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\coordenador\controllers\SelecaocelController))
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('index', Array, Object(app\modules\coordenador\controllers\SelecaocelController))
+#9 C:\wamp\www\dsv\saespdev\modules\coordenador\controllers\SelecaoCelController.php(49): yii\base\Controller->render('index', Array)
+#10 [internal function]: app\modules\coordenador\controllers\SelecaocelController->actionIndex()
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('index', Array)
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('coordenador/sel...', Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#16 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#17 {main}
+2018-05-30 09:50:09 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][info][application] $_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '4mi6kpj2itc2tvdrrqrpjgb9v3'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/coordenador/modalidade/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=4mi6kpj2itc2tvdrrqrpjgb9v3; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '65466'
+    'REDIRECT_URL' => '/coordenador/selecaocel/index'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/coordenador/selecaocel/index'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527688209.289
+    'REQUEST_TIME' => 1527688209
+]
+2018-05-30 09:51:05 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][error][yii\web\HttpException:405] exception 'yii\web\MethodNotAllowedHttpException' with message 'CEL já possui modalidades cadastradas no processo seletivo vigente.' in C:\wamp\www\dsv\saespdev\modules\coordenador\controllers\SelecaoCelController.php:73
+Stack trace:
+#0 [internal function]: app\modules\coordenador\controllers\SelecaocelController->actionCreate()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('coordenador/sel...', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-30 09:51:04 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][info][application] $_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '4mi6kpj2itc2tvdrrqrpjgb9v3'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/coordenador/selecaocel/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=4mi6kpj2itc2tvdrrqrpjgb9v3; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '49235'
+    'REDIRECT_URL' => '/coordenador/selecaocel/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/coordenador/selecaocel/create'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527688264.812
+    'REQUEST_TIME' => 1527688264
+]
+2018-05-30 09:52:13 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][error][yii\web\HttpException:403] exception 'yii\web\HttpException' with message 'Processo seletivo com inscrições abertas não pode mais ser alterado!' in C:\wamp\www\dsv\saespdev\modules\coordenador\controllers\SelecaoCelController.php:129
+Stack trace:
+#0 [internal function]: app\modules\coordenador\controllers\SelecaocelController->actionUpdate('51')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('update', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('coordenador/sel...', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-30 09:52:13 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][info][application] $_GET = [
+    'id' => '51'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '4mi6kpj2itc2tvdrrqrpjgb9v3'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/coordenador/selecaocel/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=4mi6kpj2itc2tvdrrqrpjgb9v3; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '49413'
+    'REDIRECT_URL' => '/coordenador/selecaocel/update'
+    'REDIRECT_QUERY_STRING' => 'id=51'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=51'
+    'REQUEST_URI' => '/coordenador/selecaocel/update?id=51'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527688333.41
+    'REQUEST_TIME' => 1527688333
+]
+2018-05-30 10:07:46 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][error][yii\web\HttpException:403] exception 'yii\web\HttpException' with message 'Processo seletivo com inscrições abertas não pode mais ser alterado!' in C:\wamp\www\dsv\saespdev\modules\coordenador\controllers\SelecaoCelController.php:129
+Stack trace:
+#0 [internal function]: app\modules\coordenador\controllers\SelecaocelController->actionUpdate('51')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('update', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('coordenador/sel...', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-30 10:07:46 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][info][application] $_GET = [
+    'id' => '51'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '4mi6kpj2itc2tvdrrqrpjgb9v3'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/coordenador/selecaocel/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=4mi6kpj2itc2tvdrrqrpjgb9v3; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '51419'
+    'REDIRECT_URL' => '/coordenador/selecaocel/update'
+    'REDIRECT_QUERY_STRING' => 'id=51'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=51'
+    'REQUEST_URI' => '/coordenador/selecaocel/update?id=51'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527689266.413
+    'REQUEST_TIME' => 1527689266
+]
+2018-05-30 10:08:52 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][error][yii\web\HttpException:403] exception 'yii\web\HttpException' with message 'Processo seletivo com inscrições abertas não pode mais ser alterado!' in C:\wamp\www\dsv\saespdev\modules\coordenador\controllers\SelecaoCelController.php:129
+Stack trace:
+#0 [internal function]: app\modules\coordenador\controllers\SelecaocelController->actionUpdate('51')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('update', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('coordenador/sel...', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-30 10:08:52 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][info][application] $_GET = [
+    'id' => '51'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '4mi6kpj2itc2tvdrrqrpjgb9v3'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/coordenador/selecaocel/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=4mi6kpj2itc2tvdrrqrpjgb9v3; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '51587'
+    'REDIRECT_URL' => '/coordenador/selecaocel/update'
+    'REDIRECT_QUERY_STRING' => 'id=51'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=51'
+    'REQUEST_URI' => '/coordenador/selecaocel/update?id=51'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527689332.245
+    'REQUEST_TIME' => 1527689332
+]
+2018-05-30 10:10:41 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][error][yii\web\HttpException:403] exception 'yii\web\HttpException' with message 'Processo seletivo com inscrições abertas não pode mais ser alterado!' in C:\wamp\www\dsv\saespdev\modules\coordenador\controllers\SelecaoCelController.php:129
+Stack trace:
+#0 [internal function]: app\modules\coordenador\controllers\SelecaocelController->actionUpdate('51')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('update', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('coordenador/sel...', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-30 10:10:41 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][info][application] $_GET = [
+    'id' => '51'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '4mi6kpj2itc2tvdrrqrpjgb9v3'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/coordenador/selecaocel/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=4mi6kpj2itc2tvdrrqrpjgb9v3; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '51859'
+    'REDIRECT_URL' => '/coordenador/selecaocel/update'
+    'REDIRECT_QUERY_STRING' => 'id=51'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=51'
+    'REQUEST_URI' => '/coordenador/selecaocel/update?id=51'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527689441.712
+    'REQUEST_TIME' => 1527689441
+]
+2018-05-30 10:10:45 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][error][yii\web\HttpException:405] exception 'yii\web\MethodNotAllowedHttpException' with message 'CEL já possui modalidades cadastradas no processo seletivo vigente.' in C:\wamp\www\dsv\saespdev\modules\coordenador\controllers\SelecaoCelController.php:73
+Stack trace:
+#0 [internal function]: app\modules\coordenador\controllers\SelecaocelController->actionCreate()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('coordenador/sel...', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-30 10:10:45 [127.0.0.1][41][4mi6kpj2itc2tvdrrqrpjgb9v3][info][application] $_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '4mi6kpj2itc2tvdrrqrpjgb9v3'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/coordenador/selecaocel/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=4mi6kpj2itc2tvdrrqrpjgb9v3; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '51882'
+    'REDIRECT_URL' => '/coordenador/selecaocel/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/coordenador/selecaocel/create'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527689445.427
+    'REQUEST_TIME' => 1527689445
+]
+2018-05-30 10:11:03 [127.0.0.1][-][9vkvbkeafvqr3gekddpsdebaq6][error][yii\web\HttpException:403] exception 'yii\web\HttpException' with message 'Não há processo seletivo aberto!' in C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php:76
+Stack trace:
+#0 [internal function]: app\modules\inscricao\controllers\CandidatoController->actionCreate()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-30 10:11:03 [127.0.0.1][-][9vkvbkeafvqr3gekddpsdebaq6][info][application] $_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '9vkvbkeafvqr3gekddpsdebaq6'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/inscricao/default/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=9vkvbkeafvqr3gekddpsdebaq6'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '51929'
+    'REDIRECT_URL' => '/inscricao/candidato/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/inscricao/candidato/create'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527689463.1
+    'REQUEST_TIME' => 1527689463
+]
+2018-05-30 10:39:04 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "cel/rest/coordenadores".' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('cel/rest/coorde...', Array)
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Página não encontrada.' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2018-05-30 10:39:04 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'term' => 'tes'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => '3Yg_kn1gxjTd5WFmR411GYx6vHGAvl6GoNwVvmRFPQi2-G7QE1X2B7apFwM2vyRbwBXeQPn1COLhrXTtFRBeUA=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_REFERER' => 'http://saesp/cel/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '56985'
+    'REDIRECT_URL' => '/cel/rest/coordenadores'
+    'REDIRECT_QUERY_STRING' => 'term=tes'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'term=tes'
+    'REQUEST_URI' => '/cel/rest/coordenadores?term=tes'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527691144.615
+    'REQUEST_TIME' => 1527691144
+]
+2018-05-30 10:39:18 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 904 OCIStmtExecute: ORA-00904: "U"."USU_ID": identificador inválido
+ (ext\pdo_oci\oci_statement.c:148)' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php:1067
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(1067): PDOStatement->execute()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(386): yii\db\Command->queryInternal('fetchAll', NULL)
+#2 C:\wamp\www\dsv\saespdev\controllers\RestController.php(79): yii\db\Command->queryAll()
+#3 [internal function]: app\controllers\RestController->actionCoordenadores()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('coordenadores', Array)
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('rest/coordenado...', Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#10 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 904 OCIStmtExecute: ORA-00904: "U"."USU_ID": identificador inválido
+ (ext\pdo_oci\oci_statement.c:148)
+The SQL being executed was: SELECT P.CRD_ID, U.USU_ID, USU_NOME FROM USUARIO INNER JOIN COORDENADOR ON U.USU_ID = COORDENADOR.USU_ID LEFT OUTER JOIN CEL ON COORDENADOR.CRD_ID = CEL.CRD_ID WHERE CEL.CRD_ID is null AND lower(USU_NOME) LIKE '%test%'' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Schema.php:595
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(1082): yii\db\Schema->convertException(Object(PDOException), 'SELECT P.CRD_ID...')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(386): yii\db\Command->queryInternal('fetchAll', NULL)
+#2 C:\wamp\www\dsv\saespdev\controllers\RestController.php(79): yii\db\Command->queryAll()
+#3 [internal function]: app\controllers\RestController->actionCoordenadores()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('coordenadores', Array)
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('rest/coordenado...', Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#10 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 904
+    [2] => OCIStmtExecute: ORA-00904: "U"."USU_ID": identificador inválido
+ (ext\pdo_oci\oci_statement.c:148)
+)
+
+2018-05-30 10:39:18 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'term' => 'test'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'B_wmNfOfrX9fjgbFjVU0NsF45JlwyuNtyWvJxhYKqcZsjHd3naqdTDTCcKD8Z2V0jReGqAmBtQmIGqiVZ1_Kng=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_REFERER' => 'http://saesp/cel/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '57041'
+    'REDIRECT_URL' => '/rest/coordenadores'
+    'REDIRECT_QUERY_STRING' => 'term=test'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'term=test'
+    'REQUEST_URI' => '/rest/coordenadores?term=test'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527691158.402
+    'REQUEST_TIME' => 1527691158
+]
+2018-05-30 10:39:20 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 904 OCIStmtExecute: ORA-00904: "U"."USU_ID": identificador inválido
+ (ext\pdo_oci\oci_statement.c:148)' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php:1067
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(1067): PDOStatement->execute()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(386): yii\db\Command->queryInternal('fetchAll', NULL)
+#2 C:\wamp\www\dsv\saespdev\controllers\RestController.php(79): yii\db\Command->queryAll()
+#3 [internal function]: app\controllers\RestController->actionCoordenadores()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('coordenadores', Array)
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('rest/coordenado...', Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#10 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 904 OCIStmtExecute: ORA-00904: "U"."USU_ID": identificador inválido
+ (ext\pdo_oci\oci_statement.c:148)
+The SQL being executed was: SELECT P.CRD_ID, U.USU_ID, USU_NOME FROM USUARIO INNER JOIN COORDENADOR ON U.USU_ID = COORDENADOR.USU_ID LEFT OUTER JOIN CEL ON COORDENADOR.CRD_ID = CEL.CRD_ID WHERE CEL.CRD_ID is null AND lower(USU_NOME) LIKE '%teste%'' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Schema.php:595
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(1082): yii\db\Schema->convertException(Object(PDOException), 'SELECT P.CRD_ID...')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(386): yii\db\Command->queryInternal('fetchAll', NULL)
+#2 C:\wamp\www\dsv\saespdev\controllers\RestController.php(79): yii\db\Command->queryAll()
+#3 [internal function]: app\controllers\RestController->actionCoordenadores()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('coordenadores', Array)
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('rest/coordenado...', Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#10 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 904
+    [2] => OCIStmtExecute: ORA-00904: "U"."USU_ID": identificador inválido
+ (ext\pdo_oci\oci_statement.c:148)
+)
+
+2018-05-30 10:39:20 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'term' => 'teste'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'B_wmNfOfrX9fjgbFjVU0NsF45JlwyuNtyWvJxhYKqcZsjHd3naqdTDTCcKD8Z2V0jReGqAmBtQmIGqiVZ1_Kng=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_REFERER' => 'http://saesp/cel/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '57067'
+    'REDIRECT_URL' => '/rest/coordenadores'
+    'REDIRECT_QUERY_STRING' => 'term=teste'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'term=teste'
+    'REQUEST_URI' => '/rest/coordenadores?term=teste'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527691159.992
+    'REQUEST_TIME' => 1527691159
+]
+2018-05-30 10:39:59 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 904 OCIStmtExecute: ORA-00904: "P"."CRD_ID": identificador inválido
+ (ext\pdo_oci\oci_statement.c:148)' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php:1067
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(1067): PDOStatement->execute()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(386): yii\db\Command->queryInternal('fetchAll', NULL)
+#2 C:\wamp\www\dsv\saespdev\controllers\RestController.php(79): yii\db\Command->queryAll()
+#3 [internal function]: app\controllers\RestController->actionCoordenadores()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('coordenadores', Array)
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('rest/coordenado...', Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#10 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 904 OCIStmtExecute: ORA-00904: "P"."CRD_ID": identificador inválido
+ (ext\pdo_oci\oci_statement.c:148)
+The SQL being executed was: SELECT P.CRD_ID, U.USU_ID, USU_NOME FROM USUARIO U INNER JOIN COORDENADOR C ON U.USU_ID = C.USU_ID LEFT OUTER JOIN CEL ON C.CRD_ID = CEL.CRD_ID WHERE CEL.CRD_ID is null AND lower(USU_NOME) LIKE '%tes%'' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Schema.php:595
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(1082): yii\db\Schema->convertException(Object(PDOException), 'SELECT P.CRD_ID...')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(386): yii\db\Command->queryInternal('fetchAll', NULL)
+#2 C:\wamp\www\dsv\saespdev\controllers\RestController.php(79): yii\db\Command->queryAll()
+#3 [internal function]: app\controllers\RestController->actionCoordenadores()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('coordenadores', Array)
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('rest/coordenado...', Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#9 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#10 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 904
+    [2] => OCIStmtExecute: ORA-00904: "P"."CRD_ID": identificador inválido
+ (ext\pdo_oci\oci_statement.c:148)
+)
+
+2018-05-30 10:39:59 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'term' => 'tes'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => 'application/json, text/javascript, */*; q=0.01'
+    'HTTP_X_CSRF_TOKEN' => 'MNexAFNrApQM9UeCgciOVpSUOJFBU1nmO-oWMfFr4Ppbp-BCPV4yp2e5Mefw-t8U2PtaoDgYD4J6m3digD6Dog=='
+    'HTTP_X_REQUESTED_WITH' => 'XMLHttpRequest'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_REFERER' => 'http://saesp/cel/create'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '57200'
+    'REDIRECT_URL' => '/rest/coordenadores'
+    'REDIRECT_QUERY_STRING' => 'term=tes'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'term=tes'
+    'REQUEST_URI' => '/rest/coordenadores?term=tes'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527691199.632
+    'REQUEST_TIME' => 1527691199
+]
+2018-05-30 10:41:52 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\web\HttpException:403] exception 'yii\web\HttpException' with message 'Já existe um Processo Seletivo em andamento.' in C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php:68
+Stack trace:
+#0 [internal function]: app\controllers\SelecaoController->actionCreate()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('selecao/create', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-30 10:41:52 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '57666'
+    'REDIRECT_URL' => '/selecao/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/selecao/create'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527691312.592
+    'REQUEST_TIME' => 1527691312
+]
+2018-05-30 10:42:20 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\web\HttpException:403] exception 'yii\web\HttpException' with message 'Já existe um Processo Seletivo em andamento.' in C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php:68
+Stack trace:
+#0 [internal function]: app\controllers\SelecaoController->actionCreate()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('selecao/create', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-30 10:42:20 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '57803'
+    'REDIRECT_URL' => '/selecao/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/selecao/create'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527691340.121
+    'REQUEST_TIME' => 1527691340
+]
+2018-05-30 10:43:47 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\web\HttpException:403] exception 'yii\web\HttpException' with message 'Já existe um Processo Seletivo em andamento.' in C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php:68
+Stack trace:
+#0 [internal function]: app\controllers\SelecaoController->actionCreate()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('selecao/create', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-30 10:43:47 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '58162'
+    'REDIRECT_URL' => '/selecao/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/selecao/create'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527691427.246
+    'REQUEST_TIME' => 1527691427
+]
+2018-05-30 10:53:35 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\base\UnknownPropertyException] exception 'yii\base\UnknownPropertyException' with message 'Setting unknown property: yii\jui\DatePicker::readonly' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Component.php:203
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(532): yii\base\Component->__set('readonly', true)
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(106): yii\BaseYii::configure(Object(yii\jui\DatePicker), Array)
+#2 [internal function]: yii\base\BaseObject->__construct(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs(Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('yii\\jui\\DatePic...', Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('yii\\jui\\DatePic...', Array, Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject(Array)
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\ActiveField.php(725): yii\base\Widget::widget(Array)
+#8 C:\wamp\www\dsv\saespdev\views\selecao\_form.php(34): yii\widgets\ActiveField->widget('yii\\jui\\DatePic...', Array)
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, NULL)
+#12 C:\wamp\www\dsv\saespdev\views\selecao\update.php(19): yii\base\View->render('_form', Array)
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\controllers\SelecaoController))
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('update', Array, Object(app\controllers\SelecaoController))
+#17 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(98): yii\base\Controller->render('update', Array)
+#18 [internal function]: app\controllers\SelecaoController->actionUpdate('22')
+#19 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#20 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#21 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('update', Array)
+#22 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('selecao/update', Array)
+#23 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#25 {main}
+2018-05-30 10:53:35 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'id' => '22'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '60635'
+    'REDIRECT_URL' => '/selecao/update'
+    'REDIRECT_QUERY_STRING' => 'id=22'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=22'
+    'REQUEST_URI' => '/selecao/update?id=22'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527692015.052
+    'REQUEST_TIME' => 1527692015
+]
+2018-05-30 11:02:12 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\base\UnknownPropertyException] exception 'yii\base\UnknownPropertyException' with message 'Setting unknown property: yii\jui\DatePicker::clientEventsa' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Component.php:203
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(532): yii\base\Component->__set('clientEventsa', Array)
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(106): yii\BaseYii::configure(Object(yii\jui\DatePicker), Array)
+#2 [internal function]: yii\base\BaseObject->__construct(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs(Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('yii\\jui\\DatePic...', Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('yii\\jui\\DatePic...', Array, Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject(Array)
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\ActiveField.php(725): yii\base\Widget::widget(Array)
+#8 C:\wamp\www\dsv\saespdev\views\selecao\_form.php(36): yii\widgets\ActiveField->widget('yii\\jui\\DatePic...', Array)
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, NULL)
+#12 C:\wamp\www\dsv\saespdev\views\selecao\update.php(19): yii\base\View->render('_form', Array)
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\controllers\SelecaoController))
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('update', Array, Object(app\controllers\SelecaoController))
+#17 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(98): yii\base\Controller->render('update', Array)
+#18 [internal function]: app\controllers\SelecaoController->actionUpdate('22')
+#19 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#20 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#21 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('update', Array)
+#22 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('selecao/update', Array)
+#23 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#24 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#25 {main}
+2018-05-30 11:02:12 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'id' => '22'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '62853'
+    'REDIRECT_URL' => '/selecao/update'
+    'REDIRECT_QUERY_STRING' => 'id=22'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=22'
+    'REQUEST_URI' => '/selecao/update?id=22'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527692532.35
+    'REQUEST_TIME' => 1527692532
+]
+2018-05-30 11:33:17 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\base\UnknownMethodException] exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\widgets\ActiveField::inputField()' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Component.php:294
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\views\selecao\_form.php(38): yii\base\Component->__call('inputField', Array)
+#1 C:\wamp\www\dsv\saespdev\views\selecao\_form.php(38): yii\widgets\ActiveField->inputField(Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, NULL)
+#5 C:\wamp\www\dsv\saespdev\views\selecao\update.php(19): yii\base\View->render('_form', Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\controllers\SelecaoController))
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('update', Array, Object(app\controllers\SelecaoController))
+#10 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(98): yii\base\Controller->render('update', Array)
+#11 [internal function]: app\controllers\SelecaoController->actionUpdate('22')
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('update', Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('selecao/update', Array)
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#18 {main}
+2018-05-30 11:33:17 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'id' => '22'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '53905'
+    'REDIRECT_URL' => '/selecao/update'
+    'REDIRECT_QUERY_STRING' => 'id=22'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=22'
+    'REQUEST_URI' => '/selecao/update?id=22'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527694397.276
+    'REQUEST_TIME' => 1527694397
+]
+2018-05-30 11:33:26 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\base\UnknownMethodException] exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\widgets\ActiveField::inputText()' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Component.php:294
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\views\selecao\_form.php(38): yii\base\Component->__call('inputText', Array)
+#1 C:\wamp\www\dsv\saespdev\views\selecao\_form.php(38): yii\widgets\ActiveField->inputText(Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, NULL)
+#5 C:\wamp\www\dsv\saespdev\views\selecao\update.php(19): yii\base\View->render('_form', Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\controllers\SelecaoController))
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('update', Array, Object(app\controllers\SelecaoController))
+#10 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(98): yii\base\Controller->render('update', Array)
+#11 [internal function]: app\controllers\SelecaoController->actionUpdate('22')
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('update', Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('selecao/update', Array)
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#18 {main}
+2018-05-30 11:33:26 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'id' => '22'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '53954'
+    'REDIRECT_URL' => '/selecao/update'
+    'REDIRECT_QUERY_STRING' => 'id=22'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=22'
+    'REQUEST_URI' => '/selecao/update?id=22'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527694406.22
+    'REQUEST_TIME' => 1527694406
+]
+2018-05-30 11:34:01 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\base\UnknownMethodException] exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: yii\widgets\ActiveField::inputField()' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Component.php:294
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\views\selecao\_form.php(39): yii\base\Component->__call('inputField', Array)
+#1 C:\wamp\www\dsv\saespdev\views\selecao\_form.php(39): yii\widgets\ActiveField->inputField('yii\\jui\\DatePic...', Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, NULL)
+#5 C:\wamp\www\dsv\saespdev\views\selecao\update.php(19): yii\base\View->render('_form', Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\controllers\SelecaoController))
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('update', Array, Object(app\controllers\SelecaoController))
+#10 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(98): yii\base\Controller->render('update', Array)
+#11 [internal function]: app\controllers\SelecaoController->actionUpdate('22')
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('update', Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('selecao/update', Array)
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#17 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#18 {main}
+2018-05-30 11:34:00 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'id' => '22'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '54081'
+    'REDIRECT_URL' => '/selecao/update'
+    'REDIRECT_QUERY_STRING' => 'id=22'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=22'
+    'REQUEST_URI' => '/selecao/update?id=22'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527694440.97
+    'REQUEST_TIME' => 1527694440
+]
+2018-05-30 14:44:32 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\base\InvalidParamException] exception 'yii\base\InvalidParamException' with message 'Operator 'SEL_SITUACAO' requires two operands.' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\QueryBuilder.php:1576
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\QueryBuilder.php(1195): yii\db\QueryBuilder->buildSimpleCondition('SEL_SITUACAO', Array, '<span class="st...')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\QueryBuilder.php(997): yii\db\QueryBuilder->buildCondition(Array, '<span class="st...')
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\QueryBuilder.php(117): yii\db\QueryBuilder->buildWhere(Array, '<span class="st...')
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\ActiveQuery.php(316): yii\db\QueryBuilder->build(Object(yii\db\ActiveQuery))
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Query.php(441): yii\db\ActiveQuery->createCommand(Object(yii\db\Connection))
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\ActiveQuery.php(337): yii\db\Query->queryScalar('COUNT(*)', Object(yii\db\Connection))
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Query.php(332): yii\db\ActiveQuery->queryScalar('COUNT(*)', NULL)
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\ActiveDataProvider.php(169): yii\db\Query->count('*', NULL)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(169): yii\data\ActiveDataProvider->prepareTotalCount()
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\ActiveDataProvider.php(106): yii\data\BaseDataProvider->getTotalCount()
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(101): yii\data\ActiveDataProvider->prepareModels()
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(114): yii\data\BaseDataProvider->prepare()
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(155): yii\data\BaseDataProvider->getModels()
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(190): yii\data\BaseDataProvider->getCount()
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(158): yii\widgets\BaseListView->renderSummary()
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\grid\GridView.php(316): yii\widgets\BaseListView->renderSection('{summary}')
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(135): yii\grid\GridView->renderSection('{summary}')
+#17 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}(Array)
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(138): preg_replace_callback('/{\\w+}/', Object(Closure), '{summary}\n{item...')
+#19 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\grid\GridView.php(291): yii\widgets\BaseListView->run()
+#20 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(140): yii\grid\GridView->run()
+#21 C:\wamp\www\dsv\saespdev\views\selecao\index.php(43): yii\base\Widget::widget(Array)
+#22 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#23 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#24 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\controllers\SelecaoController))
+#25 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('index', Array, Object(app\controllers\SelecaoController))
+#26 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(45): yii\base\Controller->render('index', Array)
+#27 [internal function]: app\controllers\SelecaoController->actionIndex()
+#28 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#29 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#30 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('index', Array)
+#31 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('selecao/index', Array)
+#32 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#33 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#34 {main}
+2018-05-30 14:44:32 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'SelecaoSearch' => [
+        'SEL_DESCRICAO' => ''
+        'SEL_DT_INICIO' => ''
+        'SEL_DT_FIM' => ''
+        'SEL_SITUACAO' => 'CONCLUIDO'
+    ]
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index?SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '61527'
+    'REDIRECT_URL' => '/selecao/index'
+    'REDIRECT_QUERY_STRING' => 'SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=CONCLUIDO'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=CONCLUIDO'
+    'REQUEST_URI' => '/selecao/index?SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=CONCLUIDO'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527705872.455
+    'REQUEST_TIME' => 1527705872
+]
+2018-05-30 14:44:41 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\db\Exception] exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 920 OCIStmtExecute: ORA-00920: operador relacional inválido
+ (ext\pdo_oci\oci_statement.c:148)' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php:1067
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(1067): PDOStatement->execute()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(412): yii\db\Command->queryInternal('<span class="st...', '<span class="nu...')
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Query.php(448): yii\db\Command->queryScalar()
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\ActiveQuery.php(337): yii\db\Query->queryScalar('<span class="st...', Object(yii\db\Connection))
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Query.php(332): yii\db\ActiveQuery->queryScalar('<span class="st...', '<span class="ke...')
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\ActiveDataProvider.php(169): yii\db\Query->count('<span class="st...', '<span class="ke...')
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(169): yii\data\ActiveDataProvider->prepareTotalCount()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\ActiveDataProvider.php(106): yii\data\BaseDataProvider->getTotalCount()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(101): yii\data\ActiveDataProvider->prepareModels()
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(114): yii\data\BaseDataProvider->prepare()
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(155): yii\data\BaseDataProvider->getModels()
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(190): yii\data\BaseDataProvider->getCount()
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(158): yii\widgets\BaseListView->renderSummary()
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\grid\GridView.php(316): yii\widgets\BaseListView->renderSection('<span class="st...')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(135): yii\grid\GridView->renderSection('<span class="st...')
+#15 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}('[<span class="s...')
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(138): preg_replace_callback('<span class="st...', Object(Closure), '<span class="st...')
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\grid\GridView.php(291): yii\widgets\BaseListView->run()
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(140): yii\grid\GridView->run()
+#19 C:\wamp\www\dsv\saespdev\views\selecao\index.php(43): yii\base\Widget::widget('[<span class="s...')
+#20 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#21 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#22 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(app\controllers\SelecaoController))
+#23 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('<span class="st...', '[<span class="s...', Object(app\controllers\SelecaoController))
+#24 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(45): yii\base\Controller->render('<span class="st...', '[<span class="s...')
+#25 [internal function]: app\controllers\SelecaoController->actionIndex()
+#26 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#27 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams('[<span class="s...')
+#28 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#29 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#30 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#31 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#32 {main}
+
+Next exception 'yii\db\Exception' with message 'SQLSTATE[HY000]: General error: 920 OCIStmtExecute: ORA-00920: operador relacional inválido
+ (ext\pdo_oci\oci_statement.c:148)
+The SQL being executed was: SELECT COUNT(*) FROM "SELECAO" WHERE "SEL_SITUACAO"  'CONCLUIDO'' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Schema.php:595
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(1082): yii\db\Schema->convertException(Object(PDOException), 'SELECT COUNT(*)...')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Command.php(412): yii\db\Command->queryInternal('<span class="st...', '<span class="nu...')
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Query.php(448): yii\db\Command->queryScalar()
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\ActiveQuery.php(337): yii\db\Query->queryScalar('<span class="st...', Object(yii\db\Connection))
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\db\Query.php(332): yii\db\ActiveQuery->queryScalar('<span class="st...', '<span class="ke...')
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\ActiveDataProvider.php(169): yii\db\Query->count('<span class="st...', '<span class="ke...')
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(169): yii\data\ActiveDataProvider->prepareTotalCount()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\ActiveDataProvider.php(106): yii\data\BaseDataProvider->getTotalCount()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(101): yii\data\ActiveDataProvider->prepareModels()
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(114): yii\data\BaseDataProvider->prepare()
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\data\BaseDataProvider.php(155): yii\data\BaseDataProvider->getModels()
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(190): yii\data\BaseDataProvider->getCount()
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(158): yii\widgets\BaseListView->renderSummary()
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\grid\GridView.php(316): yii\widgets\BaseListView->renderSection('<span class="st...')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(135): yii\grid\GridView->renderSection('<span class="st...')
+#15 [internal function]: yii\widgets\BaseListView->yii\widgets\{closure}('[<span class="s...')
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\BaseListView.php(138): preg_replace_callback('<span class="st...', Object(Closure), '<span class="st...')
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\grid\GridView.php(291): yii\widgets\BaseListView->run()
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(140): yii\grid\GridView->run()
+#19 C:\wamp\www\dsv\saespdev\views\selecao\index.php(43): yii\base\Widget::widget('[<span class="s...')
+#20 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#21 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('<span class="st...', '[<span class="s...')
+#22 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('<span class="st...', '[<span class="s...', Object(app\controllers\SelecaoController))
+#23 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('<span class="st...', '[<span class="s...', Object(app\controllers\SelecaoController))
+#24 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(45): yii\base\Controller->render('<span class="st...', '[<span class="s...')
+#25 [internal function]: app\controllers\SelecaoController->actionIndex()
+#26 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array('[<span class="t...', '[]')
+#27 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams('[<span class="s...')
+#28 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('<span class="st...', '[<span class="s...')
+#29 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('<span class="st...', '[<span class="s...')
+#30 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#31 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#32 {main}
+Additional Information:
+Array
+(
+    [0] => HY000
+    [1] => 920
+    [2] => OCIStmtExecute: ORA-00920: operador relacional inválido
+ (ext\pdo_oci\oci_statement.c:148)
+)
+
+2018-05-30 14:44:41 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'SelecaoSearch' => [
+        'SEL_DESCRICAO' => ''
+        'SEL_DT_INICIO' => ''
+        'SEL_DT_FIM' => ''
+        'SEL_SITUACAO' => 'CONCLUIDO'
+    ]
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index?SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '61589'
+    'REDIRECT_URL' => '/selecao/index'
+    'REDIRECT_QUERY_STRING' => 'SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=CONCLUIDO'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=CONCLUIDO'
+    'REQUEST_URI' => '/selecao/index?SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=CONCLUIDO'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527705881.751
+    'REQUEST_TIME' => 1527705881
+]
+2018-05-30 14:47:13 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Call to a member function formName() on null' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\helpers\BaseHtml.php:2166
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\helpers\BaseHtml.php(1567): yii\helpers\BaseHtml::activeListInput()
+#1 C:\wamp\www\dsv\saespdev\views\selecao\index.php(38): yii\helpers\BaseHtml::activeDropDownList()
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): ::unknown()
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#6 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(46): yii\base\Controller->render()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): app\controllers\SelecaoController->actionIndex()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#13 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#14 {main}
+2018-05-30 14:47:12 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'SelecaoSearch' => [
+        'SEL_DESCRICAO' => ''
+        'SEL_DT_INICIO' => ''
+        'SEL_DT_FIM' => ''
+        'SEL_SITUACAO' => 'INSCRICOES_ABERTAS'
+    ]
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_PRAGMA' => 'no-cache'
+    'HTTP_CACHE_CONTROL' => 'no-cache'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index?SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '62121'
+    'REDIRECT_URL' => '/selecao/index'
+    'REDIRECT_QUERY_STRING' => 'SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'REQUEST_URI' => '/selecao/index?SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527706032.809
+    'REQUEST_TIME' => 1527706032
+]
+2018-05-30 14:47:51 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected ','' in C:\wamp\www\dsv\saespdev\views\selecao\index.php:38
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#2 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(46): yii\base\Controller->render()
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): app\controllers\SelecaoController->actionIndex()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#9 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#10 {main}
+2018-05-30 14:47:51 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'SelecaoSearch' => [
+        'SEL_DESCRICAO' => ''
+        'SEL_DT_INICIO' => ''
+        'SEL_DT_FIM' => ''
+        'SEL_SITUACAO' => 'INSCRICOES_ABERTAS'
+    ]
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index?SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '62262'
+    'REDIRECT_URL' => '/selecao/index'
+    'REDIRECT_QUERY_STRING' => 'SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'REQUEST_URI' => '/selecao/index?SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527706070.998
+    'REQUEST_TIME' => 1527706070
+]
+2018-05-30 14:48:00 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Call to a member function formName() on string' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\helpers\BaseHtml.php:2166
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\helpers\BaseHtml.php(1567): yii\helpers\BaseHtml::activeListInput()
+#1 C:\wamp\www\dsv\saespdev\views\selecao\index.php(38): yii\helpers\BaseHtml::activeDropDownList()
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): ::unknown()
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#6 C:\wamp\www\dsv\saespdev\controllers\SelecaoController.php(46): yii\base\Controller->render()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): app\controllers\SelecaoController->actionIndex()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#13 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#14 {main}
+2018-05-30 14:48:00 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'SelecaoSearch' => [
+        'SEL_DESCRICAO' => ''
+        'SEL_DT_INICIO' => ''
+        'SEL_DT_FIM' => ''
+        'SEL_SITUACAO' => 'INSCRICOES_ABERTAS'
+    ]
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/selecao/index?SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '62302'
+    'REDIRECT_URL' => '/selecao/index'
+    'REDIRECT_QUERY_STRING' => 'SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'REQUEST_URI' => '/selecao/index?SelecaoSearch%5BSEL_DESCRICAO%5D=&SelecaoSearch%5BSEL_DT_INICIO%5D=&SelecaoSearch%5BSEL_DT_FIM%5D=&SelecaoSearch%5BSEL_SITUACAO%5D=INSCRICOES_ABERTAS'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527706080.089
+    'REQUEST_TIME' => 1527706080
+]
+2018-05-30 15:22:18 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected ''source'' (T_CONSTANT_ENCAPSED_STRING), expecting ']'' in C:\wamp\www\dsv\saespdev\views\cel\_form.php:61
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#1 C:\wamp\www\dsv\saespdev\views\cel\update.php(19): yii\base\View->render()
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): ::unknown()
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#6 C:\wamp\www\dsv\saespdev\controllers\CelController.php(92): yii\base\Controller->render()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): app\controllers\CelController->actionUpdate()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#13 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#14 {main}
+2018-05-30 15:22:18 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'id' => '1'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/cel/index'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '53701'
+    'REDIRECT_URL' => '/cel/update'
+    'REDIRECT_QUERY_STRING' => 'id=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=1'
+    'REQUEST_URI' => '/cel/update?id=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527708138.64
+    'REQUEST_TIME' => 1527708138
+]
+2018-05-30 15:30:23 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected ')', expecting ']'' in C:\wamp\www\dsv\saespdev\views\cel\_form.php:67
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#1 C:\wamp\www\dsv\saespdev\views\cel\update.php(19): yii\base\View->render()
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): ::unknown()
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#6 C:\wamp\www\dsv\saespdev\controllers\CelController.php(92): yii\base\Controller->render()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): app\controllers\CelController->actionUpdate()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#13 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#14 {main}
+2018-05-30 15:30:22 [127.0.0.1][63][8s8fea6dk9cbg7bujs218cg0a2][info][application] $_GET = [
+    'id' => '1'
+]
+
+$_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => '8s8fea6dk9cbg7bujs218cg0a2'
+    '_identity' => '7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[63,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 63
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/cel/view?id=1'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=8s8fea6dk9cbg7bujs218cg0a2; _identity=7fb4f85944a2afb098e97e5af411bbb38f5eb4177cc218fb31f6bf849ae82dd8a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B63%2Cnull%2C2592000%5D%22%3B%7D'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '55455'
+    'REDIRECT_URL' => '/cel/update'
+    'REDIRECT_QUERY_STRING' => 'id=1'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=1'
+    'REQUEST_URI' => '/cel/update?id=1'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527708622.932
+    'REQUEST_TIME' => 1527708622
+]
+2018-05-30 15:38:35 [127.0.0.1][-][qqmq3514sdhorrvn30u2h3sma5][error][yii\web\HttpException:403] exception 'yii\web\HttpException' with message 'Não há processo seletivo aberto!' in C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php:76
+Stack trace:
+#0 [internal function]: app\modules\inscricao\controllers\CandidatoController->actionCreate()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('create', Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#6 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#7 {main}
+2018-05-30 15:38:35 [127.0.0.1][-][qqmq3514sdhorrvn30u2h3sma5][info][application] $_COOKIE = [
+    '_csrf' => 'fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"kpQBn503kLveq2QBLob1yKVdAqaSqUcX\";}'
+    'PHPSESSID' => 'qqmq3514sdhorrvn30u2h3sma5'
+]
+
+$_SESSION = [
+    '__flash' => []
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://saesp/inscricao/default/login'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+    'HTTP_COOKIE' => '_csrf=fa193d62fecaaa4aac173654263e786f05873ece1f9c7adf83a9f9f87dead1b5a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22kpQBn503kLveq2QBLob1yKVdAqaSqUcX%22%3B%7D; PHPSESSID=qqmq3514sdhorrvn30u2h3sma5'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '57352'
+    'REDIRECT_URL' => '/inscricao/candidato/create'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/inscricao/candidato/create'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1527709115.367
+    'REQUEST_TIME' => 1527709115
+]

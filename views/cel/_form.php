@@ -53,15 +53,21 @@ use app\models\Coordenador;
         </div>
 
         <div class="col-lg-4 col-sm-12">
-            <?= $form->field($model, 'CRD_ID')->dropDownList(Coordenador::listarNaoRelacionados(),['prompt'=>'Selecione >>']); ?>
-
-            <?php /*$form->field($model, 'CRD_ID')->widget(\yii\jui\AutoComplete::classname(), [
+            <?= $form->field($model, '_nome_coordenador')->widget(\yii\jui\AutoComplete::classname(), [
                 'clientOptions' => [
                     'source' => '/rest/coordenadores',
                     'minLength'=>'3',
+                    'select'=>new yii\web\JsExpression("function(event, ui) {
+                        $('#CRD_ID').val(ui.item.id);
+                    }"),
+                    'change'=>new yii\web\JsExpression("function(event, ui) {
+                        $('#CRD_ID').val(ui.item? ui.item.id : '' );}"),
                 ],
                 'options'=>['class'=>'form-control']
-            ])*/ ?>
+            ]) ?>
+            
+            <?= Html::activeHiddenInput($model,'CRD_ID', ['id'=>'CRD_ID']); ?>
+            
         </div>
     </div>
 

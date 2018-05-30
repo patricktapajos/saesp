@@ -31,6 +31,11 @@ SelecaoAsset::register($this);
 		    	'language'=>'pt-BR',
 		    	'dateFormat' => 'dd/MM/yyyy',
 			    'options'=>['id'=>'sel_dt_inicio','class'=>'form-control','v-on:blur'=>'atualizarData()'],
+			    /*'clientOptions' => [
+                    'change'=>new yii\web\JsExpression("function(event, ui) {
+                        console.log('teste');
+                    }"),
+                ],*/
 			]) ?>
 		</div>
 	    <div class="col-sm-12 col-lg-6">

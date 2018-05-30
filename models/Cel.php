@@ -24,6 +24,8 @@ use Yii;
  */
 class Cel extends \yii\db\ActiveRecord
 {
+
+    public $_nome_coordenador;
     /**
      * @inheritdoc
      */
@@ -65,6 +67,7 @@ class Cel extends \yii\db\ActiveRecord
             'CEL_BAIRRO' => 'Bairro',
             'CEL_COMPLEMENTO_END' => 'Complemento',
             'CRD_ID' => 'Coordenador',
+            '_nome_coordenador' => 'Coordenador',
         ];
     }
 
@@ -74,5 +77,12 @@ class Cel extends \yii\db\ActiveRecord
 
     public function getModalidades(){
         return $this->hasMany(Modalidade::className(), ['CEL_ID'=>'CEL_ID']);
+    }
+
+    public function afterFind(){
+        
+        $this->_nome_coordenador = $this->coordenador->usuario->USU_NOME;
+
+        return parent::afterFind();
     }
 }
