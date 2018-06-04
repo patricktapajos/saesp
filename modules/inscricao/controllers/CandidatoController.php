@@ -7,8 +7,12 @@ use app\models\Usuario;
 use app\modules\inscricao\models\Candidato;
 use app\modules\coordenador\models\SelecaoModalidade;
 use app\modules\coordenador\models\SelecaoCel;
+use app\modules\inscricao\models\Inscricao;
+use app\modules\inscricao\models\InscricaoModalidade;
 use app\models\Selecao;
 use app\models\SituacaoSelecaoEnum;
+use app\models\PermissaoEnum;
+use app\models\SituacaoEnum;
 use app\modules\inscricao\models\CandidatoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -69,6 +73,10 @@ class CandidatoController extends Controller
     public function actionCreate()
     {
         $model = new Usuario();
+        $model->USU_PERMISSAO = PermissaoEnum::PERMISSAO_CANDIDATO;
+        $model->USU_SITUACAO = SituacaoEnum::ATIVO;
+
+        $inscricao = new Inscricao();
         $candidato = new Candidato();
         $selecao = Selecao::inscricoesAbertas();
        
@@ -78,10 +86,32 @@ class CandidatoController extends Controller
 
         $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
 
-        //var_dump($scels[0]->cels[0]);die;
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $candidato->CAND_ID]);
+        if (($model->load(Yii::$app->request->post()) && $model->validate())
+            && ($candidato->load(Yii::$app->request->post()) && $candidato->validate())) {
+
+            //var_dump(explode(',',$candidato->modalidades));die;
+
+            $trans = Yii::$app->db->beginTransaction();
+            try{
+                $model->save();
+                $candidato->USU_ID = $model->USU_ID;
+                $candidato->save();
+                $inscricao->CAND_ID = $candidato->CAND_ID;
+                $inscricao->SEL_ID = $selecao->SEL_ID;
+                $inscricao->save();
+                foreach (explode(',',$candidato->modalidades) as $modalidade) {
+                    $inscmod = new InscricaoModalidade();
+                    $inscmod->MDT_ID = $modalidade;
+                    $inscmod->INS_ID = $inscricao->INS_ID;
+                    $inscmod->save();
+                }
+                $trans->commit();
+                return $this->redirect(['view', 'id' => $candidato->CAND_ID]);
+            }catch(\Exception $e){
+                $trans->rollBack();
+                throw $e;
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -99,13 +129,25 @@ class CandidatoController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $candidato = $this->findModel($id);
+        $model = $candidato->usuario;
+        //$inscricao = $candidato->inscricao;
+        $selecao = Selecao::inscricoesAbertas();
+       
+        if(!$selecao){
+            throw new \yii\web\HttpException(403,"Não há processo seletivo aberto!");
+        }
+
+        $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->CAND_ID]);
         } else {
             return $this->render('update', [
                 'model' => $model,
+                'candidato' => $candidato,
+                'smods' => $smods
             ]);
         }
     }

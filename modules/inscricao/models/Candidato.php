@@ -2,6 +2,7 @@
 
 namespace app\modules\inscricao\models;
 use app\models\Usuario;
+use app\modules\inscricao\models\Inscricao;
 use Yii;
 
 /**
@@ -27,6 +28,7 @@ use Yii;
 class Candidato extends \yii\db\ActiveRecord
 {
     public $modalidades;
+    public $modalidade;
     /**
      * @inheritdoc
      */
@@ -55,14 +57,13 @@ class Candidato extends \yii\db\ActiveRecord
                 return $model->CAND_TEM_COMORBIDADE == '1';
             }],
             [['CAND_ESTADO_CIVIL'], 'string', 'max' => 15],
-            [['CAND_CPF'], 'string', 'max' => 11],
+            [['CAND_CPF'], 'string', 'max' => 14],
             [['CAND_LOGRADOURO', 'CAND_COMPLEMENTO_END', 'CAND_BAIRRO', 'CAND_NOME_EMERGENCIA', 'CAND_NOME_RESPONSAVEL'], 'string', 'max' => 255],
             [['CAND_CEP'], 'string', 'max' => 10],
             [['CAND_TEL_EMERGENCIA'], 'string', 'max' => 10],
             [['CAND_TEM_COMORBIDADE', 'CAND_TEM_MEDICACAO', 'CAND_PCD', 'CAND_MENOR_IDADE'], 'string', 'max' => 3],
             [['CAND_COMORBIDADE_DESC', 'CAND_MEDICACAO_DESC','CAND_PCD_DESC'], 'string', 'max' => 500],
             [['CAND_OBSERVACOES'], 'string', 'max' => 1500],
-            [['USU_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Usuario::className(), 'targetAttribute' => ['USU_ID' => 'USU_ID']],
         ];
     }
 
@@ -92,5 +93,18 @@ class Candidato extends \yii\db\ActiveRecord
             'CAND_PCD_DESC' => 'Descrição da Deficiência',
             'CAND_MENOR_IDADE' => 'Candidato Menor de Idade',
         ];
+    }
+
+     public function beforeValidate(){
+        $this->CAND_CEP = preg_replace('/[^0-9]/', '', $this->CAND_CEP);
+        return parent::beforeValidate();
+    }
+
+    public function getUsuario(){
+        return $this->hasOne(Usuario::className(), ['USU_ID'=>'USU_ID']);
+    }
+
+    public function getInscricao(){
+        return $this->hasOne(Inscricao::className(), ['CAND_ID'=>'CAND_ID']);
     }
 }

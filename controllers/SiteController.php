@@ -73,6 +73,7 @@ class SiteController extends Controller
     {
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+
             $this->redirecionarPorPermissao();
         }
         return $this->render('login', [
@@ -84,6 +85,10 @@ class SiteController extends Controller
         $endpoint = $this->goBack();
         if(Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)){
            $endpoint = $this->redirect(['/coordenador/default']);
+        
+        /* Candidato não poderá se logar por aqui */
+        }else if(Yii::$app->user->can(PermissaoEnum::PERMISSAO_CANDIDATO)){
+            $endpoint = $this->redirect(['logout']);
         }
         return $endpoint;
     }

@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\BaseHtml;
 use yii\widgets\ActiveForm;
 use kartik\tabs\TabsX;
 
@@ -9,10 +10,12 @@ use kartik\tabs\TabsX;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<?php $form = ActiveForm::begin(); ?>
+<?php $form = ActiveForm::begin(['enableClientValidation'=>false]); ?>
 
 <div class="candidato-form">
-
+    <div class="alert alert-danger">
+        <?= BaseHtml::errorSummary([$model,$candidato]); ?>
+    </div>
     <?php echo TabsX::widget([
             //'position'=>TabsX::POS_LEFT,
             'encodeLabels'=>false,
@@ -29,6 +32,7 @@ use kartik\tabs\TabsX;
                 [
                 'label'=>'<i class="glyphicon glyphicon-list-alt"></i> Modalidade',
                 'content'=>$this->render('_form_modalidade_partial', [
+                    'form'=>$form,
                     'smods'=>$smods,
                     'candidato'=>$candidato
                     ]), 

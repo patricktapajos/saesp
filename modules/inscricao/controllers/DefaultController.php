@@ -3,6 +3,7 @@
 namespace app\modules\inscricao\controllers;
 use Yii;
 use app\models\LoginForm;
+use app\models\PermissaoEnum;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -27,12 +28,12 @@ class DefaultController extends Controller
                     ],
                 ],
             ],
-            'verbs' => [
+            /*'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
                 ],
-            ],
+            ],*/
         ];
     }
 
@@ -53,6 +54,9 @@ class DefaultController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            if(!Yii::$app->user->can(PermissaoEnum::PERMISSAO_CANDIDATO)){
+                return $this->redirect(['logout']);
+            }
             return $this->redirect(['index']);
         }
         return $this->render('login', [

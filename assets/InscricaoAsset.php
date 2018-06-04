@@ -21,7 +21,8 @@ class InscricaoAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [];
     public $js = [
-    	'js/vue-components/modules-inscricao/dados-gerais.js'
+    	'js/vue-components/modules-inscricao/dados-gerais.js',
+    	'js/vue-components/modules-inscricao/modalidade.js'
     ];
     public $depends = [
         'app\assets\VueAsset',

@@ -18,5 +18,7 @@ var vue = new Vue({
 		this.$nextTick(function () {  
 			this.verificaRegra();
 	  	});
-	}
+	},
+	/*watch:*/
+
 });

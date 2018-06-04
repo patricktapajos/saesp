@@ -140,6 +140,12 @@ class Usuario extends \yii\db\ActiveRecord
                 $coord->USU_ID = $this->USU_ID;
                 $coord->save(false);
                 break;
+
+            case PermissaoEnum::PERMISSAO_PROFESSOR:
+                $prof = new Professor();
+                $prof->USU_ID = $this->USU_ID;
+                $prof->save(false);
+                break;
         }
     }
 
