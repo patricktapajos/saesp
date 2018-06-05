@@ -4,6 +4,7 @@ namespace app\models;
 use app\models\Administrador;
 use app\models\Coordenador;
 use app\models\Professor;
+use app\modules\inscricao\models\Candidato;
 use app\models\SexoEnum;
 use app\models\PermissaoEnum;
 use app\models\SituacaoEnum;
@@ -28,7 +29,11 @@ use Yii;
  */
 class Usuario extends \yii\db\ActiveRecord
 {
-    const SCENARIO_PROFESSOR = 'professor';
+    public $_senha_atual;
+    public $_nova_senha;
+    public $_nova_senha_confirmacao;
+    const SCENARIO_ESQUECI_SENHA = 'SCENARIO_ESQUECI_SENHA';
+    const SCENARIO_ALTERAR_SENHA = 'SCENARIO_ALTERAR_SENHA';
     /**
      * @inheritdoc
      */
@@ -40,7 +45,8 @@ class Usuario extends \yii\db\ActiveRecord
     public function scenarios()
     {
         $scenarios = parent::scenarios();
-        $scenarios [self::SCENARIO_PROFESSOR] = ['USU_NOME', 'USU_CPF','USU_EMAIL','USU_SEXO','USU_DT_NASC','USU_PERMISSAO','USU_SITUACAO'];
+        $scenarios [self::SCENARIO_ESQUECI_SENHA] = ['USU_CPF'];
+        $scenarios [self::SCENARIO_ALTERAR_SENHA] = ['USU_CPF','_senha_atual','_nova_senha','_nova_senha_confirmacao'];
         return $scenarios;
     }
 
@@ -54,10 +60,11 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO','USU_SITUACAO'], 'required'],
+            [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO','USU_SITUACAO'], 'required','on'=>['insert','update']],
             [['USU_NOME', 'USU_EMAIL', 'USU_SENHA'], 'string', 'max' => 255],
             ['USU_EMAIL','email'],
-            [['USU_EMAIL'],'validarHostEmail','on'=>['insert','']],
+            ['USU_CPF','required','on'=>[self::SCENARIO_ESQUECI_SENHA]],
+            //[['USU_EMAIL'],'validarHostEmail','on'=>['insert','']],
             [['USU_DT_NASC'], 'date'],
             [['USU_CPF'], CpfValidator::className()],
             [['USU_CPF'], 'string', 'max' => 14],
@@ -66,7 +73,11 @@ class Usuario extends \yii\db\ActiveRecord
             [['USU_SEXO'], 'string', 'max' => 15],
             [['USU_TELEFONE_1', 'USU_TELEFONE_2', 'USU_SITUACAO'], 'string', 'max' => 14],
             [['USU_PERMISSAO'], 'string', 'max' => 20],
-            [['USU_CPF'], 'unique'],
+            [['USU_CPF'], 'unique','on'=>['insert','update']],
+            [['USU_CPF','_senha_atual', '_nova_senha', '_nova_senha_confirmacao'], 'required', 'on'=>[self::SCENARIO_ALTERAR_SENHA]],
+            ['_nova_senha_confirmacao', 'compare', 'compareAttribute' => '_nova_senha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
+            [['_nova_senha'],'validaNovaSenha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
+            [['_senha_atual'],'validaSenhaAntiga','on'=>[self::SCENARIO_ALTERAR_SENHA]],
         ];
     }
 
@@ -87,6 +98,7 @@ class Usuario extends \yii\db\ActiveRecord
             'USU_SENHA' => 'Senha',
             'USU_SITUACAO' => 'Situação',
             'USU_PERMISSAO' => 'Perfil', 
+            '_nova_senha_confirmacao' => 'Confirmar nova senha'
         ];
     }
 
@@ -107,18 +119,22 @@ class Usuario extends \yii\db\ActiveRecord
         return $this->hasOne(Administrador::className(), ['USU_ID'=>'USU_ID']);
     }
 
+    public function getCandidato(){
+        return $this->hasOne(Candidato::className(), ['USU_ID'=>'USU_ID']);
+    }
+
      /*
     * Fim das Relations
     *
     */
 
-    public function validarHostEmail($attribute, $params){
+    /*public function validarHostEmail($attribute, $params){
         if(strpos( $this->$attribute, 'pmm.am.gov.br' ) !== false){            
             return true;
         }
         $this->addError($attribute, 'O email deve ser institucional (@pmm.am.gov.br)');
         return false;
-    }
+    }*/
 
     public function beforeValidate(){
         $this->USU_CPF = preg_replace('/[^0-9]/', '', $this->USU_CPF);
@@ -158,9 +174,15 @@ class Usuario extends \yii\db\ActiveRecord
 
     public function beforeSave(){
         if($this->isNewRecord){
-            $this->gerarSenha();
+            $senha = $this->gerarSenha();
+            $this->enviarSenhaEmail($senha);
             $this->USU_SITUACAO = SituacaoEnum::ATIVO;
         }
+
+        if($this->scenario == self::SCENARIO_ALTERAR_SENHA){
+            $this->USU_SENHA = md5($this->_nova_senha);
+        }
+
         return parent::beforeSave();
     }
 
@@ -182,28 +204,19 @@ class Usuario extends \yii\db\ActiveRecord
         return SituacaoEnum::listar()[$this->USU_SITUACAO];
     }
 
-    /*public function enviarEmail(){
+    public function enviarSenhaEmail($senha){
+        $subject = "SAESP (Sistema de Atividades Esportivas) - Credenciais de Acesso";
         
-        $mailer=new CMailer();
-        $mailer->AddAddress($this->USU_EMAIL);
-                
-        //Cabeçalho
-        if($this->scenario == 'esqueci')
-            $mailer->Subject=Yii::t('', '[SISCONP] Alteração de senha');    
-        else
-            $mailer->Subject=Yii::t('', '[SISCONP] Confirmação de Cadastro de Acesso'); 
-    
-        
-        //Conteúdo do email baseado no conteúdo da view chamada
-        $mailer->getView('email',array('model'=>$this,'senha'=>$senha == null ? $this->_senha_atual : $senha),null);
-        
-        
-        if(!$mailer->Send()){
-            return false;
+        if($this->scenario == self::SCENARIO_ESQUECI_SENHA){
+            $subject = "SAESP (Sistema de Atividades Esportivas) - Alteração de senha";    
         }
-        
-        return true;
-    }*/
+        $mailer = Yii::$app->mailer;
+        $mailer->compose(['html'=>'credencial'],['model'=>$this, 'senha'=>$senha])
+        ->setFrom('email.sistemas@pmm.am.gov.br')
+        ->setTo($this->USU_EMAIL)
+        ->setSubject($subject)
+        ->send();
+    }
 
     public function gerarSenha(){
         
@@ -228,5 +241,23 @@ class Usuario extends \yii\db\ActiveRecord
         }
      
         return $result;
+    }
+
+    public function validaNovaSenha($attribute, $params){
+        
+        if(($this->_nova_senha != null) && (strlen($this->_nova_senha) < 4 || strlen($this->_nova_senha) > 8 )){
+            $this->addError($attribute,'Nova senha deve conter entre 4 e 8 caracteres.');
+            return false;
+        }       
+        return true;
+    }
+    
+    public function validaSenhaAntiga($attribute, $params){
+        
+        if ( ($this->_senha_atual !=  null) && ($this->USU_SENHA != md5($this->_senha_atual))){
+            $this->addError($attribute,'Senha atual incorreta.');
+            return false;
+        }
+        return true;
     }
 }

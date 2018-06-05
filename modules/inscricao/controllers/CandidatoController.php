@@ -129,9 +129,8 @@ class CandidatoController extends Controller
      */
     public function actionUpdate($id)
     {
-        $candidato = $this->findModel($id);
-        $model = $candidato->usuario;
-        //$inscricao = $candidato->inscricao;
+        $model = Usuario::findOne($id);
+        $candidato = $model->candidato;
         $selecao = Selecao::inscricoesAbertas();
        
         if(!$selecao){
@@ -139,12 +138,30 @@ class CandidatoController extends Controller
         }
 
         $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+        
+        $inscricao = Inscricao::find()->where(['SEL_ID'=>$selecao->SEL_ID]);
 
+         if (($model->load(Yii::$app->request->post()) && $model->validate())
+            && ($candidato->load(Yii::$app->request->post()) && $candidato->validate())) {
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->CAND_ID]);
+            $trans = Yii::$app->db->beginTransaction();
+            try{
+                $model->save();
+                $candidato->save();
+                foreach (explode(',',$candidato->modalidades) as $modalidade) {
+                    $inscmod = new InscricaoModalidade();
+                    $inscmod->MDT_ID = $modalidade;
+                    $inscmod->INS_ID = $inscricao->INS_ID;
+                    $inscmod->save();
+                }
+                $trans->commit();
+                return $this->redirect(['view', 'id' => $candidato->CAND_ID]);
+            }catch(\Exception $e){
+                $trans->rollBack();
+                throw $e;
+            }
         } else {
-            return $this->render('update', [
+            return $this->render('create', [
                 'model' => $model,
                 'candidato' => $candidato,
                 'smods' => $smods

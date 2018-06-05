@@ -33,6 +33,7 @@ $this->title = 'Login';
         <?= $form->field($model, 'password')->passwordInput() ?>
 
          <?= $form->field($model, 'rememberMe')->checkbox() ?>
+         <?= Html::a('Esqueci a senha', ['usuario/esquecisenha'])?>
 
         <div class="form-group text-center">
             <?= Html::submitButton('Login', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>

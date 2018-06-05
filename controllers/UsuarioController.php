@@ -105,6 +105,45 @@ class UsuarioController extends Controller
         }
     }
 
+    public function actionEsquecisenha(){
+        
+        $model = new Usuario();
+        $model->setScenario(Usuario::SCENARIO_ESQUECI_SENHA);
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            
+            $usuario = Usuario::find()->where(['USU_CPF'=>$model->USU_CPF])->one();
+            $senha = $usuario->gerarSenha();
+            $usuario->setScenario(Usuario::SCENARIO_ESQUECI_SENHA);
+            
+            if($usuario->save() && $usuario->enviarSenhaEmail($senha)){
+                /*Yii::app()->user->setFlash('success', 'Senha enviada para o email cadastrado!');
+            }else{
+                Yii::app()->user->setFlash('error', 'Atenção! O email com a sua nova senha não foi enviado!');*/
+            }         
+            return $this->redirect(['site/login']);
+        } else {
+            return $this->render('esqueci_senha', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    public function actionAlterarsenha(){
+
+        $model = Usuario::findOne(Yii::$app->user->identity->id);
+        $model->setScenario(Usuario::SCENARIO_ALTERAR_SENHA);
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->save();
+            return $this->redirect(['site/logout']);
+        } else {
+            return $this->render('alterar_senha', [
+                'model' => $model,
+            ]);
+        }
+    }
+
     /**
      * Deletes an existing Usuario model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
