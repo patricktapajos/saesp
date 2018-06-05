@@ -38,13 +38,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter'=> Html::dropDownList("UsuarioSearch[USU_SEXO]", $searchModel->USU_SEXO, SexoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
             [
-                'label'=>'Permissão',
+                'label'=>'Perfil',
                 'attribute'=>'USU_PERMISSAO',
                 'format' => 'raw',
                 'value' => function ($model) {
                      return  $model->getPermissaoText();
                 },
-                 'filter'=> Html::dropDownList("UsuarioSearch[USU_PERMISSAO]", $searchModel->USU_PERMISSAO, PermissaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
+                 'filter'=> Html::dropDownList("UsuarioSearch[USU_PERMISSAO]", $searchModel->USU_PERMISSAO, PermissaoEnum::listarSearch(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
             [
                 'label'=>'Situação',

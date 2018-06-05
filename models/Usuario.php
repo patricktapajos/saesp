@@ -60,7 +60,7 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO','USU_SITUACAO'], 'required','on'=>['insert','update']],
+            [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO','USU_SITUACAO'], 'required','on'=>['insert','update','default']],
             [['USU_NOME', 'USU_EMAIL', 'USU_SENHA'], 'string', 'max' => 255],
             ['USU_EMAIL','email'],
             ['USU_CPF','required','on'=>[self::SCENARIO_ESQUECI_SENHA]],
@@ -73,7 +73,7 @@ class Usuario extends \yii\db\ActiveRecord
             [['USU_SEXO'], 'string', 'max' => 15],
             [['USU_TELEFONE_1', 'USU_TELEFONE_2', 'USU_SITUACAO'], 'string', 'max' => 14],
             [['USU_PERMISSAO'], 'string', 'max' => 20],
-            [['USU_CPF'], 'unique','on'=>['insert','update']],
+            [['USU_CPF'], 'unique','on'=>['insert','update','default']],
             [['USU_CPF','_senha_atual', '_nova_senha', '_nova_senha_confirmacao'], 'required', 'on'=>[self::SCENARIO_ALTERAR_SENHA]],
             ['_nova_senha_confirmacao', 'compare', 'compareAttribute' => '_nova_senha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
             [['_nova_senha'],'validaNovaSenha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
@@ -197,7 +197,7 @@ class Usuario extends \yii\db\ActiveRecord
     }
 
     public function getPermissaoText(){
-        return PermissaoEnum::listar()[$this->USU_PERMISSAO];
+        return PermissaoEnum::listarSearch()[$this->USU_PERMISSAO];
     }
 
     public function getSituacaoText(){

@@ -49,7 +49,7 @@ AppAsset::register($this);
             ['label' => 'Seleção', 'url' => ['/selecao/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
 
             ['label' => 'Alterar Senha', 'url' => ['/usuario/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],
-
+            ['label' => 'Alterar Dados', 'url' => ['candidato/update?id='.Yii::$app->user->identity->id], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_CANDIDATO)],
 
             /* Opções de menu para coordenador */
             ['label' => 'Modalidade', 'url' => ['/coordenador/modalidade/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],

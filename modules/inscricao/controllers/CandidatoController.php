@@ -88,7 +88,7 @@ class CandidatoController extends Controller
 
 
         if (($model->load(Yii::$app->request->post()) && $model->validate())
-            && ($candidato->load(Yii::$app->request->post()) && $candidato->validate())) {
+            || ($candidato->load(Yii::$app->request->post()) && $candidato->validate())) {
 
             //var_dump(explode(',',$candidato->modalidades));die;
 

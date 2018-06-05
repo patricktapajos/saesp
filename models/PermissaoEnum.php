@@ -15,4 +15,13 @@
 			PermissaoEnum::PERMISSAO_PROFESSOR => 'Professor',
 		];
 	}
+
+	public static function listarSearch(){
+		return [
+			PermissaoEnum::PERMISSAO_ADMIN => 'Administrador',
+			PermissaoEnum::PERMISSAO_COORDENADOR => 'Coordenador',
+			PermissaoEnum::PERMISSAO_PROFESSOR => 'Professor',
+			PermissaoEnum::PERMISSAO_CANDIDATO => 'Candidato',
+		];
+	}
 }

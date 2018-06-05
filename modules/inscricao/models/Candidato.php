@@ -43,7 +43,8 @@ class Candidato extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['modalidades','CAND_ESTADO_CIVIL','CAND_CEP','CAND_LOGRADOURO','CAND_BAIRRO'], 'required'],
+            [['CAND_ESTADO_CIVIL','CAND_CEP','CAND_LOGRADOURO','CAND_BAIRRO'], 'required','message'=>'[Dados Gerais] {attribute} obrigatório'],
+            [['modalidades'], 'required','message'=>'[Modalidade] {attribute} obrigatório'],
             ['CAND_NOME_RESPONSAVEL', 'required', 'when' => function($model) {
                 return $model->CAND_MENOR_IDADE == '1';
             }],

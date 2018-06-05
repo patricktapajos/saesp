@@ -13,7 +13,7 @@ use kartik\tabs\TabsX;
 <?php $form = ActiveForm::begin(['enableClientValidation'=>false]); ?>
 
 <div class="candidato-form">
-    <div class="alert alert-danger">
+    <div class="alert-danger">
         <?= BaseHtml::errorSummary([$model,$candidato]); ?>
     </div>
     <?php echo TabsX::widget([

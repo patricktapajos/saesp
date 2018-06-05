@@ -23,7 +23,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'CEL_NOME',
             'CEL_EMAIL',
             'CEL_TELEFONE',
-            'coordenador.usuario.USU_NOME',
+             [
+                'label'=>'Responsável',
+                'attribute'=>'coordenador.usuario.USU_NOME',
+                'format' => 'raw',
+                'value' => function ($model) {
+                     return  $model->coordenador->usuario->USU_NOME;
+                },
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
     ]); ?>
