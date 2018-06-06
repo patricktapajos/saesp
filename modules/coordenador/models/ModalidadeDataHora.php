@@ -1,7 +1,8 @@
 <?php
 
 namespace app\modules\coordenador\models;
-use app\modules\coordenador\modelsModalidadeDataHora;
+use app\modules\coordenador\models\ModalidadeDataHora;
+use app\modules\inscricao\models\InscricaoModalidade;
 use app\models\Professor;
 use Yii;
 
@@ -102,6 +103,10 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
 
     public function getModalidadeDiaSemana(){
         return $this->hasMany(ModalidadeDiaSemana::className(), ['MDT_ID'=>'MDT_ID']);
+    }
+
+    public function getQtdeInscritos(){
+        return  $this->hasMany(InscricaoModalidade::className(), ['MDT_ID'=>'MDT_ID'])->count();
     }
 
     public function getDiasSemana(){

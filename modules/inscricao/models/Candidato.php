@@ -43,8 +43,9 @@ class Candidato extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['CAND_ESTADO_CIVIL','CAND_CEP','CAND_LOGRADOURO','CAND_BAIRRO'], 'required','message'=>'[Dados Gerais] {attribute} obrigatório'],
-            [['modalidades'], 'required','message'=>'[Modalidade] {attribute} obrigatório'],
+            [['CAND_FOTO'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
+            [['CAND_ESTADO_CIVIL','CAND_CEP','CAND_LOGRADOURO','CAND_BAIRRO'], 'required','message'=>'{attribute} obrigatório'],
+            [['modalidades'], 'required','message'=>'{attribute} obrigatório'],
             ['CAND_NOME_RESPONSAVEL', 'required', 'when' => function($model) {
                 return $model->CAND_MENOR_IDADE == '1';
             }],
@@ -61,7 +62,7 @@ class Candidato extends \yii\db\ActiveRecord
             [['CAND_CPF'], 'string', 'max' => 14],
             [['CAND_LOGRADOURO', 'CAND_COMPLEMENTO_END', 'CAND_BAIRRO', 'CAND_NOME_EMERGENCIA', 'CAND_NOME_RESPONSAVEL'], 'string', 'max' => 255],
             [['CAND_CEP'], 'string', 'max' => 10],
-            [['CAND_TEL_EMERGENCIA'], 'string', 'max' => 10],
+            [['CAND_TEL_EMERGENCIA'], 'string', 'max' => 15],
             [['CAND_TEM_COMORBIDADE', 'CAND_TEM_MEDICACAO', 'CAND_PCD', 'CAND_MENOR_IDADE'], 'string', 'max' => 3],
             [['CAND_COMORBIDADE_DESC', 'CAND_MEDICACAO_DESC','CAND_PCD_DESC'], 'string', 'max' => 500],
             [['CAND_OBSERVACOES'], 'string', 'max' => 1500],
@@ -93,7 +94,13 @@ class Candidato extends \yii\db\ActiveRecord
             'CAND_PCD' => 'PcD (Pessoa Com Deficiência)',
             'CAND_PCD_DESC' => 'Descrição da Deficiência',
             'CAND_MENOR_IDADE' => 'Candidato Menor de Idade',
+            'CAND_FOTO' => 'Foto'
         ];
+    }
+
+    public function init(){
+        $this->CAND_TEM_COMORBIDADE = '0';
+        $this->CAND_TEM_MEDICACAO = '0';
     }
 
      public function beforeValidate(){
@@ -107,5 +114,13 @@ class Candidato extends \yii\db\ActiveRecord
 
     public function getInscricao(){
         return $this->hasOne(Inscricao::className(), ['CAND_ID'=>'CAND_ID']);
+    }
+
+    public function upload(){
+        return $this->CAND_FOTO->saveAs('uploads/' . $this->CAND_FOTO->baseName . '.' . $this->CAND_FOTO->extension);
+    }
+
+    public function getUrlFoto(){
+        return Yii::$app->request->baseUrl.'/uploads/'.$this->CAND_FOTO;
     }
 }

@@ -10,7 +10,7 @@ use kartik\tabs\TabsX;
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<?php $form = ActiveForm::begin(['enableClientValidation'=>false]); ?>
+<?php $form = ActiveForm::begin(['enableClientValidation'=>false, 'options' => ['enctype' => 'multipart/form-data']]); ?>
 
 <div class="candidato-form">
     <div class="alert-danger">

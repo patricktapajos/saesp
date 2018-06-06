@@ -5,7 +5,7 @@ use app\models\SexoEnum;
 use app\models\SimNaoEnum;
 use app\models\EstadoCivilEnum;
 use app\assets\InscricaoAsset;
-
+use yii\helpers\Html;
 InscricaoAsset::register($this);
 
  ?>
@@ -13,21 +13,36 @@ InscricaoAsset::register($this);
     <fieldset>
         <legend><i class="glyphicon glyphicon-triangle-right"></i>Dados Pessoais</legend>
         <div class="row">
+            
+            <div class="col-lg-6 col-sm-12 text-center">
+                <img src="<?= $candidato->getUrlFoto(); ?>" id="foto-candidato" width="160" height="150" />
+                <?= $form->field($candidato, 'CAND_FOTO')->fileInput(['id'=>'urlfoto']); ?>
+            </div>
 
-            <div class="col-lg-6 col-sm-12">
-                <?= $form->field($candidato, 'CAND_MENOR_IDADE')->checkbox(
-                    ['v-model'=>'show_responsavel',
-                     'true-value'=>'1',
-                     'false-value'=>'0']
-                ) ?>
+            <div class="col-lg-3 col-sm-12">
+                <input type="checkbox" class="form-checkbox" v-model="show_responsavel" true-value="1" false-value="0" checked="<?= $candidato->CAND_MENOR_IDADE; ?>">
+                    <label>Menor de Idade</label>
+                <?= Html::hiddenInput('Candidato[CAND_MENOR_IDADE]', $candidato->CAND_MENOR_IDADE, ['id'=>'CAND_MENOR_IDADE']); ?>
             </div>
-            <div class="col-lg-6 col-sm-12">
-                <?= $form->field($candidato, 'CAND_PCD')->checkbox(
-                    ['v-model'=>'show_pcd',
-                     'true-value'=>'1',
-                     'false-value'=>'0']
-                ) ?>
+
+            <transition name="fade">
+                <div class="col-lg-6 col-sm-12" v-show="show_responsavel == 1">
+                    <?= $form->field($candidato, 'CAND_NOME_RESPONSAVEL')->textInput(['maxlength' => true]) ?>
+                </div>
+            </transition>
+
+            <div class="col-lg-3 col-sm-12">
+                <input type="checkbox" class="form-checkbox" v-model="show_pcd" true-value="1" false-value="0"  checked="<?= $candidato->CAND_PCD; ?>">
+                    <label>PcD (Pessoa com deficiência)</label>
+                <?= Html::hiddenInput('Candidato[CAND_PCD]', $candidato->CAND_PCD, ['id'=>'CAND_PCD']); ?>
             </div>
+
+
+            <transition name="fade">
+                <div class="col-lg-6 col-sm-12" v-show="show_pcd == 1">
+                    <?= $form->field($candidato, 'CAND_PCD_DESC')->textInput(['maxlength' => true]) ?>
+                </div>
+            </transition>
 
             <div class="col-lg-6 col-sm-12">
                 <?= $form->field($model, 'USU_NOME')->textInput(['maxlength' => true]) ?>
@@ -37,6 +52,7 @@ InscricaoAsset::register($this);
                 <?= $form->field($model, 'USU_CPF')->widget(\yii\widgets\MaskedInput::className(), [
                     'mask'=>'999.999.999-99'
                 ]) ?>
+                <span v-show="show_responsavel == 1" class="text-danger">CPF do responsável é obrigatório para menores de idade</span>
             </div>
 
              <div class="col-lg-3 col-sm-12">
@@ -47,39 +63,29 @@ InscricaoAsset::register($this);
 
              <div class="col-lg-3 col-sm-12">
                 <?= $form->field($model, 'USU_TELEFONE_1')->widget(\yii\widgets\MaskedInput::className(), [
-                    'mask'=>'(99)\99999-9999'
+                    'mask'=>'(99)99999-9999'
                 ]) ?>
             </div>
             <div class="col-lg-3 col-sm-12">
                 <?= $form->field($model, 'USU_TELEFONE_2')->widget(\yii\widgets\MaskedInput::className(), [
-                    'mask'=>'(99)\99999-9999'
+                    'mask'=>'(99)99999-9999'
                 ]) ?>
             </div>
 
-             <div class="col-lg-6 col-sm-12">
+             <div class="col-lg-4 col-sm-12">
                 <?= $form->field($model, 'USU_EMAIL')->textInput(['maxlength' => true]) ?>
             </div>
         
-            <div class="col-lg-6 col-sm-12">
+            <div class="col-lg-3 col-sm-12">
                 <?= $form->field($model, 'USU_SEXO')->radioList(SexoEnum::listar()) ?>
             </div>
 
-            <div class="col-lg-6 col-sm-12">
+            <div class="col-lg-5 col-sm-12">
                 <?= $form->field($candidato, 'CAND_ESTADO_CIVIL')->radioList(EstadoCivilEnum::listar()) ?>
             </div>
 
-            <transition name="fade">
-                <div class="col-lg-6 col-sm-12" v-show="show_responsavel == 1">
-                    <?= $form->field($candidato, 'CAND_NOME_RESPONSAVEL')->textInput(['maxlength' => true]) ?>
-                    <span class="text-danger">Nome do responsável é obrigatório para menores de idade</span>
-                </div>
-            </transition>
+            
 
-            <transition name="fade">
-                <div class="col-lg-6 col-sm-12" v-show="show_pcd == 1">
-                    <?= $form->field($candidato, 'CAND_PCD_DESC')->textInput(['maxlength' => true]) ?>
-                </div>
-            </transition>
 
         </div>
     </fieldset>
@@ -111,16 +117,15 @@ InscricaoAsset::register($this);
         <legend><i class="glyphicon glyphicon-triangle-right"></i>Dados Complementares</legend>
         <div class="row">
             <div class="col-lg-6 col-sm-12">
-                <?= $form->field($candidato, 'CAND_TEM_COMORBIDADE')->checkbox(
-                    ['v-model'=>'show_comorbidade',
-                     'true-value'=>'1',
-                     'false-value'=>'0']) ?>
+                <input type="checkbox" v-model="show_comorbidade" true-value="1" false-value="0"  checked="<?= $candidato->CAND_TEM_COMORBIDADE; ?>">
+                    <label>Possui alguma comorbidade?</label>
+                <?= Html::hiddenInput('Candidato[CAND_TEM_COMORBIDADE]', $candidato->CAND_TEM_COMORBIDADE, ['id'=>'CAND_TEM_COMORBIDADE']); ?>
             </div>
 
             <div class="col-lg-6 col-sm-12">
-                <?= $form->field($candidato, 'CAND_TEM_MEDICACAO')->checkbox(['v-model'=>'show_medicacao',
-                     'true-value'=>'1',
-                     'false-value'=>'0']) ?>
+                <input type="checkbox" v-model="show_medicacao" true-value="1" false-value="0"  checked="<?= $candidato->CAND_TEM_MEDICACAO; ?>">
+                    <label>Ingere algum medicamento?</label>
+                <?= Html::hiddenInput('Candidato[CAND_TEM_MEDICACAO]', $candidato->CAND_TEM_MEDICACAO, ['id'=>'CAND_TEM_MEDICACAO']); ?>
             </div>
 
             <transition name="fade">
@@ -141,11 +146,10 @@ InscricaoAsset::register($this);
             
             <div class="col-lg-6 col-sm-12">
                 <?= $form->field($candidato, 'CAND_TEL_EMERGENCIA')->widget(\yii\widgets\MaskedInput::className(), [
-                    'mask'=>'(99)\99999-9999'
+                    'mask'=>'(99)99999-9999'
                 ]) ?>
             </div>
 
-            
             <div class="col-lg-6 col-sm-12">
                 <?= $form->field($candidato, 'CAND_OBSERVACOES')->textInput(['maxlength' => true]) ?>
             </div>

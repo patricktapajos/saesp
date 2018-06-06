@@ -6,8 +6,8 @@
 
 	const SOLTEIRO      = 'SOLTEIRO';
 	const CASADO        = 'CASADO';
-	const VIUVO         = 'INATIVO';
-	const DIVORCIADO    = 'INATIVO';
+	const VIUVO         = 'VIUVO';
+	const DIVORCIADO    = 'DIVORCIADO';
 	const UNIAO_ESTAVEL = 'UNIAO_ESTAVEL';
 
 	public static function listar(){

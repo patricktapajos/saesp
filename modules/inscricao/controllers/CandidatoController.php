@@ -17,7 +17,7 @@ use app\modules\inscricao\models\CandidatoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\web\UploadedFile;
 /**
  * CandidatolController implements the CRUD actions for Candidato model.
  */
@@ -85,21 +85,21 @@ class CandidatoController extends Controller
         }
 
         $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
-
+    
 
         if (($model->load(Yii::$app->request->post()) && $model->validate())
-            || ($candidato->load(Yii::$app->request->post()) && $candidato->validate())) {
-
-            //var_dump(explode(',',$candidato->modalidades));die;
+            && ($candidato->load(Yii::$app->request->post()) && $candidato->validate())) {
 
             $trans = Yii::$app->db->beginTransaction();
             try{
                 $model->save();
+                $candidato->CAND_FOTO = UploadedFile::getInstance($candidato, 'CAND_FOTO');
                 $candidato->USU_ID = $model->USU_ID;
-                $candidato->save();
+                $candidato->upload();
+                $candidato->save(false);
                 $inscricao->CAND_ID = $candidato->CAND_ID;
                 $inscricao->SEL_ID = $selecao->SEL_ID;
-                $inscricao->save();
+                $inscricao->save(false);
                 foreach (explode(',',$candidato->modalidades) as $modalidade) {
                     $inscmod = new InscricaoModalidade();
                     $inscmod->MDT_ID = $modalidade;
@@ -165,6 +165,21 @@ class CandidatoController extends Controller
                 'model' => $model,
                 'candidato' => $candidato,
                 'smods' => $smods
+            ]);
+        }
+    }
+
+    public function actionAlterarsenha(){
+
+        $model = Usuario::findOne(Yii::$app->user->identity->id);
+        $model->setScenario(Usuario::SCENARIO_ALTERAR_SENHA);
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->save();
+            return $this->redirect(['default/logout']);
+        } else {
+            return $this->render('@app/views/usuario/alterar_senha', [
+                'model' => $model,
             ]);
         }
     }

@@ -20,7 +20,7 @@ class Inscricao extends \yii\base\Module
     public function init()
     {
         parent::init();
-        //$this->layout = '@app/modules/inscricao/views/layouts/main';
+        $this->layout = '@app/modules/inscricao/views/layouts/main';
         Yii::$app->setHomeUrl(Url::to(['/inscricao/default/index']));
         // custom initialization code goes here
     }
