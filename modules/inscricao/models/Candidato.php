@@ -121,6 +121,10 @@ class Candidato extends \yii\db\ActiveRecord
     }
 
     public function getUrlFoto(){
-        return Yii::$app->request->baseUrl.'/uploads/'.$this->CAND_FOTO;
+        $photo = '/images/semfoto.png';
+        if($this->CAND_FOTO){
+            $photo = '/uploads/'.$this->CAND_FOTO;
+        }
+        return Yii::$app->request->baseUrl.$photo;
     }
 }

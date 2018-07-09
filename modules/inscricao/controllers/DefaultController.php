@@ -2,7 +2,7 @@
 
 namespace app\modules\inscricao\controllers;
 use Yii;
-use app\models\LoginForm;
+use app\modules\inscricao\models\LoginForm;
 use app\models\PermissaoEnum;
 use yii\web\Controller;
 use yii\filters\AccessControl;
@@ -54,9 +54,11 @@ class DefaultController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            if(!Yii::$app->user->can(PermissaoEnum::PERMISSAO_CANDIDATO)){
-                return $this->redirect(['logout']);
-            }
+            /*if(!Yii::$app->user->can(PermissaoEnum::PERMISSAO_CANDIDATO)){
+                Yii::$app->user->logout();
+                Yii::$app->session->setFlash('error', 'Permitido somente login de candidatos.');
+                return $this->refresh();
+            }*/
             return $this->redirect(['index']);
         }
         return $this->render('login', [

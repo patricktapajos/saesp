@@ -82,12 +82,22 @@ class SiteController extends Controller
     }
 
     public function redirecionarPorPermissao(){
+        
+        /* Permissão default, de admin*/
         $endpoint = $this->goBack();
+
+        /*Permissão de coordenador*/
         if(Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)){
            $endpoint = $this->redirect(['/coordenador/default']);
         
+        }
+        /*Permissão de professor*/
+        else if(Yii::$app->user->can(PermissaoEnum::PERMISSAO_PROFESSOR)){
+            $endpoint = $this->redirect(['/professor/default']);
+        }
+
         /* Candidato não poderá se logar por aqui */
-        }else if(Yii::$app->user->can(PermissaoEnum::PERMISSAO_CANDIDATO)){
+        else if(Yii::$app->user->can(PermissaoEnum::PERMISSAO_CANDIDATO)){
             $endpoint = $this->redirect(['logout']);
         }
         return $endpoint;

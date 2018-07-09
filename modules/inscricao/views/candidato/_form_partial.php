@@ -61,21 +61,22 @@ InscricaoAsset::register($this);
                 ]) ?>
             </div>
 
-             <div class="col-lg-3 col-sm-12">
+            <div class="col-lg-6 col-sm-12">
+                <?= $form->field($model, 'USU_EMAIL')->textInput(['maxlength' => true]) ?>
+            </div>
+
+             <div class="col-lg-2 col-sm-12">
                 <?= $form->field($model, 'USU_TELEFONE_1')->widget(\yii\widgets\MaskedInput::className(), [
                     'mask'=>'(99)99999-9999'
                 ]) ?>
             </div>
-            <div class="col-lg-3 col-sm-12">
+            <div class="col-lg-2 col-sm-12">
                 <?= $form->field($model, 'USU_TELEFONE_2')->widget(\yii\widgets\MaskedInput::className(), [
                     'mask'=>'(99)99999-9999'
                 ]) ?>
             </div>
 
-             <div class="col-lg-4 col-sm-12">
-                <?= $form->field($model, 'USU_EMAIL')->textInput(['maxlength' => true]) ?>
-            </div>
-        
+             
             <div class="col-lg-3 col-sm-12">
                 <?= $form->field($model, 'USU_SEXO')->radioList(SexoEnum::listar()) ?>
             </div>
@@ -122,18 +123,19 @@ InscricaoAsset::register($this);
                 <?= Html::hiddenInput('Candidato[CAND_TEM_COMORBIDADE]', $candidato->CAND_TEM_COMORBIDADE, ['id'=>'CAND_TEM_COMORBIDADE']); ?>
             </div>
 
-            <div class="col-lg-6 col-sm-12">
-                <input type="checkbox" v-model="show_medicacao" true-value="1" false-value="0"  checked="<?= $candidato->CAND_TEM_MEDICACAO; ?>">
-                    <label>Ingere algum medicamento?</label>
-                <?= Html::hiddenInput('Candidato[CAND_TEM_MEDICACAO]', $candidato->CAND_TEM_MEDICACAO, ['id'=>'CAND_TEM_MEDICACAO']); ?>
-            </div>
-
             <transition name="fade">
                 <div class="col-lg-6 col-sm-12" v-show="show_comorbidade == 1">
                     <?= $form->field($candidato, 'CAND_COMORBIDADE_DESC')->textInput(['maxlength' => true]) ?>
                 </div>        
             </transition>
 
+            <div class="col-lg-6 col-sm-12">
+                <input type="checkbox" v-model="show_medicacao" true-value="1" false-value="0"  checked="<?= $candidato->CAND_TEM_MEDICACAO; ?>">
+                    <label>Ingere algum medicamento?</label>
+                <?= Html::hiddenInput('Candidato[CAND_TEM_MEDICACAO]', $candidato->CAND_TEM_MEDICACAO, ['id'=>'CAND_TEM_MEDICACAO']); ?>
+            </div>
+
+            
             <transition name="fade">
                 <div class="col-lg-6 col-sm-12" v-show="show_medicacao == 1">
                     <?= $form->field($candidato, 'CAND_MEDICACAO_DESC')->textInput(['maxlength' => true]) ?>

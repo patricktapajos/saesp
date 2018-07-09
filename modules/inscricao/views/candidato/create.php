@@ -8,14 +8,18 @@ use yii\helpers\Html;
 
 $this->title = 'Ficha de Inscrição';
 ?>
+
 <div class="candidato-create">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <?= $this->render('_form', [
-        'model' => $model,
-        'candidato' => $candidato,
-        'smods' => $smods
-    ]) ?>
-
+	<div class="panel panel-primary">
+		<div class="panel-heading">
+    		<h2 class="panel-title"><?= Html::encode($this->title) ?></h2>
+  		</div>
+		<div class="panel-body">
+		    <?= $this->render('_form', [
+		        'model' => $model,
+		        'candidato' => $candidato,
+		        'smods' => $smods
+		    ]) ?>
+		</div>
+	</div>
 </div>

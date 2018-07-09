@@ -90,6 +90,7 @@ $config = [
             ],
         ],
         'db' => $db,
+        //'db'=>require(__DIR__ . '../../sdb/db.php'),
         
         'urlManager' => [
             'enablePrettyUrl' => true,
