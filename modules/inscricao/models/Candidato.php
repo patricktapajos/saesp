@@ -27,8 +27,12 @@ use Yii;
  */
 class Candidato extends \yii\db\ActiveRecord
 {
+    /* Lista de modalidades selecionadas, atributo utilizado para validação */
     public $modalidades;
     public $modalidade;
+
+    /* Atributo utilizado para verificação de alteração de foto do candidato */
+    public $photo;
     /**
      * @inheritdoc
      */
@@ -118,6 +122,21 @@ class Candidato extends \yii\db\ActiveRecord
 
     public function upload(){
         return $this->CAND_FOTO->saveAs('uploads/' . $this->CAND_FOTO->baseName . '.' . $this->CAND_FOTO->extension);
+    }
+
+    public function afterFind(){
+        $this->photo = $this->CAND_FOTO;
+    }
+
+    public function beforeSave($insert){
+        
+        if(!$insert){
+            if($this->CAND_FOTO == null){
+                $this->CAND_FOTO = $this->photo;
+            }
+        }
+
+        return parent::beforeSave();
     }
 
     public function getUrlFoto(){

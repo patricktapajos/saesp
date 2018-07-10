@@ -2,6 +2,8 @@
 
 namespace app\controllers;
 use app\models\Selecao;
+use app\modules\inscricao\models\Candidato;
+use app\modules\inscricao\models\InscricaoModalidade;
 use app\models\SituacaoSelecaoEnum;
 use app\modules\coordenador\models\Modalidade;
 use app\modules\coordenador\models\SelecaoCel;
@@ -23,6 +25,7 @@ class RestController extends \yii\web\Controller
                     'modalidades' => ['GET'],
                     'coordenadores' => ['GET'],
                     'alterarmodalidades' => ['GET'],
+                    'inscricaomodalidades' => ['GET'],
                     'salvarcelselecao' => ['POST'],
                 ],
             ],
@@ -62,6 +65,23 @@ class RestController extends \yii\web\Controller
                         $modalidades['modalidades'][$o]['complemento'][$n]['dias'][$p] = $mds->MDS_DESCRICAO; 
                     }
                 }
+            }
+        }
+
+        return $modalidades;
+    }
+
+
+     public function actionInscricaomodalidades(){
+
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $selecao = Selecao::find()->where(['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();
+        $candidato = Candidato::find()->where(['USU_ID'=>Yii::$app->user->identity->id])->one();
+        $smods = InscricaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['INS_ID'=>$candidato->inscricao->INS_ID])->all();
+
+        foreach ($smods as $o=>$smod) {
+            foreach ($smod->modalidadeDataHora as $n=>$mdh) {
+                $modalidades[] = $mdh->MDT_ID;
             }
         }
 

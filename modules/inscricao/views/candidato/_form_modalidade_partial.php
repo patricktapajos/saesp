@@ -36,7 +36,7 @@
 							<div class="col-lg-2">
 								<?php 
 									if($mdh->MDT_QTDE_VAGAS >= $mdh->qtdeinscritos){
-										echo $form->field($candidato, 'modalidade')->checkBox(['label'=>'','v-on:click'=>'adicionarModalidade($event)','value'=>$mdh->MDT_ID]);
+										echo $form->field($candidato, 'modalidade')->checkBox(['label'=>'','v-on:click'=>'adicionarModalidade($event.target.value)','value'=>$mdh->MDT_ID,'v-bind:id'=>$mdh->MDT_ID]);
 									}else{
 										echo "Vagas Esgotadas";
 									}

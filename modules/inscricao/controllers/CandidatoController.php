@@ -139,19 +139,32 @@ class CandidatoController extends Controller
 
         $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
         
-        $inscricao = Inscricao::find()->where(['SEL_ID'=>$selecao->SEL_ID]);
+        //$inscricao = Inscricao::find()->where(['SEL_ID'=>$selecao->SEL_ID]);
 
          if (($model->load(Yii::$app->request->post()) && $model->validate())
             && ($candidato->load(Yii::$app->request->post()) && $candidato->validate())) {
 
+            //var_dump(Yii::$app->request->post());die;
+
             $trans = Yii::$app->db->beginTransaction();
             try{
                 $model->save();
-                $candidato->save();
+                
+                $candidato->CAND_FOTO = UploadedFile::getInstance($candidato, 'CAND_FOTO');
+                if($candidato->CAND_FOTO){
+                    $candidato->upload();    
+                }
+                      
+                
+                $candidato->save(false);
+
+                //InscricaoModalidade::find()->where(['INS_ID'=>$candidato->inscricao->INS_ID])->deleteAll();
+                InscricaoModalidade::deleteAll('INS_ID =:INS_ID ',[':INS_ID'=>$candidato->inscricao->INS_ID]);
+
                 foreach (explode(',',$candidato->modalidades) as $modalidade) {
                     $inscmod = new InscricaoModalidade();
                     $inscmod->MDT_ID = $modalidade;
-                    $inscmod->INS_ID = $inscricao->INS_ID;
+                    $inscmod->INS_ID = $candidato->inscricao->INS_ID;
                     $inscmod->save();
                 }
                 $trans->commit();

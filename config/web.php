@@ -90,7 +90,7 @@ $config = [
             ],
         ],
         'db' => $db,
-        //'db'=>require(__DIR__ . '../../sdb/db.php'),
+        //'db'=>require(__DIR__ . '/../../sdb/saesp.php'),
         
         'urlManager' => [
             'enablePrettyUrl' => true,

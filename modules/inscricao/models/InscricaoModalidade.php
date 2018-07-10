@@ -44,4 +44,8 @@ class InscricaoModalidade extends \yii\db\ActiveRecord
             'MDT_ID' => 'Modalidade',
         ];
     }
+
+    public function getModalidadeDataHora(){
+        return $this->hasMany(ModalidadeDataHora::className(), ['MDT_ID'=>'MDT_ID']);
+    }
 }

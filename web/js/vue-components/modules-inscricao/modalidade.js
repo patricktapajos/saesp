@@ -4,17 +4,34 @@ var vue2 = new Vue({
 		modalidades: [],
 	},
 	methods:{
-		adicionarModalidade:function(event){
-			if($.inArray(event.target.value, this.modalidades) == -1){
-				this.modalidades.push(event.target.value);
+		adicionarModalidade:function(value){
+			if($.inArray(value, this.modalidades) == -1){
+				this.modalidades.push(value);
 			}else{
-				this.modalidades.splice(this.modalidades.find(item => item.id === event.target.value), 1);
+				this.modalidades.splice($.inArray(value, this.modalidades), 1);
 			}
 		},
+		carregarModalidades: function(){
+			var self = this;
+			$().blockScreen("Carregando Modalidades");
+			const url = '/../rest/inscricaomodalidades';
+		    $.get(url).then((data) => {
+		      	this.modalidades = data;
+		      	console.log(data);
+		      	$.each(data, function(id, value){
+		      		$('#'+value).attr('checked',true);
+		      	});
+			    $().unblockScreen();
+		    }).fail(function(error) {
+		    	$().unblockScreen();
+			    console.log(error);
+			 });
+		},
+
 	},
-	mounted: function(){
-		/*this.$nextTick(function () {  
-			this.verificaRegra();
-	  	});*/
+	mounted:function(){
+		this.$nextTick(function(){
+			this.carregarModalidades();
+		});
 	}
 });
