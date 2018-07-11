@@ -13,10 +13,10 @@ var vue = new Vue({
 	        let medic = $('#CAND_TEM_MEDICACAO').val();
 	        let menor = $('#CAND_MENOR_IDADE').val();
 	        let pcd = $('#CAND_PCD').val();
-	        if(comorb == '1'){ this.show_comorbidade = 1; }
-	        if(medic == '1'){ this.show_medicacao = 1; }
-	        if(menor == '1'){ this.show_responsavel = 1; }
-	        if(pcd == '1'){ this.show_pcd = 1; }
+	        if(comorb == 'SIM'){ this.show_comorbidade = 'SIM'; }
+	        if(medic == 'SIM'){ this.show_medicacao = 'SIM'; }
+	        if(menor == 'SIM'){ this.show_responsavel = 'SIM'; }
+	        if(pcd == 'SIM'){ this.show_pcd = 'SIM'; }
 	    },
 	},
 	mounted: function(){

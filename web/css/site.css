@@ -279,3 +279,9 @@ a.icone-index:hover {
 .fade-enter, .fade-leave-to /* .fade-leave-active em versões anteriores a 2.1.8 */ {
   opacity: 0;
 }
+
+.candidato-view {
+    border: 1px solid #eee;
+    padding: 10px;
+    display: flow-root;
+}

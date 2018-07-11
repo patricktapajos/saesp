@@ -15,22 +15,15 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	    <?php $form = ActiveForm::begin(); ?>
 
-	    <div class="row">
-	        <div class="col-lg-3 col-sm-12">
-	            <?= $form->field($model, '_senha_atual')->passwordInput(); ?>
-	        </div>
+        <?= $form->field($model, '_senha_atual')->passwordInput(); ?>
 
-	         <div class="col-lg-3 col-sm-12">
-	            <?= $form->field($model, '_nova_senha')->passwordInput(); ?>
-	        </div>
+        <?= $form->field($model, '_nova_senha')->passwordInput(); ?>
 
-	         <div class="col-lg-3 col-sm-12">
-	            <?= $form->field($model, '_nova_senha_confirmacao')->passwordInput(); ?>
-	        </div>
-	    </div>
+        <?= $form->field($model, '_nova_senha_confirmacao')->passwordInput(); ?>
 
 	    <div class="form-group">
 	        <?= Html::submitButton('Salvar',['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+	        <?= Html::a('Cancelar', [''] ,['class' => 'btn btn-danger']) ?>
 	    </div>
 
 	    <?php ActiveForm::end(); ?>

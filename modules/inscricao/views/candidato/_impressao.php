@@ -5,20 +5,13 @@ use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\inscricao\models\Candidato */
-
-$this->title = 'Visualização de Dados do Inscrito';
+$this->title = 'Comprovante de Inscrição';
 $this->params['breadcrumbs'][] = $this->title;
+
 ?>
 <div class="candidato-view">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <!--<?= Html::a('Atualizar', ['update', 'id' => $model->CAND_ID], ['class' => 'btn btn-primary']) ?>-->
-        <?= Html::a('Imprimir', ['imprimir', 'id' => $model->CAND_ID], ['class' => 'btn btn-warning','target'=>'_blank']) ?>
-        <?= Html::a('Sair', ['default/login'], ['class' => 'btn btn-danger']) ?>
-    </p>
-
     <br>
     <div class="col-lg-3 col-sm-12 text-center">
         <img src="<?php echo $model->getUrlFoto();?>" width="160" height="150">

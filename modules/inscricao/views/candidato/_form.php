@@ -46,6 +46,8 @@ use kartik\tabs\TabsX;
 <br>
 <div class="form-group">
     <?= Html::submitButton($candidato->isNewRecord ? 'Salvar' : 'Atualizar', ['class' => $candidato->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    <?= Html::a('Cancelar', ['/inscricao/default'] ,['class' => 'btn btn-danger']) ?>
+
 </div>
 
 <?php ActiveForm::end(); ?>

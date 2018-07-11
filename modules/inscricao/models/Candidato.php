@@ -2,6 +2,8 @@
 
 namespace app\modules\inscricao\models;
 use app\models\Usuario;
+use app\models\EstadoCivilEnum;
+use app\models\SimNaoEnum;
 use app\modules\inscricao\models\Inscricao;
 use Yii;
 
@@ -105,6 +107,7 @@ class Candidato extends \yii\db\ActiveRecord
     public function init(){
         $this->CAND_TEM_COMORBIDADE = '0';
         $this->CAND_TEM_MEDICACAO = '0';
+        $this->CAND_PCD = '0';
     }
 
      public function beforeValidate(){
@@ -126,6 +129,14 @@ class Candidato extends \yii\db\ActiveRecord
 
     public function afterFind(){
         $this->photo = $this->CAND_FOTO;
+    }
+
+    public function getEstadoCivilText(){
+        return EstadoCivilEnum::listar()[$this->CAND_ESTADO_CIVIL];
+    }
+
+    public function getSimNaoText($campo){
+        return SimNaoEnum::listar()[$this->$campo];
     }
 
     public function beforeSave($insert){

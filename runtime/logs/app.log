@@ -3863,3 +3863,1367 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1531254875.844
     'REQUEST_TIME' => 1531254875
 ]
+2018-07-10 17:06:34 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][error][yii\base\UnknownPropertyException] exception 'yii\base\UnknownPropertyException' with message 'Setting unknown property: yii\widgets\DetailView::nullDisplay' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Component.php:203
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(532): yii\base\Component->__set('nullDisplay', '')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(106): yii\BaseYii::configure(Object(yii\widgets\DetailView), Array)
+#2 [internal function]: yii\base\BaseObject->__construct(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs(Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('yii\\widgets\\Det...', Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('yii\\widgets\\Det...', Array, Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject(Array)
+#7 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(68): yii\base\Widget::widget(Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('view', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#12 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(65): yii\base\Controller->render('view', Array)
+#13 [internal function]: app\modules\inscricao\controllers\CandidatoController->actionView('19')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#20 {main}
+2018-07-10 17:06:34 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '0jslm5c77ibr8s7fjgtbttjgp7'
+    '_csrf' => 'e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"DDX6_itKANu3zRlKc87HOALPfSk7h4K0\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=0jslm5c77ibr8s7fjgtbttjgp7; _csrf=e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22DDX6_itKANu3zRlKc87HOALPfSk7h4K0%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '50353'
+    'REDIRECT_URL' => '/inscricao/candidato/view'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/view?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531256794.196
+    'REQUEST_TIME' => 1531256794
+]
+2018-07-10 17:06:58 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][error][yii\base\UnknownMethodException] exception 'yii\base\UnknownMethodException' with message 'Calling unknown method: app\modules\inscricao\models\Candidato::getEstadoCivilText()' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Component.php:294
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(51): yii\base\Component->__call('getEstadoCivilT...', Array)
+#1 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(51): app\modules\inscricao\models\Candidato->getEstadoCivilText()
+#2 [internal function]: yii\base\View->{closure}(Object(app\modules\inscricao\models\Candidato), Object(yii\widgets\DetailView))
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php(243): call_user_func(Object(Closure), Object(app\modules\inscricao\models\Candidato), Object(yii\widgets\DetailView))
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php(141): yii\widgets\DetailView->normalizeAttributes()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(108): yii\widgets\DetailView->init()
+#6 [internal function]: yii\base\BaseObject->__construct(Array)
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs(Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('yii\\widgets\\Det...', Array, Array)
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('yii\\widgets\\Det...', Array, Array)
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject(Array)
+#11 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(68): yii\base\Widget::widget(Array)
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('view', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#16 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(65): yii\base\Controller->render('view', Array)
+#17 [internal function]: app\modules\inscricao\controllers\CandidatoController->actionView('19')
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#19 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#20 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#21 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#22 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#23 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#24 {main}
+2018-07-10 17:06:57 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '0jslm5c77ibr8s7fjgtbttjgp7'
+    '_csrf' => 'e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"DDX6_itKANu3zRlKc87HOALPfSk7h4K0\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=0jslm5c77ibr8s7fjgtbttjgp7; _csrf=e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22DDX6_itKANu3zRlKc87HOALPfSk7h4K0%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '50443'
+    'REDIRECT_URL' => '/inscricao/candidato/view'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/view?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531256817.966
+    'REQUEST_TIME' => 1531256817
+]
+2018-07-10 17:07:40 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'app\modules\inscricao\models\EstadoCivilEnum' not found' in C:\wamp\www\dsv\saespdev\modules\inscricao\models\Candidato.php:132
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php(243): yii\base\View->{closure:C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php:50-52}()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php(243): ::call_user_func:{C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php:243}()
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php(141): yii\widgets\DetailView->normalizeAttributes()
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(108): yii\widgets\DetailView->init()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): yii\base\BaseObject->__construct()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs()
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject()
+#9 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(68): yii\base\Widget::widget()
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): ::unknown()
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile()
+#12 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#13 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#14 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(65): yii\base\Controller->render()
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): app\modules\inscricao\controllers\CandidatoController->actionView()
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#19 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#20 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#21 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#22 {main}
+2018-07-10 17:07:40 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '0jslm5c77ibr8s7fjgtbttjgp7'
+    '_csrf' => 'e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"DDX6_itKANu3zRlKc87HOALPfSk7h4K0\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=0jslm5c77ibr8s7fjgtbttjgp7; _csrf=e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22DDX6_itKANu3zRlKc87HOALPfSk7h4K0%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '50595'
+    'REDIRECT_URL' => '/inscricao/candidato/view'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/view?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531256860.372
+    'REQUEST_TIME' => 1531256860
+]
+2018-07-10 17:07:53 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The attribute must be specified in the format of "attribute", "attribute:format" or "attribute:format:label"' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php:209
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php(141): yii\widgets\DetailView->normalizeAttributes()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(108): yii\widgets\DetailView->init()
+#2 [internal function]: yii\base\BaseObject->__construct(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs(Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('yii\\widgets\\Det...', Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('yii\\widgets\\Det...', Array, Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject(Array)
+#7 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(68): yii\base\Widget::widget(Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('view', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#12 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(65): yii\base\Controller->render('view', Array)
+#13 [internal function]: app\modules\inscricao\controllers\CandidatoController->actionView('19')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#20 {main}
+2018-07-10 17:07:53 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '0jslm5c77ibr8s7fjgtbttjgp7'
+    '_csrf' => 'e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"DDX6_itKANu3zRlKc87HOALPfSk7h4K0\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=0jslm5c77ibr8s7fjgtbttjgp7; _csrf=e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22DDX6_itKANu3zRlKc87HOALPfSk7h4K0%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '50643'
+    'REDIRECT_URL' => '/inscricao/candidato/view'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/view?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531256873.559
+    'REQUEST_TIME' => 1531256873
+]
+2018-07-10 17:08:19 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'Object configuration must be an array containing a "class" element.' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php:353
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php(136): yii\BaseYii::createObject(Array)
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(108): yii\widgets\DetailView->init()
+#2 [internal function]: yii\base\BaseObject->__construct(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs(Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('yii\\widgets\\Det...', Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('yii\\widgets\\Det...', Array, Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject(Array)
+#7 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(68): yii\base\Widget::widget(Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('view', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#12 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(65): yii\base\Controller->render('view', Array)
+#13 [internal function]: app\modules\inscricao\controllers\CandidatoController->actionView('19')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#20 {main}
+2018-07-10 17:08:19 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '0jslm5c77ibr8s7fjgtbttjgp7'
+    '_csrf' => 'e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"DDX6_itKANu3zRlKc87HOALPfSk7h4K0\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=0jslm5c77ibr8s7fjgtbttjgp7; _csrf=e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22DDX6_itKANu3zRlKc87HOALPfSk7h4K0%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '50739'
+    'REDIRECT_URL' => '/inscricao/candidato/view'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/view?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531256899.013
+    'REQUEST_TIME' => 1531256899
+]
+2018-07-10 17:08:26 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The attribute must be specified in the format of "attribute", "attribute:format" or "attribute:format:label"' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php:209
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php(141): yii\widgets\DetailView->normalizeAttributes()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(108): yii\widgets\DetailView->init()
+#2 [internal function]: yii\base\BaseObject->__construct(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs(Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('yii\\widgets\\Det...', Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('yii\\widgets\\Det...', Array, Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject(Array)
+#7 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(68): yii\base\Widget::widget(Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('view', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#12 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(65): yii\base\Controller->render('view', Array)
+#13 [internal function]: app\modules\inscricao\controllers\CandidatoController->actionView('19')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#20 {main}
+2018-07-10 17:08:25 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '0jslm5c77ibr8s7fjgtbttjgp7'
+    '_csrf' => 'e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"DDX6_itKANu3zRlKc87HOALPfSk7h4K0\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=0jslm5c77ibr8s7fjgtbttjgp7; _csrf=e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22DDX6_itKANu3zRlKc87HOALPfSk7h4K0%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '50787'
+    'REDIRECT_URL' => '/inscricao/candidato/view'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/view?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531256905.777
+    'REQUEST_TIME' => 1531256905
+]
+2018-07-10 17:08:45 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][error][yii\base\UnknownPropertyException] exception 'yii\base\UnknownPropertyException' with message 'Setting unknown property: yii\widgets\DetailView::emptyCell' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Component.php:203
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(532): yii\base\Component->__set('emptyCell', '-')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(106): yii\BaseYii::configure(Object(yii\widgets\DetailView), Array)
+#2 [internal function]: yii\base\BaseObject->__construct(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs(Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('yii\\widgets\\Det...', Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('yii\\widgets\\Det...', Array, Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject(Array)
+#7 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(69): yii\base\Widget::widget(Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('view', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#12 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(65): yii\base\Controller->render('view', Array)
+#13 [internal function]: app\modules\inscricao\controllers\CandidatoController->actionView('19')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#20 {main}
+2018-07-10 17:08:45 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '0jslm5c77ibr8s7fjgtbttjgp7'
+    '_csrf' => 'e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"DDX6_itKANu3zRlKc87HOALPfSk7h4K0\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=0jslm5c77ibr8s7fjgtbttjgp7; _csrf=e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22DDX6_itKANu3zRlKc87HOALPfSk7h4K0%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '50872'
+    'REDIRECT_URL' => '/inscricao/candidato/view'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/view?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531256925.032
+    'REQUEST_TIME' => 1531256925
+]
+2018-07-10 17:08:52 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][error][yii\base\UnknownPropertyException] exception 'yii\base\UnknownPropertyException' with message 'Setting unknown property: yii\widgets\DetailView::emptyText' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Component.php:203
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(532): yii\base\Component->__set('emptyText', '-')
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(106): yii\BaseYii::configure(Object(yii\widgets\DetailView), Array)
+#2 [internal function]: yii\base\BaseObject->__construct(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs(Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('yii\\widgets\\Det...', Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('yii\\widgets\\Det...', Array, Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject(Array)
+#7 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(69): yii\base\Widget::widget(Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('view', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#12 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(65): yii\base\Controller->render('view', Array)
+#13 [internal function]: app\modules\inscricao\controllers\CandidatoController->actionView('19')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#20 {main}
+2018-07-10 17:08:52 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '0jslm5c77ibr8s7fjgtbttjgp7'
+    '_csrf' => 'e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"DDX6_itKANu3zRlKc87HOALPfSk7h4K0\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=0jslm5c77ibr8s7fjgtbttjgp7; _csrf=e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22DDX6_itKANu3zRlKc87HOALPfSk7h4K0%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '50898'
+    'REDIRECT_URL' => '/inscricao/candidato/view'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/view?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531256932.292
+    'REQUEST_TIME' => 1531256932
+]
+2018-07-10 17:10:18 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The attribute must be specified in the format of "attribute", "attribute:format" or "attribute:format:label"' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php:209
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php(141): yii\widgets\DetailView->normalizeAttributes()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(108): yii\widgets\DetailView->init()
+#2 [internal function]: yii\base\BaseObject->__construct(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs(Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('yii\\widgets\\Det...', Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('yii\\widgets\\Det...', Array, Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject(Array)
+#7 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(68): yii\base\Widget::widget(Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('view', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#12 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(65): yii\base\Controller->render('view', Array)
+#13 [internal function]: app\modules\inscricao\controllers\CandidatoController->actionView('19')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#20 {main}
+2018-07-10 17:10:17 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '0jslm5c77ibr8s7fjgtbttjgp7'
+    '_csrf' => 'e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"DDX6_itKANu3zRlKc87HOALPfSk7h4K0\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=0jslm5c77ibr8s7fjgtbttjgp7; _csrf=e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22DDX6_itKANu3zRlKc87HOALPfSk7h4K0%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '51194'
+    'REDIRECT_URL' => '/inscricao/candidato/view'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/view?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531257017.967
+    'REQUEST_TIME' => 1531257017
+]
+2018-07-10 17:10:31 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][error][yii\base\InvalidConfigException] exception 'yii\base\InvalidConfigException' with message 'The attribute must be specified in the format of "attribute", "attribute:format" or "attribute:format:label"' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php:209
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\widgets\DetailView.php(141): yii\widgets\DetailView->normalizeAttributes()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\BaseObject.php(108): yii\widgets\DetailView->init()
+#2 [internal function]: yii\base\BaseObject->__construct(Array)
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(381): ReflectionClass->newInstanceArgs(Array)
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\di\Container.php(156): yii\di\Container->build('yii\\widgets\\Det...', Array, Array)
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\BaseYii.php(349): yii\di\Container->get('yii\\widgets\\Det...', Array, Array)
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Widget.php(137): yii\BaseYii::createObject(Array)
+#7 C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\view.php(68): yii\base\Widget::widget(Array)
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(332): require('C:\\wamp\\www\\dsv...')
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#10 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#11 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('view', Array, Object(app\modules\inscricao\controllers\CandidatoController))
+#12 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(65): yii\base\Controller->render('view', Array)
+#13 [internal function]: app\modules\inscricao\controllers\CandidatoController->actionView('19')
+#14 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#15 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#16 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('view', Array)
+#17 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#18 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#19 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#20 {main}
+2018-07-10 17:10:30 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '0jslm5c77ibr8s7fjgtbttjgp7'
+    '_csrf' => 'e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"DDX6_itKANu3zRlKc87HOALPfSk7h4K0\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=0jslm5c77ibr8s7fjgtbttjgp7; _csrf=e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22DDX6_itKANu3zRlKc87HOALPfSk7h4K0%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '51241'
+    'REDIRECT_URL' => '/inscricao/candidato/view'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/view?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531257030.936
+    'REQUEST_TIME' => 1531257030
+]
+2018-07-10 17:24:46 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: inscricao/candidato/imprimir' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php:128
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('imprimir', Array)
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Página não encontrada.' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2018-07-10 17:24:45 [127.0.0.1][87][0jslm5c77ibr8s7fjgtbttjgp7][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '0jslm5c77ibr8s7fjgtbttjgp7'
+    '_csrf' => 'e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"DDX6_itKANu3zRlKc87HOALPfSk7h4K0\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:58.0) Gecko/20100101 Firefox/58.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/view?id=19'
+    'HTTP_COOKIE' => 'PHPSESSID=0jslm5c77ibr8s7fjgtbttjgp7; _csrf=e15d3441a0f1a3a70032411b93a8d95dcd06fcb9960d1589068e31fab91d1c5fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22DDX6_itKANu3zRlKc87HOALPfSk7h4K0%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '54375'
+    'REDIRECT_URL' => '/inscricao/candidato/imprimir'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/imprimir?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531257885.814
+    'REQUEST_TIME' => 1531257885
+]
+2018-07-11 09:02:22 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Class 'Html' not found' in C:\wamp\www\dsv\saespdev\modules\inscricao\views\default\index.php:4
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render()
+#3 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\DefaultController.php(46): yii\base\Controller->render()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): app\modules\inscricao\controllers\DefaultController->actionIndex()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#11 {main}
+2018-07-11 09:02:22 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][info][application] $_COOKIE = [
+    'PHPSESSID' => '4s87k6njchbhv713i2bivcn3g6'
+    '_csrf' => '067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=4s87k6njchbhv713i2bivcn3g6; _csrf=067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '53377'
+    'REDIRECT_URL' => '/inscricao/default/index'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/inscricao/default/index'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531314142.433
+    'REQUEST_TIME' => 1531314142
+]
+2018-07-11 10:15:32 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Call to a member function getUrlFoto() on null' in C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\_impressao.php:8
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(415): yii\base\View->render()
+#3 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(204): yii\base\Controller->renderPartial()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): app\modules\inscricao\controllers\CandidatoController->actionImprimir()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#11 {main}
+2018-07-11 10:15:32 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '4s87k6njchbhv713i2bivcn3g6'
+    '_csrf' => '067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/view?id=19'
+    'HTTP_COOKIE' => 'PHPSESSID=4s87k6njchbhv713i2bivcn3g6; _csrf=067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '50584'
+    'REDIRECT_URL' => '/inscricao/candidato/imprimir'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/imprimir?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531318532.057
+    'REQUEST_TIME' => 1531318532
+]
+2018-07-11 10:23:31 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][error][yii\base\ErrorException:1] exception 'yii\base\ErrorException' with message 'Call to a member function getUrlFoto() on null' in C:\wamp\www\dsv\saespdev\modules\inscricao\views\candidato\_impressao.php:8
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(250): yii\base\View->renderPhpFile()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\View.php(152): yii\base\View->renderFile()
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(415): yii\base\View->render()
+#3 C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php(205): yii\base\Controller->renderPartial()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): app\modules\inscricao\controllers\CandidatoController->actionImprimir()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php(57): ::call_user_func_array:{C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\InlineAction.php:57}()
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams()
+#7 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction()
+#8 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#9 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#10 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#11 {main}
+2018-07-11 10:23:30 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '4s87k6njchbhv713i2bivcn3g6'
+    '_csrf' => '067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/view?id=19'
+    'HTTP_COOKIE' => 'PHPSESSID=4s87k6njchbhv713i2bivcn3g6; _csrf=067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '51790'
+    'REDIRECT_URL' => '/inscricao/candidato/imprimir'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/imprimir?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531319010.886
+    'REQUEST_TIME' => 1531319010
+]
+2018-07-11 10:41:33 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected '=>' (T_DOUBLE_ARROW)' in C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php:205
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(638): ::spl_autoload_call()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(638): ::class_exists()
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(596): yii\base\Module->createControllerByID()
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(588): yii\base\Module->createController()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(522): yii\base\Module->createController()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#7 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#8 {main}
+2018-07-11 10:41:33 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '4s87k6njchbhv713i2bivcn3g6'
+    '_csrf' => '067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/view?id=19'
+    'HTTP_COOKIE' => 'PHPSESSID=4s87k6njchbhv713i2bivcn3g6; _csrf=067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_IF_MODIFIED_SINCE' => 'Wed, 11 Jul 2018 14:36:22 GMT'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '54296'
+    'REDIRECT_URL' => '/inscricao/candidato/imprimir'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/imprimir?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531320093.369
+    'REQUEST_TIME' => 1531320093
+]
+2018-07-11 10:41:41 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][error][yii\base\ErrorException:4] exception 'yii\base\ErrorException' with message 'syntax error, unexpected ','' in C:\wamp\www\dsv\saespdev\modules\inscricao\controllers\CandidatoController.php:205
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(638): ::spl_autoload_call()
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(638): ::class_exists()
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(596): yii\base\Module->createControllerByID()
+#3 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(588): yii\base\Module->createController()
+#4 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(522): yii\base\Module->createController()
+#5 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction()
+#6 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest()
+#7 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#8 {main}
+2018-07-11 10:41:41 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][info][application] $_GET = [
+    'id' => '19'
+]
+
+$_COOKIE = [
+    'PHPSESSID' => '4s87k6njchbhv713i2bivcn3g6'
+    '_csrf' => '067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/view?id=19'
+    'HTTP_COOKIE' => 'PHPSESSID=4s87k6njchbhv713i2bivcn3g6; _csrf=067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '54324'
+    'REDIRECT_URL' => '/inscricao/candidato/imprimir'
+    'REDIRECT_QUERY_STRING' => 'id=19'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'id=19'
+    'REQUEST_URI' => '/inscricao/candidato/imprimir?id=19'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531320101.131
+    'REQUEST_TIME' => 1531320101
+]
+2018-07-11 11:34:46 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request "inscricao/inscricao/default".' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/inscr...', Array)
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#3 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Página não encontrada.' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2018-07-11 11:34:46 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][info][application] $_COOKIE = [
+    'PHPSESSID' => '4s87k6njchbhv713i2bivcn3g6'
+    '_csrf' => '067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=4s87k6njchbhv713i2bivcn3g6; _csrf=067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '61683'
+    'REDIRECT_URL' => '/inscricao/inscricao/default'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/inscricao/inscricao/default'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531323286.599
+    'REQUEST_TIME' => 1531323286
+]
+2018-07-11 11:35:15 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][error][yii\web\HttpException:404] exception 'yii\base\InvalidRouteException' with message 'Unable to resolve the request: inscricao/candidato/default' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Controller.php:128
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('default', Array)
+#1 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('inscricao/candi...', Array)
+#2 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#3 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#4 {main}
+
+Next exception 'yii\web\NotFoundHttpException' with message 'Página não encontrada.' in C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saespdev\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saespdev\web\index.php(12): yii\base\Application->run()
+#2 {main}
+2018-07-11 11:35:15 [127.0.0.1][87][4s87k6njchbhv713i2bivcn3g6][info][application] $_COOKIE = [
+    'PHPSESSID' => '4s87k6njchbhv713i2bivcn3g6'
+    '_csrf' => '067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd\";}'
+    '_identity' => '636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[87,null,2592000]\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 87
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'saesp'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:59.0) Gecko/20100101 Firefox/59.0'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.8,en-US;q=0.5,en;q=0.3'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate'
+    'HTTP_REFERER' => 'http://saesp/inscricao/candidato/update?id=87'
+    'HTTP_COOKIE' => 'PHPSESSID=4s87k6njchbhv713i2bivcn3g6; _csrf=067fd7df6c781d0aa1f2ef9cdc200216780d08472d7269fd9441e7b404d05c63a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22eRPFBbUGnkp6KJN60AT8CRYyfjqT_Hnd%22%3B%7D; _identity=636b5442c2fcdcd0aefa6ac6aaac0dc06f86b3f307f9d785bc20e488615b1991a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B87%2Cnull%2C2592000%5D%22%3B%7D'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'PATH' => 'C:\\ProgramData\\Oracle\\Java\\javapath;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_2\\bin;C:\\app\\patrick.tapajos\\product\\11.2.0\\client_1;C:\\Program Files (x86)\\Oracle\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\wamp\\bin\\php\\php5.6.25;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii-1.13\\framework;C:\\Android\\platform-tools;C:\\Django-1.4.1\\django\\bin;C:\\Borland\\BCC55\\Bin;C:\\jboss\\bin;C:\\wamp\\bin\\mysql\\mysql5.1.30\\bin;C:\\Program Files (x86)\\Java\\jdk1.8.0_152\\bin;C:\\BitNami\\wappstack-5.4.15-0\\apache2\\htdocs\\dsv\\yii-1.1;C:\\BitNami\\wappstack-5.4.15-0\\php;C:\\bin;C:\\Program Files\\TortoiseGit\\bin;C:\\Program Files\\Git\\cmd;C:\\Program Files\\apache-maven-3.3.9\\bin;C:\\Program Files\\nodejs\\;C:\\ProgramData\\ComposerSetup\\bin;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk;C:\\Users\\patrick.tapajos.SUBTI\\AppData\\Local\\Android\\sdk\\platform-tools;C:\\Gradle\\gradle-4.5\\bin;C:\\Program Files\\TortoiseSVN\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.23 (Win32) PHP/5.6.25 Server at saesp Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.23 (Win32) PHP/5.6.25'
+    'SERVER_NAME' => 'saesp'
+    'SERVER_ADDR' => '127.0.0.1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '127.0.0.1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www/dsv/saespdev/web'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saespdev/web/index.php'
+    'REMOTE_PORT' => '61787'
+    'REDIRECT_URL' => '/inscricao/candidato/default'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/inscricao/candidato/default'
+    'SCRIPT_NAME' => '/index.php'
+    'PHP_SELF' => '/index.php'
+    'REQUEST_TIME_FLOAT' => 1531323315.236
+    'REQUEST_TIME' => 1531323315
+]

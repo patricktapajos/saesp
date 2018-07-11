@@ -20,26 +20,26 @@ InscricaoAsset::register($this);
             </div>
 
             <div class="col-lg-3 col-sm-12">
-                <input type="checkbox" class="form-checkbox" v-model="show_responsavel" true-value="1" false-value="0" checked="<?= $candidato->CAND_MENOR_IDADE; ?>">
+                <input type="checkbox" class="form-checkbox" v-model="show_responsavel" true-value="SIM" false-value="NAO" checked="<?= $candidato->CAND_MENOR_IDADE; ?>">
                     <label>Menor de Idade</label>
                 <?= Html::hiddenInput('Candidato[CAND_MENOR_IDADE]', $candidato->CAND_MENOR_IDADE, ['id'=>'CAND_MENOR_IDADE']); ?>
             </div>
 
             <transition name="fade">
-                <div class="col-lg-6 col-sm-12" v-show="show_responsavel == 1">
+                <div class="col-lg-6 col-sm-12" v-show="show_responsavel == 'SIM'">
                     <?= $form->field($candidato, 'CAND_NOME_RESPONSAVEL')->textInput(['maxlength' => true]) ?>
                 </div>
             </transition>
 
             <div class="col-lg-3 col-sm-12">
-                <input type="checkbox" class="form-checkbox" v-model="show_pcd" true-value="1" false-value="0"  checked="<?= $candidato->CAND_PCD; ?>">
+                <input type="checkbox" class="form-checkbox" v-model="show_pcd" true-value="SIM" false-value="NAO"  checked="<?= $candidato->CAND_PCD; ?>">
                     <label>PcD (Pessoa com deficiência)</label>
                 <?= Html::hiddenInput('Candidato[CAND_PCD]', $candidato->CAND_PCD, ['id'=>'CAND_PCD']); ?>
             </div>
 
 
             <transition name="fade">
-                <div class="col-lg-6 col-sm-12" v-show="show_pcd == 1">
+                <div class="col-lg-6 col-sm-12" v-show="show_pcd == 'SIM'">
                     <?= $form->field($candidato, 'CAND_PCD_DESC')->textInput(['maxlength' => true]) ?>
                 </div>
             </transition>
@@ -118,26 +118,26 @@ InscricaoAsset::register($this);
         <legend><i class="glyphicon glyphicon-triangle-right"></i>Dados Complementares</legend>
         <div class="row">
             <div class="col-lg-6 col-sm-12">
-                <input type="checkbox" v-model="show_comorbidade" true-value="1" false-value="0"  checked="<?= $candidato->CAND_TEM_COMORBIDADE; ?>">
+                <input type="checkbox" v-model="show_comorbidade" true-value="SIM" false-value="NAO"  checked="<?= $candidato->CAND_TEM_COMORBIDADE; ?>">
                     <label>Possui alguma comorbidade?</label>
                 <?= Html::hiddenInput('Candidato[CAND_TEM_COMORBIDADE]', $candidato->CAND_TEM_COMORBIDADE, ['id'=>'CAND_TEM_COMORBIDADE']); ?>
             </div>
 
             <transition name="fade">
-                <div class="col-lg-6 col-sm-12" v-show="show_comorbidade == 1">
+                <div class="col-lg-6 col-sm-12" v-show="show_comorbidade == 'SIM'">
                     <?= $form->field($candidato, 'CAND_COMORBIDADE_DESC')->textInput(['maxlength' => true]) ?>
                 </div>        
             </transition>
 
             <div class="col-lg-6 col-sm-12">
-                <input type="checkbox" v-model="show_medicacao" true-value="1" false-value="0"  checked="<?= $candidato->CAND_TEM_MEDICACAO; ?>">
+                <input type="checkbox" v-model="show_medicacao" true-value="SIM" false-value="NAO"  checked="<?= $candidato->CAND_TEM_MEDICACAO; ?>">
                     <label>Ingere algum medicamento?</label>
                 <?= Html::hiddenInput('Candidato[CAND_TEM_MEDICACAO]', $candidato->CAND_TEM_MEDICACAO, ['id'=>'CAND_TEM_MEDICACAO']); ?>
             </div>
 
             
             <transition name="fade">
-                <div class="col-lg-6 col-sm-12" v-show="show_medicacao == 1">
+                <div class="col-lg-6 col-sm-12" v-show="show_medicacao == 'SIM'">
                     <?= $form->field($candidato, 'CAND_MEDICACAO_DESC')->textInput(['maxlength' => true]) ?>
                 </div> 
             </transition>
