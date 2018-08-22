@@ -4,6 +4,7 @@ namespace app\models;
 use app\models\Administrador;
 use app\models\Coordenador;
 use app\models\Professor;
+use app\models\Estagiario;
 use app\modules\inscricao\models\Candidato;
 use app\models\SexoEnum;
 use app\models\PermissaoEnum;
@@ -88,17 +89,17 @@ class Usuario extends \yii\db\ActiveRecord
     {
         return [
             'USU_ID' => 'Código',
-            'USU_NOME' => 'Nome',
-            'USU_CPF' => 'CPF',
-            'USU_EMAIL' => 'Email',
-            'USU_DT_NASC' => 'Data de Nascimento',
-            'USU_SEXO' => 'Sexo',
-            'USU_TELEFONE_1' => 'Telefone 1',
+            'USU_NOME' => 'Nome *',
+            'USU_CPF' => 'CPF *',
+            'USU_EMAIL' => 'Email *',
+            'USU_DT_NASC' => 'Data de Nascimento *',
+            'USU_SEXO' => 'Sexo *',
+            'USU_TELEFONE_1' => 'Telefone 1 *',
             'USU_TELEFONE_2' => 'Telefone 2',
             'USU_SENHA' => 'Senha',
             'USU_SITUACAO' => 'Situação',
-            'USU_PERMISSAO' => 'Perfil', 
-            '_nova_senha_confirmacao' => 'Confirmar nova senha'
+            'USU_PERMISSAO' => 'Perfil',
+            '_nova_senha_confirmacao' => 'Confirmar nova senha *'
         ];
     }
 
@@ -123,13 +124,17 @@ class Usuario extends \yii\db\ActiveRecord
         return $this->hasOne(Candidato::className(), ['USU_ID'=>'USU_ID']);
     }
 
+    public function getEstagiario(){
+        return $this->hasOne(Estagiario::className(), ['USU_ID'=>'USU_ID']);
+    }
+
      /*
     * Fim das Relations
     *
     */
 
     /*public function validarHostEmail($attribute, $params){
-        if(strpos( $this->$attribute, 'pmm.am.gov.br' ) !== false){            
+        if(strpos( $this->$attribute, 'pmm.am.gov.br' ) !== false){
             return true;
         }
         $this->addError($attribute, 'O email deve ser institucional (@pmm.am.gov.br)');
@@ -144,13 +149,14 @@ class Usuario extends \yii\db\ActiveRecord
     }
 
     public function salvarUsuarioPorPermissao(){
+        
         switch ($this->USU_PERMISSAO) {
             case PermissaoEnum::PERMISSAO_ADMIN:
                 $admin = new Administrador();
                 $admin->USU_ID = $this->USU_ID;
                 $admin->save(false);
                 break;
-            
+
             case PermissaoEnum::PERMISSAO_COORDENADOR:
                 $coord = new Coordenador();
                 $coord->USU_ID = $this->USU_ID;
@@ -160,30 +166,35 @@ class Usuario extends \yii\db\ActiveRecord
             case PermissaoEnum::PERMISSAO_PROFESSOR:
                 $prof = new Professor();
                 $prof->USU_ID = $this->USU_ID;
+                $prof->PROF_ESTAGIARIO = 'N';
+                $prof->save(false);
+                break;
+
+           case PermissaoEnum::PERMISSAO_ESTAGIARIO:
+                $prof = new Estagiario();
+                $prof->USU_ID = $this->USU_ID;
                 $prof->save(false);
                 break;
         }
     }
 
-    /*public function init(){
+    public function init(){
         parent::init();
-        if($this->scenario == Usuario::SCENARIO_PROFESSOR){
-            $this->USU_PERMISSAO = PermissaoEnum::PERMISSAO_COORDENADOR;
-        }
-    }*/
+        $this->USU_SITUACAO = SituacaoEnum::ATIVO;
+    }
 
-    public function beforeSave(){
-        if($this->isNewRecord){
+    public function beforeSave($insert){
+        if($insert){
             $senha = $this->gerarSenha();
             $this->enviarSenhaEmail($senha);
-            $this->USU_SITUACAO = SituacaoEnum::ATIVO;
+
         }
 
         if($this->scenario == self::SCENARIO_ALTERAR_SENHA){
             $this->USU_SENHA = md5($this->_nova_senha);
         }
 
-        return parent::beforeSave();
+        return parent::beforeSave($insert);
     }
 
     public function afterSave($insert, $changedAttributes){
@@ -206,9 +217,9 @@ class Usuario extends \yii\db\ActiveRecord
 
     public function enviarSenhaEmail($senha){
         $subject = "SAESP (Sistema de Atividades Esportivas) - Credenciais de Acesso";
-        
+
         if($this->scenario == self::SCENARIO_ESQUECI_SENHA){
-            $subject = "SAESP (Sistema de Atividades Esportivas) - Alteração de senha";    
+            $subject = "SAESP (Sistema de Atividades Esportivas) - Alteração de senha";
         }
         $mailer = Yii::$app->mailer;
         $mailer->compose(['html'=>'credencial'],['model'=>$this, 'senha'=>$senha])
@@ -219,45 +230,49 @@ class Usuario extends \yii\db\ActiveRecord
     }
 
     public function gerarSenha(){
-        
+
         /*Gera senha aleatória*/
         $senha = strtolower($this->getRandomString());
         /*Encripta para salvar*/
-        $this->USU_SENHA = md5($senha); 
+        $this->USU_SENHA = md5($senha);
         /*Retorna senha não encriptada para enviar para email*/
-        return $senha; 
+        return $senha;
     }
-    
+
     public function getRandomString($length = 6) {
-        
+
         $validCharacters = "abcdefghijklmnopqrstuxyvwzABCDEFGHIJKLMNOPQRSTUXYVWZ0123456789";
         $validCharNumber = strlen($validCharacters);
-     
+
         $result = "";
-     
+
         for ($i = 0; $i < $length; $i++) {
             $index = mt_rand(0, $validCharNumber - 1);
             $result .= $validCharacters[$index];
         }
-     
+
         return $result;
     }
 
     public function validaNovaSenha($attribute, $params){
-        
+
         if(($this->_nova_senha != null) && (strlen($this->_nova_senha) < 4 || strlen($this->_nova_senha) > 8 )){
             $this->addError($attribute,'Nova senha deve conter entre 4 e 8 caracteres.');
             return false;
-        }       
+        }
         return true;
     }
-    
+
     public function validaSenhaAntiga($attribute, $params){
-        
+
         if ( ($this->_senha_atual !=  null) && ($this->USU_SENHA != md5($this->_senha_atual))){
             $this->addError($attribute,'Senha atual incorreta.');
             return false;
         }
         return true;
+    }
+
+    public function getUsuario(){
+        return $this->hasOne(Usuario::className(), ['USU_ID'=>'USU_ID']);
     }
 }

@@ -65,9 +65,12 @@ use app\models\Coordenador;
                 ],
                 'options'=>['class'=>'form-control']
             ]) ?>
-            
+
             <?= Html::activeHiddenInput($model,'CRD_ID', ['id'=>'CRD_ID']); ?>
-            
+
+        </div>
+        <div class="col-lg-8 col-sm-12">
+            <?= $form->field($model, 'CEL_STATUS')->dropdownList(['ATIVO' => 'Ativo', 'INATIVO' => 'Inativo'], ['prompt' => '---Selecionae o Status---']) ?>
         </div>
     </div>
 

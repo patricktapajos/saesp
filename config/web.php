@@ -12,7 +12,7 @@ $config = [
     'aliases' => [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
-        '@upload'   => '@app/web/upload',
+        '@upload'=> '@app/web/upload',
     ],
     'modules'=>[
         'coordenador' => [
@@ -84,7 +84,7 @@ $config = [
             'format' => kartik\mpdf\Pdf::FORMAT_A4,
             'orientation' => kartik\mpdf\Pdf::ORIENT_PORTRAIT,
             'destination' => kartik\mpdf\Pdf::DEST_BROWSER,
-            'mode' => kartik\mpdf\Pdf::MODE_CORE, 
+            'mode' => kartik\mpdf\Pdf::MODE_CORE,
             // refer settings section for all configuration options
         ],
         'log' => [
@@ -98,7 +98,7 @@ $config = [
         ],
         'db' => $db,
         //'db'=>require(__DIR__ . '/../../sdb/saesp.php'),
-        
+
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -107,7 +107,7 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'rest'],
             ],*/
         ],
-        
+
     ],
     'params' => $params,
 ];
