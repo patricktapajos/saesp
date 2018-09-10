@@ -8,13 +8,14 @@ use yii\helpers\Html;
 $this->title = 'Atualizar Dados';
 ?>
 <div class="candidato-update">
-
-    <h1><?= Html::encode($this->title) ?></h1>
-
+	<div class="panel">
+    	<h1><i class="glyphicon glyphicon-pencil"></i><?= Html::encode($this->title) ?></h1>
+    </div>
     <?= $this->render('_form', [
         'model' => $model,
         'candidato' => $candidato,
-        'smods' => $smods
+        'smods' => $smods,
+        'documento'=>$documento,
     ]) ?>
 
 </div>

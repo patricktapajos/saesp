@@ -9,6 +9,7 @@ use app\modules\coordenador\models\SelecaoModalidade;
 use app\modules\coordenador\models\SelecaoCel;
 use app\modules\inscricao\models\Inscricao;
 use app\modules\inscricao\models\InscricaoModalidade;
+use app\modules\inscricao\models\InscricaoDocumento;
 use app\models\Selecao;
 use app\models\SituacaoSelecaoEnum;
 use app\models\PermissaoEnum;
@@ -17,7 +18,7 @@ use app\modules\inscricao\models\CandidatoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
+use kartik\mpdf\Pdf;
 /**
  * CandidatolController implements the CRUD actions for Candidato model.
  */
@@ -60,8 +61,22 @@ class CandidatoController extends Controller
      */
     public function actionView($id)
     {
+        $candidato = $this->findModel($id);
+        /*$smods = InscricaoModalidade::find()
+                ->select(['COUNT(*) AS cnt'])
+                ->innerJoinWith('modalidadeDataHora')
+                ->innerJoinWith('selecaoModalidade')
+                ->innerJoinWith('modalidade')
+                ->where(['INS_ID'=>$candidato->inscricao->INS_ID])
+                ->groupBy(['modalidade.MOD_ID'])->all();*/
+
+        $smods = InscricaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['INS_ID'=>$candidato->inscricao->INS_ID])->all();
+
+        //$smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>22])->all();
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $candidato,
+            'smods' => $smods,
         ]);
     }
 
@@ -73,9 +88,9 @@ class CandidatoController extends Controller
     public function actionCreate()
     {
         $model = new Usuario();
+        $documento = new InscricaoDocumento();
         $model->USU_PERMISSAO = PermissaoEnum::PERMISSAO_CANDIDATO;
         $model->USU_SITUACAO = SituacaoEnum::ATIVO;
-
         $inscricao = new Inscricao();
         $candidato = new Candidato();
         $selecao = Selecao::inscricoesAbertas();
@@ -86,37 +101,45 @@ class CandidatoController extends Controller
 
         $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
     
+        if ($model->load(Yii::$app->request->post())) {
+            $candidato->load(Yii::$app->request->post());
+            $candidato->setArquivo();
+            $documento->load(Yii::$app->request->post());
+            $documento->setArquivos();
 
-        if (($model->load(Yii::$app->request->post()) && $model->validate())
-            && ($candidato->load(Yii::$app->request->post()) && $candidato->validate())) {
-
-            $trans = Yii::$app->db->beginTransaction();
-            try{
-                $model->save();
-                $candidato->CAND_FOTO = UploadedFile::getInstance($candidato, 'CAND_FOTO');
-                $candidato->USU_ID = $model->USU_ID;
-                $candidato->upload();
-                $candidato->save(false);
-                $inscricao->CAND_ID = $candidato->CAND_ID;
-                $inscricao->SEL_ID = $selecao->SEL_ID;
-                $inscricao->save(false);
-                foreach (explode(',',$candidato->modalidades) as $modalidade) {
-                    $inscmod = new InscricaoModalidade();
-                    $inscmod->MDT_ID = $modalidade;
-                    $inscmod->INS_ID = $inscricao->INS_ID;
-                    $inscmod->save();
+            if ($model->validate() && $candidato->validate() && $documento->validate()) {
+                $trans = Yii::$app->db->beginTransaction();
+                try{
+                    $model->save();
+                    $candidato->USU_ID = $model->USU_ID;
+                    $candidato->upload();
+                    $candidato->save(false);
+                    $inscricao->CAND_ID = $candidato->CAND_ID;
+                    $inscricao->SEL_ID = $selecao->SEL_ID;
+                    $inscricao->save(false);
+                    $documento->upload();
+                    $documento->USU_ID = $inscricao->USU_ID;
+                    $documento->save(false);
+                    
+                    foreach (explode(',',$candidato->modalidades) as $modalidade) {
+                        $inscmod = new InscricaoModalidade();
+                        $inscmod->MDT_ID = $modalidade;
+                        $inscmod->INS_ID = $inscricao->INS_ID;
+                        $inscmod->save();
+                    }
+                    $trans->commit();
+                    return $this->redirect(['view', 'id' => $candidato->CAND_ID]);
+                }catch(\Exception $e){
+                    $trans->rollBack();
+                    throw $e;
                 }
-                $trans->commit();
-                return $this->redirect(['view', 'id' => $candidato->CAND_ID]);
-            }catch(\Exception $e){
-                $trans->rollBack();
-                throw $e;
             }
         } else {
             return $this->render('create', [
                 'model' => $model,
                 'candidato' => $candidato,
-                'smods' => $smods
+                'smods' => $smods,
+                'documento'=>$documento
             ]);
         }
     }
@@ -132,77 +155,84 @@ class CandidatoController extends Controller
         $model = Usuario::findOne($id);
         $candidato = $model->candidato;
         $selecao = Selecao::inscricoesAbertas();
-       
+
         if(!$selecao){
             throw new \yii\web\HttpException(403,"Não há processo seletivo aberto!");
         }
 
+        $documento = InscricaoDocumento::find()->where(['INS_ID'=>$candidato->inscricao->INS_ID])->one();
+        if(!$documento){
+            $documento = new InscricaoDocumento();
+            $documento->INS_ID = $candidato->inscricao->ins_id;
+        }
+        
         $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
         
-        //$inscricao = Inscricao::find()->where(['SEL_ID'=>$selecao->SEL_ID]);
-
-         if (($model->load(Yii::$app->request->post()) && $model->validate())
-            && ($candidato->load(Yii::$app->request->post()) && $candidato->validate())) {
-
+        if($model->load(Yii::$app->request->post())){
             //var_dump(Yii::$app->request->post());die;
-
-            $trans = Yii::$app->db->beginTransaction();
-            try{
-                $model->save();
-                
-                $candidato->CAND_FOTO = UploadedFile::getInstance($candidato, 'CAND_FOTO');
-                if($candidato->CAND_FOTO){
+            $candidato->load(Yii::$app->request->post());
+            $candidato->setArquivo();
+            $documento->load(Yii::$app->request->post());
+            $documento->setArquivos();
+            if ($model->validate() && $candidato->validate() && $documento->validate()) {
+                $trans = Yii::$app->db->beginTransaction();
+                try{
+                    $model->save(false);
                     $candidato->upload();    
-                }
-                      
-                
-                $candidato->save(false);
+                    $documento->upload();
+                    $candidato->save(false);
+                    $documento->save(false);
 
-                //InscricaoModalidade::find()->where(['INS_ID'=>$candidato->inscricao->INS_ID])->deleteAll();
-                InscricaoModalidade::deleteAll('INS_ID =:INS_ID ',[':INS_ID'=>$candidato->inscricao->INS_ID]);
-
-                foreach (explode(',',$candidato->modalidades) as $modalidade) {
-                    $inscmod = new InscricaoModalidade();
-                    $inscmod->MDT_ID = $modalidade;
-                    $inscmod->INS_ID = $candidato->inscricao->INS_ID;
-                    $inscmod->save();
+                    InscricaoModalidade::deleteAll('INS_ID =:INS_ID ',[':INS_ID'=>$candidato->inscricao->INS_ID]);
+                    foreach (explode(',',$candidato->modalidades) as $modalidade) {
+                        $inscmod = new InscricaoModalidade();
+                        $inscmod->MDT_ID = $modalidade;
+                        $inscmod->INS_ID = $candidato->inscricao->INS_ID;
+                        $inscmod->save();
+                    }
+                    $trans->commit();
+                    return $this->redirect(['view', 'id' => $candidato->CAND_ID]);
+                }catch(\Exception $e){
+                    $trans->rollBack();
+                    throw $e;
                 }
-                $trans->commit();
-                return $this->redirect(['view', 'id' => $candidato->CAND_ID]);
-            }catch(\Exception $e){
-                $trans->rollBack();
-                throw $e;
-            }
+            }    
         } else {
-            return $this->render('create', [
+            return $this->render('update', [
                 'model' => $model,
                 'candidato' => $candidato,
-                'smods' => $smods
+                'smods' => $smods,
+                'documento'=>$documento
+
             ]);
         }
     }
 
+    /*private function getFiles(){
+        $this->CAND_FOTO = UploadedFile::getInstance($candidato, 'CAND_FOTO');
+    }*/
+
     public function actionImprimir($id){
         
         $model = Candidato::findOne($id);
+        $smods = InscricaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['INS_ID'=>$model->inscricao->INS_ID])->all();
 
-        /*$pdf = new Pdf([
-            'mode' => Pdf::MODE_CORE, // leaner size using standard fonts
-            'content' => $this->renderPartial('privacy'),
+        $pdf = new Pdf([
+            'mode' => Pdf::MODE_CORE, // leaner size using  standard fonts
+            'content' => $this->renderPartial('_impressao', ['model'=>$model,'smods'=>$smods]),
             'options' => [
-                'title' => 'Privacy Policy - Krajee.com',
-                'subject' => 'Generating PDF files via yii2-mpdf extension has never been easy'
+                'title' => 'Sistema de Atividades Esportivas (SAESP)',
+                'subject' => 'Comprovante de Inscrição'
             ],
             'methods' => [
-                'SetHeader' => ['Generated By: Krajee Pdf Component||Generated On: ' . date("r")],
-                'SetFooter' => ['|Page {PAGENO}|'],
+                'SetHeader' => ['Sistema de Atividades Esportivas'],
+                'SetFooter' => ['Gerado em: '.date("d/m/Y")],
             ]
         ]);
-        return $pdf->render();*/
-
-        $pdf = Yii::$app->pdf;
-        $pdf->cssFile = '@bower/bootstrap/dist/css/bootstrap.min.css';
-        $pdf->content = $this->renderPartial('_impressao', ['model'=>$model]);
+        //return $pdf->render();
+        //$pdf = Yii::$app->pdf;
+        $pdf->cssFile = '@app/web/css/impressao_inscricao.css';
+        //$pdf->content = $this->renderPartial('_impressao', ['model'=>$model]);
         return $pdf->render();
     }
 

@@ -23,7 +23,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	    <div class="form-group">
 	        <?= Html::submitButton('Salvar',['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-	        <?= Html::a('Cancelar', [''] ,['class' => 'btn btn-danger']) ?>
 	    </div>
 
 	    <?php ActiveForm::end(); ?>

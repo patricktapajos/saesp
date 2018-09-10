@@ -11,55 +11,27 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="candidato-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <br>
-    <div class="col-lg-3 col-sm-12 text-center">
-        <img src="<?php echo $model->getUrlFoto();?>" width="160" height="150">
+    <div class="header">
+        <img class="logo-prefeitura" src="<?= Yii::getAlias('images') ?>/brasao.png" width="40" height="46">
+        <img class="logo-sistema" src="<?= Yii::getAlias('images') ?>/logo.png" width="130" height="50">
+        <div class="titulo"><?= Html::encode($this->title) ?></div>
     </div>
+
+
+    <h3><i class="glyphicon glyphicon-triangle-right"></i>Dados Gerais(s)</h3>
+
     <div class="col-lg-9 col-sm-12">
      <?= DetailView::widget([
             'model' => $model,
+            //'template'=>'<tr><th{captionOptions}>{label}</th><td{contentOptions}>{value}</td></tr>',
             'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => '-'],
+            'options'=>['class'=>'table-detail'],
             'attributes' => [
                'inscricao.INS_NUM_INSCRICAO',
                'usuario.USU_NOME',
                 'usuario.USU_CPF',
                 'usuario.USU_EMAIL',
                 'usuario.USU_DT_NASC',
-           
-            ],
-        ]) ?>
-    </div>
-    <div class="col-lg-12 col-sm-12">
-        <?= DetailView::widget([
-            'model' => $model,
-            'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' => '-'],
-            'attributes' => [
-                 [
-                    'label'=>'Sexo',
-                    'attribute'=>'USU_SEXO',
-                    'format' => 'raw',
-                    'value' => function ($model) {
-                         return  $model->usuario->getSexoText();
-                    }
-                ],
-                'usuario.USU_TELEFONE_1',
-                'usuario.USU_TELEFONE_2',
-                [
-                    'label'=>'Estado Civil',
-                    'attribute'=>'CAND_ESTADO_CIVIL',
-                    'format' => 'raw',
-                    'value' => function ($model) {
-                         return  $model->getEstadoCivilText();
-                    }
-                ],
-                'CAND_LOGRADOURO',
-                'CAND_COMPLEMENTO_END',
-                'CAND_CEP',
-                'CAND_BAIRRO',
-                'CAND_NOME_EMERGENCIA',
-                'CAND_TEL_EMERGENCIA',
-                'CAND_NOME_RESPONSAVEL',
                 [
                     'label'=>'PcD (Pessoa Com Deficiência)',
                     'attribute'=>'CAND_PCD',
@@ -91,4 +63,30 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </div>
+    
+    <h3><i class="glyphicon glyphicon-triangle-right"></i>Modalidade(s)</h3>
+
+    <table class="table table-acao table-responsive">
+        <thead>
+            <tr>
+                <th class="field_cross2">CEL</th>
+                <th class="field_cross2">Modalidade</th>
+                <th class="field_cross_small">Dia(s)</th>
+                <th class="field_cross_small">Horário(s)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($smods as $smod): ?>
+                <?php foreach ($smod->modalidadeDataHora as $mdh) : ?>
+                    <tr>
+                        <td><?php echo $mdh->selecaoModalidade->modalidade->cel->CEL_NOME; ?></td>
+                        <td><?php echo $mdh->selecaoModalidade->modalidade->MOD_DESCRICAO; ?></td>
+                        <td><?php echo $mdh->getDiasSemana(); ?></td>
+                        <td><?php echo $mdh->getHorario(); ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+
 </div>

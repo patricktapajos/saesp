@@ -1,0 +1,170 @@
+.header{
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+.header .titulo{
+    margin-top: -20px;
+}
+
+.subtitulo{
+    margin-top: -20px;
+    font-size: 18px !important;
+}
+
+.logo-prefeitura{
+    float:left;
+}
+.logo-sistema{
+    float:right;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+}
+
+.table{
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0; 
+}
+
+
+.table tr th{
+    padding: 0px 15px 5px;
+    text-align: left;
+    background-color: rgb(8, 103, 148);
+    color: white;
+    border: 1px solid;
+
+}
+
+.table tr td {
+    padding: 2px 5px;
+    border: 1px solid;
+
+    /*text-align: justify;*/
+}
+
+.table-detail{
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 15px; 
+}
+
+.table-detail tr th{
+    text-align: left;
+    width: 50%;
+    border-bottom: 1px solid #ccc;
+}
+
+.table-detail tr td{
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+.col-lg-2, .col-lg-10{
+	position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.col-lg-2 {
+	width: 10%;
+	float: left;
+}
+
+.col-lg-10{
+	width: 80%;	
+	float: left;
+	text-align: justify;
+}
+
+.well-lg {
+    padding: 24px;
+    border-radius: 6px;
+}
+
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-bottom: 20px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .05);
+}
+
+.panel {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.panel-default {
+    border-color: #ddd;
+}
+
+.panel-body {
+    padding: 10px;
+}
+
+h1, .h1 {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 6px;
+    margin-bottom: 10px;
+}
+
+.icone-roteiro {
+    width: 4%;
+    height: 4%;
+    float: left;
+    margin: 10px;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.text-justify{
+	text-align: justify;
+	margin-left: 15px;
+}
+
+.text-upper{
+	text-transform: uppercase;
+}
+
+.img-etapa3-cover {
+    margin: 20px;
+    text-align: center;
+    object-fit: cover;
+}

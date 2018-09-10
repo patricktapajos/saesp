@@ -101,8 +101,14 @@ runtime/*
 web/assets/*
 !web/assets/.keep
 
+web/uploads/*
+!web/assets/.keep
+
 # composer itself is not needed
 composer.phar
+
+# Env File
+.env
 
 # Mac DS_Store Files
 .DS_Store

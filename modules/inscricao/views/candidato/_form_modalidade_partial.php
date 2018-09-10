@@ -1,52 +1,49 @@
 <?php 
 	use yii\helpers\Html;
 ?>
-<div class="row table-saesp" id="modal">
-	<?= $form->field($candidato, 'modalidades')->hiddenInput(['v-model'=>'modalidades']); ?>
-	<div class="row text-center div-header">
-        <div class="col-lg-3">CEL</div>
-        <div class="col-lg-3">Modalidade</div>
-        <div class="col-lg-2">Dia(s)</div>
-        <div class="col-lg-2">Horário(s)</div>
-        <div class="col-lg-1">Qtde. de Vagas</div>
-        <div class="col-lg-1">Selecionar</div>
-    </div>
+<div class="row table-saesp form-tab" id="modal">
+	<?= $form->field($candidato, 'modalidades')->hiddenInput(['v-model'=>'modalidades'])->label(false); ?>
+	<table class="table table-acao table-responsive">
+        <thead>
+            <tr>
+                <th class="field_cross2">CEL</th>
+                <th class="field_cross2">Modalidade</th>
+                <th class="field_cross_small">Dia(s)</th>
+                <th class="field_cross_small">Horário(s)</th>
+                <th class="field_cross_small">Nº de Vagas</th>
+        		<th class="field_cross_small">Selecionar</th>
+            </tr>
+        </thead>
+        <tbody>
+        	<?php foreach ($smods as $smod): ?>
+        		<tr>
+        			<td><?php echo $smod->modalidade->cel->CEL_NOME; ?></td>
+        			<td><?php echo $smod->modalidade->MOD_NOME; ?></td>
+        			<td colspan="4">
+        				<table class="table-inner">
+        					<tbody>
+        						<?php foreach ($smod->modalidadeDataHora as $mdh) : ?>
+        							<tr>
+        								<td class="field2"><?php echo $mdh->getDiasSemana(); ?></td>
+        								<td class="field2"><?php echo $mdh->getHorario(); ?></td>
+        								<td class="field2"><?php echo $mdh->MDT_QTDE_VAGAS; ?></td>
+        								<td class="field2">
+        								<?php 
+											if($mdh->MDT_QTDE_VAGAS >= $mdh->qtdeinscritos){
+												echo $form->field($candidato, 'modalidade')->checkBox(['label'=>'','v-on:click'=>'adicionarModalidade($event.target.value, '. $smod->SMOD_ID.', '. $smod->modalidade->MOD_ID.')','value'=>$mdh->MDT_ID,'v-bind:id'=>$mdh->MDT_ID]);
+											}else{
+												echo "Vagas Esgotadas";
+											}
 
-     <div class="row div-body text-center">
-		<?php foreach ($smods as $smod): ?>
-			<div class="ptable-row">
-				<div class="col-lg-3">
-					<?php echo $smod->modalidade->cel->CEL_NOME; ?>
-				</div>	
-				<div class="col-lg-3">
-					<?php echo $smod->modalidade->MOD_NOME; ?>
-				</div>	
-				<div class="col-lg-6">
-					<?php foreach ($smod->modalidadeDataHora as $mdh) : ?>
-		            	<div class="pinner-row">		
-		            		<div class="col-lg-4">
-								<?php echo $mdh->getDiasSemana(); ?>
-							</div>	
-							<div class="col-lg-4">
-								<?php echo $mdh->getHorario(); ?>
-							</div>	
-							<div class="col-lg-2">
-								<?php echo $mdh->MDT_QTDE_VAGAS; ?>
-							</div>
-							<div class="col-lg-2">
-								<?php 
-									if($mdh->MDT_QTDE_VAGAS >= $mdh->qtdeinscritos){
-										echo $form->field($candidato, 'modalidade')->checkBox(['label'=>'','v-on:click'=>'adicionarModalidade($event.target.value)','value'=>$mdh->MDT_ID,'v-bind:id'=>$mdh->MDT_ID]);
-									}else{
-										echo "Vagas Esgotadas";
-									}
-
-								?>
-							</div>	
-		            	</div>
-		            <?php endforeach; ?>
-	            </div>
-	        </div>
-		<?php endforeach; ?>
-    </div>
+										?>
+										</td>
+        							</tr>
+								<?php endforeach; ?>
+        					</tbody>
+        				</table>
+        			</td>
+        		</tr>
+			<?php endforeach; ?>
+        </tbody>
+    </table>
 </div>
