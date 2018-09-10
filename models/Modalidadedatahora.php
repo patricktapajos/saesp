@@ -76,4 +76,64 @@ class Modalidadedatahora extends \yii\db\ActiveRecord
     public function getPROFESSOR(){
         return $this->hasOne(PROFESSOR::className(), ['PROF_ID'=>'PROF_ID']);
     }
+
+    public function setDias($dias){
+        $this->dias = $dias;
+    }
+
+    public function getDias(){
+        return $this->dias;
+    }
+
+    public function validarValorHorario($attribute, $params){
+        $horario = explode(':', $this->$attribute);
+
+        $hora = (int)$horario[0];
+        $minuto = (int)$horario[1];
+
+        if(($hora < 0 || $hora > 23) || ($minuto < 0 || $minuto > 59)){
+            $this->addError($attribute, 'Horário inválido. Escolha um horário entre 00:00 e 23:59');
+            return false;
+        }
+
+        return true;
+    }
+
+    public function validarHorario($attribute, $params){
+        $hora_inicio = preg_replace('/[^0-9]/', '', $this->MDT_HORARIO_INICIO);
+        $hora_fim = preg_replace('/[^0-9]/', '', $this->$attribute);
+
+        if((int)$hora_inicio > (int)$hora_fim){
+            $this->addError($attribute, 'Horário final não pode ser menor que o horário inicial');
+            return false;
+        }
+
+        return true;
+    }
+
+    public function getSelecaoModalidade(){
+        return $this->hasMany(SelecaoModalidade::className(), ['SMOD_ID'=>'SMOD_ID']);
+    }
+
+    public function getModalidadeDiaSemana(){
+        return $this->hasMany(ModalidadeDiaSemana::className(), ['MDT_ID'=>'MDT_ID']);
+    }
+
+    public function getQtdeInscritos(){
+        return  $this->hasMany(InscricaoModalidade::className(), ['MDT_ID'=>'MDT_ID'])->count();
+    }
+
+    public function getDiasSemana(){
+        $dias = [];
+        $mdiasemana = $this->getModalidadeDiaSemana()->all();
+
+        foreach ($mdiasemana as $key => $dia) {
+            $dias[] = $dia->MDS_DESCRICAO;
+        }
+        return implode(', ',$dias);
+    }
+
+    public function getHorario(){
+        return $this->MDT_HORARIO_INICIO. ' - '. $this->MDT_HORARIO_FIM;
+    }
 }

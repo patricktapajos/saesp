@@ -19,8 +19,6 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'usu_nome') ?>
 
-    <?= $form->field($model, 'usu_cpf') ?>
-
     <?= $form->field($model, 'usu_email') ?>
 
     <?= $form->field($model, 'usu_dt_nasc') ?>
