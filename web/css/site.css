@@ -2,6 +2,7 @@ html,
 body {
     height: 100%;
     /*background-color: #036ff61a;*/
+    background-color: rgba(245, 245, 245, 0.25);
 }
 
 .wrap {
@@ -167,6 +168,10 @@ a.desc:after {
     color: rgb(238, 238, 238);
 }
 
+div.tabs-krajee > .nav > li > a:hover {
+    background-color: #fff !important;
+}
+
 .navbar-logo {
     height: 48px;
     width: 48px;
@@ -194,16 +199,54 @@ a.desc:after {
     border-radius: 5px;
 }*/
 
-@media (max-width: 996px){
+.logo-central{
+    width: 20%;
+    height: 20%;
+    display: block;
+    margin: auto;
+}
+
+@media (max-width: 768px){
+
+    .logo-central{
+        width: 40%;
+        height: 40%;
+        display: block;
+        margin: auto;
+    }
+
     .navbar-logo {
-        height: 48px;
-        width: 136px;
-        background: url(../images/logo.png);
+        padding: 23px;
+        /*background: url(../images/logo.png);*/
         background-size: cover;
+        /*filter: brightness(0.1) invert(1);*/
     }
     .navbar-sys-name {
+        visibility: hidden;
+        position: absolute;
+    }
+    .navbar-sys-name:before {
+        content: "SAESP";
+        visibility: visible;
+    }
+
+    h1, h2{
+        font-size: 28px;
+    }
+
+    .hello{
         display: none;
     }
+}
+
+
+.navbar-toggle {
+    background-color: rgb(120, 165, 203) !important;
+    border-color: rgb(120, 165, 203) !important;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: rgba(255, 255, 255, 0.75);
 }
 
 .glyphicon-edit {
@@ -215,8 +258,151 @@ a.icone-index:hover {
     text-decoration: none;
 }
 
+/** Formulário cadastro do quadro de modalidade  **/
 
-/**Formulário de inscrição */
+.table > thead > tr > th {
+  font-size: 12px !important;
+  text-transform: uppercase;
+  background-color: #086794;
+  color: #f5f5f5;
+}
+
+.table > tbody > tr > td {
+  font-size: 14px !important; 
+  vertical-align: middle !important;  
+}
+
+.table > tbody > tr > td {
+  font-size: 14px !important; 
+  vertical-align: middle !important;  
+}
+
+.icones-plan-action {  
+    cursor: pointer;
+    position: relative;
+    border-radius: 2px;
+    padding: 3px;
+    vertical-align: middle;
+    display: -webkit-box;
+    transition: .2s color linear;
+}
+
+.add {
+    color: #337ab7;
+}
+
+.buttons{
+    text-align: right;
+    position: relative;
+    left: 5px;
+    float: right;
+}
+
+.table-acao > tbody > tr > td {
+    vertical-align: middle !important;
+    /*font-size: 16px !important;*/
+    text-align: left;
+}
+
+.table-acao > thead > tr > th {
+    text-transform: uppercase;
+}
+
+.table-acao, .table-complement {
+    border-collapse: separate !important;
+    border-spacing: 2px !important;
+}
+
+.table-complement {
+   margin: -10px -7px -6px -10px;
+}
+
+
+.table-complement > tbody > tr > td {
+   vertical-align: middle !important;
+}
+
+
+.table-complement > tbody > tr > td {
+   padding: 2px 6px 2px 6px;
+}
+
+/*  Grid de Modalidade no módulo de coordenador  */
+
+th.field_small { 
+    min-width: 100px; 
+    width: 100px; 
+}
+td.field_small { 
+    min-width: 100px; 
+    width: 100px; 
+}
+
+th.field_date { 
+    width: 225px; 
+    min-width: 225px; 
+}
+td.field_date { 
+    width: 225px;
+    min-width: 225px; 
+}
+
+.field_cross { 
+    min-width: 270px; 
+}
+
+th.field { 
+    min-width: 360px; 
+    width: 360px; 
+}
+
+td.field { 
+    min-width: 300px;
+    width: 300px;
+    height: 90px; 
+}
+
+/*  Grid de Modalidade no módulo de inscrição  */
+
+.field_cross2{ 
+   min-width: 100px; 
+   width: 100px; 
+}
+
+th.field_cross_small{ 
+   min-width: 80px; 
+   width: 80px; 
+}
+
+th.field2 { 
+    min-width: 360px; 
+    width: 360px; 
+}
+
+td.field2 { 
+    min-width: 100px;
+    width: 150px;
+}
+
+th.field_cross2{ 
+   min-width: 200px; 
+   width: 200px; 
+}
+
+
+/*.field_cross { 
+    min-width: 377px; 
+}*/
+
+/** Formulário de inscrição **/
+
+.tabs-above.tab-bordered .tab-content {
+    background-color: #fff !important;
+}
+
+.form-tab {
+    padding: 10px;
+}
 
 .table-saesp {
     margin: auto;
@@ -235,6 +421,10 @@ a.icone-index:hover {
     /*border-left: 1px solid #aaaaaa;
     border-right: 1px solid #aaaaaa;
     border-bottom: 1px solid #aaaaaa;*/
+}
+
+input[type="checkbox"] {
+    margin-bottom: 20px;
 }
 
 .ptable-row {
@@ -284,4 +474,20 @@ a.icone-index:hover {
     border: 1px solid #eee;
     padding: 10px;
     display: flow-root;
+}
+
+
+.img-documentacao {
+    width: inherit;
+    height: inherit;
+}
+
+.img-documentacao-cover {
+    margin: 0 auto;
+    text-align: center;
+    width: 75%;
+    height: 75%;
+    min-width: 50%;
+    min-height: 50%;
+    object-fit: cover;
 }

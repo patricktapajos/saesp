@@ -13,6 +13,7 @@ $config = [
         '@bower' => '@vendor/bower-asset',
         '@npm'   => '@vendor/npm-asset',
         '@upload'   => '@app/web/upload',
+        '@images'   => '@app/web/images',
     ],
     'modules'=>[
         'coordenador' => [
@@ -72,9 +73,9 @@ $config = [
             //'viewPath' => '@app/mail',
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
-                'host' => 'email.pmm.am.gov.br',
-                'username' => 'email.sistemas@pmm.am.gov.br',
-                'password' => 'Email!@#2014',
+                'host' => env('EMAIL_HOST'),
+                'username' => env('EMAIL_USER'),
+                'password' => env('EMAIL_PASS'),
                 'port' => '25',
                 //'encryption' => 'tls',
             ],
@@ -107,12 +108,11 @@ $config = [
                 ['class' => 'yii\rest\UrlRule', 'controller' => 'rest'],
             ],*/
         ],
-        
     ],
     'params' => $params,
 ];
 
-if (YII_ENV_DEV) {
+if (env('YII_ENV_DEV')) {
     // configuration adjustments for 'dev' environment
     $config['bootstrap'][] = 'debug';
     $config['modules']['debug'] = [

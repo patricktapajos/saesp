@@ -2,6 +2,7 @@
 
 namespace app\modules\coordenador\models;
 use app\modules\coordenador\models\ModalidadeDataHora;
+use app\modules\inscricao\models\InscricaoModalidade;
 
 use Yii;
 

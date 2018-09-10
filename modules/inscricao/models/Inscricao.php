@@ -2,6 +2,8 @@
 
 namespace app\modules\inscricao\models;
 use app\models\SituacaoInscricaoEnum;
+use app\modules\inscricao\models\InscricaoDocumento;
+use app\modules\inscricao\models\InscricaoModalidade;
 use app\models\Selecao;
 use Yii;
 
@@ -68,5 +70,13 @@ class Inscricao extends \yii\db\ActiveRecord
             $this->INS_NUM_INSCRICAO = date('Y').str_pad($this->INS_ID, 6, '0', STR_PAD_LEFT);
             $this->save();
         }
+    }
+
+    public function getInscricaodocumento(){
+        return $this->hasOne(InscricaoDocumento::className(), ['INS_ID'=>'INS_ID']);
+    }
+
+    public function getInscricaomodalidade(){
+        return $this->hasMany(InscricaoModalidade::className(), ['INS_ID'=>'INS_ID']);
     }
 }

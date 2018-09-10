@@ -9,18 +9,8 @@ use yii\bootstrap\ActiveForm;
 
 $this->title = 'Login';
 ?>
-<div class="body-content">
-    <div class="row">
-        <div class="col-lg-12 text-center">
-            <?= Html::img('@web/images/simbolo-logo.png', ['height'=>'200']); ?>
-        </div>
-    </div>
-</div>
-
- <div class="jumbotron">
-     <h2>Olá, <?= Yii::$app->user->identity->name != null?Yii::$app->user->identity->name:'Visitante' ?>!</h2>
-    <h3>Bem vindo ao SAESP - Sistema de Atividades Esportivas.</h3>
-</div>
+<h1 class="text-center"><?= Html::encode($this->title) ?></h1>
+ <br>
 
 <div class="site-login col-lg-offset-3 col-lg-6 col-lg-offset-3">
     <?php $form = ActiveForm::begin([

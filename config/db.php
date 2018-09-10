@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'oci:dbname=172.18.1.10/stidsv;charset=UTF8',
-    'username' => 'SAESP',
-    'password' => '123S.E.N.H.A.321',
+    'dsn' => env('DB_HOST'),
+    'username' => env('DB_USER'),
+    'password' => env('DB_PASS'),
     //'attributes' => [PDO::ATTR_CASE => PDO::CASE_LOWER],
     'charset' => 'utf8',
     'on afterOpen'=>function($event){

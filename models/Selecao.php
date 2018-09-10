@@ -58,7 +58,7 @@ class Selecao extends \yii\db\ActiveRecord
     }
 
      public static function cadastrarNaSelecao(){
-        return self::find()->where("SEL_SITUACAO=:SEL_SITUACAO or trunc(sysdate) between SEL_DT_INICIO and SEL_DT_FIM",['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();
+        return self::find()->where("SEL_SITUACAO=:SEL_SITUACAO and trunc(sysdate) between SEL_DT_INICIO and SEL_DT_FIM",['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();
 
     }
 

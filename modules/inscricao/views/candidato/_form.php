@@ -4,18 +4,23 @@ use yii\helpers\Html;
 use yii\helpers\BaseHtml;
 use yii\widgets\ActiveForm;
 use kartik\tabs\TabsX;
+use app\assets\InscricaoAsset;
+InscricaoAsset::register($this);
 
 /* @var $this yii\web\View */
 /* @var $candidato app\modules\inscricao\candidatos\Candidato */
 /* @var $form yii\widgets\ActiveForm */
 ?>
 
-<?php $form = ActiveForm::begin(['enableClientValidation'=>false, 'options' => ['enctype' => 'multipart/form-data']]); ?>
+<?php $form = ActiveForm::begin([
+        //'enableClientValidation'=>false, 
+        'options' => ['enctype' => 'multipart/form-data']]); ?>
 
 <div class="candidato-form">
     <div class="alert-danger">
-        <?= BaseHtml::errorSummary([$model,$candidato]); ?>
+        <?= $form->errorSummary([$model,$candidato,$documento]); ?>
     </div>
+
     <?php echo TabsX::widget([
             //'position'=>TabsX::POS_LEFT,
             'encodeLabels'=>false,
@@ -26,8 +31,18 @@ use kartik\tabs\TabsX;
                 'content'=>$this->render('_form_partial', [
                     'form'=>$form,
                     'model'=>$model,
-                    'candidato'=>$candidato]), 
+                    'candidato'=>$candidato
+                ]), 
                 'active'=>true,
+                ],
+                [
+                'label'=>'<i class="glyphicon glyphicon-list-alt"></i> Documentos',
+                'content'=>$this->render('_form_documentacao_partial', [
+                    'form'=>$form,
+                    'documento'=>$documento,
+                    'candidato'=>$candidato
+                    ]), 
+                'active'=>false,
                 ],
                 [
                 'label'=>'<i class="glyphicon glyphicon-list-alt"></i> Modalidade',
@@ -46,8 +61,10 @@ use kartik\tabs\TabsX;
 <br>
 <div class="form-group">
     <?= Html::submitButton($candidato->isNewRecord ? 'Salvar' : 'Atualizar', ['class' => $candidato->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    <?php if(!$candidato->isNewRecord): ?>
+        <?= Html::a('Visualizar', ['view', 'id' => $candidato->CAND_ID], ['class' => 'btn btn-success']) ?>
+    <?php  endif; ?>
     <?= Html::a('Cancelar', ['/inscricao/default'] ,['class' => 'btn btn-danger']) ?>
-
 </div>
 
 <?php ActiveForm::end(); ?>

@@ -25,6 +25,7 @@ class InscricaoAsset extends AssetBundle
         'js/constants/constants.js',
     	'js/vue-components/modules-inscricao/dados-gerais.js',
     	'js/vue-components/modules-inscricao/modalidade.js',
+        'js/vue-components/modules-inscricao/documentacao.js',
     ];
     public $depends = [
         'app\assets\VueAsset',

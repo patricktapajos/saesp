@@ -6,6 +6,7 @@ use app\models\EstadoCivilEnum;
 use app\models\SimNaoEnum;
 use app\modules\inscricao\models\Inscricao;
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "CANDIDATO".
@@ -52,24 +53,29 @@ class Candidato extends \yii\db\ActiveRecord
             [['CAND_FOTO'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['CAND_ESTADO_CIVIL','CAND_CEP','CAND_LOGRADOURO','CAND_BAIRRO'], 'required','message'=>'{attribute} obrigatório'],
             [['modalidades'], 'required','message'=>'{attribute} obrigatório'],
+            
             ['CAND_NOME_RESPONSAVEL', 'required', 'when' => function($model) {
-                return $model->CAND_MENOR_IDADE == '1';
-            }],
+                return $model->CAND_MENOR_IDADE == 'SIM';
+            },'whenClient' => "menorIdade"],
+
             ['CAND_PCD_DESC', 'required', 'when' => function($model) {
-                return $model->CAND_PCD == '1';
-            }],
+                return $model->CAND_PCD == 'SIM';
+            },'whenClient' => "pcd"],
+
             ['CAND_MEDICACAO_DESC', 'required', 'when' => function($model) {
-                return $model->CAND_TEM_MEDICACAO == '1';
-            }],
+                return $model->CAND_TEM_MEDICACAO == 'SIM';
+            },'whenClient' => "medicacao"],
+            
             ['CAND_COMORBIDADE_DESC', 'required', 'when' => function($model) {
-                return $model->CAND_TEM_COMORBIDADE == '1';
-            }],
+                return $model->CAND_TEM_COMORBIDADE == 'SIM';
+            },'whenClient' => "comorbidade"],
+
             [['CAND_ESTADO_CIVIL'], 'string', 'max' => 15],
             [['CAND_CPF'], 'string', 'max' => 14],
             [['CAND_LOGRADOURO', 'CAND_COMPLEMENTO_END', 'CAND_BAIRRO', 'CAND_NOME_EMERGENCIA', 'CAND_NOME_RESPONSAVEL'], 'string', 'max' => 255],
             [['CAND_CEP'], 'string', 'max' => 10],
             [['CAND_TEL_EMERGENCIA'], 'string', 'max' => 15],
-            [['CAND_TEM_COMORBIDADE', 'CAND_TEM_MEDICACAO', 'CAND_PCD', 'CAND_MENOR_IDADE'], 'string', 'max' => 3],
+            [['CAND_TEM_COMORBIDADE', 'CAND_TEM_MEDICACAO', 'CAND_PCD', 'CAND_MENOR_IDADE', 'CAND_IDOSO'], 'string', 'max' => 3],
             [['CAND_COMORBIDADE_DESC', 'CAND_MEDICACAO_DESC','CAND_PCD_DESC'], 'string', 'max' => 500],
             [['CAND_OBSERVACOES'], 'string', 'max' => 1500],
         ];
@@ -100,14 +106,17 @@ class Candidato extends \yii\db\ActiveRecord
             'CAND_PCD' => 'PcD (Pessoa Com Deficiência)',
             'CAND_PCD_DESC' => 'Descrição da Deficiência',
             'CAND_MENOR_IDADE' => 'Candidato Menor de Idade',
+            'CAND_IDOSO' => 'Candidato Idoso',
             'CAND_FOTO' => 'Foto'
         ];
     }
 
     public function init(){
-        $this->CAND_TEM_COMORBIDADE = '0';
-        $this->CAND_TEM_MEDICACAO = '0';
-        $this->CAND_PCD = '0';
+        $this->CAND_MENOR_IDADE = 'NAO';
+        $this->CAND_IDOSO = 'NAO';
+        $this->CAND_TEM_COMORBIDADE = 'NAO';
+        $this->CAND_TEM_MEDICACAO = 'NAO';
+        $this->CAND_PCD = 'NAO';
     }
 
      public function beforeValidate(){
@@ -123,8 +132,14 @@ class Candidato extends \yii\db\ActiveRecord
         return $this->hasOne(Inscricao::className(), ['CAND_ID'=>'CAND_ID']);
     }
 
+    public function setArquivo(){
+        $this->CAND_FOTO = UploadedFile::getInstance($this, 'CAND_FOTO');
+    }
+
     public function upload(){
-        return $this->CAND_FOTO->saveAs('uploads/' . $this->CAND_FOTO->baseName . '.' . $this->CAND_FOTO->extension);
+        if($this->CAND_FOTO != null){
+            $this->CAND_FOTO->saveAs('uploads/' . $this->CAND_FOTO->baseName . '.' . $this->CAND_FOTO->extension);
+        }
     }
 
     public function afterFind(){
@@ -138,6 +153,14 @@ class Candidato extends \yii\db\ActiveRecord
     public function getSimNaoText($campo){
         return SimNaoEnum::listar()[$this->$campo];
     }
+
+    /*public function afterValidate(){
+         if(!$insert){
+            if($this->CAND_FOTO == null){
+                $this->CAND_FOTO = $this->photo;
+            }
+        }
+    }*/
 
     public function beforeSave($insert){
         
