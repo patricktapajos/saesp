@@ -45,7 +45,7 @@ use app\models\SexoEnum;
                 'mask'=>'(99)\99999-9999'
             ]) ?>
         </div>
-        
+
         <?php if(!$model->isNewRecord): ?>
             <div class="col-lg-4 col-sm-12">
                 <?= $form->field($model, 'USU_SITUACAO')->dropDownList(SituacaoEnum::listar()) ?>
@@ -56,7 +56,7 @@ use app\models\SexoEnum;
             <?= $form->field($model, 'USU_SEXO')->radioList(SexoEnum::listar()) ?>
         </div>
         <?php  if($model->isNewRecord): ?>
-            <div class="col-lg-4 col-sm-12">
+            <div class="col-lg-8 col-sm-8">
                 <?= $form->field($model, 'USU_PERMISSAO')->radioList(PermissaoEnum::listar()) ?>
             </div>
         <?php  endif; ?>

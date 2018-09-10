@@ -20,6 +20,7 @@ use Yii;
  * @property string $CEL_COMPLEMENTO_END
  * @property string $cel_id
  * @property string $CRD_ID
+ * @property string $CEL_STATUS
  * @property  $
  */
 class Cel extends \yii\db\ActiveRecord
@@ -64,6 +65,7 @@ class Cel extends \yii\db\ActiveRecord
             'CEL_LONGITUDE' => 'Longitude',
             'CEL_LOGRADOURO' => 'Logradouro',
             'CEL_CEP' => 'CEP',
+            'CEL_STATUS' => 'STATUS',
             'CEL_BAIRRO' => 'Bairro',
             'CEL_COMPLEMENTO_END' => 'Complemento',
             'CRD_ID' => 'Coordenador',
@@ -80,7 +82,7 @@ class Cel extends \yii\db\ActiveRecord
     }
 
     public function afterFind(){
-        
+
         $this->_nome_coordenador = $this->coordenador->usuario->USU_NOME;
 
         return parent::afterFind();

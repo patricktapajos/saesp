@@ -42,13 +42,28 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-            ['label' => 'Início', 'url' => ['/site/index']],
-            
-            /* Opções de menu para administrador */
+                        /* Opções de menu para administrador */
             ['label' => 'Usuário', 'url' => ['/usuario/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
             ['label' => 'CEL', 'url' => ['/cel/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
-            ['label' => 'Seleção', 'url' => ['/selecao/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
-
+            ['label' => 'Categoria',
+                    'url' => ['#'],
+                    'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN),
+                    'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
+                    'items' => [
+                        ['label' => 'Categoria', 'url' => ['/categoria/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
+                        ['label' => 'Modalidades', 'url' => ['/modalidade/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
+                    ],
+            ],
+            ['label' => 'Seleção',
+                    'url' => ['#'],
+                    'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN),
+                    'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
+                    'items' => [
+                        ['label' => 'Seleção', 'url' => ['/selecao/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
+                        ['label' => 'Vagas Remanescentes', 'url' => ['/inscricaomodalidade/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
+                        ['label' => 'Vagas Restantes', 'url' => ['/modalidadedatahora/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
+                    ],
+            ],
             ['label' => 'Alterar Senha', 'url' => ['/usuario/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],
 
             /* Opções de menu para coordenador */
@@ -83,6 +98,7 @@ AppAsset::register($this);
 
 <footer class="footer">
     <div class="container">
+
         <p class="pull-left">&copy; SUBTI <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>

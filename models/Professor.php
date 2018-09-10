@@ -39,6 +39,7 @@ class Professor extends \yii\db\ActiveRecord
         return [
             'PROF_ID' => 'Código',
             'USU_ID' => 'Usuário',
+            'PROF_ESTAGIARIO' => 'Estagiário',
         ];
     }
 
