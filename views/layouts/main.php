@@ -42,16 +42,15 @@ AppAsset::register($this);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
-                        /* Opções de menu para administrador */
             ['label' => 'Usuário', 'url' => ['/usuario/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
             ['label' => 'CEL', 'url' => ['/cel/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
-            ['label' => 'Categoria',
+            ['label' => 'Cadastros Básicos',
                     'url' => ['#'],
-                    'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN),
+                    'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR),
                     'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
                     'items' => [
-                        ['label' => 'Categoria', 'url' => ['/categoria/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
-                        ['label' => 'Modalidades', 'url' => ['/modalidade/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
+                        ['label' => 'Categoria', 'url' => ['/coordenador/categoria/index']],
+                        ['label' => 'Modalidade', 'url' => ['/coordenador/modalidade/index']],
                     ],
             ],
             ['label' => 'Seleção',
@@ -64,10 +63,7 @@ AppAsset::register($this);
                         ['label' => 'Vagas Restantes', 'url' => ['/modalidadedatahora/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
                     ],
             ],
-            ['label' => 'Alterar Senha', 'url' => ['/usuario/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],
-
-            /* Opções de menu para coordenador */
-            ['label' => 'Modalidade', 'url' => ['/coordenador/modalidade/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
+            ['label' => 'Alterar Senha', 'url' => ['/usuario/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],            
             ['label' => 'Seleção', 'url' => ['/coordenador/selecaocel/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
 
             Yii::$app->user->isGuest ? (

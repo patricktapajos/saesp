@@ -1,10 +1,10 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\coordenador\controllers;
 
 use Yii;
-use app\models\Categoria;
-use app\models\CategoriaSearch;
+use app\modules\coordenador\models\Categoria;
+use app\modules\coordenador\models\CategoriaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -67,7 +67,7 @@ class CategoriaController extends Controller
         $model = new Categoria();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->CAT_ID]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [

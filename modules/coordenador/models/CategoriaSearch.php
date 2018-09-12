@@ -1,11 +1,11 @@
 <?php
 
-namespace app\models;
+namespace app\modules\coordenador\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Categoria;
+use app\modules\coordenador\models\Categoria;
 
 /**
  * CategoriaSearch represents the model behind the search form of `app\models\Categoria`.

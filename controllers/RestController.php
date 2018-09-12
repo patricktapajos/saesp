@@ -10,6 +10,7 @@ use app\modules\coordenador\models\SelecaoCel;
 use app\modules\coordenador\models\SelecaoModalidade;
 use app\modules\coordenador\models\ModalidadeDataHora;
 use app\modules\coordenador\models\ModalidadeDiaSemana;
+use app\modules\coordenador\models\Categoria;
 use yii\filters\VerbFilter;
 use Yii;
 use yii\web\Response;
@@ -26,6 +27,8 @@ class RestController extends \yii\web\Controller
                     'coordenadores' => ['GET'],
                     'alterarmodalidades' => ['GET'],
                     'inscricaomodalidades' => ['GET'],
+                    'categorias' => ['GET'],
+                    'modalidadescadastro' => ['GET'],
                     'salvarcelselecao' => ['POST'],
                 ],
             ],
@@ -153,7 +156,7 @@ class RestController extends \yii\web\Controller
             $selecaoModalidade->setComplemento($modalidade['complemento']);
             
             if(!$selecaoModalidade->validate()){
-                $retorno['erros']['modalidades'][$n]['complemento'] = $selecaoModalidade->errors;
+                $retorno['erros']['modalidades'][$n]['complemento'] = $selecaogloModalidade->errors;
                 $retorno['success'] = 0;
             }
 
@@ -170,5 +173,33 @@ class RestController extends \yii\web\Controller
             }
         }
         return $retorno;
+    }
+
+    public function actionCategorias(){
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $listaCategorias = [];
+        $descricao = strtolower($_GET['term']);
+        $categorias = Categoria::find()->andWhere(['like','CAT_DESCRICAO', '%'.$descricao.'%', false])->all();
+    
+        foreach ($categorias as $key=>$value) {
+            $listaCategorias[$key]['id'] = "{$value['CAT_ID']}";
+            $listaCategorias[$key]['label'] = $value['CAT_DESCRICAO'];
+        }
+        return $listaCategorias;
+    }
+
+
+    public function actionModalidadescadastro(){
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $listaModalidades = [];
+        $descricao = strtolower($_GET['term']);
+        $categorias = Modalidade::find()->andWhere(['like','MOD_NOME', '%'.$descricao.'%', false])->all();
+    
+        foreach ($categorias as $key=>$value) {
+            $listaCategorias[$key]['id'] = "{$value['MOD_ID']}";
+            $listaCategorias[$key]['label'] = $value['MOD_NOME'];
+        }
+    
+        return $listaCategorias;
     }
 }

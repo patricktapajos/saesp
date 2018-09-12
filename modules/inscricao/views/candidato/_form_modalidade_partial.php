@@ -3,7 +3,7 @@
 ?>
 <div class="row table-saesp form-tab" id="modal">
 	<?= $form->field($candidato, 'modalidades')->hiddenInput(['v-model'=>'modalidades'])->label(false); ?>
-	<table class="table table-acao table-responsive">
+	<table class="table table-modalidade table-acao table-responsive">
         <thead>
             <tr>
                 <th class="field_cross2">CEL</th>

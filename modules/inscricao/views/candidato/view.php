@@ -103,7 +103,7 @@ $this->params['breadcrumbs'][] = $this->title;
     
     <h3><i class="glyphicon glyphicon-triangle-right"></i>Modalidade(s)</h3>
 
-    <table class="table table-acao table-responsive">
+    <table class="table-modalidade table-acao table-responsive">
         <thead>
             <tr>
                 <th class="field_cross2">CEL</th>

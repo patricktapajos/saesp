@@ -260,19 +260,19 @@ a.icone-index:hover {
 
 /** Formulário cadastro do quadro de modalidade  **/
 
-.table > thead > tr > th {
+.table-modalidade > thead > tr > th {
   font-size: 12px !important;
   text-transform: uppercase;
   background-color: #086794;
   color: #f5f5f5;
 }
 
-.table > tbody > tr > td {
+.table-modalidade > tbody > tr > td {
   font-size: 14px !important; 
   vertical-align: middle !important;  
 }
 
-.table > tbody > tr > td {
+.table-modalidade > tbody > tr > td {
   font-size: 14px !important; 
   vertical-align: middle !important;  
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace app\models;
-use app\models\Modalidade;
-
+namespace app\modules\coordenador\models;
+use app\modules\coordenador\models\Modalidade;
+use yii\helpers\ArrayHelper;
 use Yii;
 
 /**
@@ -32,7 +32,7 @@ class Categoria extends \yii\db\ActiveRecord
             [['CAT_ID'], 'integer'],
             [['CAT_DESCRICAO'], 'string', 'max' => 70],
             [['CAT_OBS'], 'string', 'max' => 50],
-            [['CAT_ID'], 'unique'],
+            [['CAT_ID'], 'unique', 'message'=>'Categoria com esta descrição já cadastrada'],
         ];
     }
 
@@ -42,9 +42,9 @@ class Categoria extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'CAT_ID' => 'Cat  ID',
-            'CAT_DESCRICAO' => 'Categoria',
-            'CAT_OBS' => 'Obs',
+            'CAT_ID' => 'Código',
+            'CAT_DESCRICAO' => 'Descrição',
+            'CAT_OBS' => 'Observação',
         ];
     }
 
@@ -58,5 +58,9 @@ class Categoria extends \yii\db\ActiveRecord
 
     public function getCategoria(){
         return $this->hasOne(Categoria::className(), ['CAT_ID'=>'CAT_ID']);
+    }
+
+    public static function listar(){
+        return ArrayHelper::map(self::find()->all(), 'CAT_ID','CAT_DESCRICAO');
     }
 }

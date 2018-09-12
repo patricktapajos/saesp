@@ -29,7 +29,8 @@ class Modalidade extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['MOD_NOME', 'MOD_DESCRICAO'], 'required'],
+            [['MOD_ID'], 'unique', 'message'=>'Modalidade com este nome já cadastrada'],
+            [['MOD_NOME', 'MOD_DESCRICAO','CAT_ID'], 'required'],
             [['MOD_NOME', 'MOD_DESCRICAO'], 'string', 'max' => 255],
             [['CEL_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Cel::className(), 'targetAttribute' => ['CEL_ID' => 'CEL_ID']],
         ];
@@ -45,6 +46,8 @@ class Modalidade extends \yii\db\ActiveRecord
             'MOD_DESCRICAO' => 'Descrição',
             'MOD_ID' => 'Código',
             'CEL_ID' => 'CEL',
+            'CAT_ID' => 'Categoria',
+
         ];
     }
 
@@ -54,6 +57,11 @@ class Modalidade extends \yii\db\ActiveRecord
 
     public function getSelecaoModalidades(){
         return $this->hasMany(SelecaoModalidade::className(), ['MOD_ID'=>'MOD_ID']);
+    }
+
+     public function getCategoria()
+    {
+        return $this->hasOne(Categoria::className(), ['CAT_ID' => 'CAT_ID']);
     }
 
     /*public function getModalidadeDataHora(){
