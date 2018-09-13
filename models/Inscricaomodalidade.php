@@ -63,4 +63,8 @@ class Inscricaomodalidade extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Modalidadedatahora::className(), ['MDT_ID' => 'MDT_ID']);
     }
+
+    public function getModalidadedatahora(){
+        return $this->hasMany(Modalidadedatahora::className(), ['MDT_ID'=>'MDT_ID']);
+    }
 }

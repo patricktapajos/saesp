@@ -85,4 +85,9 @@ class Inscricao extends \yii\db\ActiveRecord
     {
         return $this->hasMany(INSCRICAOMODALIDADE::className(), ['INS_ID' => 'INS_ID']);
     }
+
+    public function getCANDIDATO()
+    {
+        return $this->hasOne(CANDIDATO::className(), ['CAND_ID' => 'CAND_ID']);
+    }
 }

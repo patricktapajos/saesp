@@ -20,11 +20,16 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-            'IMO_ID',
             [
               'attribute'=>'INS_ID',
               'value' => function ($model) {
                    return $model->iNS->INS_NUM_INSCRICAO;
+              }
+            ],
+            [
+              'attribute'=>'Nome',
+              'value' => function ($model) {
+                   return $model->iNS->cANDIDATO->uSU->USU_NOME;
               }
             ],
             [

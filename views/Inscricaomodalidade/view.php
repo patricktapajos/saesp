@@ -29,13 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 }
             ],
             [
-                'label'=>'Modalidade',
-                'value' => function ($model) {
-                     return $model->mOD_DT_HR->sMOD->mODALIDADE->MOD_DESCRICAO;
-                }
-            ],
-            'IMO_STATUS',
-
+              'label'=>'Candidato',
+              'value' => function ($model) {
+                   return $model->iNS->cANDIDATO->uSU->USU_NOME;
+              }
+            ]
         ],
     ]) ?>
 

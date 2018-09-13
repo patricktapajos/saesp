@@ -3,21 +3,25 @@
 namespace app\controllers;
 
 use Yii;
-use app\modules\inscricao\models\InscricaoModalidade;
-use app\models\InscricaomodalidadeSearch;
-use app\modules\coordenador\models\ModalidadeDataHora;
 use app\modules\inscricao\models\Candidato;
-use app\modules\coordenador\models\SelecaoModalidade;
-use app\modules\coordenador\models\SelecaoCel;
-use app\modules\inscricao\models\Inscricao;
+use app\modules\inscricao\models\CandidatoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\Usuario;
+use app\modules\coordenador\models\SelecaoModalidade;
+use app\modules\coordenador\models\SelecaoCel;
+use app\modules\inscricao\models\Inscricao;
+use app\modules\inscricao\models\InscricaoModalidade;
+use app\models\Selecao;
+use app\models\SituacaoSelecaoEnum;
+use app\models\PermissaoEnum;
+use app\models\SituacaoEnum;
 
 /**
- * InscricaomodalidadeController implements the CRUD actions for Inscricaomodalidade model.
+ * CandidatoController implements the CRUD actions for Candidato model.
  */
-class InscricaomodalidadeController extends Controller
+class CandidatoController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -35,12 +39,12 @@ class InscricaomodalidadeController extends Controller
     }
 
     /**
-     * Lists all Inscricaomodalidade models.
+     * Lists all Candidato models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new InscricaomodalidadeSearch();
+        $searchModel = new CandidatoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -50,32 +54,44 @@ class InscricaomodalidadeController extends Controller
     }
 
     /**
-     * Displays a single Inscricaomodalidade model.
+     * Displays a single Candidato model.
      * @param string $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
-      $smods = SelecaoModalidade::find()->innerJoinWith('modalidadedatahora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+      //if(!$selecao){
+      //    throw new \yii\web\HttpException(403,"Não há processo seletivo aberto!");
+      //}
 
-      if (($model->load(Yii::$app->request->post()) && $model->validate())
+      $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+      //$inscricao = Inscricao::find()->where(['SEL_ID'=>$selecao->SEL_ID]);
+
+       if (($model->load(Yii::$app->request->post()) && $model->validate())
           && ($candidato->load(Yii::$app->request->post()) && $candidato->validate())) {
+
+          //var_dump(Yii::$app->request->post());die;
 
           $trans = Yii::$app->db->beginTransaction();
           try{
               $model->save();
+
               $candidato->CAND_FOTO = UploadedFile::getInstance($candidato, 'CAND_FOTO');
-              $candidato->USU_ID = $model->USU_ID;
-              $candidato->upload();
+              if($candidato->CAND_FOTO){
+                  $candidato->upload();
+              }
+
+
               $candidato->save(false);
-              $inscricao->CAND_ID = $candidato->CAND_ID;
-              $inscricao->SEL_ID = $selecao->SEL_ID;
-              $inscricao->save(false);
+
+              //InscricaoModalidade::find()->where(['INS_ID'=>$candidato->inscricao->INS_ID])->deleteAll();
+              InscricaoModalidade::deleteAll('INS_ID =:INS_ID ',[':INS_ID'=>$candidato->inscricao->INS_ID]);
+
               foreach (explode(',',$candidato->modalidades) as $modalidade) {
                   $inscmod = new InscricaoModalidade();
                   $inscmod->MDT_ID = $modalidade;
-                  $inscmod->INS_ID = $inscricao->INS_ID;
+                  $inscmod->INS_ID = $candidato->inscricao->INS_ID;
                   $inscmod->save();
               }
               $trans->commit();
@@ -85,25 +101,26 @@ class InscricaomodalidadeController extends Controller
               throw $e;
           }
         }
-
+        ///print_r(Yii::$app->request->queryParams);die;
         return $this->render('view', [
             'model' => $this->findModel($id),
             'candidato' => $candidato,
             'smods' => $smods
+
         ]);
     }
 
     /**
-     * Creates a new Inscricaomodalidade model.
+     * Creates a new Candidato model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Inscricaomodalidade();
+        $model = new Candidato();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->IMO_ID]);
+            return $this->redirect(['view', 'id' => $model->CAND_ID]);
         }
 
         return $this->render('create', [
@@ -112,7 +129,7 @@ class InscricaomodalidadeController extends Controller
     }
 
     /**
-     * Updates an existing Inscricaomodalidade model.
+     * Updates an existing Candidato model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
@@ -123,10 +140,7 @@ class InscricaomodalidadeController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-
-            if($app->request->IMO_STATUS == 'DESISTENCIA'){
-            }
-            return $this->redirect(['view', 'id' => $model->IMO_ID]);
+            return $this->redirect(['view', 'id' => $model->CAND_ID]);
         }
 
         return $this->render('update', [
@@ -135,7 +149,7 @@ class InscricaomodalidadeController extends Controller
     }
 
     /**
-     * Deletes an existing Inscricaomodalidade model.
+     * Deletes an existing Candidato model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
@@ -149,20 +163,18 @@ class InscricaomodalidadeController extends Controller
     }
 
     /**
-     * Finds the Inscricaomodalidade model based on its primary key value.
+     * Finds the Candidato model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Inscricaomodalidade the loaded model
+     * @return Candidato the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Inscricaomodalidade::findOne($id)) !== null) {
+        if (($model = Candidato::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
-
 }
