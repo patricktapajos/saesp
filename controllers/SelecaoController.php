@@ -6,6 +6,8 @@ use Yii;
 use app\models\Selecao;
 use app\models\SelecaoSearch;
 use app\models\SituacaoSelecaoEnum;
+use app\modules\inscricao\models\InscricaoModalidade;
+use app\models\InscricaomodalidadeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -53,7 +55,12 @@ class SelecaoController extends Controller
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+       $searchModel = new InscricaomodalidadeSearch();
+       $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+
+       return $this->render('view', [
+            'searchModel' => $searchModel,
+            'dataProvider' => $dataProvider,
             'model' => $this->findModel($id),
         ]);
     }
@@ -70,7 +77,7 @@ class SelecaoController extends Controller
         }
 
         $model = new Selecao();
-        $model->SEL_SITUACAO = SituacaoSelecaoEnum::CADASTRADO;    
+        $model->SEL_SITUACAO = SituacaoSelecaoEnum::CADASTRADO;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['index']);
@@ -92,7 +99,7 @@ class SelecaoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
+
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [

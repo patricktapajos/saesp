@@ -2,13 +2,14 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 use app\modules\coordenador\models\SelecaoCel;
+use app\modules\inscricao\models\InscricaoModalidade;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\coordenador\models\SelecaoCelSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Gerenciar CEL/Seleção';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="selecao-cel-index">
@@ -31,7 +32,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter'=> Html::dropDownList("SelecaoCelSearch[SEL_ID]", $searchModel->SEL_ID, SelecaoCel::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+             'template' => '{view} {update} {delete} {parecer}',
+             'buttons'  => [
+               'parecer'   => function ($url, $model) {
+                $url ='../selecaocel/parecer?celid='.$model->CEL_ID.'&selid='.$model->SEL_ID;
+                return Html::a('<span class="fa fa-search"></span>', $url,
+                              ['class'=>'glyphicon glyphicon-search']);
+               }
+             ]
+            ],
         ],
     ]); ?>
 </div>
