@@ -5,6 +5,7 @@ namespace app\modules\coordenador\controllers;
 use Yii;
 use app\modules\coordenador\models\SelecaoCel;
 use app\models\Selecao;
+use app\modules\inscricao\models\Candidato;
 use app\modules\coordenador\models\SelecaoModalidade;
 use app\modules\coordenador\models\ModalidadeDataHora;
 use app\modules\coordenador\models\ModalidadeDiaSemana;
@@ -18,6 +19,8 @@ use yii\web\NotFoundHttpException;
 use yii\web\MethodNotAllowedHttpException;
 use yii\filters\VerbFilter;
 use yii\db\Query;
+use yii\data\ActiveDataProvider;
+use kartik\mpdf\Pdf;
 
 /**
  * SelecaoCelController implements the CRUD actions for SelecaoCel model.
@@ -64,33 +67,32 @@ class SelecaocelController extends Controller
       * Lists all SelecaoCel models.
       * @return mixed
       */
-     public function actionParecer($celid, $selid)
+     public function actionGerenciarparecer($celid, $selid)
      {
          //print_r('CEL: '.$celid.' SELEÇÃO: '.$selid);die;
          $query = new Query;
-         $query->select('U.USU_NOME, U.USU_CPF, I.INS_NUM_INSCRICAO')
-               ->from('USUARIO U, CANDIDATO C, INSCRICAO I, INSCRICAO_MODALIDADE IM, MODALIDADE M,
-                       MODALIDADE_DATAHORA MDT, SELECAO S, SELECAO_MODALIDADE SM')
-               ->where('U.USU_ID           = C.USU_ID')
-               ->andWhere('C.CAND_ID       = I.CAND_ID')
-               ->andWhere('I.INS_ID        = IM.INS_ID')
-               ->andWhere('AND IM.MDT_ID   = MDT.MDT_ID')
-               ->andWhere('AND MDT.SMOD_ID = SM.SMOD_ID')
-               ->andWhere('AND SM.MOD_ID   = M.MOD_ID ')
-               ->andWhere('AND SM.SEL_ID   = S.SEL_ID ')
-               ->andWhere('AND M.CEL_ID    = '.$celid.'')
-               ->andWhere('AND M.SEL_ID    = '.$selid.'')
-               ->groupBy('GROUP BY U.USU_NOME, U.USU_CPF, I.INS_NUM_INSCRICAO');
+         $query->select('INSCRICAO.INS_ID AS ID, USUARIO.USU_NOME AS NOME, USUARIO.USU_CPF AS CPF, INSCRICAO.INS_NUM_INSCRICAO AS INSCRICAO')
+               ->from('USUARIO')
+               ->innerJoin('CANDIDATO', 'USUARIO.USU_ID = CANDIDATO.USU_ID')
+               ->innerJoin('INSCRICAO', 'CANDIDATO.CAND_ID = INSCRICAO.CAND_ID')
+               ->innerJoin('INSCRICAO_MODALIDADE', 'INSCRICAO.INS_ID = INSCRICAO_MODALIDADE.INS_ID')
+               ->innerJoin('MODALIDADE_DATAHORA', 'INSCRICAO_MODALIDADE.MDT_ID = MODALIDADE_DATAHORA.MDT_ID')
+               ->innerJoin('SELECAO_MODALIDADE', 'MODALIDADE_DATAHORA.SMOD_ID = SELECAO_MODALIDADE.SMOD_ID')
+               ->innerJoin('MODALIDADE', 'SELECAO_MODALIDADE.MOD_ID = MODALIDADE.MOD_ID')
+               ->innerJoin('SELECAO', 'SELECAO_MODALIDADE.SEL_ID = SELECAO.SEL_ID')
+               ->Where('MODALIDADE.CEL_ID    = '.$celid.'')
+               ->andWhere('SELECAO.SEL_ID = '.$selid.'')
+               ->groupBy('INSCRICAO.INS_ID, USUARIO.USU_NOME, USUARIO.USU_CPF, INSCRICAO.INS_NUM_INSCRICAO');
 
+         $candidatos = $query->all();
 
-         //$searchModel = new InscricaoSear();
-         //$dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-         $dataProvider = $query->all();
-         print_r($dataProvider); die;
-
-
-         return $this->render('parecer', [
+         $dataProvider = new ActiveDataProvider([
+             'query' => $query,
+         ]);
+         $candidatos = $dataProvider;
+         return $this->render('gerenciarparecer', [
              'dataProvider' => $dataProvider,
+             'model'        => $candidatos,
          ]);
      }
 
@@ -99,6 +101,16 @@ class SelecaocelController extends Controller
       * @param string $id
       * @return mixed
       */
+    public function actionParecer($insid)
+    {
+
+        $inscricao    = Inscricao::findOne($insid);
+        $smods        = InscricaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['INS_ID'=>$insid])->all();
+        return $this->render('parecer', [
+            'model' => $inscricao->candidato,
+            'smods' => $smods,
+        ]);
+    }
 
     public function actionView($id)
     {

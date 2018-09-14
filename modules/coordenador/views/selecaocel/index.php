@@ -33,10 +33,10 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter'=> Html::dropDownList("SelecaoCelSearch[SEL_ID]", $searchModel->SEL_ID, SelecaoCel::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
             ['class' => 'yii\grid\ActionColumn',
-             'template' => '{view} {update} {delete} {parecer}',
+             'template' => '{view} {update} {delete} {gerenciarparecer}',
              'buttons'  => [
-               'parecer'   => function ($url, $model) {
-                $url ='../selecaocel/parecer?celid='.$model->CEL_ID.'&selid='.$model->SEL_ID;
+               'gerenciarparecer'   => function ($url, $model) {
+                $url ='../selecaocel/gerenciarparecer?celid='.$model->CEL_ID.'&selid='.$model->SEL_ID;
                 return Html::a('<span class="fa fa-search"></span>', $url,
                               ['class'=>'glyphicon glyphicon-search']);
                }

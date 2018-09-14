@@ -3,6 +3,7 @@
 namespace app\modules\inscricao\models;
 use app\models\SituacaoInscricaoEnum;
 use app\modules\inscricao\models\InscricaoDocumento;
+use app\modules\inscricao\models\Candidato;
 use app\modules\inscricao\models\InscricaoModalidade;
 use app\models\Selecao;
 use Yii;
@@ -79,4 +80,9 @@ class Inscricao extends \yii\db\ActiveRecord
     public function getInscricaomodalidade(){
         return $this->hasMany(InscricaoModalidade::className(), ['INS_ID'=>'INS_ID']);
     }
+
+    public function getCandidato(){
+        return $this->hasOne(Candidato::className(), ['CAND_ID'=>'CAND_ID']);
+    }
+
 }
