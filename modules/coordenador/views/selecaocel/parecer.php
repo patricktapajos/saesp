@@ -122,8 +122,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td><?php echo $mdh->selecaoModalidade->modalidade->MOD_DESCRICAO; ?></td>
                         <td><?php echo $mdh->getDiasSemana(); ?></td>
                         <td><?php echo $mdh->getHorario(); ?></td>
-							  				<td><?php echo Html::a('<span class="fa fa-search"></span>', '',
-				                              ['class'=>'glyphicon glyphicon glyphicon-check']); ?></td>
+							  				<td><?php echo Html::checkBox($mdh->selecaoModalidade->modalidade->MOD_ID, true, ['value' => $key]); ?></td>
                     </tr>
                 <?php endforeach; ?>
             <?php endforeach; ?>

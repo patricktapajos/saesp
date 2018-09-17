@@ -47384,3 +47384,1595 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1536962752.19
     'REQUEST_TIME' => 1536962752
 ]
+2018-09-17 08:44:41 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/ci.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/ci.jpg', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:44:41 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50522'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/ci.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/ci.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188281.753
+    'REQUEST_TIME' => 1537188281
+    'YII_DEBUG' => 'true'
+    'YII_ENV_DEV' => 'true'
+    'DB_HOST' => 'oci:dbname=172.18.1.10/stidsv;charset=UTF8'
+    'DB_USER' => 'saesp'
+    'DB_PASS' => '123S.E.N.H.A.321'
+    'EMAIL_HOST' => 'email.pmm.am.gov.br'
+    'EMAIL_USER' => 'email.sistemas@pmm.am.gov.br'
+    'EMAIL_PASS' => 'Email!@#2014'
+]
+2018-09-17 08:44:42 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/cpf.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/cpf.jpg', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:44:41 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50527'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/cpf.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/cpf.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188281.759
+    'REQUEST_TIME' => 1537188281
+]
+2018-09-17 08:44:42 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/laudo_pcd.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/laudo_p...', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:44:41 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50529'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/laudo_pcd.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/laudo_pcd.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188281.76
+    'REQUEST_TIME' => 1537188281
+]
+2018-09-17 08:44:42 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/comprovante.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/comprov...', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:44:41 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50528'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/comprovante.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/comprovante.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188281.759
+    'REQUEST_TIME' => 1537188281
+]
+2018-09-17 08:49:12 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\base\UnknownPropertyException] yii\base\UnknownPropertyException: Getting unknown property: yii\web\View::name in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Component.php:154
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\modules\coordenador\views\selecaocel\parecer.php(125): yii\base\Component->__get('name')
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\View.php(336): require('C:\\wamp\\www\\dsv...')
+#2 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#3 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\coordenador\controllers\SelecaocelController))
+#4 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('parecer', Array, Object(app\modules\coordenador\controllers\SelecaocelController))
+#5 C:\wamp\www\dsv\saesp\modules\coordenador\controllers\SelecaoCelController.php(111): yii\base\Controller->render('parecer', Array)
+#6 [internal function]: app\modules\coordenador\controllers\SelecaocelController->actionParecer('37')
+#7 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#8 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('parecer', Array)
+#10 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('coordenador/sel...', Array)
+#11 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#13 {main}
+2018-09-17 08:49:12 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = [
+    'insid' => '37'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/gerenciarparecer?celid=1&selid=22'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50604'
+    'REDIRECT_URL' => '/dsv/saesp/web/coordenador/selecaocel/parecer'
+    'REDIRECT_QUERY_STRING' => 'insid=37'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'insid=37'
+    'REQUEST_URI' => '/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188552.273
+    'REQUEST_TIME' => 1537188552
+    'YII_DEBUG' => 'true'
+    'YII_ENV_DEV' => 'true'
+    'DB_HOST' => 'oci:dbname=172.18.1.10/stidsv;charset=UTF8'
+    'DB_USER' => 'saesp'
+    'DB_PASS' => '123S.E.N.H.A.321'
+    'EMAIL_HOST' => 'email.pmm.am.gov.br'
+    'EMAIL_USER' => 'email.sistemas@pmm.am.gov.br'
+    'EMAIL_PASS' => 'Email!@#2014'
+]
+2018-09-17 08:50:35 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][ArgumentCountError] ArgumentCountError: Too few arguments to function yii\helpers\BaseHtml::checkbox(), 0 passed in C:\wamp\www\dsv\saesp\modules\coordenador\views\selecaocel\parecer.php on line 125 and at least 1 expected in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\helpers\BaseHtml.php:725
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\modules\coordenador\views\selecaocel\parecer.php(125): yii\helpers\BaseHtml::checkbox()
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\View.php(336): require('C:\\wamp\\www\\dsv...')
+#2 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\View.php(254): yii\base\View->renderPhpFile('C:\\wamp\\www\\dsv...', Array)
+#3 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\View.php(156): yii\base\View->renderFile('C:\\wamp\\www\\dsv...', Array, Object(app\modules\coordenador\controllers\SelecaocelController))
+#4 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Controller.php(384): yii\base\View->render('parecer', Array, Object(app\modules\coordenador\controllers\SelecaocelController))
+#5 C:\wamp\www\dsv\saesp\modules\coordenador\controllers\SelecaoCelController.php(111): yii\base\Controller->render('parecer', Array)
+#6 [internal function]: app\modules\coordenador\controllers\SelecaocelController->actionParecer('37')
+#7 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\InlineAction.php(57): call_user_func_array(Array, Array)
+#8 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Controller.php(157): yii\base\InlineAction->runWithParams(Array)
+#9 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php(528): yii\base\Controller->runAction('parecer', Array)
+#10 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('coordenador/sel...', Array)
+#11 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#12 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#13 {main}
+2018-09-17 08:50:34 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = [
+    'insid' => '37'
+]
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_CACHE_CONTROL' => 'max-age=0'
+    'HTTP_UPGRADE_INSECURE_REQUESTS' => '1'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/gerenciarparecer?celid=1&selid=22'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50619'
+    'REDIRECT_URL' => '/dsv/saesp/web/coordenador/selecaocel/parecer'
+    'REDIRECT_QUERY_STRING' => 'insid=37'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => 'insid=37'
+    'REQUEST_URI' => '/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188634.945
+    'REQUEST_TIME' => 1537188634
+    'YII_DEBUG' => 'true'
+    'YII_ENV_DEV' => 'true'
+    'DB_HOST' => 'oci:dbname=172.18.1.10/stidsv;charset=UTF8'
+    'DB_USER' => 'saesp'
+    'DB_PASS' => '123S.E.N.H.A.321'
+    'EMAIL_HOST' => 'email.pmm.am.gov.br'
+    'EMAIL_USER' => 'email.sistemas@pmm.am.gov.br'
+    'EMAIL_PASS' => 'Email!@#2014'
+]
+2018-09-17 08:52:57 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/comprovante.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/comprov...', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:52:57 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50701'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/comprovante.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/comprovante.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188777.25
+    'REQUEST_TIME' => 1537188777
+]
+2018-09-17 08:52:57 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/ci.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/ci.jpg', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:52:57 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50696'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/ci.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/ci.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188777.248
+    'REQUEST_TIME' => 1537188777
+    'YII_DEBUG' => 'true'
+    'YII_ENV_DEV' => 'true'
+    'DB_HOST' => 'oci:dbname=172.18.1.10/stidsv;charset=UTF8'
+    'DB_USER' => 'saesp'
+    'DB_PASS' => '123S.E.N.H.A.321'
+    'EMAIL_HOST' => 'email.pmm.am.gov.br'
+    'EMAIL_USER' => 'email.sistemas@pmm.am.gov.br'
+    'EMAIL_PASS' => 'Email!@#2014'
+]
+2018-09-17 08:52:57 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/laudo_pcd.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/laudo_p...', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:52:57 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50703'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/laudo_pcd.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/laudo_pcd.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188777.252
+    'REQUEST_TIME' => 1537188777
+]
+2018-09-17 08:52:57 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/cpf.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/cpf.jpg', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:52:57 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50700'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/cpf.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/cpf.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188777.25
+    'REQUEST_TIME' => 1537188777
+]
+2018-09-17 08:53:24 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/ci.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/ci.jpg', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:53:24 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50714'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/ci.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/ci.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188804.627
+    'REQUEST_TIME' => 1537188804
+    'YII_DEBUG' => 'true'
+    'YII_ENV_DEV' => 'true'
+    'DB_HOST' => 'oci:dbname=172.18.1.10/stidsv;charset=UTF8'
+    'DB_USER' => 'saesp'
+    'DB_PASS' => '123S.E.N.H.A.321'
+    'EMAIL_HOST' => 'email.pmm.am.gov.br'
+    'EMAIL_USER' => 'email.sistemas@pmm.am.gov.br'
+    'EMAIL_PASS' => 'Email!@#2014'
+]
+2018-09-17 08:53:24 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/cpf.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/cpf.jpg', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:53:24 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50719'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/cpf.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/cpf.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188804.629
+    'REQUEST_TIME' => 1537188804
+]
+2018-09-17 08:53:24 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/comprovante.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/comprov...', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:53:24 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50721'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/comprovante.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/comprovante.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188804.637
+    'REQUEST_TIME' => 1537188804
+]
+2018-09-17 08:53:24 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/laudo_pcd.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/laudo_p...', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:53:24 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50724'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/laudo_pcd.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/laudo_pcd.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188804.644
+    'REQUEST_TIME' => 1537188804
+]
+2018-09-17 08:53:59 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/ci.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/ci.jpg', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:53:59 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50736'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/ci.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/ci.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188839.259
+    'REQUEST_TIME' => 1537188839
+    'YII_DEBUG' => 'true'
+    'YII_ENV_DEV' => 'true'
+    'DB_HOST' => 'oci:dbname=172.18.1.10/stidsv;charset=UTF8'
+    'DB_USER' => 'saesp'
+    'DB_PASS' => '123S.E.N.H.A.321'
+    'EMAIL_HOST' => 'email.pmm.am.gov.br'
+    'EMAIL_USER' => 'email.sistemas@pmm.am.gov.br'
+    'EMAIL_PASS' => 'Email!@#2014'
+]
+2018-09-17 08:53:59 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/cpf.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/cpf.jpg', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:53:59 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50739'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/cpf.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/cpf.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188839.262
+    'REQUEST_TIME' => 1537188839
+]
+2018-09-17 08:53:59 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/comprovante.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/comprov...', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:53:59 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50741'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/comprovante.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/comprovante.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188839.264
+    'REQUEST_TIME' => 1537188839
+]
+2018-09-17 08:53:59 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/laudo_pcd.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/laudo_p...', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 08:53:59 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '50743'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/laudo_pcd.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/laudo_pcd.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537188839.269
+    'REQUEST_TIME' => 1537188839
+]
+2018-09-17 09:34:33 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/ci.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/ci.jpg', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 09:34:33 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '51456'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/ci.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/ci.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537191273.12
+    'REQUEST_TIME' => 1537191273
+    'YII_DEBUG' => 'true'
+    'YII_ENV_DEV' => 'true'
+    'DB_HOST' => 'oci:dbname=172.18.1.10/stidsv;charset=UTF8'
+    'DB_USER' => 'saesp'
+    'DB_PASS' => '123S.E.N.H.A.321'
+    'EMAIL_HOST' => 'email.pmm.am.gov.br'
+    'EMAIL_USER' => 'email.sistemas@pmm.am.gov.br'
+    'EMAIL_PASS' => 'Email!@#2014'
+]
+2018-09-17 09:34:33 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/cpf.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/cpf.jpg', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 09:34:33 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '51459'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/cpf.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/cpf.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537191273.122
+    'REQUEST_TIME' => 1537191273
+]
+2018-09-17 09:34:33 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/comprovante.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/comprov...', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 09:34:33 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '51462'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/comprovante.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/comprovante.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537191273.13
+    'REQUEST_TIME' => 1537191273
+]
+2018-09-17 09:34:33 [::1][41][7hspbm24qtcadjuhppil2ap5ti][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "uploads/laudo_pcd.jpg". in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Module.php:537
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php(103): yii\base\Module->runAction('uploads/laudo_p...', Array)
+#1 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#2 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Página não encontrada. in C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\web\Application.php:115
+Stack trace:
+#0 C:\wamp\www\dsv\saesp\vendor\yiisoft\yii2\base\Application.php(386): yii\web\Application->handleRequest(Object(yii\web\Request))
+#1 C:\wamp\www\dsv\saesp\web\index.php(11): yii\base\Application->run()
+#2 {main}
+2018-09-17 09:34:33 [::1][41][7hspbm24qtcadjuhppil2ap5ti][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = [
+    'PHPSESSID' => '7hspbm24qtcadjuhppil2ap5ti'
+    '_identity' => '6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a:2:{i:0;s:9:\"_identity\";i:1;s:17:\"[41,null,2592000]\";}'
+    '_csrf' => '7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a:2:{i:0;s:5:\"_csrf\";i:1;s:32:\"aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR\";}'
+]
+
+$_SESSION = [
+    '__flash' => []
+    '__id' => 41
+]
+
+$_SERVER = [
+    'REDIRECT_STATUS' => '200'
+    'HTTP_HOST' => 'localhost'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+    'HTTP_ACCEPT' => 'image/webp,image/apng,image/*,*/*;q=0.8'
+    'HTTP_REFERER' => 'http://localhost/dsv/saesp/web/coordenador/selecaocel/parecer?insid=37'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'pt-BR,pt;q=0.9,en;q=0.8,en-US;q=0.7,es;q=0.6,gl;q=0.5'
+    'HTTP_COOKIE' => 'PHPSESSID=7hspbm24qtcadjuhppil2ap5ti; _identity=6eb86180388e6ad3a59775be60275f78f0ad69eb791fcc6c70c483653619e430a%3A2%3A%7Bi%3A0%3Bs%3A9%3A%22_identity%22%3Bi%3A1%3Bs%3A17%3A%22%5B41%2Cnull%2C2592000%5D%22%3B%7D; _csrf=7aad16e656ce07f7c73da34f2e534477f33fb06ef5b37144e876b09123aa09c9a%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22aMrE1aW7qkaM1MEVCWFGH_HwiNvwtdRR%22%3B%7D'
+    'PATH' => 'C:\\app\\product\\11.2.0\\client_1\\bin;C:\\app\\gilberto.silva\\product\\11.2.0\\client_1;C:\\wamp\\bin\\php\\php5.6.25;C:\\Program Files (x86)\\Git\\cmd;C:\\wamp\\bin\\php\\php7.1.9;C:\\composer;C:\\Program Files\\PuTTY\\;C:\\wamp\\bin\\php\\php5.6.35;C:\\Program Files\\TortoiseSVN\\bin;C:\\wamp\\www\\dsv\\pacotes;C:\\wamp\\bin\\php\\php7.2.4; C:\\wamp\\bin\\php\\php7.1.16;C:\\wamp\\bin\\php\\php7.0.29;C:\\wamp\\bin\\php\\php5.6.35; C:\\wamp\\www\\dsv\\yii-1.1\\framework;C:\\wamp\\www\\dsv\\yii\\framework;C:\\wamp\\www\\dsv\\sdb;C:\\wamp\\www\\dsv\\pacotes\\pmmii;C:\\Program Files\\nodejs\\;C:\\Program Files\\TortoiseGit\\bin;'
+    'SystemRoot' => 'C:\\Windows'
+    'COMSPEC' => 'C:\\Windows\\system32\\cmd.exe'
+    'PATHEXT' => '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC'
+    'WINDIR' => 'C:\\Windows'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.27 (Win32) PHP/7.1.9 Server at localhost Port 80</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.27 (Win32) PHP/7.1.9'
+    'SERVER_NAME' => 'localhost'
+    'SERVER_ADDR' => '::1'
+    'SERVER_PORT' => '80'
+    'REMOTE_ADDR' => '::1'
+    'DOCUMENT_ROOT' => 'C:/wamp/www'
+    'REQUEST_SCHEME' => 'http'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => 'C:/wamp/www'
+    'SERVER_ADMIN' => 'wampserver@wampserver.invalid'
+    'SCRIPT_FILENAME' => 'C:/wamp/www/dsv/saesp/web/index.php'
+    'REMOTE_PORT' => '51464'
+    'REDIRECT_URL' => '/dsv/saesp/web/uploads/laudo_pcd.jpg'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'GET'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/dsv/saesp/web/uploads/laudo_pcd.jpg'
+    'SCRIPT_NAME' => '/dsv/saesp/web/index.php'
+    'PHP_SELF' => '/dsv/saesp/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1537191273.13
+    'REQUEST_TIME' => 1537191273
+]
