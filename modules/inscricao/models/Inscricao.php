@@ -20,6 +20,8 @@ use Yii;
  */
 class Inscricao extends \yii\db\ActiveRecord
 {
+    const CENARIO_PARECER = 'parecer';
+    public $ins_parecer;
     /**
      * @inheritdoc
      */
@@ -35,6 +37,7 @@ class Inscricao extends \yii\db\ActiveRecord
     {
         return [
             [['CAND_ID', 'INS_ID', 'SEL_ID'], 'number'],
+            [['ins_parecer'], 'required', 'on'=>self::CENARIO_PARECER],
             [['INS_PCD'], 'string', 'max' => 3],
             [['INS_SITUACAO'], 'string', 'max' => 20],
             [['INS_DT_CADASTRO'], 'string', 'max' => 7],
@@ -55,7 +58,9 @@ class Inscricao extends \yii\db\ActiveRecord
             'INS_SITUACAO' => 'Situação',
             'INS_DT_CADASTRO' => 'Data de Cadastro',
             'SEL_ID' => 'Seleção',
-            'INS_NUM_INSCRICAO' => 'Nº de Inscrição'
+            'INS_NUM_INSCRICAO' => 'Nº de Inscrição',
+            'ins_parecer' => 'Parecer',
+            'INS_OBSERVACAO' => 'Observação'
         ];
     }
 
@@ -83,6 +88,12 @@ class Inscricao extends \yii\db\ActiveRecord
 
     public function getCandidato(){
         return $this->hasOne(Candidato::className(), ['CAND_ID'=>'CAND_ID']);
+    }
+    public static function listarparecer(){
+      return [
+        'INDEFERIDO' => 'Indeferido',
+        'DEFERIDO' => 'Deferido',
+      ];
     }
 
 }

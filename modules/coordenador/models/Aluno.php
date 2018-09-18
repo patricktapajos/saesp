@@ -1,6 +1,7 @@
 <?php
 
-namespace app\models;
+namespace app\modules\coordenador\models;
+use app\modules\coordenador\models\ModalidadeDataHora;
 
 use Yii;
 
@@ -88,5 +89,5 @@ class Aluno extends \yii\db\ActiveRecord
     public function getCAND()
     {
         return $this->hasOne(CANDIDATO::className(), ['CAND_ID' => 'CAND_ID']);
-    }    
+    }
 }

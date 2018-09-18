@@ -3,12 +3,33 @@
   use yii\grid\GridView;
   use yii\helpers\Url;
   use yii\widgets\DetailView;
+	use yii\widgets\ActiveForm;
   use app\modules\coordenador\models\SelecaoCel;
+	use app\modules\coordenador\models\Aluno;
+	use app\modules\coordenador\models\AlunomodalidadeSearch;
+	use app\modules\coordenador\models\Alunomodalidade;
   use app\modules\inscricao\models\InscricaoModalidade;
   use app\modules\inscricao\models\Inscricao;
   use app\modules\inscricao\models\InscricaoDocumento;
   use app\modules\inscricao\models\InscricaoSearch;
+	use app\models\SituacaoInscricaoEnum;
   use app\assets\ViewCandidatoAsset;
+
+
+	$this->registerJs("
+		  window.onload = function(){
+				 $('#ins_obs').hide();
+			}
+			$('#ins_parecer :radio').change(function(){
+			    var valor = $(this).val();
+					if(valor == 'DEFERIDA'){
+						$('#ins_obs').hide();
+					}else{
+						$('#ins_obs').show();
+					}
+			    //alert(valor);
+			});
+	");
 ?>
 <?php
 
@@ -16,12 +37,11 @@ $this->title = 'Visualização de Dados do Inscrito';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 
+<?php $form = ActiveForm::begin([
+                'method'=>'post'
+            ]); ?>
 <div class="candidato-view">
-     <p>
-        <?= Html::a('Aprovar', ['update', 'id' => $model->usuario->USU_ID], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Imprimir', ['imprimir', 'id' => $model->CAND_ID], ['class' => 'btn btn-warning','target'=>'_blank']) ?>
-        <?= Html::a('Sair', ['default/login'], ['class' => 'btn btn-danger']) ?>
-    </p>
+
     <h2><i class="glyphicon glyphicon-triangle-right"></i><?= Html::encode($this->title) ?></h2>
     <div class="row">
         <div class="col-lg-12 col-sm-12">
@@ -122,7 +142,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         <td><?php echo $mdh->selecaoModalidade->modalidade->MOD_DESCRICAO; ?></td>
                         <td><?php echo $mdh->getDiasSemana(); ?></td>
                         <td><?php echo $mdh->getHorario(); ?></td>
-							  				<td><?php echo Html::checkBox($mdh->selecaoModalidade->modalidade->MOD_ID, true, ['value' => $key]); ?></td>
+												<td><input type="checkbox" id="idmod[]" name="idmod[]" checked="true[]"  value="<?php echo $mdh->MDT_ID; ?>"/></td>
                     </tr>
                 <?php endforeach; ?>
             <?php endforeach; ?>
@@ -130,7 +150,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </table>
 
     <h3><i class="glyphicon glyphicon-triangle-right"></i>Documentação</h3>
-    <div class="row col-lg-offset-1 col-lg-10 col-lg-offset-1 col-sm-12">
+    <div class="row col-lg-offset-1 col-lg-12 col-lg-offset-12 col-sm-12">
         <div class="jcarousel-wrapper documentos">
             <div class="jcarousel" data-jcarousel="true" id="documentos">
                 <ul>
@@ -144,18 +164,33 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php endforeach; ?>
                 </ul>
             </div>
-            <a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true">‹</a>
-            <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true">›</a>
+            <a href="#" class="jcarousel-control-prev" data-jcarouselcontrol="true"></a>
+            <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"></a>
         </div>
 
-        <br>
-        <br>
-
-        <?php foreach(array_values($model->inscricao->inscricaodocumento->getDocumentosPdf()) as $n=>$pdf) : ?>
+        <div>
+          <?php foreach(array_values($model->inscricao->inscricaodocumento->getDocumentosPdf()) as $n=>$pdf) : ?>
             <div class="col-lg-12 col-sm-12 text-center">
                 <span><b><?= $model->inscricao->inscricaodocumento->getAttributeLabel($pdf); ?></b></span>
                 <embed src="<?= $model->inscricao->inscricaodocumento->getUrlDocumento($pdf); ?>" type="application/pdf" width="100%" height="20%" />
             </div>
-        <?php endforeach; ?>
+         <?php endforeach; ?>
+			  </div>
     </div>
+    <div>
+		</div>
+		<div class="form-group">
+			<h3><i class="glyphicon glyphicon-triangle-right"></i>Emitir Parecer</h3>
+			<div class="col-lg-6 col-sm-12">
+				 <?= $form->field($model->inscricao, 'ins_parecer')->radioList(SituacaoInscricaoEnum::listarparecer(), ['id'=>'ins_parecer']) ?>
+		  </div>
+		</div>
+		<div >
+			<?php echo $form->field($model->inscricao, 'INS_OBSERVACAO')->textarea(['id'=>'ins_obs']) ?>
+		</div>
 </div>
+<div class="form-group">
+		<?= Html::submitButton('Salvar', ['class' => 'btn btn-primary']) ?>
+		<?= Html::a('Cancelar', ['/inscricao/default'] ,['class' => 'btn btn-danger']) ?>
+</div>
+<?php ActiveForm::end(); ?>

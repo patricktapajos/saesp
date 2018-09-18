@@ -14,6 +14,9 @@ use app\modules\inscricao\models\InscricaoModalidade;
 use app\modules\inscricao\models\Inscricao;
 use app\modules\inscricao\models\InscricaoSearch;
 use app\modules\inscricao\models\InscricaoDocumento;
+use app\modules\coordenador\models\Aluno;
+use app\modules\coordenador\models\AlunomodalidadeSearch;
+use app\modules\coordenador\models\Alunomodalidade;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\MethodNotAllowedHttpException;
@@ -103,9 +106,42 @@ class SelecaocelController extends Controller
       */
     public function actionParecer($insid)
     {
+        $aluno               = new Aluno;
+        $inscricao           = Inscricao::findOne($insid);
+        $inscricao->scenario = Inscricao::CENARIO_PARECER;
+        $smods               = InscricaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['INS_ID'=>$insid])->all();
+        $post                = Yii::$app->request->post();
+        $parecer             = $post['Inscricao']['ins_parecer'];
 
-        $inscricao    = Inscricao::findOne($insid);
-        $smods        = InscricaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['INS_ID'=>$insid])->all();
+        if($parecer == 'DEFERIDA')
+        {
+          if ($inscricao->load(Yii::$app->request->post())){
+
+            if ($aluno->save()){
+
+                $aluno->CAND_ID              = $inscricao->candidato->CAND_ID;
+                $aluno->ALU_CPF              = $inscricao->candidato->CAND_CPF;
+                $aluno->ALU_ESTADO_CIVIL     = $inscricao->candidato->CAND_ESTADO_CIVIL;
+                $aluno->ALU_LOGRADOURO       = $inscricao->candidato->CAND_LOGRADOURO;
+                $aluno->ALU_COMPLEMENTO_END  = $inscricao->candidato->CAND_COMPLEMENTO_END;
+                $aluno->ALU_CEP              = $inscricao->candidato->CAND_CEP;
+                $aluno->ALU_BAIRRO           = $inscricao->candidato->CAND_BAIRRO;
+                $aluno->ALU_NOME_EMERGENCIA  = $inscricao->candidato->CAND_NOME_EMERGENCIA;
+                $aluno->ALU_TEL_EMERGENCIA   = $inscricao->candidato->CAND_TEL_EMERGENCIA;
+                $aluno->ALU_NOME_RESPONSAVEL = $inscricao->candidato->CAND_NOME_RESPONSAVEL;
+                $aluno->ALU_TEM_COMORBIDADE  = $inscricao->candidato->CAND_TEM_COMORBIDADE;
+                $aluno->ALU_COMORBIDADE_DESC = $inscricao->candidato->CAND_COMORBIDADE_DESC;
+                $aluno->ALU_TEM_MEDICACAO    = $inscricao->candidato->CAND_TEM_MEDICACAO;
+                $aluno->ALU_MEDICACAO_DESC   = $inscricao->candidato->CAND_MEDICACAO_DESC;
+                $aluno->ALU_OBSERVACOES      = $inscricao->candidato->CAND_OBSERVACOES;
+
+            }
+
+            foreach($_POST['idmod'] as $key => $value){
+               //insert ALUNO_MODALIDADE
+            }
+          }
+        }
         return $this->render('parecer', [
             'model' => $inscricao->candidato,
             'smods' => $smods,
@@ -117,6 +153,96 @@ class SelecaocelController extends Controller
         return $this->render('view', [
             'model' => $this->findModel($id),
         ]);
+    }
+
+    public function actionCreateparecer()
+    {
+
+        $aluno           = new Aluno;
+        $alunomodalidade = new AlunoModalidade;
+
+        //print_r($model);die;
+
+        if ($model->SelecaoCel->load(Yii::$app->request->post()) && $model->SelecaoCel->validate()) {
+
+           if ($aluno->save()){
+
+               $aluno->CAND_ID              = $model->candidato->CAND_ID;
+               $aluno->ALU_CPF              = $model->candidato->CAND_CPF;
+               $aluno->ALU_ESTADO_CIVIL     = $model->candidato->CAND_ESTADO_CIVIL;
+               $aluno->ALU_LOGRADOURO       = $model->candidato->CAND_LOGRADOURO;
+               $aluno->ALU_COMPLEMENTO_END  = $model->candidato->CAND_COMPLEMENTO_END;
+               $aluno->ALU_CEP              = $model->candidato->CAND_CEP;
+               $aluno->ALU_BAIRRO           = $model->candidato->CAND_BAIRRO;
+               $aluno->ALU_NOME_EMERGENCIA  = $model->candidato->CAND_NOME_EMERGENCIA;
+               $aluno->ALU_TEL_EMERGENCIA   = $model->candidato->CAND_TEL_EMERGENCIA;
+               $aluno->ALU_NOME_RESPONSAVEL = $model->candidato->CAND_NOME_RESPONSAVEL;
+               $aluno->ALU_TEM_COMORBIDADE  = $model->candidato->CAND_TEM_COMORBIDADE;
+               $aluno->ALU_COMORBIDADE_DESC = $model->candidato->CAND_COMORBIDADE_DESC;
+               $aluno->ALU_TEM_MEDICACAO    = $model->candidato->CAND_TEM_MEDICACAO;
+               $aluno->ALU_MEDICACAO_DESC   = $model->candidato->CAND_MEDICACAO_DESC;
+               $aluno->ALU_OBSERVACOES      = $model->candidato->CAND_OBSERVACOES;
+
+            }
+           return $this->redirect(['view', 'id' => $model->CAT_ID]);
+        }
+
+        return $this->render('create', [
+           'model' => $model,
+        ]);
+
+
+
+
+
+        $selecao = SelecaoCel::find()->where(['CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
+        if($selecao){
+            throw new MethodNotAllowedHttpException ('CEL já possui modalidades cadastradas no processo seletivo vigente.');
+        }
+
+        $model = new SelecaoCel();
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $trans = Yii::$app->db->beginTransaction();
+            try{
+                if ($model->save()){
+
+                    foreach ($model->getModalidades() as $n=>$modalidade) {
+                        $selecaoModalidade = new SelecaoModalidade;
+                        $selecaoModalidade->SEL_ID = $model->SEL_ID;
+                        $selecaoModalidade->MOD_ID = $modalidade['MOD_ID'];
+                        $selecaoModalidade->setComplemento($modalidade['complemento']);
+                        $selecaoModalidade->save();
+
+                        foreach ($selecaoModalidade->getComplemento() as $o=>$com) {
+                            $mdatahora = new ModalidadeDataHora;
+                            $mdatahora->setAttributes($com);
+                            $mdatahora->setDias($com['dias']);
+                            $mdatahora->SMOD_ID = $selecaoModalidade->SMOD_ID;
+                            $mdatahora->save();
+
+                            foreach ($mdatahora->getDias() as $dia=>$checked) {
+                                $mdiasemana = new ModalidadeDiaSemana;
+                                $mdiasemana->MDS_DESCRICAO = $dia;
+                                $mdiasemana->MDT_ID = $mdatahora->MDT_ID;
+                                $mdiasemana->save();
+                            }
+                        }
+                    }
+
+
+                    $trans->commit();
+                    return $this->redirect(['view', 'id' => $model->SCEL_ID]);
+                }
+            }catch(\Exception $e){
+                $trans->rollBack();
+                throw $e;
+            }
+        } else {
+            return $this->render('create', [
+                'model' => $model
+            ]);
+        }
     }
 
     /**

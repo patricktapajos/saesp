@@ -1,4 +1,4 @@
-<?php 
+<?php
 
  namespace app\models;
 
@@ -12,6 +12,13 @@
 			SituacaoInscricaoEnum::DEFERIDA => 'Deferida',
 			SituacaoInscricaoEnum::INDEFERIDA => 'Indeferida',
 			SituacaoInscricaoEnum::AGUARDE => 'Aguardando Parecer',
+		];
+	}
+
+  public static function listarParecer(){
+		return [
+			SituacaoInscricaoEnum::DEFERIDA => 'Deferida',
+			SituacaoInscricaoEnum::INDEFERIDA => 'Indeferida'
 		];
 	}
 }
