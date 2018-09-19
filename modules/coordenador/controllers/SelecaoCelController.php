@@ -115,30 +115,33 @@ class SelecaocelController extends Controller
 
         if($parecer == 'DEFERIDA')
         {
-          if ($inscricao->load(Yii::$app->request->post())){
+          if($inscricao->INS_SITUACAO == 'AGUARDE')
+          {
+            if ($inscricao->load(Yii::$app->request->post())){
 
-            if ($aluno->save()){
+              if ($aluno->save()){
 
-                $aluno->CAND_ID              = $inscricao->candidato->CAND_ID;
-                $aluno->ALU_CPF              = $inscricao->candidato->CAND_CPF;
-                $aluno->ALU_ESTADO_CIVIL     = $inscricao->candidato->CAND_ESTADO_CIVIL;
-                $aluno->ALU_LOGRADOURO       = $inscricao->candidato->CAND_LOGRADOURO;
-                $aluno->ALU_COMPLEMENTO_END  = $inscricao->candidato->CAND_COMPLEMENTO_END;
-                $aluno->ALU_CEP              = $inscricao->candidato->CAND_CEP;
-                $aluno->ALU_BAIRRO           = $inscricao->candidato->CAND_BAIRRO;
-                $aluno->ALU_NOME_EMERGENCIA  = $inscricao->candidato->CAND_NOME_EMERGENCIA;
-                $aluno->ALU_TEL_EMERGENCIA   = $inscricao->candidato->CAND_TEL_EMERGENCIA;
-                $aluno->ALU_NOME_RESPONSAVEL = $inscricao->candidato->CAND_NOME_RESPONSAVEL;
-                $aluno->ALU_TEM_COMORBIDADE  = $inscricao->candidato->CAND_TEM_COMORBIDADE;
-                $aluno->ALU_COMORBIDADE_DESC = $inscricao->candidato->CAND_COMORBIDADE_DESC;
-                $aluno->ALU_TEM_MEDICACAO    = $inscricao->candidato->CAND_TEM_MEDICACAO;
-                $aluno->ALU_MEDICACAO_DESC   = $inscricao->candidato->CAND_MEDICACAO_DESC;
-                $aluno->ALU_OBSERVACOES      = $inscricao->candidato->CAND_OBSERVACOES;
+                  $aluno->CAND_ID              = $inscricao->candidato->CAND_ID;
+                  $aluno->ALU_CPF              = $inscricao->candidato->CAND_CPF;
+                  $aluno->ALU_ESTADO_CIVIL     = $inscricao->candidato->CAND_ESTADO_CIVIL;
+                  $aluno->ALU_LOGRADOURO       = $inscricao->candidato->CAND_LOGRADOURO;
+                  $aluno->ALU_COMPLEMENTO_END  = $inscricao->candidato->CAND_COMPLEMENTO_END;
+                  $aluno->ALU_CEP              = $inscricao->candidato->CAND_CEP;
+                  $aluno->ALU_BAIRRO           = $inscricao->candidato->CAND_BAIRRO;
+                  $aluno->ALU_NOME_EMERGENCIA  = $inscricao->candidato->CAND_NOME_EMERGENCIA;
+                  $aluno->ALU_TEL_EMERGENCIA   = $inscricao->candidato->CAND_TEL_EMERGENCIA;
+                  $aluno->ALU_NOME_RESPONSAVEL = $inscricao->candidato->CAND_NOME_RESPONSAVEL;
+                  $aluno->ALU_TEM_COMORBIDADE  = $inscricao->candidato->CAND_TEM_COMORBIDADE;
+                  $aluno->ALU_COMORBIDADE_DESC = $inscricao->candidato->CAND_COMORBIDADE_DESC;
+                  $aluno->ALU_TEM_MEDICACAO    = $inscricao->candidato->CAND_TEM_MEDICACAO;
+                  $aluno->ALU_MEDICACAO_DESC   = $inscricao->candidato->CAND_MEDICACAO_DESC;
+                  $aluno->ALU_OBSERVACOES      = $inscricao->candidato->CAND_OBSERVACOES;
 
-            }
+                }
 
-            foreach($_POST['idmod'] as $key => $value){
-               //insert ALUNO_MODALIDADE
+                foreach($_POST['idmod'] as $key => $value){
+                  //insert ALUNO_MODALIDADE
+                }
             }
           }
         }
