@@ -59,20 +59,8 @@ AppAsset::register($this);
                     'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
                     'items' => [
                         ['label' => 'Seleção', 'url' => ['/selecao/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
-                        //['label' => 'Vagas Remanescentes', 'url' => ['/inscricaomodalidade/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
-                        //['label' => 'Vagas Restantes', 'url' => ['/modalidadedatahora/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
                     ],
-            ],
-            ['label' => 'Candidato',
-                    'url' => ['#'],
-                    'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN),
-                    'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
-                    'items' => [
-                        ['label' => 'Candidato', 'url' => ['/candidato/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
-                        ['label' => 'Aluno', 'url' => ['/aluno/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
-                        ['label' => 'Vagas Restantes', 'url' => ['/modalidadedatahora/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
-                    ],
-            ],
+            ],          
             ['label' => 'Alterar Senha', 'url' => ['/usuario/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],            
             ['label' => 'Seleção', 'url' => ['/coordenador/selecaocel/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
 
