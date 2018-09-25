@@ -37,7 +37,8 @@ class RestController extends \yii\web\Controller
 
 	 public function actionModalidades(){
 	 	Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $modalidades = Modalidade::find()->andWhere('CEL_ID = :CEL_ID', [':CEL_ID'=>Yii::$app->user->identity->cel_id])->all();
+        $modalidades = Modalidade::find()->andWhere('CEL_ID = :CEL_ID', [':CEL_ID'=>Yii::$app->user->identity->cel_id])
+            ->orderBy(['MOD_NOME'=>SORT_ASC])->all();
         return $modalidades;
     }
 
@@ -147,8 +148,9 @@ class RestController extends \yii\web\Controller
             $retorno['success'] = 0;
         }
 
+        $listaModalidades = [];
         foreach ($scel->getModalidades() as $n=>$modalidade) {
-
+            $listaModalidades[] = $modalidade['complemento'];
             $selecaoModalidade = new SelecaoModalidade;
             $selecaoModalidade->setScenario(SelecaoModalidade::SCENARIO_VALIDACAO);
             $selecaoModalidade->SEL_ID = $scel->SEL_ID;
@@ -165,6 +167,7 @@ class RestController extends \yii\web\Controller
                 $mdatahora->setAttributes($com);
                 $mdatahora->setDias($com['dias']);
                 $mdatahora->SMOD_ID = $selecaoModalidade->MOD_ID;
+                $mdatahora->quadro_modalidades = $listaModalidades;
 
                 if(!$mdatahora->validate()){
                     $retorno['erros']['modalidades'][$n]['complemento'][$o] = $mdatahora->errors;

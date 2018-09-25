@@ -89,17 +89,17 @@ class Usuario extends \yii\db\ActiveRecord
     {
         return [
             'USU_ID' => 'Código',
-            'USU_NOME' => 'Nome *',
-            'USU_CPF' => 'CPF *',
-            'USU_EMAIL' => 'Email *',
-            'USU_DT_NASC' => 'Data de Nascimento *',
-            'USU_SEXO' => 'Sexo *',
-            'USU_TELEFONE_1' => 'Telefone 1 *',
+            'USU_NOME' => 'Nome',
+            'USU_CPF' => 'CPF',
+            'USU_EMAIL' => 'Email',
+            'USU_DT_NASC' => 'Data de Nascimento',
+            'USU_SEXO' => 'Sexo',
+            'USU_TELEFONE_1' => 'Telefone 1',
             'USU_TELEFONE_2' => 'Telefone 2',
             'USU_SENHA' => 'Senha',
             'USU_SITUACAO' => 'Situação',
             'USU_PERMISSAO' => 'Perfil',
-            '_nova_senha_confirmacao' => 'Confirmar nova senha *'
+            '_nova_senha_confirmacao' => 'Confirmar nova senha'
         ];
     }
 
@@ -185,9 +185,7 @@ class Usuario extends \yii\db\ActiveRecord
 
     public function beforeSave($insert){
         if($insert){
-            $senha = $this->gerarSenha();
-            $this->enviarSenhaEmail($senha);
-
+            $this->_senha_atual = $this->gerarSenha();
         }
 
         if($this->scenario == self::SCENARIO_ALTERAR_SENHA){
@@ -200,6 +198,7 @@ class Usuario extends \yii\db\ActiveRecord
     public function afterSave($insert, $changedAttributes){
         if($insert){
             $this->salvarUsuarioPorPermissao();
+            $this->enviarSenhaEmail($this->_senha_atual);
         }
     }
 

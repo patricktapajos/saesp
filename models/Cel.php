@@ -4,6 +4,7 @@ namespace app\models;
 use app\models\Coordenador;
 use app\modules\coordenador\models\SelecaoModalidade;
 use app\modules\coordenador\models\Modalidade;
+use app\models\SituacaoEnum;
 use Yii;
 
 /**
@@ -45,8 +46,7 @@ class Cel extends \yii\db\ActiveRecord
             [['CRD_ID'], 'number'],
             [['CEL_NOME', 'CEL_LATITUDE', 'CEL_LONGITUDE', 'CEL_LOGRADOURO', 'CEL_BAIRRO', 'CEL_COMPLEMENTO_END'], 'string', 'max' => 255],
             [['CEL_EMAIL'], 'string', 'max' => 150],
-            [['CEL_TELEFONE'], 'string', 'max' => 10],
-            [['CEL_CEP'], 'string', 'max' => 8],
+            [['CEL_CEP'], 'string', 'max' => 9],
             [['CRD_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Coordenador::className(), 'targetAttribute' => ['CRD_ID' => 'CRD_ID']],
         ];
     }
@@ -65,13 +65,24 @@ class Cel extends \yii\db\ActiveRecord
             'CEL_LONGITUDE' => 'Longitude',
             'CEL_LOGRADOURO' => 'Logradouro',
             'CEL_CEP' => 'CEP',
-            'CEL_STATUS' => 'STATUS',
+            'CEL_STATUS' => 'Situação',
             'CEL_BAIRRO' => 'Bairro',
             'CEL_COMPLEMENTO_END' => 'Complemento',
             'CRD_ID' => 'Coordenador',
             '_nome_coordenador' => 'Coordenador',
         ];
     }
+
+    public function beforeValidate(){
+        $this->CEL_CEP = preg_replace('/[^0-9]/', '', $this->CEL_CEP);
+        return parent::beforeValidate();
+    }
+
+    public function init(){
+        parent::init();
+        $this->CEL_STATUS = SituacaoEnum::ATIVO;
+    }
+
 
     public function getCoordenador(){
         return $this->hasOne(Coordenador::className(), ['CRD_ID'=>'CRD_ID']);

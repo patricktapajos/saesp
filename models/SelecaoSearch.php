@@ -19,7 +19,7 @@ class SelecaoSearch extends Selecao
     {
         return [
             [['SEL_ID'], 'number'],
-            [['SEL_DESCRICAO','SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_SITUACAO'], 'safe'],
+            [['SEL_TITULO','SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_SITUACAO','SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'safe'],
         ];
     }
 
@@ -58,8 +58,10 @@ class SelecaoSearch extends Selecao
         }
 
         $query->andFilterWhere(['like', 'SEL_DT_INICIO', $this->SEL_DT_INICIO])
-            ->andFilterWhere(['like', 'SEL_DESCRICAO', $this->SEL_DESCRICAO])
             ->andFilterWhere(['like', 'SEL_DT_FIM', $this->SEL_DT_FIM])
+            ->andFilterWhere(['like', 'SEL_DT_INICIO_CAD', $this->SEL_DT_INICIO_CAD])
+            ->andFilterWhere(['like', 'SEL_DT_FIM_CAD', $this->SEL_DT_FIM_CAD])
+            ->andFilterWhere(['like', 'SEL_TITULO', $this->SEL_TITULO])
             ->andFilterWhere(['like', 'SEL_SITUACAO', $this->SEL_SITUACAO]);
 
         return $dataProvider;

@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Cel */
 
-$this->title = $model->CEL_ID;
+$this->title = 'Visualizar CEL';
 $this->params['breadcrumbs'][] = ['label' => 'Gerenciar CEL', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

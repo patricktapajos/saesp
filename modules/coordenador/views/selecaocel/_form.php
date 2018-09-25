@@ -28,6 +28,8 @@ if($model->isNewRecord){
      <div class="col-lg-12 col-sm-12 hidden">
         <?= $form->field($model, 'SEL_ID')->dropDownList(SelecaoCel::selecoesAtivas(),['prompt'=>'Selecione >>','v-model'=>'id']) ?>
     </div>
+    <span class="text-warning">Preencha o quadro a seguir com as modalidades que o CEL deseja oferecer aos candidatos desda seleção.</span>
+    <br clear="left" />
     <br clear="left" />
     <fieldset>
         <legend>Quadro de Modalidades</legend>
@@ -47,7 +49,7 @@ if($model->isNewRecord){
 </div>
 
 <script type="x/template" id="tabela-modalidade-template">
-    <table class="table table-acao table-responsive">
+    <table class="table table-modalidade table-acao table-responsive">
         <thead>
             <tr>
                 <th class="field_cross">Modalidade</th>
@@ -55,19 +57,20 @@ if($model->isNewRecord){
                 <th class="field_date">Dias da Semana</th>
                 <th class="field_date">Horário</th>
                 <th class="field_small">Nº de Vagas</th>
+                <th>X</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="(mod, m) in modalidades">
-                <td>
-                    <span>{{ mod.MOD_DESCRICAO }}</span>
+                <td class="field_date">
+                    <span>{{ mod.MOD_NOME }}</span>
                     <input type="hidden" v-model="mod.MOD_ID" :name="'SelecaoCel[modalidades]['+m+'][MOD_ID]'" />
                     <input type="hidden" v-model="mod.SMOD_ID" :name="'SelecaoCel[modalidades]['+m+'][SMOD_ID]'" />
                     <div class="buttons">
                         <i title="Adicionar Ação" v-on:click="adicionarComplemento(m)" class="icones-plan-action add glyphicon glyphicon-plus"></i> 
                     </div>
                 </td>
-                <td colspan="4">
+                <td colspan="5">
                     <table class="table-complement">
                         <tbody>
                             <tr v-for="(com, c) in mod.complemento">
@@ -101,6 +104,9 @@ if($model->isNewRecord){
                                 <td class="field_small">
                                     <input type="text" class="form-control" v-model="com.MDT_QTDE_VAGAS" :name="'SelecaoCel[modalidades]['+m+'][complemento]['+c+'][MDT_QTDE_VAGAS]'" />
                                     <div v-bind:id="'erro_MDT_QTDE_VAGAS_'+m+'_'+c" class="errorMessage text-danger"></div>
+                                </td>
+                                <td>
+                                <i title="Remover Ação" v-on:click="removerComplemento(m, c)" class="icones-plan-action add glyphicon glyphicon-trash"></i>
                                 </td>
                             </tr>
                         </tbody>

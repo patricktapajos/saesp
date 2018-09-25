@@ -4,6 +4,7 @@ namespace app\modules\inscricao\controllers;
 use Yii;
 use app\modules\inscricao\models\LoginForm;
 use app\models\PermissaoEnum;
+use app\models\Selecao;
 use yii\web\Controller;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -48,6 +49,12 @@ class DefaultController extends Controller
 
     public function actionLogin()
     {	
+
+        $selecao = Selecao::inscricoesAbertas();
+        if(!$selecao){
+            throw new \yii\web\HttpException(403,"Não há processo seletivo aberto!");
+        }
+
         if (!Yii::$app->user->isGuest) {
             return $this->redirect(['index']);
         }

@@ -53,16 +53,10 @@ AppAsset::register($this);
                         ['label' => 'Modalidade', 'url' => ['/coordenador/modalidade/index']],
                     ],
             ],
-            ['label' => 'Seleção',
-                    'url' => ['#'],
-                    'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN),
-                    'template' => '<a href="{url}" >{label}<i class="fa fa-angle-left pull-right"></i></a>',
-                    'items' => [
-                        ['label' => 'Seleção', 'url' => ['/selecao/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
-                    ],
-            ],          
-            ['label' => 'Alterar Senha', 'url' => ['/usuario/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],            
+            ['label' => 'Seleção', 'url' => ['/selecao/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],       
             ['label' => 'Seleção', 'url' => ['/coordenador/selecaocel/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
+            ['label' => 'Aluno', 'url' => ['/coordenador/aluno/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
+            ['label' => 'Alterar Senha', 'url' => ['/usuario/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],            
 
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]

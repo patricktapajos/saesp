@@ -87,7 +87,7 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 		},
 
 		adicionarDia: function(m, c, val){			
-			if($.inArray(val, this.modalidades[m].complemento[c].dias) == -1){
+			if($.inArray(this.dias[val], this.modalidades[m].complemento[c].dias) == -1){
 				this.modalidades[m].complemento[c].dias.push(this.dias[val]);
 			}else{
 				this.modalidades[m].complemento[c].dias.splice($.inArray(this.dias[val], this.modalidades[m].complemento[c].dias),1)

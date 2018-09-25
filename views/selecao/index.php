@@ -24,8 +24,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'SEL_DESCRICAO',
+            'SEL_TITULO',
+            'SEL_DT_INICIO_CAD',
+            'SEL_DT_FIM_CAD',
             'SEL_DT_INICIO',
             'SEL_DT_FIM',
             [
@@ -38,7 +39,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter'=> Html::dropDownList("SelecaoSearch[SEL_SITUACAO]", $searchModel->SEL_SITUACAO, SituacaoSelecaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
 
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+             //'template' => '{view} {update}'
+            ],
         ],
     ]); ?>
 </div>

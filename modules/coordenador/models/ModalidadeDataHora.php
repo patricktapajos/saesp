@@ -19,6 +19,7 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
 {
 
     public $dias;
+    public $quadro_modalidades;
     /**
      * @inheritdoc
      */
@@ -38,6 +39,8 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
             [['MDT_HORARIO_INICIO', 'MDT_HORARIO_FIM'], 'string', 'max' => 5],
             [['MDT_HORARIO_INICIO', 'MDT_HORARIO_FIM'], 'validarValorHorario'],
             [['MDT_HORARIO_FIM'], 'validarHorario'],
+            [['PROF_ID'], 'validarRepeticaoHorario'],
+            
             /*[['MDT_HORARIO_INICIO', 'MDT_HORARIO_FIM','dias','PROF_ID'], 'unique', 'message'=>'Dados já cadastrados'],*/
             [['PROF_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Professor::className(), 'targetAttribute' => ['PROF_ID' => 'PROF_ID']],
         ];
@@ -90,6 +93,33 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
         }
 
         return true;
+    }
+
+    public function validarRepeticaoHorario($attribute, $params){
+        foreach($this->quadro_modalidades as $infos){
+            foreach($infos as $info){
+                if($this->$attribute == $info['PROF_ID'] && $this->verificarListasIguais($this->dias,$info['dias'])){
+                    $this->addError($attribute, 'Professor não pode ser relacionado mais de uma vez nos mesmos dias das semana');
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private function verificarListasIguais($array1, $array2){
+        if($array1 == array_uintersect($array1, $array2, 'compare') && $array2 == array_uintersect($array2, $array1, 'compare')) {
+            return true;
+        } 
+        return false;
+    }
+    
+    private function compare($v1, $v2) {
+        if ($v1===$v2) {
+            return 0;
+        }
+        if ($v1 > $v2) return 1;
+        return -1;
     }
 
     public function getProfessor(){

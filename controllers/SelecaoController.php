@@ -6,6 +6,8 @@ use Yii;
 use app\models\Selecao;
 use app\models\SelecaoSearch;
 use app\models\SituacaoSelecaoEnum;
+use app\modules\inscricao\models\InscricaoModalidade;
+use app\models\InscricaomodalidadeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -70,9 +72,10 @@ class SelecaoController extends Controller
         }
 
         $model = new Selecao();
-        $model->SEL_SITUACAO = SituacaoSelecaoEnum::CADASTRADO;    
+        $model->SEL_SITUACAO = SituacaoSelecaoEnum::CADASTRADO;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "Seleção cadastrada com sucesso!");
             return $this->redirect(['index']);
         } else {
             return $this->render('create', [
@@ -92,7 +95,7 @@ class SelecaoController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            
+            Yii::$app->session->setFlash('success', "Seleção atualizada com sucesso!");
             return $this->redirect(['index']);
         } else {
             return $this->render('update', [

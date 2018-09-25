@@ -71,7 +71,7 @@ class UsuarioController extends Controller
             try{
                 $model->save();
                 $trans->commit();
-                Yii::$app->session->setFlash('success', "Processo conluído com Sucesso!");
+                Yii::$app->session->setFlash('success', "Processo concluído com Sucesso!");
                 return $this->redirect(['view', 'id' => $model->USU_ID]);
 
             }catch(\Exception $e){
@@ -81,7 +81,6 @@ class UsuarioController extends Controller
             }
 
         } else {
-            var_dump($model->errors);
             return $this->render('create', [
                 'model' => $model,
             ]);

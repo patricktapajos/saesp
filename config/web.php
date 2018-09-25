@@ -25,6 +25,9 @@ $config = [
         'inscricao' => [
             'class' => 'app\modules\inscricao\Inscricao',
         ],
+        'aluno' => [
+            'class' => 'app\modules\aluno\Aluno',
+        ],
     ],
     'components' => [
         'request' => [

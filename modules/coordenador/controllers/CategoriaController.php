@@ -67,6 +67,7 @@ class CategoriaController extends Controller
         $model = new Categoria();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "Categoria cadastrada com sucesso!");
             return $this->redirect(['index']);
         }
 
@@ -87,6 +88,7 @@ class CategoriaController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "Categoria atualizada com sucesso!");
             return $this->redirect(['view', 'id' => $model->CAT_ID]);
         }
 

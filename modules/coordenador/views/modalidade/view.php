@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Modalidade */
 
-$this->title = $model->MOD_ID;
+$this->title = 'Visualizar Modalidade';
 $this->params['breadcrumbs'][] = ['label' => 'Gerenciar Modalidade', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

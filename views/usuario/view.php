@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Usuario */
 
-$this->title = $model->USU_ID;
+$this->title = 'Visualizar Usuário';
 $this->params['breadcrumbs'][] = ['label' => 'Gerenciar Usuário', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

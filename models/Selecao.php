@@ -28,11 +28,14 @@ class Selecao extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['SEL_DESCRICAO'], 'required'],
-            [['SEL_DT_INICIO', 'SEL_DT_FIM'], 'string', 'max' => 10],
-            [['SEL_DT_INICIO', 'SEL_DT_FIM'], 'date', 'format'=>'d/m/Y'],
+            [['SEL_TITULO','SEL_DESCRICAO'], 'required'],
+            [['SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'string', 'max' => 10],
+            [['SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'date', 'format'=>'d/m/Y'],
             [['SEL_DT_INICIO', 'SEL_DT_FIM'], 'required', 'when' => function($model) {
                 return $model->SEL_SITUACAO == SituacaoSelecaoEnum::INSCRICOES_ABERTAS;
+            }],
+            [['SEL_DT_INICIO_CAD', 'SEL_DT_FIM_CAD'], 'required', 'when' => function($model) {
+                return $model->SEL_SITUACAO == SituacaoSelecaoEnum::CADASTRADO;
             }],
             [['SEL_SITUACAO'], 'string', 'max' => 30],
         ];
@@ -45,11 +48,19 @@ class Selecao extends \yii\db\ActiveRecord
     {
         return [
             'SEL_ID' => 'Código',
+            'SEL_TITULO'=>'Título',
             'SEL_DESCRICAO'=>'Descrição',
-            'SEL_DT_INICIO' => 'Data Início Inscrições',
-            'SEL_DT_FIM' => 'Data Fim Inscrições',
+            'SEL_DT_INICIO' => 'Data Início de Inscrições',
+            'SEL_DT_FIM' => 'Data Fim de Inscrições',
+            'SEL_DT_INICIO_CAD' => 'Data Início de cadastro',
+            'SEL_DT_FIM_CAD' => 'Data Fim de cadastro',
             'SEL_SITUACAO' => 'Situação',
         ];
+    }
+
+    public function init(){
+        parent::init();
+        $this->SEL_SITUACAO = SituacaoSelecaoEnum::CADASTRADO;
     }
 
     public static function inscricoesAbertas(){

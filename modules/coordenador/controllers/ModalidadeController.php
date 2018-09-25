@@ -67,7 +67,8 @@ class ModalidadeController extends Controller
         $model->CEL_ID = Yii::$app->user->identity->cel_id;    
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->MOD_ID]);
+            Yii::$app->session->setFlash('success', "Modalidade cadastrada com sucesso!");
+            return $this->redirect(['index']);
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -86,6 +87,7 @@ class ModalidadeController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "Modalidade atualizada com sucesso!");
             return $this->redirect(['view', 'id' => $model->MOD_ID]);
         } else {
             return $this->render('update', [

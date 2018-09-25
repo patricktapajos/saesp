@@ -14,7 +14,7 @@
 			SituacaoSelecaoEnum::CADASTRADO => 'Apenas Cadastrada',
 			SituacaoSelecaoEnum::INSCRICOES_ABERTAS => 'Inscrições Abertas',
 			SituacaoSelecaoEnum::INSCRICOES_ENCERRADAS => 'Inscrições Encerradas',
-			SituacaoSelecaoEnum::PARECER => 'Parecer',
+			SituacaoSelecaoEnum::PARECER => 'Emissão de Parecer',
 			SituacaoSelecaoEnum::CONCLUIDO => 'Concluída',
 		];
 	}

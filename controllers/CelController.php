@@ -66,6 +66,7 @@ class CelController extends Controller
         $model = new Cel();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "CEL cadastrada com sucesso!");
             return $this->redirect(['view', 'id' => $model->CEL_ID]);
         } else {
             return $this->render('create', [
@@ -85,6 +86,7 @@ class CelController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "CEL atualizada com sucesso!");
             return $this->redirect(['view', 'id' => $model->CEL_ID]);
         } else {
             return $this->render('update', [

@@ -185,12 +185,6 @@ div.tabs-krajee > .nav > li > a:hover {
     vertical-align: middle;
 }
 
-.candidato-form {
-    /*background-color: #f6d00138 !important;*/
-    /*padding: 20px;
-    /*border: 1px solid #4d4d4d;
-    border-radius: 2px;*/
-}
 
 /*.candidato-create {
     background-color: #338cb76e;
@@ -348,7 +342,7 @@ td.field_date {
 }
 
 .field_cross { 
-    min-width: 270px; 
+    min-width: 260px; 
 }
 
 th.field { 
