@@ -25,9 +25,8 @@ if($model->isNewRecord){
             <li>{{ e }}</li>
     </div>
 
-     <div class="col-lg-12 col-sm-12 hidden">
-        <?= $form->field($model, 'SEL_ID')->dropDownList(SelecaoCel::selecoesAtivas(),['prompt'=>'Selecione >>','v-model'=>'id']) ?>
-    </div>
+    <?= $form->field($model, 'SEL_ID')->hiddenInput(['id'=>'id']); ?>
+      
     <span class="text-warning">Preencha o quadro a seguir com as modalidades que o CEL deseja oferecer aos candidatos desda seleção.</span>
     <br clear="left" />
     <br clear="left" />

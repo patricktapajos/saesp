@@ -130,6 +130,7 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 					}
 				},
 				error: function(jqXHR, textStatus, errorThrown) {
+					$().unblockScreen();
 					console.log('ERRORS: ' + errorThrown);
 				}
 			});
@@ -137,8 +138,12 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 	},
 
 	mounted:function(){
+		var self = this;
 		this.$nextTick(function(){
 			this.carregarModalidades();
+			setTimeout(()=>{
+				self.id = $("#id").val();
+			}, 500)
 		});
 	}
 })
@@ -151,11 +156,11 @@ var vue = new Vue({
 		erros : [],
 	},
 	components: { 'tabelamodalidade': tabelamodalidade },
-	watch: {
+	/*watch: {
 		    id: function(currentValue) {
 		    	//if(currentValue != ''){
 		    	this.$children[0].id = currentValue;
 		    	//}
 		    },
-		},
+		},*/
 });

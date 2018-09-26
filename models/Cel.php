@@ -89,7 +89,7 @@ class Cel extends \yii\db\ActiveRecord
     }
 
     public function getModalidades(){
-        return $this->hasMany(Modalidade::className(), ['CEL_ID'=>'CEL_ID']);
+        return $this->hasMany(Modalidade::className(), ['CEL_ID'=>'CEL_ID'])->orderBy(['MOD_NOME' => SORT_ASC]);
     }
 
     public function afterFind(){

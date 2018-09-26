@@ -45,14 +45,14 @@ class RestController extends \yii\web\Controller
     public function actionAlterarmodalidades(){
 
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $selecao = Selecao::find()->where(['SEL_SITUACAO'=>SituacaoSelecaoEnum::CADASTRADO])->one();
+        $selecao = Selecao::getSelecaoAtiva();
         $scel = SelecaoCel::find()->where(['SEL_ID'=>$selecao->SEL_ID, 'CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
 
         $modalidades = ['SEL_ID'=>$selecao->SEL_ID];
 
         foreach ($scel->cel->modalidades as $o=>$modalidade) {
             $modalidades['modalidades'][$o]['MOD_ID'] = $modalidade->MOD_ID;
-            $modalidades['modalidades'][$o]['MOD_DESCRICAO'] = $modalidade->MOD_DESCRICAO;
+            $modalidades['modalidades'][$o]['MOD_NOME'] = $modalidade->MOD_NOME;
             $modalidades['modalidades'][$o]['complemento'] = [];
 
             foreach ($modalidade->selecaoModalidades as $smod) {

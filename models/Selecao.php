@@ -60,7 +60,9 @@ class Selecao extends \yii\db\ActiveRecord
 
     public function init(){
         parent::init();
-        $this->SEL_SITUACAO = SituacaoSelecaoEnum::CADASTRADO;
+        if($model->scenario != ''){
+            $this->SEL_SITUACAO = SituacaoSelecaoEnum::CADASTRADO;
+        }
     }
 
     public static function inscricoesAbertas(){
@@ -75,5 +77,13 @@ class Selecao extends \yii\db\ActiveRecord
 
     public function getSituacaoText(){
         return SituacaoSelecaoEnum::listar()[$this->SEL_SITUACAO];
+    }
+
+    public static function getSelecaoAtiva(){
+        return self::find()->where("SEL_SITUACAO = :SEL_SITUACAO",['SEL_SITUACAO'=>SituacaoSelecaoEnum::CADASTRADO])->one();
+    }
+
+    public static function cadastroCEL(){
+        return self::find()->where("SEL_SITUACAO=:SEL_SITUACAO and trunc(sysdate) between SEL_DT_INICIO_CAD and SEL_DT_FIM_CAD",['SEL_SITUACAO'=>SituacaoSelecaoEnum::CADASTRADO])->one();
     }
 }

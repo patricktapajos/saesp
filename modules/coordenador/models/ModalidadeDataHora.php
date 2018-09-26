@@ -96,30 +96,45 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
     }
 
     public function validarRepeticaoHorario($attribute, $params){
+        $cont = 0;
         foreach($this->quadro_modalidades as $infos){
             foreach($infos as $info){
-                if($this->$attribute == $info['PROF_ID'] && $this->verificarListasIguais($this->dias,$info['dias'])){
-                    $this->addError($attribute, 'Professor não pode ser relacionado mais de uma vez nos mesmos dias das semana');
-                    return false;
+                if($this->$attribute == $info['PROF_ID'] && (count($info['dias']) > 0 && $this->verificarListasIguais($this->dias, $info['dias']))){
+                    $cont++;  
                 }
             }
+        }
+
+        if($cont >= 2){
+            $this->addError($attribute, 'Professor não pode ser relacionado mais de uma vez nos mesmos dias das semana');
+            return false;
         }
         return true;
     }
 
-    private function verificarListasIguais($array1, $array2){
-        if($array1 == array_uintersect($array1, $array2, 'compare') && $array2 == array_uintersect($array2, $array1, 'compare')) {
+    function verificarListasIguais($array1, $array2){
+        $arrayIntersect1 = array_uintersect($array1, $array2, function($v1, $v2) {        
+                if ($v1===$v2) {
+                    return 0;
+                }
+                if ($v1 > $v2) return 1;
+                return -1;
+            }
+        );
+
+        $arrayIntersect2 = array_uintersect($array2, $array1, function($v1, $v2) {        
+                if ($v1===$v2) {
+                    return 0;
+                }
+                if ($v1 > $v2) return 1;
+                return -1;
+            }
+        );
+    
+        if($array1 === $arrayIntersect1 && $array2 === $arrayIntersect2) {
             return true;
         } 
         return false;
-    }
-    
-    private function compare($v1, $v2) {
-        if ($v1===$v2) {
-            return 0;
-        }
-        if ($v1 > $v2) return 1;
-        return -1;
     }
 
     public function getProfessor(){

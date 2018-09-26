@@ -113,8 +113,16 @@ class SelecaocelController extends Controller
 
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+
+        //$scel = SelecaoCel::find()->where(['SEL_ID'=>Selecao::getSelecaoAtiva()->SEL_ID, 'CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
+        $smods = SelecaoModalidade::find()
+                    ->joinWith(['modalidadeDataHora','modalidade.cel'])
+                    ->where(['SELECAO_MODALIDADE.SEL_ID'=>Selecao::getSelecaoAtiva()->SEL_ID,'CEL.CEL_ID'=>Yii::$app->user->identity->cel_id])->all();
+
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'smods' =>$smods
         ]);
     }
 
@@ -129,8 +137,13 @@ class SelecaocelController extends Controller
         if($selecao){
             throw new MethodNotAllowedHttpException ('CEL já possui modalidades cadastradas no processo seletivo vigente.');
         }
+       
+        if(!Selecao::cadastroCEL()){
+            throw new \yii\web\HttpException(403,"Não há mais seleções abertas para cadastro de modalidades!");
+        }
 
         $model = new SelecaoCel();
+        $model->SEL_ID = Selecao::getSelecaoAtiva()->SEL_ID;
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $trans = Yii::$app->db->beginTransaction();

@@ -11,8 +11,8 @@ var vue = new Vue({
 	        if(sit == 'INSCRICOES_ABERTAS'){
 				this.show_data_inscricao = true;
 	        	this.show_data_cadastro = false;				
-				$('#sel_dt_inicio_cad').val('');
-	        	$('#sel_dt_fim_cad').val('');
+				/*$('#sel_dt_inicio_cad').val('');
+	        	$('#sel_dt_fim_cad').val('');*/
 	        }else if(sit == 'CADASTRADO'){
 	        	this.show_data_inscricao = false;
 	        	this.show_data_cadastro = true;
