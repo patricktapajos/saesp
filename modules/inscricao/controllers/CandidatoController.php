@@ -100,6 +100,11 @@ class CandidatoController extends Controller
         }
 
         $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+
+        /*if(Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())){
+            Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+            return ActiveForm::validate($model);
+        }*/
     
         if ($model->load(Yii::$app->request->post())) {
             $candidato->load(Yii::$app->request->post());
@@ -118,7 +123,7 @@ class CandidatoController extends Controller
                     $inscricao->SEL_ID = $selecao->SEL_ID;
                     $inscricao->save(false);
                     $documento->upload();
-                    $documento->USU_ID = $inscricao->USU_ID;
+                    $documento->INS_ID = $inscricao->INS_ID;
                     $documento->save(false);
                     
                     foreach (explode(',',$candidato->modalidades) as $modalidade) {
@@ -127,13 +132,21 @@ class CandidatoController extends Controller
                         $inscmod->INS_ID = $inscricao->INS_ID;
                         $inscmod->save();
                     }
+                    $model->enviarSenhaEmail();
                     $trans->commit();
                     return $this->redirect(['view', 'id' => $candidato->CAND_ID]);
                 }catch(\Exception $e){
                     $trans->rollBack();
                     throw $e;
                 }
-            }
+            }/*else{
+                return $this->render('create', [
+                    'model' => $model,
+                    'candidato' => $candidato,
+                    'smods' => $smods,
+                    'documento'=>$documento
+                ]);
+            }*/
         } else {
             return $this->render('create', [
                 'model' => $model,

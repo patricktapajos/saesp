@@ -7,7 +7,6 @@ use yii\helpers\Html;
 
 $this->title = 'Atualizar Seleção: #' . $model->SEL_DESCRICAO;
 $this->params['breadcrumbs'][] = ['label' => 'Gerenciar Seleção', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->SEL_ID, 'url' => ['view', 'id' => $model->SEL_ID]];
 $this->params['breadcrumbs'][] = 'Atualizar';
 ?>
 <div class="selecao-update">

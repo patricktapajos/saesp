@@ -48,7 +48,7 @@ $this->registerJs("
 
                 <div class="col-lg-3 col-sm-12">
                     <?= $form->field($model, 'USU_CPF')->widget(\yii\widgets\MaskedInput::className(), [
-                        'mask'=>'999.999.999-99'
+                        'mask'=>'999.999.999-99','id'=>'USU_CPF'
                     ]) ?>
                     <p v-show="show_responsavel == 'SIM'" class="text-danger">CPF do responsável obrigatório</p>
                 </div>

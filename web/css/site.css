@@ -387,6 +387,10 @@ th.field_cross2{
 /*.field_cross { 
     min-width: 377px; 
 }*/
+form div.required label.control-label:after {
+    content:" * ";
+    color:red;
+}
 
 /** Formulário de inscrição **/
 
@@ -410,12 +414,12 @@ th.field_cross2{
     border: 1px solid #aaaaaa;
 }
 
-.div-body {
-    /*padding-bottom: 5px;*/
-    /*border-left: 1px solid #aaaaaa;
+/*.div-body {
+    padding-bottom: 5px;
+    border-left: 1px solid #aaaaaa;
     border-right: 1px solid #aaaaaa;
-    border-bottom: 1px solid #aaaaaa;*/
-}
+    border-bottom: 1px solid #aaaaaa;
+}*/
 
 input[type="checkbox"] {
     margin-bottom: 20px;
@@ -484,4 +488,9 @@ input[type="checkbox"] {
     min-width: 50%;
     min-height: 50%;
     object-fit: cover;
+}
+
+.panel-title {
+    font-size: 1.75em;
+    text-align: center;
 }

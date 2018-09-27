@@ -50,7 +50,7 @@ class Candidato extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['CAND_FOTO'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
+            [['CAND_FOTO'], 'file', 'skipOnError' => true, 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['CAND_ESTADO_CIVIL','CAND_CEP','CAND_LOGRADOURO','CAND_BAIRRO'], 'required','message'=>'{attribute} obrigatório'],
             [['modalidades'], 'required','message'=>'{attribute} obrigatório'],
             

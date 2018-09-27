@@ -26,7 +26,7 @@ SelecaoAsset::register($this);
 
 	<?php if(!$model->isNewRecord): ?>
 		<div class="col-sm-12 col-lg-12">
-			<?= $form->field($model, 'SEL_SITUACAO')->dropDownList(SituacaoSelecaoEnum::listar(),['prompt'=>'Selecione >>','id'=>'situacao', 'v-on:change'=>'verificaSituacao()']) ?>
+			<?= $form->field($model, 'SEL_SITUACAO')->dropDownList(SituacaoSelecaoEnum::listarAtualizacao(),['prompt'=>'Selecione >>','id'=>'situacao', 'v-on:change'=>'verificaSituacao()']) ?>
 		</div>
 	<?php else: ?>
 		<?= Html::hiddenInput('SEL_SITUACAO','CADASTRADO',['id'=>'situacao']) ?>

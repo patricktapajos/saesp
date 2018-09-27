@@ -9,6 +9,15 @@
 	const PARECER = 'PARECER';
 	const CONCLUIDO = 'CONCLUIDO';
 
+	public static function listarAtualizacao(){
+		return [
+			SituacaoSelecaoEnum::INSCRICOES_ABERTAS => 'Inscrições Abertas',
+			SituacaoSelecaoEnum::INSCRICOES_ENCERRADAS => 'Inscrições Encerradas',
+			SituacaoSelecaoEnum::PARECER => 'Emissão de Parecer',
+			SituacaoSelecaoEnum::CONCLUIDO => 'Concluída',
+		];
+	}
+
 	public static function listar(){
 		return [
 			SituacaoSelecaoEnum::CADASTRADO => 'Apenas Cadastrada',

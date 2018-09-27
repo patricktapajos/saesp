@@ -13,6 +13,8 @@ InscricaoAsset::register($this);
 ?>
 
 <?php $form = ActiveForm::begin([
+        'id'=>'candidato-form',
+        //'enableAjaxValidation' => true,
         //'enableClientValidation'=>false, 
         'options' => ['enctype' => 'multipart/form-data']]); ?>
 
@@ -28,7 +30,7 @@ InscricaoAsset::register($this);
             'items'=>[
                 [
                 'label'=>'<i class="glyphicon glyphicon-user"></i> Dados Gerais',
-                'content'=>$this->render('_form_partial', [
+                'content'=>$this->render('_form_dados_pessoais', [
                     'form'=>$form,
                     'model'=>$model,
                     'candidato'=>$candidato
@@ -36,7 +38,7 @@ InscricaoAsset::register($this);
                 'active'=>true,
                 ],
                 [
-                'label'=>'<i class="glyphicon glyphicon-list-alt"></i> Documentos',
+                'label'=>'<i class="glyphicon glyphicon-list-alt"></i> Documentação',
                 'content'=>$this->render('_form_documentacao_partial', [
                     'form'=>$form,
                     'documento'=>$documento,

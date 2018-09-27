@@ -198,7 +198,7 @@ class Usuario extends \yii\db\ActiveRecord
     public function afterSave($insert, $changedAttributes){
         if($insert){
             $this->salvarUsuarioPorPermissao();
-            $this->enviarSenhaEmail($this->_senha_atual);
+            //$this->enviarSenhaEmail($this->_senha_atual);
         }
     }
 
@@ -214,7 +214,12 @@ class Usuario extends \yii\db\ActiveRecord
         return SituacaoEnum::listar()[$this->USU_SITUACAO];
     }
 
-    public function enviarSenhaEmail($senha){
+    public function enviarSenhaEmail($senha=null){
+
+        if($senha == null){
+            $senha = $this->_senha_atual;
+        }
+
         $subject = "SAESP (Sistema de Atividades Esportivas) - Credenciais de Acesso";
 
         if($this->scenario == self::SCENARIO_ESQUECI_SENHA){

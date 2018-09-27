@@ -12,7 +12,7 @@ $this->title = 'Ficha de Inscrição';
 <div class="candidato-create">
 	<div class="panel panel-primary">
 		<div class="panel-heading">
-    		<h2 class="panel-title"><?= Html::encode($this->title) ?></h2>
+    		<div class="panel-title"><?= Html::encode($this->title) ?></div>
   		</div>
 		<div class="panel-body">
 		    <?= $this->render('_form', [

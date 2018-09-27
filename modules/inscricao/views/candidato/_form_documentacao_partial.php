@@ -23,8 +23,10 @@
 <div class="form-tab" id="documentacao">
 	<div class="row">
 		 <div class="col-lg-6 col-sm-12 text-center">
-               <img src="<?= $candidato->getUrlFoto(); ?>" id="foto-candidato" width="160" height="150" />
-               <?= $form->field($candidato, 'CAND_FOTO')->fileInput(['id'=>'urlfoto']); ?>
+		 	<div class="img-documentacao-cover">
+               <img src="<?= $candidato->getUrlFoto(); ?>" id="foto-candidato" class="img-documentacao" />
+			</div>
+               <?= $form->field($candidato, 'CAND_FOTO',['enableClientValidation' => false])->fileInput(['class'=>'urlfoto','id'=>'candidato']); ?>
           </div>
 
 		<div class="col-lg-6 col-sm-12 text-center">

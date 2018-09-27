@@ -56,7 +56,7 @@ class InscricaoDocumento extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['DOC_RG_URL', 'DOC_CRESID_URL', 'DOC_CPF_URL'], 'required','on'=>'insert'],
+            [['DOC_RG_URL', 'DOC_CRESID_URL', 'DOC_CPF_URL'], 'required','on'=>'default'],
             [['DOC_RG_URL', 'DOC_CRESID_URL', 'DOC_CPF_URL','DOC_DECLARACAO_MENOR'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, pdf'],
             ['DOC_LAUDO_PCD_URL', 'required', 'when'=>function($model){return false;}, 'whenClient' => "laudoPCD"],
             ['DOC_ATESTADO_URL', 'required', 'when'=>function($model){return false;}, 'whenClient'  => "atestadoComorbidade"],
