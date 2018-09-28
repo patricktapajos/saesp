@@ -3,7 +3,7 @@
 namespace app\models;
 use app\models\Usuario;
 
-class User extends \yii\base\Object implements \yii\web\IdentityInterface
+class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
 {
     public $id;
     public $name;

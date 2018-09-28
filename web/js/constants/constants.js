@@ -14,7 +14,7 @@ let nome_sistema = "saesp";
 	    if(nome_sistema.indexOf(url) != -1){
 	        url = "http://"+url;
 	    }
-	    else if("surubiu.manaus.am.gov.br".indexOf(url) != -1){
+	    else if("chibarro.manaus.am.gov.br".indexOf(url) != -1){
 	        url = "http://"+url+"/saesp";
 	    }
 	    else{
