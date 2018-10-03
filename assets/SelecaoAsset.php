@@ -19,7 +19,9 @@ class SelecaoAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
-    public $css = [];
+    public $css = [
+        'css/selecao-radio.css'
+    ];
     public $js = [
     	'js/vue-components/selecao/selecao.js'
     ];

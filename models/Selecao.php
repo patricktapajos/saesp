@@ -65,6 +65,22 @@ class Selecao extends \yii\db\ActiveRecord
         }
     }
 
+    public function isPreparadoInscricao(){
+        return $this->SEL_SITUACAO == SituacaoSelecaoEnum::CADASTRADO || $this->SEL_SITUACAO == SituacaoSelecaoEnum::INSCRICOES_ABERTAS;
+    }
+
+    public function isPreparadoEncerrar(){
+        return $this->SEL_SITUACAO == SituacaoSelecaoEnum::PARECER_ENCERRADO;
+    }
+
+    public function isPreparadoParecer(){
+        return $this->SEL_SITUACAO == SituacaoSelecaoEnum::INSCRICOES_ENCERRADAS || $this->SEL_SITUACAO == SituacaoSelecaoEnum::PARECER_ABERTO;
+    }
+
+    public function isEncerrado(){
+        return $this->SEL_SITUACAO == SituacaoSelecaoEnum::CONCLUIDO;
+    }
+
     public static function inscricoesAbertas(){
         return self::find()->where("SEL_SITUACAO=:SEL_SITUACAO and trunc(sysdate) between SEL_DT_INICIO and SEL_DT_FIM",['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();
 

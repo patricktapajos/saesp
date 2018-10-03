@@ -93,7 +93,9 @@ class SelecaoController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-
+        if($model->isEncerrado()){
+            throw new \yii\web\HttpException(403,"Seleção encerrada.");
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', "Seleção atualizada com sucesso!");
             return $this->redirect(['index']);

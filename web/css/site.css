@@ -111,10 +111,10 @@ a.desc:after {
 
 /* Customizações */
 
-.site-index{
-    /*position: relative;*/
+/*.site-index{
+    position: relative;
     height: 75rem;
-}
+}*/
 
 .vertical-center {
    position: absolute;

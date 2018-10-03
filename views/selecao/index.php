@@ -40,7 +40,17 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             ['class' => 'yii\grid\ActionColumn',
-             //'template' => '{view} {update}'
+            'visibleButtons' => [
+                'view' => function ($model) {
+                    return true;
+                },
+                'update' => function ($model) {
+                    return !$model->isEncerrado();
+                },
+                'delete' => function ($model) {
+                    return !$model->isEncerrado();
+                },
+            ]
             ],
         ],
     ]); ?>

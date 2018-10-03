@@ -1,0 +1,27 @@
+.ui-button {
+    background: none !important;
+    border: none !important;
+    padding: 0px;
+}
+
+.switch.btn:active, .switch.btn.active, .switch.btn.active:hover, .switch.btn.active:checked {
+    border: 1px solid #d4d4d4;
+    color: white;
+    background-color: rgb(72, 146, 76) !important;
+    z-index: 0;
+} 
+
+.switch.btn, .switch.btn:hover {
+    border: 1px solid #d4d4d4;
+    color: white;
+    background-color: rgb(38, 78, 82) !important;
+} 
+
+.switch {
+    position: relative;
+    display: inline-block;
+    color: white;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {display:none;}
