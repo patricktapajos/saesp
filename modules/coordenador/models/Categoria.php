@@ -53,7 +53,7 @@ class Categoria extends \yii\db\ActiveRecord
     }
 
     public static function listarCategoria(){
-      return Categoria::model()->findAll();
+      return Categoria::model()->orderBy(['CAT_DESCRICAO'=>SORT_ASC])->findAll();
     }
 
     public function getCategoria(){
@@ -61,6 +61,6 @@ class Categoria extends \yii\db\ActiveRecord
     }
 
     public static function listar(){
-        return ArrayHelper::map(self::find()->all(), 'CAT_ID','CAT_DESCRICAO');
+        return ArrayHelper::map(self::find()->orderBy(['CAT_DESCRICAO'=>SORT_ASC])->all(), 'CAT_ID','CAT_DESCRICAO');
     }
 }

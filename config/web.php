@@ -5,6 +5,7 @@ $db = require __DIR__ . '/db.php';
 $config = [
     'id' => 'basic',
     'language' => 'pt-br',
+    'sourceLanguage' => 'pt-BR',
     'name'=>'SAESP - Sistema de Atividades Esportivas',
     'timeZone' => 'America/Manaus',
     'basePath' => dirname(__DIR__),
@@ -121,14 +122,14 @@ if (env('YII_ENV_DEV')) {
     $config['modules']['debug'] = [
         'class' => 'yii\debug\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        //'allowedIPs' => env('IP_ADDRESS'),
+        'allowedIPs' => [env('IP_ADDRESS')],
     ];
 
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
         // uncomment the following to add your IP if you are not connecting from localhost.
-        'allowedIPs' => ['127.0.0.1', '::1'],
+        'allowedIPs' => [env('IP_ADDRESS')],
     ];
 }
 

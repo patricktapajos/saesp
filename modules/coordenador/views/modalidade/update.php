@@ -7,8 +7,7 @@ use yii\helpers\Html;
 
 $this->title = 'Atualizar Modalidade: #' . $model->MOD_NOME;
 $this->params['breadcrumbs'][] = ['label' => 'Gerenciar Modalidade', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->MOD_ID, 'url' => ['view', 'id' => $model->MOD_ID]];
-$this->params['breadcrumbs'][] = 'Atualizar';
+$this->params['breadcrumbs'][] = 'Atualizar Modalidade';
 ?>
 <div class="modalidade-update">
 

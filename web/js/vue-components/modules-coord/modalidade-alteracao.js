@@ -20,7 +20,7 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 		carregarModalidades: function(){
 			var self = this;
 			$().blockScreen("Carregando Quadro");
-			const url = '/../rest/alterarmodalidades';
+			const url = $().getUrl()+'/rest/alterarmodalidades';
 		    $.get(url).then(data => {
 		    	this.$parent.id = data.SEL_ID;
 		      	this.modalidades = data.modalidades;
@@ -58,7 +58,7 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 		setAutocomplete: function(input, c, i) {
 			var self = this;
 			$('#' + input).autocomplete({
-				source: '/../rest/professores',
+				source: $().getUrl()+'/rest/professores',
 				showAnim: 'fold',
 				minLength: 2,
 				select: function(event, ui) {
@@ -125,7 +125,7 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 			var self = this;
 
 			$.ajax({
-				url: '/../rest/salvarcelselecao',
+				url: $().getUrl()+'/rest/salvarcelselecao',
 				type: 'POST',
 				data: {
 					'SelecaoCel[SEL_ID]':self.id,
