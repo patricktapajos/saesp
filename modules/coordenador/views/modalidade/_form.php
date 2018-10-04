@@ -16,22 +16,24 @@ use app\modules\coordenador\models\Categoria;
     <div class="alert-danger">
         <?= $form->errorSummary([$model]); ?>
     </div>
-
-     <?= $form->field($model, 'MOD_NOME')->widget(\yii\jui\AutoComplete::classname(), [
-        'clientOptions' => [
-            'source' => '/rest/modalidadescadastro',
-            'minLength'=>'3',
-            'select'=>new yii\web\JsExpression("function(event, ui) {
-                $('#MOD_ID').val(ui.item.id);
-            }"),
-            'change'=>new yii\web\JsExpression("function(event, ui) {
-                $('#MOD_ID').val(ui.item? ui.item.id : '' );}"),
-        ],
-        'options'=>['class'=>'form-control']
-    ]) ?>
-
-    <?= Html::activeHiddenInput($model,'MOD_ID', ['id'=>'MOD_ID']); ?>
-
+    <?php if($model->isNewRecord): ?>
+        <?= $form->field($model, 'MOD_NOME')->widget(\yii\jui\AutoComplete::classname(), [
+            'clientOptions' => [
+                'source' => '/rest/modalidadescadastro',
+                'minLength'=>'3',
+                'select'=>new yii\web\JsExpression("function(event, ui) {
+                    $('#MOD_ID').val(ui.item.id);
+                }"),
+                'change'=>new yii\web\JsExpression("function(event, ui) {
+                    $('#MOD_ID').val(ui.item? ui.item.id : '' );}"),
+            ],
+            'options'=>['class'=>'form-control']
+        ]) ?>
+        <?= $form->field($model,'MOD_ID')->hiddenInput(['id'=>'MOD_ID'])->label(false); ?>
+    <?php else: ?>
+        <?= $form->field($model,'MOD_NOME')->textInput(['id'=>'MOD_NOME']); ?>
+    <?php endif; ?>
+    
     <?= $form->field($model, 'MOD_DESCRICAO')->textInput(['maxlength' => true]) ?>
 
 	<?= $form->field($model, 'CAT_ID')->dropDownList(Categoria::listar(),['prompt'=>'Selecione >>']) ?>

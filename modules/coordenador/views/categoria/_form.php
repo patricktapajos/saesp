@@ -15,21 +15,24 @@ use yii\widgets\ActiveForm;
     <div class="alert-danger">
         <?= $form->errorSummary([$model]); ?>
     </div>
+    <?php if($model->isNewRecord): ?>
+        <?= $form->field($model, 'CAT_DESCRICAO')->widget(\yii\jui\AutoComplete::classname(), [
+            'clientOptions' => [
+                'source' => '/rest/categorias',
+                'minLength'=>'3',
+                'select'=>new yii\web\JsExpression("function(event, ui) {
+                    $('#CAT_ID').val(ui.item.id);
+                }"),
+                'change'=>new yii\web\JsExpression("function(event, ui) {
+                    $('#CAT_ID').val(ui.item? ui.item.id : '' );}"),
+            ],
+            'options'=>['class'=>'form-control']
+        ]) ?>
 
-    <?= $form->field($model, 'CAT_DESCRICAO')->widget(\yii\jui\AutoComplete::classname(), [
-        'clientOptions' => [
-            'source' => '/rest/categorias',
-            'minLength'=>'3',
-            'select'=>new yii\web\JsExpression("function(event, ui) {
-                $('#CAT_ID').val(ui.item.id);
-            }"),
-            'change'=>new yii\web\JsExpression("function(event, ui) {
-                $('#CAT_ID').val(ui.item? ui.item.id : '' );}"),
-        ],
-        'options'=>['class'=>'form-control']
-    ]) ?>
-
-    <?= Html::activeHiddenInput($model,'CAT_ID', ['id'=>'CAT_ID']); ?>
+        <?= $form->field($model,'CAT_ID')->hiddenInput(['id'=>'CAT_ID'])->label(false); ?>
+    <?php else: ?>
+        <?= $form->field($model,'CAT_DESCRICAO')->textInput(['id'=>'CAT_DESCRICAO']); ?>
+    <?php endif; ?>
 
 
     <div class="form-group">

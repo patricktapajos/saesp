@@ -42,9 +42,9 @@ class Cel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['CEL_NOME','CRD_ID'], 'required'],
+            [['CEL_NOME','CRD_ID','_nome_coordenador'], 'required'],
             [['CRD_ID'], 'number'],
-            [['CEL_NOME', 'CEL_LATITUDE', 'CEL_LONGITUDE', 'CEL_LOGRADOURO', 'CEL_BAIRRO', 'CEL_COMPLEMENTO_END'], 'string', 'max' => 255],
+            [['CEL_NOME', 'CEL_LATITUDE', 'CEL_LONGITUDE', 'CEL_LOGRADOURO', 'CEL_BAIRRO', 'CEL_COMPLEMENTO_END','CEL_TELEFONE'], 'string', 'max' => 255],
             [['CEL_EMAIL'], 'string', 'max' => 150],
             [['CEL_CEP'], 'string', 'max' => 9],
             [['CRD_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Coordenador::className(), 'targetAttribute' => ['CRD_ID' => 'CRD_ID']],
@@ -75,6 +75,7 @@ class Cel extends \yii\db\ActiveRecord
 
     public function beforeValidate(){
         $this->CEL_CEP = preg_replace('/[^0-9]/', '', $this->CEL_CEP);
+        $this->CEL_TELEFONE = preg_replace('/[^0-9]/', '', $this->CEL_TELEFONE);
         return parent::beforeValidate();
     }
 

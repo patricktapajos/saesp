@@ -45,7 +45,7 @@ SelecaoAsset::register($this);
 	
 	<?php if(!$model->isNewRecord): ?>
 		
-		<label class="control-label">Status</label>
+		<label class="control-label">Situação</label>
 		<div class="form-group">
 			<?= ToggleButtonGroup::widget(
 					[

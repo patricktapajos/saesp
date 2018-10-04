@@ -41,7 +41,7 @@ class ModalidadeSearch extends Modalidade
      */
     public function search($params)
     {
-        $query = Modalidade::find();
+        $query = Modalidade::find()->orderBy(['MOD_NOME' => SORT_ASC]);
 
         // add conditions that should always apply here
 
@@ -58,9 +58,9 @@ class ModalidadeSearch extends Modalidade
         }
 
         // grid filtering conditions
-        $query->andFilterWhere([
+        /*$query->andFilterWhere([
             'CEL_ID' => Yii::$app->user->identity->cel_id,
-        ]);
+        ]);*/
 
         $query->andFilterWhere(['like', 'MOD_NOME', $this->MOD_NOME])
             ->andFilterWhere(['like', 'MOD_DESCRICAO', $this->MOD_DESCRICAO]);

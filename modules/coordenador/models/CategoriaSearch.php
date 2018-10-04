@@ -41,7 +41,7 @@ class CategoriaSearch extends Categoria
      */
     public function search($params)
     {
-        $query = Categoria::find();
+        $query = Categoria::find()->orderBy(['CAT_DESCRICAO' => SORT_ASC]);
 
         // add conditions that should always apply here
 

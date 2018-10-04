@@ -71,7 +71,7 @@ class UsuarioController extends Controller
             try{
                 $model->save();
                 $trans->commit();
-                Yii::$app->session->setFlash('success', "Processo concluído com Sucesso!");
+                Yii::$app->session->setFlash('success', "Usuário cadastrado com Sucesso!");
                 return $this->redirect(['view', 'id' => $model->USU_ID]);
 
             }catch(\Exception $e){
@@ -98,6 +98,7 @@ class UsuarioController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "Usuário atualizado com Sucesso!");            
             return $this->redirect(['view', 'id' => $model->USU_ID]);
         } else {
             return $this->render('update', [
@@ -118,9 +119,9 @@ class UsuarioController extends Controller
             $usuario->setScenario(Usuario::SCENARIO_ESQUECI_SENHA);
 
             if($usuario->save() && $usuario->enviarSenhaEmail($senha)){
-                /*Yii::app()->user->setFlash('success', 'Senha enviada para o email cadastrado!');
+                Yii::app()->user->setFlash('success', 'Senha enviada para o email cadastrado!');
             }else{
-                Yii::app()->user->setFlash('error', 'Atenção! O email com a sua nova senha não foi enviado!');*/
+                Yii::app()->user->setFlash('error', 'Atenção! Ocorreu um problema durante a requisição, tente novamente mais tarde!');
             }
             return $this->redirect(['site/login']);
         } else {

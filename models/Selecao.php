@@ -28,7 +28,7 @@ class Selecao extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['SEL_TITULO','SEL_DESCRICAO'], 'required'],
+            [['SEL_TITULO','SEL_DESCRICAO','SEL_SITUACAO'], 'required'],
             [['SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'string', 'max' => 10],
             [['SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'date', 'format'=>'d/m/Y'],
             [['SEL_DT_INICIO', 'SEL_DT_FIM'], 'required', 'when' => function($model) {
