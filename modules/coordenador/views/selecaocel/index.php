@@ -40,7 +40,15 @@ $this->params['breadcrumbs'][] = $this->title;
                     $url = Url::to('gerenciarparecer');
                     return Html::a('<span class="glyphicon glyphicon-list-alt"></span>', $url, ['title'=>'Gerenciar Parecer']);
                }
-             ]
+            ],
+            'visibleButtons' => [
+                'update' => function ($model) {
+                    return $model->selecao->isCadastrado();
+                },
+                'gerenciarparecer' => function ($model) {
+                    return $model->selecao->isParecer();
+                },
+            ]
             ],
         ],
     ]); ?>

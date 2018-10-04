@@ -22,26 +22,6 @@ SelecaoAsset::register($this);
 	<?= $form->field($model, 'SEL_DESCRICAO')->textarea() ?>
 
 	<br>
-
-	<div v-show="show_data_cadastro">
-		<div class="col-sm-12 col-lg-12">
-			<span class="text-danger"> Selecione as datas para que os coordenadores possam cadastrar seus respectivos CEL´s modalidades nesta seleção.</span>
-		</div>
-	    <div class="col-sm-12 col-lg-6">
-		    <?= $form->field($model, 'SEL_DT_INICIO_CAD')->widget(\yii\jui\DatePicker::className(), [
-		    	'language'=>'pt-BR',
-		    	'dateFormat' => 'dd/MM/yyyy',
-			    'options'=>['id'=>'sel_dt_inicio_cad','class'=>'form-control','v-on:blur'=>'atualizarDataCadastro()'],
-			]) ?>
-		</div>
-	    <div class="col-sm-12 col-lg-6">
-		    <?= $form->field($model, 'SEL_DT_FIM_CAD')->widget(\yii\jui\DatePicker::className(), [
-		    	'language'=>'pt-BR',
-		    	'dateFormat' => 'dd/MM/yyyy',
-			    'options'=>['id'=>'sel_dt_fim_cad','class'=>'form-control'],
-			]) ?>
-		</div>
-	</div>
 	
 	<?php if(!$model->isNewRecord): ?>
 		
@@ -105,7 +85,25 @@ SelecaoAsset::register($this);
 			</div>
 		</div>
 	<?php else: ?>
-		<?= Html::hiddenInput('SEL_SITUACAO','CADASTRADO',['id'=>'situacao']) ?>
+		<div class="row">
+			<div class="col-sm-12 col-lg-12">
+				<span class="text-danger"> Selecione as datas para que os coordenadores possam cadastrar as modalidades de seus respectivos CEL´s nesta seleção.</span>
+			</div>
+			<div class="col-sm-12 col-lg-6">
+				<?= $form->field($model, 'SEL_DT_INICIO_CAD')->widget(\yii\jui\DatePicker::className(), [
+					'language'=>'pt-BR',
+					'dateFormat' => 'dd/MM/yyyy',
+					'options'=>['id'=>'sel_dt_inicio_cad','class'=>'form-control','v-on:blur'=>'atualizarDataCadastro()'],
+				]) ?>
+			</div>
+			<div class="col-sm-12 col-lg-6">
+				<?= $form->field($model, 'SEL_DT_FIM_CAD')->widget(\yii\jui\DatePicker::className(), [
+					'language'=>'pt-BR',
+					'dateFormat' => 'dd/MM/yyyy',
+					'options'=>['id'=>'sel_dt_fim_cad','class'=>'form-control'],
+				]) ?>
+			</div>
+		</div>
 	<?php endif; ?>
 	
     <div class="form-group">

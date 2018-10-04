@@ -10,6 +10,12 @@
 	const PARECER_ENCERRADO		= 'PARECER_ENCERRADO';
 	const CONCLUIDO 			= 'CONCLUIDO';
 
+	public static function listarInicio(){
+		return [
+			SituacaoSelecaoEnum::CADASTRADO => 'Seleção Cadastrada',
+		];
+	}
+
 	public static function listarInscricoes(){
 		return [
 			SituacaoSelecaoEnum::INSCRICOES_ABERTAS => 'Inscrições Abertas',

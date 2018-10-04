@@ -133,15 +133,16 @@ class SelecaocelController extends Controller
      */
     public function actionCreate()
     {
+
+        if(!Selecao::cadastroCEL()){
+            throw new \yii\web\HttpException(403,"Não há seleções abertas para cadastro de modalidades!");
+        }
+
         $selecao = SelecaoCel::find()->where(['CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
         if($selecao){
             throw new MethodNotAllowedHttpException ('CEL já possui modalidades cadastradas no processo seletivo vigente.');
         }
        
-        if(!Selecao::cadastroCEL()){
-            throw new \yii\web\HttpException(403,"Não há mais seleções abertas para cadastro de modalidades!");
-        }
-
         $model = new SelecaoCel();
         $model->SEL_ID = Selecao::getSelecaoAtiva()->SEL_ID;
 
