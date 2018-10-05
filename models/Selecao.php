@@ -31,7 +31,7 @@ class Selecao extends \yii\db\ActiveRecord
             [['SEL_TITULO','SEL_DESCRICAO','SEL_SITUACAO'], 'required'],
             [['SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'required','on'=>'default'],
             [['SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'string', 'max' => 10],
-            [['SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'date', 'format'=>'d/m/Y'],
+            [['SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'date', 'format'=>'php:d/m/Y'],
             [['SEL_DT_INICIO', 'SEL_DT_FIM'], 'required', 'when' => function($model) {
                 return $model->SEL_SITUACAO == SituacaoSelecaoEnum::INSCRICOES_ABERTAS;
             }],
