@@ -73,7 +73,7 @@ class Usuario extends \yii\db\ActiveRecord
             [['USU_SEXO'], 'string', 'max' => 15],
             [['USU_TELEFONE_1', 'USU_TELEFONE_2', 'USU_SITUACAO'], 'string', 'max' => 14],
             [['USU_PERMISSAO'], 'string', 'max' => 20],
-            [['USU_CPF'], 'unique','on'=>['insert','update','default']],
+            [['USU_CPF','USU_NOME'], 'unique','on'=>['insert','update','default']],
             [['USU_CPF','_senha_atual', '_nova_senha', '_nova_senha_confirmacao'], 'required', 'on'=>[self::SCENARIO_ALTERAR_SENHA]],
             ['_nova_senha_confirmacao', 'compare', 'compareAttribute' => '_nova_senha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
             [['_nova_senha'],'validaNovaSenha','on'=>[self::SCENARIO_ALTERAR_SENHA]],

@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\modules\coordenador\models\Categoria;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Modalidade */
@@ -19,7 +20,7 @@ use app\modules\coordenador\models\Categoria;
     <?php if($model->isNewRecord): ?>
         <?= $form->field($model, 'MOD_NOME')->widget(\yii\jui\AutoComplete::classname(), [
             'clientOptions' => [
-                'source' => '/rest/modalidadescadastro',
+                'source' => Url::to(['/rest/modalidadescadastro']),
                 'minLength'=>'3',
                 'select'=>new yii\web\JsExpression("function(event, ui) {
                     $('#MOD_ID').val(ui.item.id);

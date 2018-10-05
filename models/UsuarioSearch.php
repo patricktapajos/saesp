@@ -41,7 +41,7 @@ class UsuarioSearch extends Usuario
      */
     public function search($params)
     {
-        $query = Usuario::find();
+        $query = Usuario::find()->orderBy(['USU_NOME'=>SORT_ASC]);
 
         // add conditions that should always apply here
 

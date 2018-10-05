@@ -4,6 +4,7 @@ use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models\Coordenador;
 use app\models\SituacaoEnum;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Cel */
@@ -24,7 +25,7 @@ use app\models\SituacaoEnum;
 
         <?= $form->field($model, '_nome_coordenador')->widget(\yii\jui\AutoComplete::classname(), [
             'clientOptions' => [
-                'source' => '/rest/coordenadores',
+                'source' => Url::to(['/rest/coordenadores']),
                 'minLength'=>'3',
                 'select'=>new yii\web\JsExpression("function(event, ui) {
                     $('#CRD_ID').val(ui.item.id);

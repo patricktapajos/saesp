@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Categoria */
@@ -18,7 +19,7 @@ use yii\widgets\ActiveForm;
     <?php if($model->isNewRecord): ?>
         <?= $form->field($model, 'CAT_DESCRICAO')->widget(\yii\jui\AutoComplete::classname(), [
             'clientOptions' => [
-                'source' => '/rest/categorias',
+                'source' => Url::to(['/rest/categorias']),
                 'minLength'=>'3',
                 'select'=>new yii\web\JsExpression("function(event, ui) {
                     $('#CAT_ID').val(ui.item.id);
