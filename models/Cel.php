@@ -75,8 +75,13 @@ class Cel extends \yii\db\ActiveRecord
     }
 
     public function validarCoordenador($attribute, $params){
+        
         $celc = Cel::find()->where(['CRD_ID'=>$this->$attribute])->one();
         if($celc){
+
+            if($celc->CEL_ID == $this->CEL_ID){
+                return true;
+            }
             $this->addError($attribute,'Coordenador já relacionado a um CEL.');
             return false;
         }
