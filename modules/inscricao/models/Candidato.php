@@ -132,6 +132,10 @@ class Candidato extends \yii\db\ActiveRecord
         return $this->hasOne(Inscricao::className(), ['CAND_ID'=>'CAND_ID']);
     }
 
+    public function getCandidatoDocumento(){
+        return $this->hasOne(CandidatoDocumento::className(), ['CAND_ID'=>'CAND_ID']);
+    }
+
     public function setArquivo(){
         $this->CAND_FOTO = UploadedFile::getInstance($this, 'CAND_FOTO');
     }

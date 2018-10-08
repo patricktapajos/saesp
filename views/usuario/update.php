@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Usuario */
 
-$this->title = 'Atualizar Usuário: #' . $model->USU_NOME;
+$this->title = 'Atualizar Usuário';
 $this->params['breadcrumbs'][] = ['label' => 'Gerenicar Usuário', 'url' => ['index']];
 $this->params['breadcrumbs'][] = 'Atualizar';
 ?>

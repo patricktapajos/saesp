@@ -2,7 +2,7 @@
 
 namespace app\modules\inscricao\models;
 use app\models\SituacaoInscricaoEnum;
-use app\modules\inscricao\models\InscricaoDocumento;
+use app\modules\inscricao\models\CandidatoDocumento;
 use app\modules\inscricao\models\Candidato;
 use app\modules\inscricao\models\InscricaoModalidade;
 use app\modules\aluno\models\Aluno;
@@ -90,24 +90,30 @@ class Inscricao extends \yii\db\ActiveRecord
 
 
     public function inserirAluno(){
-        $aluno = new Aluno;
-        $aluno->CAND_ID              = $this->candidato->CAND_ID;
-        $aluno->INS_ID               = $this->INS_ID;
-        /*$aluno->ALU_CPF              = $this->candidato->CAND_CPF;
-        $aluno->ALU_ESTADO_CIVIL     = $this->candidato->CAND_ESTADO_CIVIL;
-        $aluno->ALU_LOGRADOURO       = $this->candidato->CAND_LOGRADOURO;
-        $aluno->ALU_COMPLEMENTO_END  = $this->candidato->CAND_COMPLEMENTO_END;
-        $aluno->ALU_CEP              = $this->candidato->CAND_CEP;
-        $aluno->ALU_BAIRRO           = $this->candidato->CAND_BAIRRO;
-        $aluno->ALU_NOME_EMERGENCIA  = $this->candidato->CAND_NOME_EMERGENCIA;
-        $aluno->ALU_TEL_EMERGENCIA   = $this->candidato->CAND_TEL_EMERGENCIA;
-        $aluno->ALU_NOME_RESPONSAVEL = $this->candidato->CAND_NOME_RESPONSAVEL;
-        $aluno->ALU_TEM_COMORBIDADE  = $this->candidato->CAND_TEM_COMORBIDADE;
-        $aluno->ALU_COMORBIDADE_DESC = $this->candidato->CAND_COMORBIDADE_DESC;
-        $aluno->ALU_TEM_MEDICACAO    = $this->candidato->CAND_TEM_MEDICACAO;
-        $aluno->ALU_MEDICACAO_DESC   = $this->candidato->CAND_MEDICACAO_DESC;
-        $aluno->ALU_OBSERVACOES      = $this->candidato->CAND_OBSERVACOES;*/
-        $aluno->save(false);
+
+        /* Verifica se aluno já está cadastrado */
+        if(!$this->aluno){
+            $aluno = new Aluno;
+            $aluno->CAND_ID              = $this->candidato->CAND_ID;
+            $aluno->INS_ID               = $this->INS_ID;
+            /*$aluno->ALU_CPF            = $this->candidato->CAND_CPF;
+            $aluno->ALU_ESTADO_CIVIL     = $this->candidato->CAND_ESTADO_CIVIL;
+            $aluno->ALU_LOGRADOURO       = $this->candidato->CAND_LOGRADOURO;
+            $aluno->ALU_COMPLEMENTO_END  = $this->candidato->CAND_COMPLEMENTO_END;
+            $aluno->ALU_CEP              = $this->candidato->CAND_CEP;
+            $aluno->ALU_BAIRRO           = $this->candidato->CAND_BAIRRO;
+            $aluno->ALU_NOME_EMERGENCIA  = $this->candidato->CAND_NOME_EMERGENCIA;
+            $aluno->ALU_TEL_EMERGENCIA   = $this->candidato->CAND_TEL_EMERGENCIA;
+            $aluno->ALU_NOME_RESPONSAVEL = $this->candidato->CAND_NOME_RESPONSAVEL;
+            $aluno->ALU_TEM_COMORBIDADE  = $this->candidato->CAND_TEM_COMORBIDADE;
+            $aluno->ALU_COMORBIDADE_DESC = $this->candidato->CAND_COMORBIDADE_DESC;
+            $aluno->ALU_TEM_MEDICACAO    = $this->candidato->CAND_TEM_MEDICACAO;
+            $aluno->ALU_MEDICACAO_DESC   = $this->candidato->CAND_MEDICACAO_DESC;
+            $aluno->ALU_OBSERVACOES      = $this->candidato->CAND_OBSERVACOES;*/
+            $aluno->save(false);
+        }else{
+            $aluno = $this->aluno;
+        }
 
         foreach(explode(',',$this->modalidades) as $modalidade){
             $im = new AlunoModalidade;
@@ -116,10 +122,6 @@ class Inscricao extends \yii\db\ActiveRecord
             $im->AMO_STATUS = AlunoSituacaoEnum::ATIVO;
             $im->save(false);
         }
-    }
-
-    public function getInscricaodocumento(){
-        return $this->hasOne(InscricaoDocumento::className(), ['INS_ID'=>'INS_ID']);
     }
 
     public function getInscricaomodalidade(){

@@ -17,7 +17,7 @@ use Yii;
  * @property string $DOC_DECLARACAO_MENOR
  * @property string $DOC_ATESTADO_IDOSO
  */
-class InscricaoDocumento extends \yii\db\ActiveRecord
+class CandidatoDocumento extends \yii\db\ActiveRecord
 {
     public $DOC_RG_URL_AUX;
     public $DOC_CPF_URL_AUX;
@@ -27,6 +27,15 @@ class InscricaoDocumento extends \yii\db\ActiveRecord
     public $DOC_DECLARACAO_MENOR_AUX;
     public $DOC_ATESTADO_IDOSO_AUX;
     public $DOC_ATESTADO_URL_AUX;
+    const SCENARIO_UPDATE = 'SCENARIO_UPDATE';
+
+
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios [self::SCENARIO_UPDATE] = [''];
+        return $scenarios;
+    }
 
 
     public $camposfotos = [
@@ -46,7 +55,7 @@ class InscricaoDocumento extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'INSCRICAO_DOCUMENTO';
+        return 'CANDIDATO_DOCUMENTO';
     }
 
     /**

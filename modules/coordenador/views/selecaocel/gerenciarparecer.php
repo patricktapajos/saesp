@@ -7,7 +7,7 @@ use app\modules\coordenador\models\SelecaoCel;
 use app\modules\inscricao\models\InscricaoModalidade;
 use app\modules\inscricao\models\Inscricao;
 use app\models\SituacaoInscricaoEnum;
-use app\modules\inscricao\models\InscricaoDocumento;
+use app\modules\inscricao\models\CandidatoDocumento;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\InscricaomodalidadeSearch */

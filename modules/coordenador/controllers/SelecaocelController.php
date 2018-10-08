@@ -13,7 +13,7 @@ use app\modules\coordenador\models\SelecaoCelSearch;
 use app\modules\inscricao\models\InscricaoModalidade;
 use app\modules\inscricao\models\Inscricao;
 use app\modules\inscricao\models\InscricaoParecerSearch;
-use app\modules\inscricao\models\InscricaoDocumento;
+use app\modules\inscricao\models\CandidatoDocumento;
 use app\modules\coordenador\models\Aluno;
 use app\modules\coordenador\models\Alunomodalidade;
 use yii\web\Controller;

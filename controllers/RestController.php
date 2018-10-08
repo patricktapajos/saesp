@@ -3,6 +3,7 @@
 namespace app\controllers;
 use app\models\Selecao;
 use app\modules\inscricao\models\Candidato;
+use app\modules\inscricao\models\Inscricao;
 use app\modules\inscricao\models\InscricaoModalidade;
 use app\models\SituacaoSelecaoEnum;
 use app\modules\coordenador\models\Modalidade;
@@ -79,16 +80,19 @@ class RestController extends \yii\web\Controller
      public function actionInscricaomodalidades(){
 
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $modalidades = [];
         $selecao = Selecao::find()->where(['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();
-        $candidato = Candidato::find()->where(['USU_ID'=>Yii::$app->user->identity->id])->one();
-        $smods = InscricaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['INS_ID'=>$candidato->inscricao->INS_ID])->all();
+        $inscricao = Inscricao::find()->where(['SEL_ID'=>$selecao->SEL_ID])->one();
 
-        foreach ($smods as $o=>$smod) {
-            foreach ($smod->modalidadeDataHora as $n=>$mdh) {
-                $modalidades[] = $mdh->MDT_ID;
+        if($inscricao){
+            $smods = InscricaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['INS_ID'=>$inscricao->INS_ID])->all();
+
+            foreach ($smods as $o=>$smod) {
+                foreach ($smod->modalidadeDataHora as $n=>$mdh) {
+                    $modalidades[] = $mdh->MDT_ID;
+                }
             }
         }
-
         return $modalidades;
     }
 
@@ -98,7 +102,7 @@ class RestController extends \yii\web\Controller
         $listaUsuarios = [];
         $descricao = strtolower($_GET['term']);
     
-        $sql = "SELECT C.CRD_ID, U.USU_ID, USU_NOME FROM USUARIO U INNER JOIN COORDENADOR C ON U.USU_ID = C.USU_ID LEFT OUTER JOIN CEL ON C.CRD_ID = CEL.CRD_ID WHERE CEL.CRD_ID is null AND lower(USU_NOME) LIKE '%{$descricao}%'";
+        $sql = "SELECT C.CRD_ID, U.USU_ID, USU_NOME FROM USUARIO U INNER JOIN COORDENADOR C ON U.USU_ID = C.USU_ID LEFT OUTER JOIN CEL ON C.CRD_ID = CEL.CRD_ID WHERE lower(USU_NOME) LIKE '%{$descricao}%'";
         $createCommand = Yii::$app->db->createCommand($sql);
         $usuarios = $createCommand->queryAll();
     

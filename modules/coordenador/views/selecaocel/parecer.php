@@ -10,7 +10,7 @@ use app\modules\coordenador\models\AlunomodalidadeSearch;
 use app\modules\coordenador\models\Alunomodalidade;
 use app\modules\inscricao\models\InscricaoModalidade;
 use app\modules\inscricao\models\Inscricao;
-use app\modules\inscricao\models\InscricaoDocumento;
+use app\modules\inscricao\models\CandidatoDocumento;
 use app\modules\inscricao\models\InscricaoSearch;
 use app\models\SituacaoInscricaoEnum;
 use app\assets\VueParecerAsset;
@@ -181,11 +181,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="jcarousel-wrapper documentos">
                     <div class="jcarousel" data-jcarousel="true" id="documentos">
                         <ul>
-                            <?php foreach(array_values($model->inscricaodocumento->getDocumentosImagem()) as $n=>$foto) : ?>
+                            <?php foreach(array_values($model->candidatoDocumento->getDocumentosImagem()) as $n=>$foto) : ?>
                                 <li style="width: auto; height: auto; padding: 5px">
-                                    <a href="<?= $model->inscricaodocumento->getUrlDocumento($foto); ?>"
-                                    title="<?= $model->inscricaodocumento->getAttributeLabel($foto) ?>" style="text-decoration: none; border:0">
-                                        <img src="<?= $model->inscricaodocumento->getUrlDocumento($foto); ?>" class="img-documentacao">
+                                    <a href="<?= $model->candidatoDocumento->getUrlDocumento($foto); ?>"
+                                    title="<?= $model->candidatoDocumento->getAttributeLabel($foto) ?>" style="text-decoration: none; border:0">
+                                        <img src="<?= $model->candidatoDocumento->getUrlDocumento($foto); ?>" class="img-documentacao">
                                     </a>
                                 </li>
                             <?php endforeach; ?>
@@ -195,10 +195,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"></a>
                 </div>
 
-                <?php foreach(array_values($model->inscricaodocumento->getDocumentosPdf()) as $n=>$pdf) : ?>
+                <?php foreach(array_values($model->candidatoDocumento->getDocumentosPdf()) as $n=>$pdf) : ?>
                     <div class="col-lg-12 col-sm-12 text-center">
-                        <span><b><?= $model->inscricaodocumento->getAttributeLabel($pdf); ?></b></span>
-                        <embed src="<?= $model->inscricaodocumento->getUrlDocumento($pdf); ?>" type="application/pdf" width="100%" height="20%" />
+                        <span><b><?= $model->candidatoDocumento->getAttributeLabel($pdf); ?></b></span>
+                        <embed src="<?= $model->candidatoDocumento->getUrlDocumento($pdf); ?>" type="application/pdf" width="100%" height="20%" />
                     </div>
                 <?php endforeach; ?>
             </div>

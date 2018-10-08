@@ -43,6 +43,7 @@ class Cel extends \yii\db\ActiveRecord
     {
         return [
             [['CEL_NOME','CRD_ID','_nome_coordenador'], 'required'],
+            [['CRD_ID'], 'validarCoordenador'],
             [['CRD_ID'], 'number'],
             [['CEL_NOME', 'CEL_LATITUDE', 'CEL_LONGITUDE', 'CEL_LOGRADOURO', 'CEL_BAIRRO', 'CEL_COMPLEMENTO_END','CEL_TELEFONE'], 'string', 'max' => 255],
             [['CEL_EMAIL'], 'string', 'max' => 150],
@@ -71,6 +72,15 @@ class Cel extends \yii\db\ActiveRecord
             'CRD_ID' => 'Coordenador',
             '_nome_coordenador' => 'Coordenador',
         ];
+    }
+
+    public function validarCoordenador($attribute, $params){
+        $celc = Cel::find()->where(['CRD_ID'=>$this->$attribute])->one();
+        if($celc){
+            $this->addError($attribute,'Coordenador já relacionado a um CEL.');
+            return false;
+        }
+        return true;
     }
 
     public function beforeValidate(){

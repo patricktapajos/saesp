@@ -9,7 +9,7 @@ use app\modules\coordenador\models\SelecaoModalidade;
 use app\modules\coordenador\models\SelecaoCel;
 use app\modules\inscricao\models\Inscricao;
 use app\modules\inscricao\models\InscricaoModalidade;
-use app\modules\inscricao\models\InscricaoDocumento;
+use app\modules\inscricao\models\CandidatoDocumento;
 use app\models\Selecao;
 use app\models\SituacaoSelecaoEnum;
 use app\models\PermissaoEnum;
@@ -88,7 +88,7 @@ class CandidatoController extends Controller
     public function actionCreate()
     {
         $model = new Usuario();
-        $documento = new InscricaoDocumento();
+        $documento = new CandidatoDocumento();
         $model->USU_PERMISSAO = PermissaoEnum::PERMISSAO_CANDIDATO;
         $model->USU_SITUACAO = SituacaoEnum::ATIVO;
         $inscricao = new Inscricao();
@@ -123,7 +123,7 @@ class CandidatoController extends Controller
                     $inscricao->SEL_ID = $selecao->SEL_ID;
                     $inscricao->save(false);
                     $documento->upload();
-                    $documento->INS_ID = $inscricao->INS_ID;
+                    $documento->CAND_ID = $candidato->CAND_ID;
                     $documento->save(false);
                     
                     foreach (explode(',',$candidato->modalidades) as $modalidade) {
@@ -168,16 +168,27 @@ class CandidatoController extends Controller
         $model = Usuario::findOne($id);
         $candidato = $model->candidato;
         $selecao = Selecao::inscricoesAbertas();
+        $novaInscricao = false;
 
         if(!$selecao){
             throw new \yii\web\HttpException(403,"Não há processo seletivo aberto!");
         }
 
-        $documento = InscricaoDocumento::find()->where(['INS_ID'=>$candidato->inscricao->INS_ID])->one();
-        if(!$documento){
-            $documento = new InscricaoDocumento();
-            $documento->INS_ID = $candidato->inscricao->ins_id;
+        /* Verifica se a inscrição já está relacionada 'a seleção em questão */
+        $inscricaoAnterior = Inscricao::find()->where(['SEL_ID'=>$selecao->SEL_ID])->one();
+        if(!$inscricaoAnterior){
+            $novaInscricao = true;
         }
+
+
+        $documento = CandidatoDocumento::find()->where(['CAND_ID'=>$candidato->CAND_ID])->one();
+        if(!$documento){
+            $documento = new CandidatoDocumento();
+            $documento->CAND_ID = $candidato->CAND_ID;
+        }
+        $documento->scenario = CandidatoDocumento::SCENARIO_UPDATE;
+
+        //var_dump($novaInscricao);die;
         
         $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
         
@@ -196,11 +207,24 @@ class CandidatoController extends Controller
                     $candidato->save(false);
                     $documento->save(false);
 
-                    InscricaoModalidade::deleteAll('INS_ID =:INS_ID ',[':INS_ID'=>$candidato->inscricao->INS_ID]);
+                    $insc_id = null;
+
+                    if($novaInscricao){
+                        $ni = new Inscricao();
+                        $ni->CAND_ID = $candidato->CAND_ID;
+                        $ni->SEL_ID = $selecao->SEL_ID;
+                        $ni->save(false);
+                        $insc_id = $ni->INS_ID;
+                    }else{
+                        $insc_id = $candidato->inscricao->INS_ID;
+
+                    }
+
+                    InscricaoModalidade::deleteAll('INS_ID =:INS_ID ',[':INS_ID'=>$insc_id]);
                     foreach (explode(',',$candidato->modalidades) as $modalidade) {
                         $inscmod = new InscricaoModalidade();
                         $inscmod->MDT_ID = $modalidade;
-                        $inscmod->INS_ID = $candidato->inscricao->INS_ID;
+                        $inscmod->INS_ID = $insc_id;
                         $inscmod->save();
                     }
                     $trans->commit();
