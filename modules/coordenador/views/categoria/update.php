@@ -5,9 +5,9 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Categoria */
 
-$this->title = 'Alterar Categoria: #' . $model->CAT_ID;
+$this->title = 'Atualizar Categoria';
 $this->params['breadcrumbs'][] = ['label' => 'Gerenciar Categoria', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->CAT_ID, 'url' => ['view', 'id' => $model->CAT_ID]];
+$this->params['breadcrumbs'][] = ['label' => 'Atualizar Categoria', 'url' => ['view', 'id' => $model->CAT_ID]];
 ?>
 <div class="categoria-update">
 

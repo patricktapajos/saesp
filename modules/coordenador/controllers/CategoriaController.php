@@ -106,7 +106,11 @@ class CategoriaController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        try{
+            $this->findModel($id)->delete();
+        }catch(\Exception $e){
+            Yii::$app->session->setFlash('danger', "Categoria está referênciada em alguma modalidade");
+        }
 
         return $this->redirect(['index']);
     }

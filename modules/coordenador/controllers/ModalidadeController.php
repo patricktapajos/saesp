@@ -104,7 +104,11 @@ class ModalidadeController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        try{
+            $this->findModel($id)->delete();
+        }catch(\Exception $e){
+            Yii::$app->session->setFlash('danger', "Modalidade está referênciada em alguma seleção");
+        }
 
         return $this->redirect(['index']);
     }
