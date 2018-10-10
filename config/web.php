@@ -4,7 +4,7 @@ $db = require __DIR__ . '/db.php';
 
 $config = [
     'id' => 'basic',
-    'language' => 'pt-br',
+    'language' => 'pt-BR',
     'sourceLanguage' => 'pt-BR',
     'name'=>'SAESP - Sistema de Atividades Esportivas',
     'timeZone' => 'America/Manaus',

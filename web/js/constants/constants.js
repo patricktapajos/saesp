@@ -15,7 +15,7 @@ let nome_sistema = "saesp";
 	        url = "http://"+url;
 	    }
 	    else if("chibarro.manaus.am.gov.br".indexOf(url) != -1){
-	        url = "http://"+url+"/saesp";
+	        url = "http://"+url+"/saesp/web";
 	    }
 	    else{
 	        url ="http://"+url;   
