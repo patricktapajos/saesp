@@ -25,7 +25,7 @@ if($model->isNewRecord){
             <li>{{ e }}</li>
     </div>
 
-    <?= $form->field($model, 'SEL_ID')->hiddenInput(['id'=>'id']); ?>
+    <?= $form->field($model, 'SEL_ID')->hiddenInput(['id'=>'id'])->label(false); ?>
       
     <span class="text-warning">Preencha o quadro a seguir com as modalidades que o CEL deseja oferecer aos candidatos desda seleção.</span>
     <br clear="left" />

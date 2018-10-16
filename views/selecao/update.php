@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Selecao */
 
-$this->title = 'Atualizar Seleção: #' . $model->SEL_DESCRICAO;
+$this->title = 'Atualizar Seleção';
 $this->params['breadcrumbs'][] = ['label' => 'Gerenciar Seleção', 'url' => ['index']];
 $this->params['breadcrumbs'][] = 'Atualizar';
 ?>

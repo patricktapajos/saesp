@@ -47,8 +47,14 @@ class RestController extends \yii\web\Controller
 
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $selecao = Selecao::getSelecaoAtiva();
-        $scel = SelecaoCel::find()->where(['SEL_ID'=>$selecao->SEL_ID, 'CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
+        
+        // verifica se modalidades deste cel foram cadastradas nesta seleção
+        $sm = SelecaoModalidade::find()->innerJoinWith(['modalidadeDataHora','modalidade'])->where(['SEL_ID'=>$selecao->SEL_ID,'MODALIDADE.CEL_ID'=>Yii::$app->user->identity->cel_id])->all();
+        if(count($sm) == 0){
+            return [];
+        }
 
+        $scel = SelecaoCel::find()->where(['SEL_ID'=>$selecao->SEL_ID, 'CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
         $modalidades = ['SEL_ID'=>$selecao->SEL_ID];
 
         foreach ($scel->cel->modalidades as $o=>$modalidade) {

@@ -73,6 +73,7 @@ class Usuario extends \yii\db\ActiveRecord
             [['USU_SEXO'], 'string', 'max' => 15],
             [['USU_TELEFONE_1', 'USU_TELEFONE_2', 'USU_SITUACAO'], 'string', 'max' => 14],
             [['USU_PERMISSAO'], 'string', 'max' => 20],
+            [['USU_NOME'], 'trim'],
             [['USU_CPF','USU_NOME'], 'unique','on'=>['insert','update','default']],
             [['USU_CPF','_senha_atual', '_nova_senha', '_nova_senha_confirmacao'], 'required', 'on'=>[self::SCENARIO_ALTERAR_SENHA]],
             ['_nova_senha_confirmacao', 'compare', 'compareAttribute' => '_nova_senha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
@@ -165,7 +166,6 @@ class Usuario extends \yii\db\ActiveRecord
             case PermissaoEnum::PERMISSAO_PROFESSOR:
                 $prof = new Professor();
                 $prof->USU_ID = $this->USU_ID;
-                $prof->PROF_ESTAGIARIO = 'N';
                 $prof->save(false);
                 break;
 
@@ -177,9 +177,32 @@ class Usuario extends \yii\db\ActiveRecord
         }
     }
 
-    public function init(){
-        parent::init();
-        $this->USU_SITUACAO = SituacaoEnum::ATIVO;
+    public function deletarPorPermissao(){
+        
+        switch ($this->USU_PERMISSAO) {
+            case PermissaoEnum::PERMISSAO_ADMIN:
+                Administrador::model()->delete();
+                break;
+
+            case PermissaoEnum::PERMISSAO_COORDENADOR:
+                Coordenador::model()->delete();
+                break;
+
+            case PermissaoEnum::PERMISSAO_PROFESSOR:
+                Professor::model()->delete();
+                break;
+
+           case PermissaoEnum::PERMISSAO_ESTAGIARIO:
+                Estagiario::model()->delete();
+                break;
+        }
+    }
+
+    public function beforeValidade(){
+        if($model->scenario == 'default'){
+            $this->USU_SITUACAO = SituacaoEnum::ATIVO;
+        }
+        return parent::beforeValidate();
     }
 
     public function beforeSave($insert){
@@ -277,5 +300,10 @@ class Usuario extends \yii\db\ActiveRecord
 
     public function getUsuario(){
         return $this->hasOne(Usuario::className(), ['USU_ID'=>'USU_ID']);
+    }
+
+    public function ativos()
+    {
+        return $this->andWhere(['USU_SITUACAO' => SituacaoEnum::ATIVO]);
     }
 }

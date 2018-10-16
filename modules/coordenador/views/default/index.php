@@ -31,9 +31,10 @@ $this->title = 'SAESP';
             <div class="body-content">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <?= Html::img('@web/images/simbolo-logo.png', ['height'=>'200']); ?>
+                        <?= Html::img('@web/images/simbolo-logo.png', ['class'=>'logo-central']); ?>
                         <h1>Olá, <?= Yii::$app->user->identity->name != null?Yii::$app->user->identity->name:'Visitante' ?>!</h1>
-                        <h2>Bem vindo ao módulo de Coordenação do CEL - "<?= Yii::$app->user->identity->cel_nome; ?>"</h2>
+                        <h2>Bem vindo ao módulo de Coordenação do CEL</h2>
+                        <h2>"<?= Yii::$app->user->identity->cel_nome; ?>"</h2>
                     </div>
                 </div>
             </div>

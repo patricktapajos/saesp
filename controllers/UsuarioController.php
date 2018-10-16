@@ -154,8 +154,14 @@ class UsuarioController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        try{
+            $model=$this->findModel($id);
+            $model->deletarPorPermissao();
+            $model->delete();
+        }catch(\Exception $e){
+            Yii::$app->session->setFlash('danger', "Usuário está referenciado em alguma seleção");
+        }
+        
         return $this->redirect(['index']);
     }
 

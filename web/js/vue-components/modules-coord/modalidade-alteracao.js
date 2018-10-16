@@ -98,7 +98,7 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 			if (confirm('Deseja mesmo remover estes dados?') == false) {
 				return false;
 			}
-			this.$parent.complementoexclusao.push(this.modalidades[l].complemento[m].MDT_CODIGO);
+			this.$parent.complementoexclusao.push(this.modalidades[l].complemento[m].MDT_ID);
 			this.modalidades[l].complemento.splice(m, 1);
 		},
 
