@@ -25,6 +25,7 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
             $user->name = $model->USU_NOME;
             $user->username = $model->USU_CPF;
             $user->id = $id;
+            /* Verifica se usuário é coordenador e está relacionado a um CEL para pegar o id (do CEL) */
             if($model->coordenador){
                 $user->cel_nome = $model->coordenador->cel->CEL_NOME;
                 $user->cel_id = $model->coordenador->cel->CEL_ID;

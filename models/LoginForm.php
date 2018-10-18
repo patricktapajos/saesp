@@ -4,6 +4,7 @@ namespace app\models;
 
 use Yii;
 use yii\base\Model;
+use app\models\Coordenador;
 
 /**
  * LoginForm is the model behind the login form.
@@ -32,6 +33,7 @@ class LoginForm extends Model
             ['rememberMe', 'boolean'],
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
+            ['username', 'validarCoordenador'],
         ];
     }
 
@@ -58,6 +60,17 @@ class LoginForm extends Model
 
             if (!$user || !$user->validatePassword(md5($this->password))) {
                 $this->addError($attribute, 'Usuário ou senha incorreta.');
+            }
+        }
+    }
+
+    public function validarCoordenador($attribute, $params)
+    {
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+            $coordenador = Coordenador::find()->where(['USU_ID'=>$user->id])->one();
+            if($coordenador && !$coordenador->cel){
+                $this->addError($attribute, 'Coordenador não está relacionado a nenhum CEL.');
             }
         }
     }

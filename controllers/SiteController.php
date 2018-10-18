@@ -75,6 +75,10 @@ class SiteController extends Controller
      */
     public function actionLogin()
     {
+        if(!Yii::$app->user->isGuest){
+            $this->redirecionarPorPermissao();
+        }
+
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
 

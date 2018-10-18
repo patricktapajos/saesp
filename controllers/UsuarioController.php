@@ -65,13 +65,14 @@ class UsuarioController extends Controller
     {
 
         $model = new Usuario();
+        $model->setScenario(Usuario::SCENARIO_DEFAULT);
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $trans = Yii::$app->db->beginTransaction();
             try{
                 $model->save();
                 $trans->commit();
-                Yii::$app->session->setFlash('success', "Usuário cadastrado com Sucesso!");
+                Yii::$app->session->setFlash('success', "Usuário cadastrado com sucesso!");
                 return $this->redirect(['view', 'id' => $model->USU_ID]);
 
             }catch(\Exception $e){
@@ -96,9 +97,10 @@ class UsuarioController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $model->setScenario(Usuario::SCENARIO_ALTERAR);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            Yii::$app->session->setFlash('success', "Usuário atualizado com Sucesso!");            
+            Yii::$app->session->setFlash('success', "Usuário atualizado com sucesso!");            
             return $this->redirect(['view', 'id' => $model->USU_ID]);
         } else {
             return $this->render('update', [
@@ -146,7 +148,7 @@ class UsuarioController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->save();
-            Yii::$app->user->setFlash('success', 'Senha alterar com sucesso!');            
+            Yii::$app->session->setFlash('success', 'Senha alterada com sucesso!');            
             return $this->redirect(['site/logout']);
         } else {
             return $this->render('alterar_senha', [

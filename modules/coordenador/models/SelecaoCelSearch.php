@@ -40,7 +40,7 @@ class SelecaoCelSearch extends SelecaoCel
      */
     public function search($params)
     {
-        $query = SelecaoCel::find();
+        $query = SelecaoCel::find()->where(['CEL_ID'=>Yii::$app->user->identity->cel_id]);
 
         // add conditions that should always apply here
 

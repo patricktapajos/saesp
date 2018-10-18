@@ -15,6 +15,9 @@ use app\models\SexoEnum;
 
     <?php $form = ActiveForm::begin(); ?>
 
+        <div class="alert-danger">
+            <?= $form->errorSummary([$model]); ?>
+        </div>
     
         <?= $form->field($model, 'USU_NOME')->textInput(['maxlength' => true]) ?>
         <?= $form->field($model, 'USU_EMAIL')->textInput(['maxlength' => true]) ?>

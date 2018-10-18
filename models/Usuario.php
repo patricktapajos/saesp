@@ -35,6 +35,9 @@ class Usuario extends \yii\db\ActiveRecord
     public $_nova_senha_confirmacao;
     const SCENARIO_ESQUECI_SENHA = 'SCENARIO_ESQUECI_SENHA';
     const SCENARIO_ALTERAR_SENHA = 'SCENARIO_ALTERAR_SENHA';
+    const SCENARIO_DEFAULT = 'SCENARIO_DEFAULT';
+    const SCENARIO_ALTERAR = 'SCENARIO_ALTERAR';
+    
     /**
      * @inheritdoc
      */
@@ -61,11 +64,10 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO','USU_SITUACAO'], 'required','on'=>['insert','update','default']],
+            [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO','USU_SITUACAO'], 'required','on'=>[self::SCENARIO_DEFAULT,self::SCENARIO_ALTERAR]],
             [['USU_NOME', 'USU_EMAIL', 'USU_SENHA'], 'string', 'max' => 255],
             ['USU_EMAIL','email'],
             ['USU_CPF','required','on'=>[self::SCENARIO_ESQUECI_SENHA]],
-            //[['USU_EMAIL'],'validarHostEmail','on'=>['insert','']],
             [['USU_CPF'], CpfValidator::className()],
             [['USU_CPF'], 'string', 'max' => 14],
             [['USU_DT_NASC'], 'string', 'max' => 10],
@@ -74,7 +76,7 @@ class Usuario extends \yii\db\ActiveRecord
             [['USU_TELEFONE_1', 'USU_TELEFONE_2', 'USU_SITUACAO'], 'string', 'max' => 14],
             [['USU_PERMISSAO'], 'string', 'max' => 20],
             [['USU_NOME'], 'trim'],
-            [['USU_CPF','USU_NOME'], 'unique','on'=>['insert','update','default']],
+            [['USU_CPF','USU_NOME'], 'unique','on'=>[self::SCENARIO_DEFAULT,self::SCENARIO_ALTERAR]],
             [['USU_CPF','_senha_atual', '_nova_senha', '_nova_senha_confirmacao'], 'required', 'on'=>[self::SCENARIO_ALTERAR_SENHA]],
             ['_nova_senha_confirmacao', 'compare', 'compareAttribute' => '_nova_senha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
             [['_nova_senha'],'validaNovaSenha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
@@ -142,9 +144,15 @@ class Usuario extends \yii\db\ActiveRecord
     }*/
 
     public function beforeValidate(){
+        
         $this->USU_CPF = preg_replace('/[^0-9]/', '', $this->USU_CPF);
         $this->USU_TELEFONE_1 = preg_replace('/[^0-9]/', '', $this->USU_TELEFONE_1);
         $this->USU_TELEFONE_2 = preg_replace('/[^0-9]/', '', $this->USU_TELEFONE_2);
+
+        if($this->scenario == self::SCENARIO_DEFAULT){
+            $this->USU_SITUACAO = SituacaoEnum::ATIVO;
+        }
+
         return parent::beforeValidate();
     }
 
@@ -196,13 +204,6 @@ class Usuario extends \yii\db\ActiveRecord
                 Estagiario::model()->delete();
                 break;
         }
-    }
-
-    public function beforeValidade(){
-        if($model->scenario == 'default'){
-            $this->USU_SITUACAO = SituacaoEnum::ATIVO;
-        }
-        return parent::beforeValidate();
     }
 
     public function beforeSave($insert){
