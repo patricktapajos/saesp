@@ -41,6 +41,7 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+        'encodeLabels' => false,
         'items' => [
             ['label' => 'Usuário', 'url' => ['/usuario/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
             ['label' => 'CEL', 'url' => ['/cel/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],
@@ -57,24 +58,34 @@ AppAsset::register($this);
             ['label' => 'Seleção', 'url' => ['/coordenador/selecaocel/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
             ['label' => 'Aluno', 'url' => ['/coordenador/aluno/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
             ['label' => 'Alterar Senha', 'url' => ['/usuario/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],            
-
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 '<li>'
                 . Html::beginForm(['/site/logout'], 'post')
                 . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->name . ')',
+                    'Logout',
                     ['class' => 'btn btn-link logout']
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+                ),
+            ['label' => '<i class="glyphicon glyphicon-user"></i>', 
+                    'url' => ['#'],
+                    'items' => [
+                        '<li class="dropdown-header header-user-info">Informações</li>',
+                        '<li class="divider"></li>', 
+                        (Yii::$app->user->identity->cel_id != null) ?
+                        ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p><p>CEL: '.Yii::$app->user->identity->cel_nome.'</p>']
+                        :
+                        ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p>'],
+                    ],
+                    'visible'=>!Yii::$app->user->isGuest
+            ]
         ],
     ]);
     NavBar::end();
     ?>
-
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],

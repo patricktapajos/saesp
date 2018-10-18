@@ -57,7 +57,16 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            ),
+            ['label' => '<i class="glyphicon glyphicon-user"></i>', 
+                    'url' => ['#'],
+                    'items' => [
+                        '<li class="dropdown-header header-user-info">Informações</li>',
+                        '<li class="divider"></li>', 
+                        ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p>'],
+                    ],
+                    'visible'=>!Yii::$app->user->isGuest
+            ]
         ],
     ]);
     NavBar::end();
