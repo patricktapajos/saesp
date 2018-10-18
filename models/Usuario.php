@@ -220,7 +220,7 @@ class Usuario extends \yii\db\ActiveRecord
     public function afterSave($insert, $changedAttributes){
         if($insert){
             $this->salvarUsuarioPorPermissao();
-            //$this->enviarSenhaEmail($this->_senha_atual);
+            $this->enviarSenhaEmail($this->_senha_atual);
         }
     }
 
@@ -248,8 +248,8 @@ class Usuario extends \yii\db\ActiveRecord
             $subject = "SAESP (Sistema de Atividades Esportivas) - Alteração de senha";
         }
         $mailer = Yii::$app->mailer;
-        $mailer->compose(['html'=>'credencial'],['model'=>$this, 'senha'=>$senha])
-        ->setFrom('email.sistemas@pmm.am.gov.br')
+        return $mailer->compose(['html'=>'credencial'],['model'=>$this, 'senha'=>$senha])
+        ->setFrom(env('EMAIL_USER'))
         ->setTo($this->USU_EMAIL)
         ->setSubject($subject)
         ->send();

@@ -117,12 +117,20 @@ class UsuarioController extends Controller
             $usuario = Usuario::find()->where(['USU_CPF'=>$model->USU_CPF])->one();
             $senha = $usuario->gerarSenha();
             $usuario->setScenario(Usuario::SCENARIO_ESQUECI_SENHA);
-
-            if($usuario->save() && $usuario->enviarSenhaEmail($senha)){
-                Yii::app()->user->setFlash('success', 'Senha enviada para o email cadastrado!');
-            }else{
-                Yii::app()->user->setFlash('error', 'Atenção! Ocorreu um problema durante a requisição, tente novamente mais tarde!');
+            $trans = Yii::$app->db->beginTransaction();
+            try{
+                if($usuario->save() && $usuario->enviarSenhaEmail($senha)){
+                    $trans->commit();
+                    Yii::$app->session->setFlash('success', 'Senha enviada para o email cadastrado!');
+                }else{
+                    $trans->rollBack();
+                    Yii::$app->session->setFlash('error', 'Atenção! Ocorreu um problema durante a requisição, tente novamente mais tarde!');
+                }
+            }catch(\Exception $e){
+                $trans->rollBack();
+                throw $e;                
             }
+            
             return $this->redirect(['site/login']);
         } else {
             return $this->render('esqueci_senha', [
@@ -138,6 +146,7 @@ class UsuarioController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $model->save();
+            Yii::$app->user->setFlash('success', 'Senha alterar com sucesso!');            
             return $this->redirect(['site/logout']);
         } else {
             return $this->render('alterar_senha', [
