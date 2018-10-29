@@ -1,9 +1,11 @@
 <?php
 
 namespace app\modules\inscricao\models;
+use app\modules\coordenador\models\SelecaoModalidade;
 use app\models\Usuario;
 use app\models\EstadoCivilEnum;
 use app\models\SimNaoEnum;
+use app\models\Categoria;
 use app\modules\inscricao\models\Inscricao;
 use Yii;
 use yii\web\UploadedFile;
@@ -53,7 +55,7 @@ class Candidato extends \yii\db\ActiveRecord
             [['CAND_FOTO'], 'file', 'skipOnError' => true, 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['CAND_ESTADO_CIVIL','CAND_CEP','CAND_LOGRADOURO','CAND_BAIRRO'], 'required','message'=>'{attribute} obrigatório'],
             [['modalidades'], 'required','message'=>'{attribute} obrigatório'],
-            
+            [['modalidades'], 'validarModalidadeAquatica'],
             ['CAND_NOME_RESPONSAVEL', 'required', 'when' => function($model) {
                 return $model->CAND_MENOR_IDADE == 'SIM';
             },'whenClient' => "menorIdade"],
@@ -109,6 +111,24 @@ class Candidato extends \yii\db\ActiveRecord
             'CAND_IDOSO' => 'Candidato Idoso',
             'CAND_FOTO' => 'Foto'
         ];
+    }
+
+    public function validarModalidadeAquatica($attribute, $params){
+        
+        $mods = SelecaoModalidade::find()->with(['modalidade'])->andWhere(['MOD_ID'=>explode(',',$this->modalidades)])->all();
+        $contAquatico = 0;
+        foreach ($mods as $mod) {
+            if($mod->modalidade->categoria->CAT_ID == Categoria::CATEGORIA_AQUATICA){
+                $contAquatico++;
+            }
+        }
+
+        if($contAquatico > 1){            
+            $this->addError($attribute, 'Só é permitida uma modalidade aquática (natação, hidroginástica, etc) por candidato.');
+            return false;
+        }
+        
+        return true;
     }
 
     public function init(){

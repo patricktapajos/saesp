@@ -14,6 +14,8 @@ use Yii;
  */
 class Categoria extends \yii\db\ActiveRecord
 {
+    /* Código da categoria na base de dados referente à categoria aquática, utilizada aqui para fazer validação */
+    const CATEGORIA_AQUATICA = 1;
     /**
      * {@inheritdoc}
      */

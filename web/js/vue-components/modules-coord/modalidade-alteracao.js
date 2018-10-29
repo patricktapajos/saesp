@@ -145,6 +145,7 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 							$.each(complemento, function(com_id, com_erros){
 								$.each(com_erros, function(campo_id, campos){
 									$.each(campos, function(erro_id, erro){
+										$('#'+erro_id+'_'+mod_id+'_'+campo_id).focus();
 										$('#'+erro_id+'_'+mod_id+'_'+campo_id).css('border-color', '#da9391');
 										$('#erro_'+erro_id+'_'+mod_id+'_'+campo_id).text(erro);
 									});

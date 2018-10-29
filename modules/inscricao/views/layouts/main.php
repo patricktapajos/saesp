@@ -29,8 +29,6 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <!--<img class="text-left" height="50" src="<?php echo $app->request->baseUrl; ?>/images/brasao.png">
-    <img class="text-right" height="50" src="<?php echo $app->request->baseUrl; ?>/images/simbolo-logo.png">-->
     <?php
     NavBar::begin([
         'brandLabel' => '<div class="pull-left navbar-logo"></div><span class="navbar-sys-name">'.Yii::$app->name.'</span>',
@@ -41,31 +39,24 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
+        'encodeLabels' => false,
         'items' => [
             ['label' => 'Início', 'url' => ['default/index']],
-
             ['label' => 'Alterar Senha', 'url' => ['candidato/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],
             ['label' => 'Alterar Dados', 'url' => ['candidato/update?id='.Yii::$app->user->identity->id], 'visible'=>!Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['default/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['default/logout'], 'post')
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->name . ')',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-            ),
-            ['label' => '<i class="glyphicon glyphicon-user"></i>', 
-                    'url' => ['#'],
-                    'items' => [
-                        '<li class="dropdown-header header-user-info">Informações</li>',
-                        '<li class="divider"></li>', 
-                        ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p>'],
-                    ],
-                    'visible'=>!Yii::$app->user->isGuest
+                ['label' => 'Login', 'url' => ['/site/login']]
+            ) : '',
+            ['label' => '<i class="glyphicon glyphicon-user"></i>',             
+                'url' => ['#'],
+                'items' => [
+                    '<li class="dropdown-header header-user-info">Informações</li>',
+                    '<li class="divider"></li>', 
+                    ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p>'],
+                    '<li class="divider"></li>',                     
+                    ['label' =>'Sair', 'url'=>['/site/logout']],                        
+                ],
+                'visible'=>!Yii::$app->user->isGuest
             ]
         ],
     ]);

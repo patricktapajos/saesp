@@ -5,7 +5,7 @@ use yii\grid\GridView;
 use yii\helpers\Url;
 use app\modules\coordenador\models\SelecaoCel;
 use app\modules\inscricao\models\InscricaoModalidade;
-
+use app\models\SituacaoSelecaoEnum;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\coordenador\models\SelecaoCelSearch */
@@ -33,8 +33,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter'=> Html::dropDownList("SelecaoCelSearch[SEL_ID]", $searchModel->SEL_ID, SelecaoCel::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
+            [
+                'label'=>'Situação',
+                'attribute'=>'SEL_SITUACAO',
+                'format' => 'raw',
+                'value' => function ($model) {
+                     return $model->selecao->getSituacaoText();
+                },
+                'filter'=> Html::dropDownList("SelecaoCelSearch[SEL_SITUACAO]", $searchModel->SEL_SITUACAO, SituacaoSelecaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
+            ],
             ['class' => 'yii\grid\ActionColumn',
-             'template' => '{update} {gerenciarparecer}',
+             'template' => '{update} {gerenciarparecer}{view}',
              'buttons'  => [
                'gerenciarparecer'=> function ($url, $model) {
                     $url = Url::to('gerenciarparecer');

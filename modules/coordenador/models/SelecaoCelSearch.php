@@ -12,6 +12,7 @@ use app\modules\coordenador\models\SelecaoCel;
  */
 class SelecaoCelSearch extends SelecaoCel
 {
+    public $SEL_SITUACAO;
     /**
      * @inheritdoc
      */
@@ -19,6 +20,7 @@ class SelecaoCelSearch extends SelecaoCel
     {
         return [
             [['SCEL_ID', 'CEL_ID', 'SEL_ID'], 'number'],
+            [['SEL_SITUACAO'], 'string'],
         ];
     }
 
@@ -40,7 +42,7 @@ class SelecaoCelSearch extends SelecaoCel
      */
     public function search($params)
     {
-        $query = SelecaoCel::find()->where(['CEL_ID'=>Yii::$app->user->identity->cel_id]);
+        $query = SelecaoCel::find()->joinWith(['selecao'])->where(['CEL_ID'=>Yii::$app->user->identity->cel_id]);
 
         // add conditions that should always apply here
 
@@ -61,6 +63,7 @@ class SelecaoCelSearch extends SelecaoCel
             'SCEL_ID' => $this->SCEL_ID,
             'CEL_ID' => $this->CEL_ID,
             'SEL_ID' => $this->SEL_ID,
+            'SELECAO.SEL_SITUACAO' => $this->SEL_SITUACAO,
         ]);
 
         return $dataProvider;

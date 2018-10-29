@@ -180,7 +180,6 @@ class CandidatoController extends Controller
             $novaInscricao = true;
         }
 
-
         $documento = CandidatoDocumento::find()->where(['CAND_ID'=>$candidato->CAND_ID])->one();
         if(!$documento){
             $documento = new CandidatoDocumento();
@@ -188,12 +187,9 @@ class CandidatoController extends Controller
         }
         $documento->scenario = CandidatoDocumento::SCENARIO_UPDATE;
 
-        //var_dump($novaInscricao);die;
-        
         $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
         
         if($model->load(Yii::$app->request->post())){
-            //var_dump(Yii::$app->request->post());die;
             $candidato->load(Yii::$app->request->post());
             $candidato->setArquivo();
             $documento->load(Yii::$app->request->post());

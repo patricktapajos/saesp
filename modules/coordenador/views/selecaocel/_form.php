@@ -56,7 +56,7 @@ if($model->isNewRecord){
                 <th class="field_date">Dias da Semana</th>
                 <th class="field_date">Horário</th>
                 <th class="field_small">Nº de Vagas</th>
-                <th>X</th>
+                <th class="field-x"><i class= "glyphicon glyphicon-trash"></i></th>
             </tr>
         </thead>
         <tbody>
@@ -104,7 +104,7 @@ if($model->isNewRecord){
                                     <input type="text" class="form-control" v-model="com.MDT_QTDE_VAGAS" :name="'SelecaoCel[modalidades]['+m+'][complemento]['+c+'][MDT_QTDE_VAGAS]'" />
                                     <div v-bind:id="'erro_MDT_QTDE_VAGAS_'+m+'_'+c" class="errorMessage text-danger"></div>
                                 </td>
-                                <td>
+                                <td class="field-x">
                                 <i title="Remover Ação" v-on:click="removerComplemento(m, c)" class="icones-plan-action add glyphicon glyphicon-trash"></i>
                                 </td>
                             </tr>

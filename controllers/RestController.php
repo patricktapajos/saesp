@@ -168,7 +168,7 @@ class RestController extends \yii\web\Controller
             $selecaoModalidade->setComplemento($modalidade['complemento']);
             
             if(!$selecaoModalidade->validate()){
-                $retorno['erros']['modalidades'][$n]['complemento'] = $selecaogloModalidade->errors;
+                $retorno['erros']['modalidades'][$n]['complemento'] = $selecaoModalidade->errors;
                 $retorno['success'] = 0;
             }
 

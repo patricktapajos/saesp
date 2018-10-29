@@ -29,8 +29,6 @@ AppAsset::register($this);
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <!--<img class="text-left" height="50" src="<?php echo $app->request->baseUrl; ?>/images/brasao.png">
-    <img class="text-right" height="50" src="<?php echo $app->request->baseUrl; ?>/images/simbolo-logo.png">-->
     <?php
     NavBar::begin([
         'brandLabel' => '<div class="pull-left navbar-logo"></div><span class="navbar-sys-name">'.Yii::$app->name.'</span>',
@@ -60,16 +58,7 @@ AppAsset::register($this);
             ['label' => 'Alterar Senha', 'url' => ['/usuario/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],            
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post')
-                . Html::submitButton(
-                    'Logout',
-                    ['class' => 'btn btn-link logout']
-                )
-                . Html::endForm()
-                . '</li>'
-                ),
+            ) : '',
             ['label' => '<i class="glyphicon glyphicon-user"></i>', 
                     'url' => ['#'],
                     'items' => [
@@ -79,6 +68,8 @@ AppAsset::register($this);
                         ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p><p>CEL: '.Yii::$app->user->identity->cel_nome.'</p>']
                         :
                         ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p>'],
+                        '<li class="divider"></li>',                         
+                        ['label' =>'Sair', 'url'=>['/site/logout']],
                     ],
                     'visible'=>!Yii::$app->user->isGuest
             ]

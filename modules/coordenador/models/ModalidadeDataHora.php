@@ -99,14 +99,17 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
         $cont = 0;
         foreach($this->quadro_modalidades as $infos){
             foreach($infos as $info){
-                if($this->$attribute == $info['PROF_ID'] && (count($info['dias']) > 0 && $this->verificarListasIguais($this->dias, $info['dias']))){
+                if($this->$attribute == $info['PROF_ID'] && (count($info['dias']) > 0 
+                    && $this->verificarListasIguais($this->dias, $info['dias']))
+                    && ($this->MDT_HORARIO_INICIO == $info['MDT_HORARIO_INICIO'] || $this->MDT_HORARIO_FIM ==  $info['MDT_HORARIO_FIM'])
+                ){
                     $cont++;  
                 }
             }
         }
 
         if($cont >= 2){
-            $this->addError($attribute, 'Professor não pode ser relacionado mais de uma vez nos mesmos dias das semana');
+            $this->addError($attribute, 'Professor não pode ser relacionado mais de uma vez nos mesmos dias da semana');
             return false;
         }
         return true;
