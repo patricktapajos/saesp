@@ -3,19 +3,19 @@
 	$this->registerJs("
 
     function laudoPCD (attribute, value) {
-        return $('#CAND_PCD').val() == 'SIM' && ($('#DOC_LAUDO_PCD_URL_AUX').val() == '' || $('#DOC_LAUDO_PCD_URL_AUX').val() == undefined);
+        return $('#CAND_PCD').val() == '1' && ($('#DOC_LAUDO_PCD_URL_AUX').val() == '' || $('#DOC_LAUDO_PCD_URL_AUX').val() == undefined);
     };
 
     function atestadoComorbidade (attribute, value) {
-        return $('#CAND_TEM_COMORBIDADE').val() == 'SIM' && ($('#DOC_ATESTADO_URL_AUX').val() == '' || $('#DOC_ATESTADO_URL_AUX').val() == undefined);
+        return $('#CAND_TEM_COMORBIDADE').val() == '1' && ($('#DOC_ATESTADO_URL_AUX').val() == '' || $('#DOC_ATESTADO_URL_AUX').val() == undefined);
     };
 
     function atestadoIdoso (attribute, value) {
-        return $('#CAND_IDOSO').val() == 'SIM' && ($('#DOC_ATESTADO_IDOSO_AUX').val() == '' || $('#DOC_ATESTADO_IDOSO_AUX').val() == undefined);
+        return $('#CAND_IDOSO').val() == '1' && ($('#DOC_ATESTADO_IDOSO_AUX').val() == '' || $('#DOC_ATESTADO_IDOSO_AUX').val() == undefined);
     };
 
     function atestadoMenor (attribute, value) {
-        return $('#CAND_MENOR_IDADE').val() == 'SIM' && ($('#DOC_DECLARACAO_MENOR_AUX').val() == '' || $('#DOC_DECLARACAO_MENOR_AUX').val() == undefined);
+        return $('#CAND_MENOR_IDADE').val() == '1' && ($('#DOC_DECLARACAO_MENOR_AUX').val() == '' || $('#DOC_DECLARACAO_MENOR_AUX').val() == undefined);
     };
 ");
 ?>
@@ -58,7 +58,7 @@
  <!-- -->
 
 	<div class="row">
-		<div v-show="show_pcd == 'SIM'" class="col-lg-6 col-sm-12 text-center">
+		<div v-show="show_pcd == '1'" class="col-lg-6 col-sm-12 text-center">
 			<div class="img-documentacao-cover">
 		    	<img src="<?= $documento->getUrlFoto('DOC_LAUDO_PCD_URL'); ?>" id="foto-laudo-pcd" class="img-documentacao" />
 		    </div>
@@ -67,7 +67,7 @@
 
 		</div>
 
-		<div v-show="show_comorbidade == 'SIM'" class="col-lg-6 col-sm-12 text-center">
+		<div v-show="show_comorbidade == '1'" class="col-lg-6 col-sm-12 text-center">
 			<div class="img-documentacao-cover">
 		    	<img src="<?= $documento->getUrlFoto('DOC_ATESTADO_URL'); ?>" id="foto-laudo-comorbidade" class="img-documentacao" />
 		    </div>
@@ -76,7 +76,7 @@
 
 		</div>
 
-		<div v-show="show_responsavel == 'SIM'" class="col-lg-6 col-sm-12 text-center">
+		<div v-show="show_responsavel == '1'" class="col-lg-6 col-sm-12 text-center">
 				<div class="img-documentacao-cover">		
 			    	<img src="<?= $documento->getUrlFoto('DOC_DECLARACAO_MENOR'); ?>" id="foto-menor" class="img-documentacao" />
 			    </div>
@@ -85,7 +85,7 @@
 
 			</div>
 
-		<div v-show="show_idoso == 'SIM'" class="col-lg-6 col-sm-12 text-center">
+		<div v-show="show_idoso == '1'" class="col-lg-6 col-sm-12 text-center">
 			<div class="img-documentacao-cover">
 		    	<img src="<?= $documento->getUrlFoto('DOC_ATESTADO_IDOSO'); ?>" id="foto-idoso" class="img-documentacao" />
 		    </div>

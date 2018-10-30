@@ -3,8 +3,8 @@
  namespace app\models;
 
  abstract class SimNaoEnum {
-	const SIM = 'SIM';
-	const NAO = 'NAO';
+	const SIM = '1';
+	const NAO = '0';
 
 	public static function listar(){
 		return [

@@ -166,6 +166,7 @@ class CandidatoController extends Controller
     public function actionUpdate($id)
     {
         $model = Usuario::findOne($id);
+        $model->setScenario(Usuario::SCENARIO_ALTERAR);
         $candidato = $model->candidato;
         $selecao = Selecao::inscricoesAbertas();
         $novaInscricao = false;
@@ -190,6 +191,10 @@ class CandidatoController extends Controller
         $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
         
         if($model->load(Yii::$app->request->post())){
+            /*echo "<pre>";
+            print_r(Yii::$app->request->post());
+            echo "</pre>";
+            die;*/
             $candidato->load(Yii::$app->request->post());
             $candidato->setArquivo();
             $documento->load(Yii::$app->request->post());

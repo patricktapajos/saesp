@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 use app\models\Selecao;
+use app\models\Usuario;
 use app\modules\inscricao\models\Candidato;
 use app\modules\inscricao\models\Inscricao;
 use app\modules\inscricao\models\InscricaoModalidade;
@@ -87,8 +88,9 @@ class RestController extends \yii\web\Controller
 
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $modalidades = [];
+        $usuario = Usuario::findOne(Yii::$app->user->identity->id);
         $selecao = Selecao::find()->where(['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();
-        $inscricao = Inscricao::find()->where(['SEL_ID'=>$selecao->SEL_ID])->one();
+        $inscricao = Inscricao::find()->where(['SEL_ID'=>$selecao->SEL_ID, 'CAND_ID'=> $usuario->candidato->CAND_ID])->one();
 
         if($inscricao){
             $smods = InscricaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['INS_ID'=>$inscricao->INS_ID])->all();

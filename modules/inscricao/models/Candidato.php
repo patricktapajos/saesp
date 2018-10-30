@@ -57,23 +57,22 @@ class Candidato extends \yii\db\ActiveRecord
             [['modalidades'], 'required','message'=>'{attribute} obrigatório'],
             [['modalidades'], 'validarModalidadeAquatica'],
             ['CAND_NOME_RESPONSAVEL', 'required', 'when' => function($model) {
-                return $model->CAND_MENOR_IDADE == 'SIM';
+                return $model->CAND_MENOR_IDADE == '1';
             },'whenClient' => "menorIdade"],
 
             ['CAND_PCD_DESC', 'required', 'when' => function($model) {
-                return $model->CAND_PCD == 'SIM';
+                return $model->CAND_PCD == '1';
             },'whenClient' => "pcd"],
 
             ['CAND_MEDICACAO_DESC', 'required', 'when' => function($model) {
-                return $model->CAND_TEM_MEDICACAO == 'SIM';
+                return $model->CAND_TEM_MEDICACAO == '1';
             },'whenClient' => "medicacao"],
             
             ['CAND_COMORBIDADE_DESC', 'required', 'when' => function($model) {
-                return $model->CAND_TEM_COMORBIDADE == 'SIM';
+                return $model->CAND_TEM_COMORBIDADE == '1';
             },'whenClient' => "comorbidade"],
 
             [['CAND_ESTADO_CIVIL'], 'string', 'max' => 15],
-            [['CAND_CPF'], 'string', 'max' => 14],
             [['CAND_LOGRADOURO', 'CAND_COMPLEMENTO_END', 'CAND_BAIRRO', 'CAND_NOME_EMERGENCIA', 'CAND_NOME_RESPONSAVEL'], 'string', 'max' => 255],
             [['CAND_CEP'], 'string', 'max' => 10],
             [['CAND_TEL_EMERGENCIA'], 'string', 'max' => 15],
@@ -91,7 +90,6 @@ class Candidato extends \yii\db\ActiveRecord
         return [
             'CAND_ID' => 'Código',
             'CAND_ESTADO_CIVIL' => 'Estado  Civil',
-            'CAND_CPF' => 'CPF',
             'CAND_LOGRADOURO' => 'Logradouro',
             'CAND_COMPLEMENTO_END' => 'Complemento',
             'CAND_CEP' => 'CEP',
@@ -132,11 +130,11 @@ class Candidato extends \yii\db\ActiveRecord
     }
 
     public function init(){
-        $this->CAND_MENOR_IDADE = 'NAO';
-        $this->CAND_IDOSO = 'NAO';
-        $this->CAND_TEM_COMORBIDADE = 'NAO';
-        $this->CAND_TEM_MEDICACAO = 'NAO';
-        $this->CAND_PCD = 'NAO';
+        $this->CAND_MENOR_IDADE = '0';
+        $this->CAND_IDOSO = '0';
+        $this->CAND_TEM_COMORBIDADE = '0';
+        $this->CAND_TEM_MEDICACAO = '0';
+        $this->CAND_PCD = '0';
     }
 
      public function beforeValidate(){
