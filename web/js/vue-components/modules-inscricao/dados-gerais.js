@@ -13,10 +13,11 @@ var vue = new Vue({
 	        let comorb = $('#CAND_TEM_COMORBIDADE').val();
 	        let medic = $('#CAND_TEM_MEDICACAO').val();
 			let pcd = $('#CAND_PCD').val();
+			console.log(pcd);
 
-	        if(comorb){ this.show_comorbidade = '1'; }
-	        if(medic){ this.show_medicacao = '1'; }
-			if(pcd){ this.show_pcd = '1'; }
+	        if(comorb == '1'){ this.show_comorbidade = '1'; }
+	        if(medic == '1'){ this.show_medicacao = '1'; }
+			if(pcd == '1'){ this.show_pcd = '1'; }
 			this.verificarIdade();
 		},
 		

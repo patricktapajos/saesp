@@ -16,11 +16,11 @@ var vue3 = new Vue({
 	        let menor = $('#CAND_MENOR_IDADE').val();
 	        let idoso = $('#CAND_IDOSO').val();
 	        let pcd = $('#CAND_PCD').val();
-	        if(comorb){ this.show_comorbidade = '1'; }
-	        if(medic){ this.show_medicacao = '1'; }
-	        if(menor){ this.show_responsavel = '1'; }
-	        if(idoso){ this.show_idoso = '1'; }
-	        if(pcd){ this.show_pcd = '1'; }
+	        if(comorb == '1'){ this.show_comorbidade = '1'; }
+	        if(medic == '1'){ this.show_medicacao = '1'; }
+	        if(menor == '1'){ this.show_responsavel = '1'; }
+	        if(idoso == '1'){ this.show_idoso = '1'; }
+	        if(pcd == '1'){ this.show_pcd = '1'; }
 	    },
 
 	    configCheckListener(){
