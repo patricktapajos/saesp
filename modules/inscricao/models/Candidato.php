@@ -5,7 +5,7 @@ use app\modules\coordenador\models\SelecaoModalidade;
 use app\models\Usuario;
 use app\models\EstadoCivilEnum;
 use app\models\SimNaoEnum;
-use app\models\Categoria;
+use app\modules\coordenador\models\Categoria;
 use app\modules\inscricao\models\Inscricao;
 use Yii;
 use yii\web\UploadedFile;
