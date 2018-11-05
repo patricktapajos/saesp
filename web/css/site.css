@@ -336,11 +336,11 @@ a.icone-index:hover {
 
 
 .table-complement {
-   margin: -9px -6px -9px -8px;
+   margin: -9px -6px -9px -9px;
 }
 
 .table-inner {
-    margin: -9px -8px -9px -8px;
+    margin: -9px -8px -9px -9px;
  }
 
 .table-acao > tbody > tr {
@@ -370,8 +370,8 @@ a.icone-index:hover {
 /*  Grid de Modalidade no módulo de coordenador  */
 
 th.field_small { 
-    min-width: 99px; 
-    width: 99px; 
+    min-width: 100px; 
+    width: 100px; 
 }
 td.field_small { 
     min-width: 100px; 
@@ -402,14 +402,8 @@ td.field {
     height: 90px; 
 }
 
-th.field-x { 
-    min-width: 10px; 
-    width: 10px; 
-}
-
-th.field-x { 
-    min-width: 35px;
-    width: 35px;
+th.field_x { 
+    min-width: 30px; 
 }
 
 /*  Grid de Modalidade no módulo de inscrição  */

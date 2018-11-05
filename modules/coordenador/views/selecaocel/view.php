@@ -54,13 +54,13 @@ $this->params['breadcrumbs'][] = $this->title;
                 <tr>
                     <td class="field_date"><?php echo $smod->modalidade->MOD_NOME; ?></td>
                     <td colspan="4">
-        				<table class="table-inner">
+        				<table class="table-complement">
         					<tbody>
         						<?php foreach ($smod->modalidadeDataHora as $mdh) : ?>
         							<tr>
-        								<td class="field"><?php echo $mdh->professor->usuario->USU_NOME; ?></td>
-        								<td class="field_date"><?php echo $mdh->getDiasSemana(); ?></td>
-        								<td class="field_date"><?php echo $mdh->getHorario(); ?></td>
+        								<td style="width: 274px"><?php echo $mdh->professor->usuario->USU_NOME; ?></td>
+        								<td style="width: 245px"><?php echo $mdh->getDiasSemana(); ?></td>
+        								<td style="width: 245px"><?php echo $mdh->getHorario(); ?></td>
         								<td class="field_small"><?php echo $mdh->MDT_QTDE_VAGAS; ?></td>
         							</tr>
 								<?php endforeach; ?>

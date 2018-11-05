@@ -158,7 +158,9 @@ class SelecaocelController extends Controller
                         $selecaoModalidade->SEL_ID = $model->SEL_ID;
                         $selecaoModalidade->MOD_ID = $modalidade['MOD_ID'];
                         $selecaoModalidade->setComplemento($modalidade['complemento']);
-                        $selecaoModalidade->save();
+                        if($modalidade['complemento']){
+                            $selecaoModalidade->save();
+                        }
 
                         foreach ($selecaoModalidade->getComplemento() as $o=>$com) {
                             $mdatahora = new ModalidadeDataHora;
@@ -226,11 +228,15 @@ class SelecaocelController extends Controller
                         if($modalidade['SMOD_ID'] != null){
                             $selecaoModalidade->isNewRecord = false;
                         }
+                        
                         $selecaoModalidade->SMOD_ID = $modalidade['SMOD_ID'];
                         $selecaoModalidade->SEL_ID = $model->SEL_ID;
                         $selecaoModalidade->MOD_ID = $modalidade['MOD_ID'];
                         $selecaoModalidade->setComplemento($modalidade['complemento']);
-                        $selecaoModalidade->save();
+
+                        if($modalidade['complemento']){
+                            $selecaoModalidade->save();
+                        }
 
                         foreach ($selecaoModalidade->getComplemento() as $o=>$com) {
                             $mdatahora = new ModalidadeDataHora;
