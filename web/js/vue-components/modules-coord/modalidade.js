@@ -92,7 +92,7 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 
 		salvar: function() {
 
-			$().blockScreen("Validando Quadro");
+			$().blockScreen("Salvando dados");
 
 			$(".errorMessage").each(function() {
 				$(this).text('');

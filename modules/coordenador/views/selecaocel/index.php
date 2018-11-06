@@ -29,7 +29,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'SEL_ID',
                 'format' => 'raw',
                 'value' => function ($model) {
-                     return $model->selecao->SEL_DESCRICAO;
+                    if($model->selecao){
+                        return $model->selecao->SEL_TITULO;
+                    }
                 },
                 'filter'=> Html::dropDownList("SelecaoCelSearch[SEL_ID]", $searchModel->SEL_ID, SelecaoCel::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
@@ -38,11 +40,15 @@ $this->params['breadcrumbs'][] = $this->title;
                 'attribute'=>'SEL_SITUACAO',
                 'format' => 'raw',
                 'value' => function ($model) {
-                     return $model->selecao->getSituacaoText();
+                    if($model->selecao){
+                        return $model->selecao->getSituacaoText();
+                    }
                 },
                 'filter'=> Html::dropDownList("SelecaoCelSearch[SEL_SITUACAO]", $searchModel->SEL_SITUACAO, SituacaoSelecaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
             ['class' => 'yii\grid\ActionColumn',
+             'header'=>'Ações',
+             'options'=>['width'=>'70px'],
              'template' => '{update} {gerenciarparecer}{view}',
              'buttons'  => [
                'gerenciarparecer'=> function ($url, $model) {
@@ -52,10 +58,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'visibleButtons' => [
                 'update' => function ($model) {
-                    return $model->selecao->isCadastrado();
+                    if($model->selecao){
+                        return $model->selecao->isCadastrado();
+                    }
                 },
                 'gerenciarparecer' => function ($model) {
-                    return $model->selecao->isParecer();
+                    if($model->selecao){
+                        return $model->selecao->isParecer();
+                    }
                 },
             ]
             ],

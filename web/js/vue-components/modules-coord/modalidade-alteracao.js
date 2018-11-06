@@ -19,11 +19,13 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 	methods:{
 		carregarModalidades: function(){
 			var self = this;
-			$().blockScreen("Carregando Quadro");
+			$().blockScreen("Carregando dados");
 			const url = $().getUrl()+'/rest/alterarmodalidades';
 		    $.get(url).then(data => {
-		    	this.$parent.id = data.SEL_ID;
-		      	this.modalidades = data.modalidades;
+				this.$parent.id = data.SEL_ID;
+				$.each(data.modalidades, (id, value)=>{
+					this.modalidades.push(value)
+				})
 			    $().unblockScreen();
 		    }).fail(function(error) {
 		    	$().unblockScreen();
@@ -116,7 +118,7 @@ var tabelamodalidade = Vue.component('tabela-modalidade',{
 
 		salvar: function() {
 
-			$().blockScreen("Validando Quadro");
+			$().blockScreen("Atualizando dados");
 
 			$(".errorMessage").each(function() {
 				$(this).text('');

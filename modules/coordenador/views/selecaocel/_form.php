@@ -27,13 +27,17 @@ if($model->isNewRecord){
 
     <?= $form->field($model, 'SEL_ID')->hiddenInput(['id'=>'id'])->label(false); ?>
       
-    <span class="text-warning">Preencha o quadro a seguir com as modalidades que o CEL deseja oferecer aos candidatos desda seleção.</span>
+    <span class="text-warning">Preencha o quadro a seguir com as modalidades que o CEL deseja oferecer aos candidatos desta seleção.</span>
     <br clear="left" />
     <br clear="left" />
-    <fieldset>
-        <legend>Quadro de Modalidades</legend>
-        <tabela-modalidade></tabela-modalidade> 
-    </fieldset>
+    <div class="candidato-create">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="panel-title">Quadro de Modalidades</div>
+            </div>
+                <tabela-modalidade></tabela-modalidade> 
+        </div>
+    </div>
 
     <?php if(!$model->isNewRecord): ?>
         <?= Html::hiddenInput('SelecaoCel[complementoexclusao]', null, array('v-model'=>'complementoexclusao')); ?>

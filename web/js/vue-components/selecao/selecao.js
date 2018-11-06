@@ -6,11 +6,13 @@ var vue = new Vue({
 	methods:{
 		setSituacao:function(){
 			let sit = $("input[type='radio']:checked").val();
-			$("#SEL_SITUACAO").val(sit);
-			if(sit == 'INSCRICOES_ABERTAS'){
-				this.show_data_inscricao = true;
-			}else {
-				this.show_data_inscricao = false;
+			if(sit){
+				$("#SEL_SITUACAO").val(sit);
+				if(sit == 'INSCRICOES_ABERTAS'){
+					this.show_data_inscricao = true;
+				}else {
+					this.show_data_inscricao = false;
+				}
 			}
 		},
 	    atualizarDataInscricao: function(){	

@@ -49,32 +49,44 @@ class RestController extends \yii\web\Controller
         $selecao = Selecao::getSelecaoAtiva();
         
         // verifica se modalidades deste cel foram cadastradas nesta seleção
-        $sm = SelecaoModalidade::find()->innerJoinWith(['modalidadeDataHora','modalidade'])->where(['SEL_ID'=>$selecao->SEL_ID,'MODALIDADE.CEL_ID'=>Yii::$app->user->identity->cel_id])->all();
+        $sm = SelecaoModalidade::find()->innerJoinWith(['modalidadeDataHora','modalidade'])
+            ->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+         
         if(count($sm) == 0){
             return [];
         }
 
-        $scel = SelecaoCel::find()->where(['SEL_ID'=>$selecao->SEL_ID])->one();
+
         $modalidades = ['SEL_ID'=>$selecao->SEL_ID];
 
-        foreach ($scel->cel->modalidades as $o=>$modalidade) {
-            $modalidades['modalidades'][$o]['MOD_ID'] = $modalidade->MOD_ID;
-            $modalidades['modalidades'][$o]['MOD_NOME'] = $modalidade->MOD_NOME;
-            $modalidades['modalidades'][$o]['complemento'] = [];
+        $ms = Modalidade::find()->orderBy(['MOD_NOME'=>SORT_ASC])->all();
+        
+        $modalidades['modalidades'] = [];
 
-            foreach ($modalidade->selecaoModalidades as $smod) {
-                $modalidades['modalidades'][$o]['SMOD_ID'] = $smod->SMOD_ID;
-                foreach ($smod->modalidadeDataHora as $n=>$mdh) {
-                    $modalidades['modalidades'][$o]['complemento'][$n]['MDT_ID'] = $mdh->MDT_ID;
-                    $modalidades['modalidades'][$o]['complemento'][$n]['MDT_HORARIO_INICIO'] = $mdh->MDT_HORARIO_INICIO;
-                    $modalidades['modalidades'][$o]['complemento'][$n]['MDT_HORARIO_FIM'] = $mdh->MDT_HORARIO_FIM;
-                    $modalidades['modalidades'][$o]['complemento'][$n]['MDT_QTDE_VAGAS'] = $mdh->MDT_QTDE_VAGAS;
-                    $modalidades['modalidades'][$o]['complemento'][$n]['PROF_ID'] = $mdh->PROF_ID;
-                    $modalidades['modalidades'][$o]['complemento'][$n]['_nome_professor'] = $mdh->professor->usuario->USU_NOME;
-                    $modalidades['modalidades'][$o]['complemento'][$n]['dias'] = [];
-                    foreach ($mdh->modalidadeDiaSemana as $p=>$mds) {
-                        $modalidades['modalidades'][$o]['complemento'][$n]['dias'][$p] = $mds->MDS_DESCRICAO; 
-                    }
+        foreach($ms as $mod){
+            $modalidades['modalidades'][$mod->MOD_ID]['MOD_ID'] = $mod->MOD_ID;
+            $modalidades['modalidades'][$mod->MOD_ID]['MOD_NOME'] = $mod->MOD_NOME;
+            $modalidades['modalidades'][$mod->MOD_ID]['complemento'] = [];
+        }
+
+        //print_r($modalidades['modalidades']);die;
+
+        foreach ($sm as $selecaomod) {
+            $modalidades['modalidades'][$selecaomod->MOD_ID]['SMOD_ID'] = $selecaomod->SMOD_ID;
+            $modalidades['modalidades'][$selecaomod->MOD_ID]['MOD_ID'] = $selecaomod->modalidade->MOD_ID;
+            $modalidades['modalidades'][$selecaomod->MOD_ID]['MOD_NOME'] = $selecaomod->modalidade->MOD_NOME;
+            $modalidades['modalidades'][$selecaomod->MOD_ID]['complemento'] = [];
+
+            foreach ($selecaomod->modalidadeDataHora as $n=>$mdh) {
+                $modalidades['modalidades'][$selecaomod->MOD_ID]['complemento'][$n]['MDT_ID'] = $mdh->MDT_ID;
+                $modalidades['modalidades'][$selecaomod->MOD_ID]['complemento'][$n]['MDT_HORARIO_INICIO'] = $mdh->MDT_HORARIO_INICIO;
+                $modalidades['modalidades'][$selecaomod->MOD_ID]['complemento'][$n]['MDT_HORARIO_FIM'] = $mdh->MDT_HORARIO_FIM;
+                $modalidades['modalidades'][$selecaomod->MOD_ID]['complemento'][$n]['MDT_QTDE_VAGAS'] = $mdh->MDT_QTDE_VAGAS;
+                $modalidades['modalidades'][$selecaomod->MOD_ID]['complemento'][$n]['PROF_ID'] = $mdh->PROF_ID;
+                $modalidades['modalidades'][$selecaomod->MOD_ID]['complemento'][$n]['_nome_professor'] = $mdh->professor->usuario->USU_NOME;
+                $modalidades['modalidades'][$selecaomod->MOD_ID]['complemento'][$n]['dias'] = [];
+                foreach ($mdh->modalidadeDiaSemana as $p=>$mds) {
+                    $modalidades['modalidades'][$selecaomod->MOD_ID]['complemento'][$n]['dias'][$p] = $mds->MDS_DESCRICAO; 
                 }
             }
         }

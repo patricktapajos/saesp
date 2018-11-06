@@ -31,7 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
                      return  $model->coordenador->usuario->USU_NOME;
                 },
             ],
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 
+                'yii\grid\ActionColumn',
+                'header'=>'Ações',
+                'options'=>['width'=>'70px'],
+            ],
         ],
     ]); ?>
 </div>

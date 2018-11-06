@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\coordenador\models\SelecaoCel */
 
-$this->title = 'Relacionar CEL/Seleção';
+$this->title = 'Associar CEL/Seleção';
 $this->params['breadcrumbs'][] = ['label' => 'Gerenciar CEL/Seleção', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>

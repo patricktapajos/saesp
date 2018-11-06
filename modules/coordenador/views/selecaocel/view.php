@@ -25,20 +25,11 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
-        'model' => $model,
-        'attributes' => [
-            [
-                'label'=>'Seleção',
-                'attribute'=>'SEL_ID',
-                'format' => 'raw',
-                'value' => function ($model) {
-                     return $model->selecao->SEL_DESCRICAO;
-                },
-            ],
-        ],
-    ]) ?>
-
+    <div class="form-group">
+        <label>Seleção</label>
+        <div class="form-control"><?= $model->selecao->SEL_DESCRICAO; ?></div>
+    </div>
+    
     <table class="table table-modalidade table-acao table-responsive">
         <thead>
             <tr>

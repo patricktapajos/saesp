@@ -56,7 +56,7 @@ class Selecao extends \yii\db\ActiveRecord
         ];
     }
 
-    public function beforeValidade(){
+    public function beforeValidate(){
         if($model->scenario == 'default'){
             $this->SEL_SITUACAO = SituacaoSelecaoEnum::CADASTRADO;
         }

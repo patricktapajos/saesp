@@ -26,7 +26,7 @@ SelecaoAsset::register($this);
 	<?php if(!$model->isNewRecord): ?>
 		
 		<label class="control-label">Situação</label>
-		<div class="form-group">
+		<div class="form-group row">
 			<?= ToggleButtonGroup::widget(
 					[
 						'model'=>$model,
@@ -87,8 +87,10 @@ SelecaoAsset::register($this);
 	<?php else: ?>
 		<div class="row">
 			<div class="col-sm-12 col-lg-12">
-				<span class="text-danger"> Selecione as datas para que os coordenadores possam cadastrar as modalidades de seus respectivos CEL´s nesta seleção.</span>
+				<span class="text-danger"> >> Selecione as datas para que os coordenadores possam cadastrar as modalidades de seus respectivos CEL´s nesta seleção.</span>
 			</div>
+			<br/>
+			<br/>
 			<div class="col-sm-12 col-lg-6">
 				<?= $form->field($model, 'SEL_DT_INICIO_CAD')->widget(\yii\jui\DatePicker::className(), [
 					'language'=>'pt-BR',

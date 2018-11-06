@@ -40,6 +40,8 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             ['class' => 'yii\grid\ActionColumn',
+            'header'=>'Ações',
+            'options'=>['width'=>'70px'],
             'visibleButtons' => [
                 'view' => function ($model) {
                     return true;

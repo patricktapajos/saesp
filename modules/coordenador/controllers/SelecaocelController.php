@@ -115,9 +115,8 @@ class SelecaocelController extends Controller
     {
         $model = $this->findModel($id);
 
-        //$scel = SelecaoCel::find()->where(['SEL_ID'=>Selecao::getSelecaoAtiva()->SEL_ID, 'CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
         $smods = SelecaoModalidade::find()
-                    ->joinWith(['modalidadeDataHora','modalidade.cel'])
+                    ->joinWith(['modalidadeDataHora','cel'])
                     ->where(['SELECAO_MODALIDADE.SEL_ID'=>$model->SEL_ID,'CEL.CEL_ID'=>Yii::$app->user->identity->cel_id])->all();
 
         return $this->render('view', [
