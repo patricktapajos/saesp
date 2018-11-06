@@ -39,8 +39,7 @@ class RestController extends \yii\web\Controller
 
 	 public function actionModalidades(){
 	 	Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
-        $modalidades = Modalidade::find()->andWhere('CEL_ID = :CEL_ID', [':CEL_ID'=>Yii::$app->user->identity->cel_id])
-            ->orderBy(['MOD_NOME'=>SORT_ASC])->all();
+        $modalidades = Modalidade::find()->orderBy(['MOD_NOME'=>SORT_ASC])->all();
         return $modalidades;
     }
 
@@ -55,7 +54,7 @@ class RestController extends \yii\web\Controller
             return [];
         }
 
-        $scel = SelecaoCel::find()->where(['SEL_ID'=>$selecao->SEL_ID, 'CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
+        $scel = SelecaoCel::find()->where(['SEL_ID'=>$selecao->SEL_ID])->one();
         $modalidades = ['SEL_ID'=>$selecao->SEL_ID];
 
         foreach ($scel->cel->modalidades as $o=>$modalidade) {

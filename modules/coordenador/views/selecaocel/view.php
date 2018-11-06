@@ -19,7 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Excluir', ['delete', 'id' => $model->SCEL_ID], [
             'class' => 'btn btn-danger',
             'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
+                'confirm' => 'Deseja excluir esse registro?',
                 'method' => 'post',
             ],
         ]) ?>

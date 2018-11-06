@@ -17,7 +17,7 @@
         <tbody>
         	<?php foreach ($smods as $smod): ?>
         		<tr>
-        			<td><?php echo $smod->modalidade->cel->CEL_NOME; ?></td>
+        			<td><?php echo $smod->cel->CEL_NOME; ?></td>
         			<td><?php echo $smod->modalidade->MOD_NOME; ?></td>
         			<td colspan="4">
         				<table class="table-inner">

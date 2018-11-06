@@ -141,7 +141,7 @@ class SelecaocelController extends Controller
         $selecao = SelecaoCel::find()->where(['CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
         $scel = SelecaoCel::find()->where(['SEL_ID'=>Selecao::getSelecaoAtiva()->SEL_ID, 'CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
 
-        if($selecao){
+        if($scel){
             throw new MethodNotAllowedHttpException ('CEL já possui modalidades cadastradas no processo seletivo vigente.');
         }
        
@@ -152,11 +152,11 @@ class SelecaocelController extends Controller
             $trans = Yii::$app->db->beginTransaction();
             try{
                 if ($model->save()){
-
                     foreach ($model->getModalidades() as $n=>$modalidade) {
                         $selecaoModalidade = new SelecaoModalidade;
                         $selecaoModalidade->SEL_ID = $model->SEL_ID;
                         $selecaoModalidade->MOD_ID = $modalidade['MOD_ID'];
+                        $selecaoModalidade->CEL_ID = Yii::$app->user->identity->cel_id;                        
                         $selecaoModalidade->setComplemento($modalidade['complemento']);
                         if($modalidade['complemento']){
                             $selecaoModalidade->save();
@@ -232,6 +232,7 @@ class SelecaocelController extends Controller
                         $selecaoModalidade->SMOD_ID = $modalidade['SMOD_ID'];
                         $selecaoModalidade->SEL_ID = $model->SEL_ID;
                         $selecaoModalidade->MOD_ID = $modalidade['MOD_ID'];
+                        $selecaoModalidade->CEL_ID = Yii::$app->user->identity->cel_id;
                         $selecaoModalidade->setComplemento($modalidade['complemento']);
 
                         if($modalidade['complemento']){

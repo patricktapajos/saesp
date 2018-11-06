@@ -4,6 +4,7 @@
 
 $this->title = 'SAESP';
 ?>
+
 <div class="site-index">
     <div class="vertical-center">
         <?php if(Yii::$app->user->isGuest): ?>
