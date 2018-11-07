@@ -288,7 +288,32 @@ class SelecaocelController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        if(Selecao::cadastrarNaSelecao()){
+            throw new \yii\web\HttpException(403,"Processo seletivo com inscrições abertas não pode mais ser alterado!");
+        }
+        $trans = Yii::$app->db->beginTransaction();
+
+        try{
+            $model = $this->findModel($id);
+            $sms = SelecaoModalidade::find()->where(['SEL_ID'=>$model->SEL_ID])->all();
+            foreach ($sms as $sm) {
+                foreach ($sm->modalidadeDataHora as $md) {
+                    foreach ($md->modalidadeDiaSemana as $mds) {
+                        $mds->delete();                        
+                    }
+                    $md->delete();
+                }
+                $sm->delete();
+            }
+            
+            $model->delete();
+            Yii::$app->session->setFlash('success', "Seleção desassociada.");
+            
+            $trans->commit();
+        }catch(\Exception $e){
+            $trans->rollBack();
+            Yii::$app->session->setFlash('danger', "Não é possível modificar o quadro quando alguma(s) modalidade(s) já está(ão) relacionada(s) a uma inscrição.");
+        }
 
         return $this->redirect(['index']);
     }

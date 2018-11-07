@@ -99,23 +99,52 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
         $cont = 0;
         foreach($this->quadro_modalidades as $infos){
             foreach($infos as $info){
-                if($this->$attribute == $info['PROF_ID'] && (count($info['dias']) > 0 
-                    && $this->verificarListasIguais($this->dias, $info['dias']))
-                    && ($this->MDT_HORARIO_INICIO == $info['MDT_HORARIO_INICIO'] || $this->MDT_HORARIO_FIM ==  $info['MDT_HORARIO_FIM'])
-                ){
-                    $cont++;  
+                if(count($info['dias']) > 0){
+                    if($this->$attribute == $info['PROF_ID'] 
+                        //&& ($this->verificarDiasIguais($this->dias, $info['dias'])
+                        //&& (($this->MDT_HORARIO_INICIO == $info['MDT_HORARIO_INICIO'] || $this->MDT_HORARIO_FIM ==  $info['MDT_HORARIO_FIM']))
+                        && $this->verificaHorariosIguais($info)
+                    ){
+                        $cont++;  
+                    }
                 }
             }
         }
 
         if($cont >= 2){
-            $this->addError($attribute, 'Professor não pode ser relacionado mais de uma vez nos mesmos dias da semana');
+            $this->addError($attribute, 'Professor não pode ser relacionado mais de uma vez em dia/hora da semana');
             return false;
         }
         return true;
     }
 
-    function verificarListasIguais($array1, $array2){
+    function verificaHorariosIguais($info){
+       
+        sort($info['dias']);
+        sort($this->dias);
+
+        $maior = $this->dias;
+        $menor = $info['dias'];
+
+        if(count($info['dias']) > count($this->dias)){
+            $maior = $info['dias'];
+            $menor = $this->dias;
+        }
+
+        $contInt = 0;
+        for ($i=0; $i <= count($menor) ; $i++) { 
+            if($menor[$i] == $maior[$i] && $this->MDT_HORARIO_INICIO == $info['MDT_HORARIO_INICIO']){
+                $contInt++;
+            }
+        }
+
+        if($contInt >= 2){
+            return true;
+        }
+        return false;
+    }
+
+    function verificarDiasIguais($array1, $array2){
         $arrayIntersect1 = array_uintersect($array1, $array2, function($v1, $v2) {        
                 if ($v1===$v2) {
                     return 0;

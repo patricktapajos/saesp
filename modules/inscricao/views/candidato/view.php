@@ -117,7 +117,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <?php foreach ($smod->modalidadeDataHora as $mdh) : ?>
                     <tr>
                         <td><?php echo $mdh->selecaoModalidade->cel->CEL_NOME; ?></td>
-                        <td><?php echo $mdh->selecaoModalidade->modalidade->MOD_DESCRICAO; ?></td>
+                        <td><?php echo $mdh->selecaoModalidade->modalidade->MOD_NOME; ?></td>
                         <td><?php echo $mdh->getDiasSemana(); ?></td>
                         <td><?php echo $mdh->getHorario(); ?></td>
                     </tr>
