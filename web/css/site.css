@@ -126,18 +126,29 @@ a.desc:after {
 
 /* Customizações */
 
-.site-index{
-    position: relative;
-    height: 52rem;
-}
-
-.vertical-center {
+/*.site-index {
    position: absolute;
    top: 50%;
    left:50%;
    transform: translate(-50%,-50%);
+   width: 50%;
+   height: 100%;
+   padding: 5%;
 }
 
+.vertical-center {   
+    width: 100%; 
+    height: 100%;
+    position: relative;
+}*/
+
+.site-index {
+    width: 75%;
+    height: 75%;
+    margin: 0 auto;
+    padding: 5%;
+ }
+ 
 .logo-central{
     width: 30%;
     height: 30%;
@@ -145,15 +156,17 @@ a.desc:after {
     margin: auto;
 }
 
-@media (max-width: 996px){
+@media (max-width: 1366px){
+
     .user {
         display: none;
     }
+
     .logo-central{
-        width: 28%;
-        height: 28%;
+        width: 25%;
+        height: 25%;
         display: block;
-        margin: auto;
+        margin: 0 auto;
     }
 
     .navbar-logo {
@@ -180,14 +193,7 @@ a.desc:after {
     }
 }
 
-/*
-.vertical-center {
-  min-height: 100%;
-  min-height: 100vh;
 
-  display: flex;
-  align-items: center;
-}*/
 
 .sys-navbar {
     background-color: rgb(8, 103, 148)/*rgba(48, 20, 97, 0.9)*/;
