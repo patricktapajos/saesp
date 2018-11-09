@@ -88,6 +88,7 @@ class CandidatoController extends Controller
     public function actionCreate()
     {
         $model = new Usuario();
+        $model->setScenario(Usuario::SCENARIO_DEFAULT);
         $documento = new CandidatoDocumento();
         $model->USU_PERMISSAO = PermissaoEnum::PERMISSAO_CANDIDATO;
         $model->USU_SITUACAO = SituacaoEnum::ATIVO;
@@ -234,7 +235,7 @@ class CandidatoController extends Controller
                     $trans->rollBack();
                     throw $e;
                 }
-            }    
+            } 
         } else {
             return $this->render('update', [
                 'model' => $model,

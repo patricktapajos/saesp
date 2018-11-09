@@ -32,10 +32,27 @@ class RestController extends \yii\web\Controller
                     'categorias' => ['GET'],
                     'modalidadescadastro' => ['GET'],
                     'salvarcelselecao' => ['POST'],
+                    'inscricaomodalidadesaquaticas' => ['GET']
                 ],
             ],
         ];
     }
+
+    /*public function actionQtdmodalidadeaquatica(){
+        
+        $lista = $_GET['modalidades'];
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $mods = ModalidadeDataHora::find()->where(['in','MDT_ID', $lista])->all();
+        $contAquatico = 0;
+
+        foreach ($mods as $mod) {
+            if($mod->selecaoModalidade->modalidade->CAT_ID == Categoria::CATEGORIA_AQUATICA){
+                $contAquatico++;
+            }
+        }
+
+        return $contAquatico;
+    }*/
 
 	 public function actionModalidades(){
 	 	Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -50,7 +67,7 @@ class RestController extends \yii\web\Controller
         
         // verifica se modalidades deste cel foram cadastradas nesta seleção
         $sm = SelecaoModalidade::find()->innerJoinWith(['modalidadeDataHora','modalidade'])
-            ->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+            ->where(['SEL_ID'=>$selecao->SEL_ID])->orderBy(['MOD_NOME'=>SORT_ASC])->all();
          
         if(count($sm) == 0){
             return [];
@@ -94,6 +111,22 @@ class RestController extends \yii\web\Controller
         return $modalidades;
     }
 
+
+    public function actionInscricaomodalidadesaquaticas(){
+        
+        $selecao = Selecao::inscricoesAbertas();
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $mods = ModalidadeDataHora::find()->innerJoinWith(['selecaoModalidade','selecaoModalidade.selecao'])->where(['SELECAO.SEL_ID'=>$selecao->SEL_ID])->all();
+        
+        $modalidades = [];
+        foreach ($mods as $mod) {
+            if($mod->selecaoModalidade->modalidade->CAT_ID == Categoria::CATEGORIA_AQUATICA){
+                $modalidades[] = $mod->MDT_ID;
+            }
+        }
+
+        return $modalidades;
+    }
 
      public function actionInscricaomodalidades(){
 

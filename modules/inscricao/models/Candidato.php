@@ -2,6 +2,8 @@
 
 namespace app\modules\inscricao\models;
 use app\modules\coordenador\models\SelecaoModalidade;
+use app\modules\coordenador\models\Modalidade;
+use app\modules\coordenador\models\ModalidadeDataHora;
 use app\models\Usuario;
 use app\models\EstadoCivilEnum;
 use app\models\SimNaoEnum;
@@ -35,6 +37,7 @@ class Candidato extends \yii\db\ActiveRecord
     /* Lista de modalidades selecionadas, atributo utilizado para validação */
     public $modalidades;
     public $modalidade;
+    public $validoaquatico;
 
     /* Atributo utilizado para verificação de alteração de foto do candidato */
     public $photo;
@@ -55,7 +58,12 @@ class Candidato extends \yii\db\ActiveRecord
             [['CAND_FOTO'], 'file', 'skipOnError' => true, 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
             [['CAND_ESTADO_CIVIL','CAND_CEP','CAND_LOGRADOURO','CAND_BAIRRO'], 'required','message'=>'{attribute} obrigatório'],
             [['modalidades'], 'required','message'=>'{attribute} obrigatório'],
-            [['modalidades'], 'validarModalidadeAquatica'],
+            [['modalidades'], "validarModalidadeAquatica"],
+            /* Gambiarra para chamar a validação de modalidades aquáticas no cliente */            
+            [['validoaquatico'], 'required',
+                'whenClient'=>"validarModalidadeAquatica", 
+                'message'=>'Só é permitido selecionar uma modalidade aquática (natação, hidroginástica, etc).'],
+
             ['CAND_NOME_RESPONSAVEL', 'required', 'when' => function($model) {
                 return $model->CAND_MENOR_IDADE == '1';
             },'whenClient' => "menorIdade"],
@@ -112,17 +120,18 @@ class Candidato extends \yii\db\ActiveRecord
     }
 
     public function validarModalidadeAquatica($attribute, $params){
-        
-        $mods = SelecaoModalidade::find()->with(['modalidade'])->andWhere(['MOD_ID'=>explode(',',$this->modalidades)])->all();
+
+        $mods = ModalidadeDataHora::find()->where(['in','MDT_ID', explode(',',$this->modalidades)])->all();
         $contAquatico = 0;
+        $this->validoaquatico = 'OK';
         foreach ($mods as $mod) {
-            if($mod->modalidade->categoria->CAT_ID == Categoria::CATEGORIA_AQUATICA){
+            if($mod->selecaoModalidade->modalidade->CAT_ID == Categoria::CATEGORIA_AQUATICA){
                 $contAquatico++;
             }
         }
-
-        if($contAquatico > 1){            
-            $this->addError($attribute, 'Só é permitida uma modalidade aquática (natação, hidroginástica, etc) por candidato.');
+        if($contAquatico > 1){   
+            unset($this->validoaquatico);
+            $this->addError($attribute, 'Só é permitido selecionar uma modalidade aquática (natação, hidroginástica, etc).');
             return false;
         }
         

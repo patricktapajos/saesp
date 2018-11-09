@@ -45,7 +45,7 @@ AppAsset::register($this);
             ['label' => 'Alterar Senha', 'url' => ['candidato/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],
             ['label' => 'Alterar Dados', 'url' => ['candidato/update?id='.Yii::$app->user->identity->id], 'visible'=>!Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
+                ['label' => 'Login', 'url' => ['default/login']]
             ) : '',
             ['label' => '<i class="glyphicon glyphicon-user"></i>',             
                 'url' => ['#'],
@@ -54,7 +54,7 @@ AppAsset::register($this);
                     '<li class="divider"></li>', 
                     ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p>'],
                     '<li class="divider"></li>',                     
-                    ['label' =>'Sair', 'url'=>['/site/logout']],                        
+                    ['label' =>'Sair', 'url'=>['default/logout']],                        
                 ],
                 'visible'=>!Yii::$app->user->isGuest
             ]

@@ -29,7 +29,6 @@ $this->params['breadcrumbs'][] = $this->title;
      <p>
         <?= Html::a('Atualizar', ['update', 'id' => $model->usuario->USU_ID], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Imprimir', ['imprimir', 'id' => $model->CAND_ID], ['class' => 'btn btn-warning','target'=>'_blank']) ?>
-        <?= Html::a('Sair', ['default/login'], ['class' => 'btn btn-danger']) ?>
     </p>
     <h2><i class="glyphicon glyphicon-triangle-right"></i><?= Html::encode($this->title) ?></h2>
     <div class="row">

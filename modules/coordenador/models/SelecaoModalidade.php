@@ -2,6 +2,7 @@
 
 namespace app\modules\coordenador\models;
 use app\modules\coordenador\models\ModalidadeDataHora;
+use app\models\Selecao;
 use app\models\Cel;
 use Yii;
 
@@ -76,6 +77,10 @@ class SelecaoModalidade extends \yii\db\ActiveRecord
 
     public function getCel(){
         return $this->hasOne(Cel::className(), ['CEL_ID'=>'CEL_ID']);
+    }
+
+    public function getSelecao(){
+        return $this->hasOne(Selecao::className(), ['SEL_ID'=>'SEL_ID']);
     }
 
     public function getModalidadeDataHora(){

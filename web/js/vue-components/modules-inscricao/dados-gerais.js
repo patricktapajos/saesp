@@ -13,7 +13,6 @@ var vue = new Vue({
 	        let comorb = $('#CAND_TEM_COMORBIDADE').val();
 	        let medic = $('#CAND_TEM_MEDICACAO').val();
 			let pcd = $('#CAND_PCD').val();
-			console.log(pcd);
 
 	        if(comorb == '1'){ this.show_comorbidade = '1'; }
 	        if(medic == '1'){ this.show_medicacao = '1'; }
@@ -53,7 +52,7 @@ var vue = new Vue({
 				$('#CAND_MENOR_IDADE').val('1');	
 				$('#CAND_MENOR_IDADE').trigger('change');
 
-			}else if(idade > 18 && idade < 60){
+			}else if(idade > 18 && idade <= 50){
 				$('#CAND_IDOSO').val('0');
 				$('#CAND_MENOR_IDADE').val('0');	
 				$('#CAND_NOME_RESPONSAVEL').val('');

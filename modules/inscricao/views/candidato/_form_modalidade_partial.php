@@ -1,8 +1,10 @@
 <?php
-	use yii\helpers\Html;
+	use yii\helpers\Html;	
 ?>
 <div class="row table-saesp form-tab" id="modal">
 	<?= $form->field($candidato, 'modalidades')->hiddenInput(['v-model'=>'modalidades'])->label(false); ?>
+	<?= $form->field($candidato, 'validoaquatico')->hiddenInput(['id'=>'validoaquatico'])->label(false); ?>
+	
 	<table class="table table-modalidade table-acao table-responsive">
         <thead>
             <tr>

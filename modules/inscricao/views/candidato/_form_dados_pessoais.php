@@ -8,6 +8,7 @@ use yii\helpers\Html;
 
 $this->registerJs("
 
+
     function menorIdade (attribute, value) {
         return $('#CAND_MENOR_IDADE').val() == '1';
     };
@@ -22,6 +23,10 @@ $this->registerJs("
 
     function comorbidade (attribute, value) {
         return $('#CAND_TEM_COMORBIDADE').val() == '1';
+    };    
+
+    function validarModalidadeAquatica(attribute, value) {
+        return vue2.contModalidadesAquaticas > 1;
     };
 ");
 
