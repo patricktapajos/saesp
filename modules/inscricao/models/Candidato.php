@@ -130,7 +130,7 @@ class Candidato extends \yii\db\ActiveRecord
             }
         }
         if($contAquatico > 1){   
-            unset($this->validoaquatico);
+            $this->validoaquatico = '';
             $this->addError($attribute, 'Só é permitido selecionar uma modalidade aquática (natação, hidroginástica, etc).');
             return false;
         }

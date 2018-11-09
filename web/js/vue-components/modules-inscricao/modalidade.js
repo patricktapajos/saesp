@@ -6,7 +6,8 @@ var vue2 = new Vue({
 		modalidades: [],
 		modalidadesAquaticas: [],
 		contModalidadesAquaticas: 0,
-		listagem: ''
+		listagem: '',
+		idUsuario: ''
 	},
 	methods:{
 		adicionarModalidade:function(mdh_codigo){
@@ -28,7 +29,7 @@ var vue2 = new Vue({
 			var self = this;
 			$().blockScreen("Carregando Dados...");
 
-		    $.get(this.urlModalidades).then((data) => {
+		    $.get(this.urlModalidades, {id: this.idUsuario}).then((data) => {
 		    	self.modalidades = data;
 		      	$.each(data, function(id, value){
 		      		$('#'+value).attr('checked',true);
@@ -36,6 +37,7 @@ var vue2 = new Vue({
 		    }).then(()=>{
 				$.get(this.urlModalidadesAquaticas).then((data) => {
 					self.modalidadesAquaticas = data;
+					self.contadorAquatico();
 				}).fail(function(error) {
 					console.log(error);
 				 });
@@ -44,21 +46,18 @@ var vue2 = new Vue({
 			});			 
 		},
 
-		/*validarModalidadeAquatica: function(){
-			if(this.modalidades.length > 0){
-				return $.get(this.urlValidarAquatico, {'modalidades': this.modalidades}).then((qtd)=>{
-					if(qtd > 1){
-						$('#validoaquatico').val('');
-					}else{
-						$('#validoaquatico').val('1');
-					}
-				});
-			}
-		}*/
-
+		contadorAquatico: function(){
+			var self = this;
+			$.each(self.modalidadesAquaticas, function(idx, value) {
+				if ($.inArray(value, self.modalidades) != -1) {
+					self.contModalidadesAquaticas++;
+				}
+			});
+		}
 	},
 	mounted:function(){
 		this.$nextTick(function(){
+			this.idUsuario = $('#USU_ID').val();
 			this.carregarModalidades();
 		});
 	}

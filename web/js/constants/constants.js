@@ -13,6 +13,9 @@ let nome_sistema = "saesp";
 
 	    if(nome_sistema.indexOf(url) != -1){
 	        url = "http://"+url;
+		}
+		else if("localhost".indexOf(url) != -1){
+	        url = "http://"+url+"/dsv/saesp/web";
 	    }
 	    else if("chibarro.manaus.am.gov.br".indexOf(url) != -1){
 	        url = "http://"+url+"/saesp/web";
@@ -25,7 +28,7 @@ let nome_sistema = "saesp";
 
 	$.fn.blockScreen = function($text){
 		 $.blockUI({
-	           'message':'<br><img width="20%"/><h4>'+$text+'</h4><img src="/js/constants/images/reload.gif" /><br>',
+	           'message':'<br><img width="20%"/><h4>'+$text+'</h4><img src="'+$().getUrl()+'/js/constants/images/reload.gif" /><br>',
 	            css: {
 	                border: 'none',
 	                padding: '15px',

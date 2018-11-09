@@ -6,7 +6,7 @@ var vue = new Vue({
 		show_pcd: '0',
 		show_comorbidade: '0',
 		show_medicacao: '0',
-		imagem: '/images/semdoc2.png'
+		imagem: $().getUrl()+'/images/semdoc2.png'
 	},
 	methods:{
 		verificaRegra: function() {
@@ -42,7 +42,8 @@ var vue = new Vue({
 	    },
 
 	    verificarIdade: function(){
-	    	let idade = this.calcularIdade();
+			let idade = this.calcularIdade();
+			if(!idade) return;
 			if(idade < 18){
 				this.show_responsavel = '1';
 				this.show_idoso = '0';

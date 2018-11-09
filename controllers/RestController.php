@@ -131,8 +131,9 @@ class RestController extends \yii\web\Controller
      public function actionInscricaomodalidades(){
 
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $id = $_GET['id']==null?Yii::$app->user->identity->id:$_GET['id'];
         $modalidades = [];
-        $usuario = Usuario::findOne(Yii::$app->user->identity->id);
+        $usuario = Usuario::findOne($id);
         $selecao = Selecao::find()->where(['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();
         $inscricao = Inscricao::find()->where(['SEL_ID'=>$selecao->SEL_ID, 'CAND_ID'=> $usuario->candidato->CAND_ID])->one();
 
