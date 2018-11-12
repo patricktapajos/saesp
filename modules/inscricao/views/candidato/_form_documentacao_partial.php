@@ -5,9 +5,9 @@
     function laudoPCD (attribute, value) {
         return $('#CAND_PCD').val() == '1' && ($('#DOC_LAUDO_PCD_URL_AUX').val() == '' || $('#DOC_LAUDO_PCD_URL_AUX').val() == undefined);
     };
-
-    function atestadoComorbidade (attribute, value) {
-        return $('#CAND_TEM_COMORBIDADE').val() == '1' && ($('#DOC_ATESTADO_URL_AUX').val() == '' || $('#DOC_ATESTADO_URL_AUX').val() == undefined);
+	
+	function atestadoDermatologico (attribute, value) {
+        return Number($('#qtdaquatico').val()) > 0 && ($('#DOC_LAUDO_DERMATO_URL_AUX').val() == '' || $('#DOC_LAUDO_DERMATO_URL_AUX').val() == undefined);
     };
 
     function atestadoIdoso (attribute, value) {
@@ -67,12 +67,12 @@
 
 		</div>
 
-		<div v-show="show_comorbidade == '1'" class="col-lg-6 col-sm-12 text-center">
+		<div v-show="show_dermatologico == '1'" class="col-lg-6 col-sm-12 text-center">
 			<div class="img-documentacao-cover">
-		    	<img src="<?= $documento->getUrlFoto('DOC_ATESTADO_URL'); ?>" id="foto-laudo-comorbidade" class="img-documentacao" />
+		    	<img src="<?= $documento->getUrlFoto('DOC_LAUDO_DERMATO_URL'); ?>" id="foto-laudo-dermatologico" class="img-documentacao" />
 		    </div>
-		    <?= $form->field($documento, 'DOC_ATESTADO_URL')->fileInput(['class'=>'urlfoto','id'=>'laudo-comorbidade']); ?>
-		    <?= $form->field($documento, 'DOC_ATESTADO_URL_AUX')->hiddenInput(['id'=>'DOC_ATESTADO_URL_AUX'])->label(false); ?>
+		    <?= $form->field($documento, 'DOC_LAUDO_DERMATO_URL')->fileInput(['class'=>'urlfoto','id'=>'laudo-dermatologico']); ?>
+		    <?= $form->field($documento, 'DOC_LAUDO_DERMATO_URL_AUX')->hiddenInput(['id'=>'DOC_LAUDO_DERMATO_URL_AUX'])->label(false); ?>
 
 		</div>
 

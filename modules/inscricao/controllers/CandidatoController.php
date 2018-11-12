@@ -140,14 +140,14 @@ class CandidatoController extends Controller
                     $trans->rollBack();
                     throw $e;
                 }
-            }/*else{
+            }else{
                 return $this->render('create', [
                     'model' => $model,
                     'candidato' => $candidato,
                     'smods' => $smods,
                     'documento'=>$documento
                 ]);
-            }*/
+            }
         } else {
             return $this->render('create', [
                 'model' => $model,
@@ -235,7 +235,15 @@ class CandidatoController extends Controller
                     $trans->rollBack();
                     throw $e;
                 }
-            } 
+            } else {
+                return $this->render('update', [
+                    'model' => $model,
+                    'candidato' => $candidato,
+                    'smods' => $smods,
+                    'documento'=>$documento
+    
+                ]);
+            }
         } else {
             return $this->render('update', [
                 'model' => $model,

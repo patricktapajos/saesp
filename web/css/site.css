@@ -262,6 +262,10 @@ div.tabs-krajee > .nav > li > a:hover {
     color: #f5f5f5;
 }
 
+.detail-view > tbody > tr > th {
+    width: 50% !important;
+}
+
 /*.candidato-create {
     background-color: #338cb76e;
     padding: 20px;
@@ -554,8 +558,8 @@ input[type="checkbox"] {
 .img-documentacao-cover {
     margin: 0 auto;
     text-align: center;
-    width: 75%;
-    height: 75%;
+    width: 60%;
+    height: 60%;
     min-width: 50%;
     min-height: 50%;
     object-fit: cover;

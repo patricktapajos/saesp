@@ -120,6 +120,6 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->getModule()->goHome();
+        return $this->goHome();
     }
 }

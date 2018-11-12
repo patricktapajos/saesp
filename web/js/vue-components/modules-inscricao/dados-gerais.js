@@ -10,11 +10,10 @@ var vue = new Vue({
 	},
 	methods:{
 		verificaRegra: function() {
-	        let comorb = $('#CAND_TEM_COMORBIDADE').val();
+			let comorb = $('#CAND_TEM_COMORBIDADE').val();
 	        let medic = $('#CAND_TEM_MEDICACAO').val();
 			let pcd = $('#CAND_PCD').val();
-
-	        if(comorb == '1'){ this.show_comorbidade = '1'; }
+			if(comorb == '1'){ this.show_comorbidade = '1'; }
 	        if(medic == '1'){ this.show_medicacao = '1'; }
 			if(pcd == '1'){ this.show_pcd = '1'; }
 			this.verificarIdade();
@@ -100,13 +99,10 @@ var vue = new Vue({
 		show_comorbidade: function(value){
 	        $('#CAND_TEM_COMORBIDADE').val(value);
 	        if(value == '0'){
-	        	$('#foto-laudo-comorbidade')[0].src = this.imagem;
-	        	$('#DOC_ATESTADO_URL').val('');
-	        	$('#DOC_ATESTADO_URL_AUX').val('');
-	        	$('#DOC_ATESTADO_URL_AUX').trigger('change');
 	        	$('#CAND_COMORBIDADE_DESC').val('');
 			}
 		},
+
 		show_medicacao: function(value){
 	        $('#CAND_TEM_MEDICACAO').val(value);
 	        if(value == '0'){

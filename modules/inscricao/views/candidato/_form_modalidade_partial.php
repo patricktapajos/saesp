@@ -5,6 +5,7 @@
 	<?= $form->field($candidato, 'modalidades')->hiddenInput(['v-model'=>'modalidades'])->label(false); ?>
 	<?= $form->field($candidato, 'validoaquatico')->hiddenInput(['id'=>'validoaquatico'])->label(false); ?>
 	<?= Html::hiddenInput('id', $candidato->usuario->USU_ID, ['id'=>'USU_ID']); ?>
+	<?= Html::hiddenInput('qtdaquatico', 0, ['id'=>'qtdaquatico']); ?>
 	
 	
 	<table class="table table-modalidade table-acao table-responsive">

@@ -133,7 +133,7 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
 
         $contInt = 0;
         for ($i=0; $i <= count($menor) ; $i++) { 
-            if($menor[$i] == $maior[$i] && $this->MDT_HORARIO_INICIO == $info['MDT_HORARIO_INICIO']){
+            if($menor[$i] == $maior[$i] && ($this->MDT_HORARIO_INICIO == $info['MDT_HORARIO_INICIO'] || $this->MDT_HORARIO_FIM == $info['MDT_HORARIO_FIM'])){
                 $contInt++;
             }
         }

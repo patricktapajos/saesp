@@ -33,7 +33,7 @@ class CandidatoDocumento extends \yii\db\ActiveRecord
     public function scenarios()
     {
         $scenarios = parent::scenarios();
-        $scenarios [self::SCENARIO_UPDATE] = [''];
+        $scenarios [self::SCENARIO_UPDATE] = ['DOC_LAUDO_DERMATO_URL','DOC_LAUDO_PCD_URL','DOC_DECLARACAO_MENOR','DOC_ATESTADO_IDOSO'];
         return $scenarios;
     }
 
@@ -45,7 +45,6 @@ class CandidatoDocumento extends \yii\db\ActiveRecord
         'DOC_LAUDO_PCD_URL_AUX'=>'DOC_LAUDO_PCD_URL',
         'DOC_LAUDO_DERMATO_URL_AUX'=>'DOC_LAUDO_DERMATO_URL',
         'DOC_DECLARACAO_MENOR_AUX'=>'DOC_DECLARACAO_MENOR',
-        'DOC_LAUDO_DERMATO_URL_AUX'=>'DOC_LAUDO_DERMATO_URL',
         'DOC_ATESTADO_IDOSO_AUX'=>'DOC_ATESTADO_IDOSO',
         'DOC_ATESTADO_URL_AUX'=>'DOC_ATESTADO_URL'
     ];
@@ -67,12 +66,20 @@ class CandidatoDocumento extends \yii\db\ActiveRecord
         return [
             [['DOC_RG_URL', 'DOC_CRESID_URL', 'DOC_CPF_URL'], 'required','on'=>'default'],
             [['DOC_RG_URL', 'DOC_CRESID_URL', 'DOC_CPF_URL','DOC_DECLARACAO_MENOR'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, pdf'],
-            ['DOC_LAUDO_PCD_URL', 'required', 'when'=>function($model){return false;}, 'whenClient' => "laudoPCD"],
-            ['DOC_ATESTADO_URL', 'required', 'when'=>function($model){return false;}, 'whenClient'  => "atestadoComorbidade"],
-            ['DOC_ATESTADO_IDOSO', 'required', 'when'=>function($model){return false;},'whenClient' => "atestadoIdoso"],
-            ['DOC_DECLARACAO_MENOR', 'required', 'when'=>function($model){return false;},'whenClient' => "atestadoMenor"],
+            ['DOC_LAUDO_PCD_URL', 'required', 'when'=>function($model){
+                return false;
+            }, 'whenClient' => "laudoPCD"],
+            ['DOC_LAUDO_DERMATO_URL', 'required', 'when'=>function($model){
+                return false;
+            }, 'whenClient'  => "atestadoDermatologico"],
+            ['DOC_ATESTADO_IDOSO', 'required', 'when'=>function($model){
+                return false;
+            },'whenClient' => "atestadoIdoso"],
+            ['DOC_DECLARACAO_MENOR', 'required', 'when'=>function($model){
+                return false;
+            },'whenClient' => "atestadoMenor"],
             [['DOC_ID'], 'unique'],
-            [['DOC_RG_URL_AUX','DOC_CPF_URL_AUX','DOC_CRESID_URL_AUX','DOC_LAUDO_PCD_URL_AUX','DOC_LAUDO_DERMATO_URL_AUX','DOC_DECLARACAO_MENOR_AUX','DOC_LAUDO_DERMATO_URL_AUX','DOC_ATESTADO_IDOSO_AUX','DOC_ATESTADO_URL_AUX'], 'safe'],
+            [['DOC_RG_URL_AUX','DOC_CPF_URL_AUX','DOC_CRESID_URL_AUX','DOC_LAUDO_PCD_URL_AUX','DOC_LAUDO_DERMATO_URL_AUX','DOC_DECLARACAO_MENOR_AUX','DOC_ATESTADO_IDOSO_AUX','DOC_ATESTADO_URL_AUX'], 'safe'],
         ];
     }
     

@@ -7,7 +7,8 @@ var vue2 = new Vue({
 		modalidadesAquaticas: [],
 		contModalidadesAquaticas: 0,
 		listagem: '',
-		idUsuario: ''
+		idUsuario: '',
+		imagem: $().getUrl()+'/images/semdoc2.png'				
 	},
 	methods:{
 		adicionarModalidade:function(mdh_codigo){
@@ -24,6 +25,7 @@ var vue2 = new Vue({
 					this.contModalidadesAquaticas--;
 				}
 			}
+			this.verificaLaudoAquatico();
 		},
 		carregarModalidades: function(){
 			var self = this;
@@ -53,6 +55,18 @@ var vue2 = new Vue({
 					self.contModalidadesAquaticas++;
 				}
 			});
+			this.verificaLaudoAquatico();
+		},
+
+		verificaLaudoAquatico:function(){
+			var value = this.contModalidadesAquaticas;
+	        if((value > 0 && value < 2) && ($('#laudo-dermatologico')[0].defaultValue == undefined || $('#laudo-dermatologico')[0].defaultValue == '')){
+	        	$('#foto-laudo-dermatologico')[0].src = this.imagem;
+	        	$('#DOC_LAUDO_DERMATO_URL').val('');
+	        	$('#DOC_LAUDO_DERMATO_URL_AUX').val('');
+			}
+			$("#qtdaquatico").val(value);			
+			$('#qtdaquatico').trigger('change');
 		}
 	},
 	mounted:function(){

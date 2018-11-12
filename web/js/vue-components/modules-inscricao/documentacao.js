@@ -4,19 +4,19 @@ var vue3 = new Vue({
 	data:{
 		show_responsavel: '0',
 		show_pcd: '0',
-		show_comorbidade: '0',
+		/*show_comorbidade: '0',*/
+		show_dermatologico: '0',
 		show_medicacao: '0',
 		show_idoso: '0',
 		imagempdf: '/images/pdf.png'
 	},
 	methods:{
 		verificaRegra: function() {
-	        let comorb = $('#CAND_TEM_COMORBIDADE').val();
 	        let medic = $('#CAND_TEM_MEDICACAO').val();
 	        let menor = $('#CAND_MENOR_IDADE').val();
 	        let idoso = $('#CAND_IDOSO').val();
-	        let pcd = $('#CAND_PCD').val();
-	        if(comorb == '1'){ this.show_comorbidade = '1'; }
+			let pcd = $('#CAND_PCD').val();
+			
 	        if(medic == '1'){ this.show_medicacao = '1'; }
 	        if(menor == '1'){ this.show_responsavel = '1'; }
 	        if(idoso == '1'){ this.show_idoso = '1'; }
@@ -41,9 +41,15 @@ var vue3 = new Vue({
 				self.show_medicacao = $(this)[0].checked?'1':'0';
 			});
 
-			$('#comorbidade-checkbox').change(function(){
-				self.show_comorbidade = $(this)[0].checked?'1':'0';
+			$('#qtdaquatico').change(function(){
+				var valor = Number($(this).val());
+				if(valor > 0){
+					self.show_dermatologico = '1';
+				}else{
+					self.show_dermatologico = '0';
+				}
 			});
+			
 	    },
 
 	    configFotoListener(){
@@ -71,10 +77,7 @@ var vue3 = new Vue({
 			this.configFotoListener();
 		});
 	},
-	watch: {
-		show_comorbidade: function(value){
-	        	$('#CAND_TEM_COMORBIDADE').val(value);
-		},
+	watch: {		
 		show_medicacao: function(value){
 	        	$('#CAND_TEM_MEDICACAO').val(value);
 		},
