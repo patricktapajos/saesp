@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             ['class' => 'yii\grid\ActionColumn',
-             'template' => '{parecer}{preimpressaocarteira}',
+             'template' => '{parecer} {preimpressaocarteira}',
              'buttons'  => [
                'parecer'   => function ($url, $model) {
                     $url ='../selecaocel/parecer?id='.$model->INS_ID;

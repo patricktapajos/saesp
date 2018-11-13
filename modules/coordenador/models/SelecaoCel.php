@@ -5,6 +5,7 @@ use app\models\Selecao;
 use app\models\Cel;
 use yii\helpers\ArrayHelper;
 use app\models\SituacaoSelecaoEnum;
+use app\modules\coordenador\models\SelecaoModalidade;
 use Yii;
 
 /**
@@ -91,6 +92,10 @@ class SelecaoCel extends \yii\db\ActiveRecord
 
     public function getSelecao(){
         return $this->hasOne(Selecao::className(), ['SEL_ID'=>'SEL_ID']);
+    }
+
+    public function getSelecaoModalidade(){
+        return $this->hasMany(SelecaoModalidade::className(), ['SCEL_ID'=>'SCEL_ID']);
     }
 
     public function getCel(){

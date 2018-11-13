@@ -14,7 +14,7 @@ $this->title = 'Atualizar Dados';
     <?= $this->render('_form', [
         'model' => $model,
         'candidato' => $candidato,
-        'smods' => $smods,
+        'scels' => $scels,
         'documento'=>$documento,
     ]) ?>
 

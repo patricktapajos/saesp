@@ -28,6 +28,10 @@ $this->registerJs("
     function validarModalidadeAquatica(attribute, value) {
         return vue2.contModalidadesAquaticas > 1;
     };
+
+    function validarHorarioModalidade(attribute, value) {
+        return vue2.horariosComConflito;
+    };
 ");
 
  ?>

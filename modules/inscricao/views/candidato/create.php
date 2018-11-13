@@ -19,7 +19,7 @@ $this->title = 'Ficha de Inscrição';
 		        'model' => $model,
 		        'candidato' => $candidato,
 		        'documento'=>$documento,
-		        'smods' => $smods
+		        'scels' => $scels
 		    ]) ?>
 		</div>
 	</div>

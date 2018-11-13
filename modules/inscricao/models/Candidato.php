@@ -38,6 +38,7 @@ class Candidato extends \yii\db\ActiveRecord
     public $modalidades;
     public $modalidade;
     public $validoaquatico;
+    public $horariovalido;
 
     /* Atributo utilizado para verificação de alteração de foto do candidato */
     public $photo;
@@ -63,6 +64,10 @@ class Candidato extends \yii\db\ActiveRecord
             [['validoaquatico'], 'required',
                 'whenClient'=>"validarModalidadeAquatica", 
                 'message'=>'Só é permitido selecionar uma modalidade aquática (natação, hidroginástica, etc).'],
+            /* Gambiarra para chamar a validação de modalidades em conflito de horário no cliente */            
+            [['horariovalido'], 'required',
+                'whenClient'=>"validarHorarioModalidade", 
+                'message'=>'Uma ou mais modalidades estão em conflito de horário.'],
 
             ['CAND_NOME_RESPONSAVEL', 'required', 'when' => function($model) {
                 return $model->CAND_MENOR_IDADE == '1';

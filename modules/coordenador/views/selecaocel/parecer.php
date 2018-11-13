@@ -181,11 +181,11 @@ $this->params['breadcrumbs'][] = $this->title;
                 <div class="jcarousel-wrapper documentos">
                     <div class="jcarousel" data-jcarousel="true" id="documentos">
                         <ul>
-                            <?php foreach(array_values($model->candidatoDocumento->getDocumentosImagem()) as $n=>$foto) : ?>
+                            <?php foreach(array_values($model->candidato->candidatoDocumento->getDocumentosImagem()) as $n=>$foto) : ?>
                                 <li style="width: auto; height: auto; padding: 5px">
-                                    <a href="<?= $model->candidatoDocumento->getUrlDocumento($foto); ?>"
-                                    title="<?= $model->candidatoDocumento->getAttributeLabel($foto) ?>" style="text-decoration: none; border:0">
-                                        <img src="<?= $model->candidatoDocumento->getUrlDocumento($foto); ?>" class="img-documentacao">
+                                    <a href="<?= $model->candidato->candidatoDocumento->getUrlDocumento($foto); ?>"
+                                    title="<?= $model->candidato->candidatoDocumento->getAttributeLabel($foto) ?>" style="text-decoration: none; border:0">
+                                        <img src="<?= $model->candidato->candidatoDocumento->getUrlDocumento($foto); ?>" class="img-documentacao">
                                     </a>
                                 </li>
                             <?php endforeach; ?>
@@ -195,10 +195,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     <a href="#" class="jcarousel-control-next" data-jcarouselcontrol="true"></a>
                 </div>
 
-                <?php foreach(array_values($model->candidatoDocumento->getDocumentosPdf()) as $n=>$pdf) : ?>
+                <?php foreach(array_values($model->candidato->candidatoDocumento->getDocumentosPdf()) as $n=>$pdf) : ?>
                     <div class="col-lg-12 col-sm-12 text-center">
-                        <span><b><?= $model->candidatoDocumento->getAttributeLabel($pdf); ?></b></span>
-                        <embed src="<?= $model->candidatoDocumento->getUrlDocumento($pdf); ?>" type="application/pdf" width="100%" height="20%" />
+                        <span><b><?= $model->candidato->candidatoDocumento->getAttributeLabel($pdf); ?></b></span>
+                        <embed src="<?= $model->candidato->candidatoDocumento->getUrlDocumento($pdf); ?>" type="application/pdf" width="100%" height="20%" />
                     </div>
                 <?php endforeach; ?>
             </div>

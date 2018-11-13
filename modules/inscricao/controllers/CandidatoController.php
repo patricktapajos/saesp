@@ -100,7 +100,8 @@ class CandidatoController extends Controller
             throw new \yii\web\HttpException(403,"Não há processo seletivo aberto!");
         }
 
-        $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+        //$smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+        $scels = SelecaoCel::find()->innerJoinWith('selecaoModalidade')->where(['SELECAO_MODALIDADE.SEL_ID'=>$selecao->SEL_ID])->all();
 
         /*if(Yii::$app->request->isAjax && $model->load(Yii::$app->request->post())){
             Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
@@ -144,7 +145,7 @@ class CandidatoController extends Controller
                 return $this->render('create', [
                     'model' => $model,
                     'candidato' => $candidato,
-                    'smods' => $smods,
+                    'scels' => $scels,
                     'documento'=>$documento
                 ]);
             }
@@ -152,7 +153,7 @@ class CandidatoController extends Controller
             return $this->render('create', [
                 'model' => $model,
                 'candidato' => $candidato,
-                'smods' => $smods,
+                'scels' => $scels,
                 'documento'=>$documento
             ]);
         }
@@ -189,7 +190,9 @@ class CandidatoController extends Controller
         }
         $documento->scenario = CandidatoDocumento::SCENARIO_UPDATE;
 
-        $smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+        //$smods = SelecaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['SEL_ID'=>$selecao->SEL_ID])->all();
+        $scels = SelecaoCel::find()->innerJoinWith('selecaoModalidade')->where(['SELECAO_MODALIDADE.SEL_ID'=>$selecao->SEL_ID])->all();
+        
         
         if($model->load(Yii::$app->request->post())){
             /*echo "<pre>";
@@ -239,7 +242,7 @@ class CandidatoController extends Controller
                 return $this->render('update', [
                     'model' => $model,
                     'candidato' => $candidato,
-                    'smods' => $smods,
+                    'scels' => $scels,
                     'documento'=>$documento
     
                 ]);
@@ -248,7 +251,7 @@ class CandidatoController extends Controller
             return $this->render('update', [
                 'model' => $model,
                 'candidato' => $candidato,
-                'smods' => $smods,
+                'scels' => $scels,
                 'documento'=>$documento
 
             ]);

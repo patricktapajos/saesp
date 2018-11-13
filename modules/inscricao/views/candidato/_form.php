@@ -50,7 +50,7 @@ InscricaoAsset::register($this);
                 'label'=>'<i class="glyphicon glyphicon-list-alt"></i> Modalidade',
                 'content'=>$this->render('_form_modalidade_partial', [
                     'form'=>$form,
-                    'smods'=>$smods,
+                    'scels'=>$scels,
                     'candidato'=>$candidato
                     ]), 
                 'active'=>false,

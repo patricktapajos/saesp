@@ -156,6 +156,7 @@ class SelecaocelController extends Controller
                         $selecaoModalidade->SEL_ID = $model->SEL_ID;
                         $selecaoModalidade->MOD_ID = $modalidade['MOD_ID'];
                         $selecaoModalidade->CEL_ID = Yii::$app->user->identity->cel_id;                        
+                        $selecaoModalidade->SCEL_ID = $model->SCEL_ID;                        
                         $selecaoModalidade->setComplemento($modalidade['complemento']);
                         if($modalidade['complemento']){
                             $selecaoModalidade->save();
@@ -232,6 +233,7 @@ class SelecaocelController extends Controller
                         $selecaoModalidade->SEL_ID = $model->SEL_ID;
                         $selecaoModalidade->MOD_ID = $modalidade['MOD_ID'];
                         $selecaoModalidade->CEL_ID = Yii::$app->user->identity->cel_id;
+                        $selecaoModalidade->SCEL_ID = $model->SCEL_ID;                                                                        
                         $selecaoModalidade->setComplemento($modalidade['complemento']);
 
                         if($modalidade['complemento']){

@@ -3,11 +3,13 @@ var vue2 = new Vue({
 	data:{
 		urlModalidades: $().getUrl()+'/rest/inscricaomodalidades',
 		urlModalidadesAquaticas: $().getUrl()+'/rest/inscricaomodalidadesaquaticas',
+		urlHorarioModalidades: $().getUrl()+'/rest/validarhorariomodalidade',
 		modalidades: [],
 		modalidadesAquaticas: [],
 		contModalidadesAquaticas: 0,
 		listagem: '',
 		idUsuario: '',
+		horariosComConflito: false,
 		imagem: $().getUrl()+'/images/semdoc2.png'				
 	},
 	methods:{
@@ -26,6 +28,7 @@ var vue2 = new Vue({
 				}
 			}
 			this.verificaLaudoAquatico();
+			this.verificarConflitoHorario();
 		},
 		carregarModalidades: function(){
 			var self = this;
@@ -35,7 +38,8 @@ var vue2 = new Vue({
 		    	self.modalidades = data;
 		      	$.each(data, function(id, value){
 		      		$('#'+value).attr('checked',true);
-		      	});
+				  });
+				  self.verificarConflitoHorario();
 		    }).then(()=>{
 				$.get(this.urlModalidadesAquaticas).then((data) => {
 					self.modalidadesAquaticas = data;
@@ -56,6 +60,19 @@ var vue2 = new Vue({
 				}
 			});
 			this.verificaLaudoAquatico();
+		},
+
+		verificarConflitoHorario:function(){
+			var self = this;
+			$.get(this.urlHorarioModalidades, {modalidades: this.modalidades}).then((data) => {
+				self.horariosComConflito = data;
+				if(data){
+					$("#horariovalido").val(value);
+				}else{
+					$("#horariovalido").val('');
+					
+				}
+			});
 		},
 
 		verificaLaudoAquatico:function(){

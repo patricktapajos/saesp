@@ -49,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\ActionColumn',
              'header'=>'Ações',
              'options'=>['width'=>'70px'],
-             'template' => '{update} {gerenciarparecer}{view}',
+             'template' => '{update} {gerenciarparecer} {view}',
              'buttons'  => [
                'gerenciarparecer'=> function ($url, $model) {
                     $url = Url::to('gerenciarparecer');
