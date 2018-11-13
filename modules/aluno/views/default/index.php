@@ -1,12 +1,16 @@
-<div class="Aluno-default-index">
-    <h1><?= $this->context->action->uniqueId ?></h1>
-    <p>
-        This is the view content for action "<?= $this->context->action->id ?>".
-        The action belongs to the controller "<?= get_class($this->context) ?>"
-        in the "<?= $this->context->module->id ?>" module.
-    </p>
-    <p>
-        You may customize this page by editing the following file:<br>
-        <code><?= __FILE__ ?></code>
-    </p>
+<?php
+    use yii\helpers\Html;
+?>
+<div class="site-index">
+    <div class="vertical-center">
+		<div class="body-content">
+		    <div class="row">
+		        <div class="col-lg-12 text-center">
+		            <?= Html::img('@web/images/simbolo-logo.png', ['height'=>'200']); ?>
+		            <h1>Olá, <?= Yii::$app->user->identity->name != null?Yii::$app->user->identity->name:'Aluno' ?>!</h1>
+		            <h2>Bem vindo ao SAESP - Sistema de Atividades Esportivas</h2>
+		        </div>
+		    </div>
+		</div>
+	</div>
 </div>

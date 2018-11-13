@@ -8,6 +8,7 @@ use app\modules\inscricao\models\InscricaoModalidade;
 use app\modules\aluno\models\Aluno;
 use app\modules\aluno\models\AlunoSituacaoEnum;
 use app\models\Selecao;
+use app\models\PermissaoEnum;
 use Yii;
 
 /**
@@ -96,20 +97,6 @@ class Inscricao extends \yii\db\ActiveRecord
             $aluno = new Aluno;
             $aluno->CAND_ID              = $this->candidato->CAND_ID;
             $aluno->INS_ID               = $this->INS_ID;
-            /*$aluno->ALU_CPF            = $this->candidato->CAND_CPF;
-            $aluno->ALU_ESTADO_CIVIL     = $this->candidato->CAND_ESTADO_CIVIL;
-            $aluno->ALU_LOGRADOURO       = $this->candidato->CAND_LOGRADOURO;
-            $aluno->ALU_COMPLEMENTO_END  = $this->candidato->CAND_COMPLEMENTO_END;
-            $aluno->ALU_CEP              = $this->candidato->CAND_CEP;
-            $aluno->ALU_BAIRRO           = $this->candidato->CAND_BAIRRO;
-            $aluno->ALU_NOME_EMERGENCIA  = $this->candidato->CAND_NOME_EMERGENCIA;
-            $aluno->ALU_TEL_EMERGENCIA   = $this->candidato->CAND_TEL_EMERGENCIA;
-            $aluno->ALU_NOME_RESPONSAVEL = $this->candidato->CAND_NOME_RESPONSAVEL;
-            $aluno->ALU_TEM_COMORBIDADE  = $this->candidato->CAND_TEM_COMORBIDADE;
-            $aluno->ALU_COMORBIDADE_DESC = $this->candidato->CAND_COMORBIDADE_DESC;
-            $aluno->ALU_TEM_MEDICACAO    = $this->candidato->CAND_TEM_MEDICACAO;
-            $aluno->ALU_MEDICACAO_DESC   = $this->candidato->CAND_MEDICACAO_DESC;
-            $aluno->ALU_OBSERVACOES      = $this->candidato->CAND_OBSERVACOES;*/
             $aluno->save(false);
         }else{
             $aluno = $this->aluno;
@@ -122,6 +109,9 @@ class Inscricao extends \yii\db\ActiveRecord
             $im->AMO_STATUS = AlunoSituacaoEnum::ATIVO;
             $im->save(false);
         }
+
+        $this->candidato->usuario->USU_PERMISSAO = PermissaoEnum::ALUNO;
+        $this->candidato->usuario->save(false);
     }
 
     public function getInscricaomodalidade(){

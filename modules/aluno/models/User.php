@@ -1,6 +1,6 @@
 <?php
 
-namespace app\modules\inscricao\models;
+namespace app\modules\aluno\models;
 use app\models\Usuario;
 use app\models\PermissaoEnum;
 
@@ -46,7 +46,7 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
      */
     public static function findByUsername($username)
     {
-        $model = Usuario::findOne(['USU_CPF'=>$username,'USU_PERMISSAO'=>PermissaoEnum::PERMISSAO_CANDIDATO]);
+        $model = Usuario::findOne(['USU_CPF'=>$username,'USU_PERMISSAO'=>PermissaoEnum::PERMISSAO_ALUNO]);
 
         if($model){
             $user = new User;

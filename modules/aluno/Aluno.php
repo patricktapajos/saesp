@@ -1,6 +1,8 @@
 <?php
 
 namespace app\modules\aluno;
+use Yii;
+use yii\helpers\Url;
 
 /**
  * Aluno module definition class
@@ -18,7 +20,7 @@ class Aluno extends \yii\base\Module
     public function init()
     {
         parent::init();
-
-        // custom initialization code goes here
+        $this->layout = '@app/modules/aluno/views/layouts/main';
+        Yii::$app->setHomeUrl(Url::to(['/aluno/default/index']));
     }
 }
