@@ -13,7 +13,7 @@ use app\modules\inscricao\models\CandidatoDocumento;
 /* @var $searchModel app\models\InscricaomodalidadeSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Gerenciar Parecer';
+$this->title = 'Gerenciar Parecer #'.$selecaocel->selecao->SEL_TITULO;
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="selecao-cel-index">

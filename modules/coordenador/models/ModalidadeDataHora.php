@@ -185,6 +185,10 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
         return $this->hasMany(ModalidadeDiaSemana::className(), ['MDT_ID'=>'MDT_ID']);
     }
 
+    public function getInscricaoModalidade(){
+        return $this->hasOne(InscricaoModalidade::className(), ['MDT_ID'=>'MDT_ID']);
+    }
+
     public function getQtdeInscritos(){
         return $this->hasMany(InscricaoModalidade::className(), ['MDT_ID'=>'MDT_ID'])->count();
     }

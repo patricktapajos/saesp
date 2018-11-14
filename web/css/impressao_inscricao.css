@@ -168,3 +168,8 @@ h1, .h1, h2, .h2, h3, .h3 {
     text-align: center;
     object-fit: cover;
 }
+
+.divCarteirinha {
+    margin-bottom: 50px;
+}
+

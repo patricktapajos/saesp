@@ -4,12 +4,15 @@ namespace app\modules\coordenador\controllers;
 
 use Yii;
 use app\modules\aluno\models\Aluno;
+use app\modules\aluno\models\AlunoModalidade;
 use app\models\PermissaoEnum;
 use app\modules\aluno\models\AlunoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use kartik\mpdf\Pdf;
+
 
 
 /**
@@ -31,11 +34,11 @@ class AlunoController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel'],
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel','imprimircarteirinha'],
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel'],
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel','imprimircarteirinha'],
                         'roles' => [PermissaoEnum::PERMISSAO_COORDENADOR],
                     ]
                 ],
@@ -65,8 +68,12 @@ class AlunoController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $smods = AlunoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['ALU_ID'=>$id])->all();
+        
         return $this->render('view', [
-            'model' => $this->findModel($id),
+            'model' => $model,
+            'smods' => $smods
         ]);
     }
 
@@ -136,16 +143,16 @@ class AlunoController extends Controller
         }
     }
 
-    public function actionImprimirCarteirinha($id){
+    public function actionImprimircarteirinha($id){
         $model = Aluno::findOne($id);
-        $smods = AlunoModalidade::find()->innerJoinWith('inscricaoModalidade')->where(['INS_ID'=>$model->inscricao->INS_ID])->all();
+        $smods = AlunoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['ALU_ID'=>$id])->all();
 
         $pdf = new Pdf([
             'mode' => Pdf::MODE_CORE, // leaner size using  standard fonts
             'content' => $this->renderPartial('_impressao', ['model'=>$model,'smods'=>$smods]),
             'options' => [
                 'title' => 'Sistema de Atividades Esportivas (SAESP)',
-                'subject' => 'Comprovante de Inscrição'
+                'subject' => 'Carteirinha do Aluno'
             ],
             'methods' => [
                 'SetHeader' => ['Sistema de Atividades Esportivas'],

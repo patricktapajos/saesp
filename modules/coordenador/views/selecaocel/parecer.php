@@ -152,11 +152,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     </tr>
                 </thead>
                 <tbody>
-                    <?php foreach ($smods as $smod): ?>
+                <?php foreach ($smods as $smod): ?>
                         <?php foreach ($smod->modalidadeDataHora as $mdh) : ?>
                             <tr>
-                                <td><?php echo $mdh->selecaoModalidade->modalidade->cel->CEL_NOME; ?></td>
-                                <td><?php echo $mdh->selecaoModalidade->modalidade->MOD_DESCRICAO; ?></td>
+                                <td><?php echo $mdh->selecaoModalidade->cel->CEL_NOME; ?></td>
+                                <td><?php echo $mdh->selecaoModalidade->modalidade->MOD_NOME; ?></td>
                                 <td><?php echo $mdh->getDiasSemana(); ?></td>
                                 <td><?php echo $mdh->getHorario(); ?></td>
                                 <td>
@@ -217,6 +217,6 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
     <div class="form-group">
             <?= Html::submitButton('Salvar', ['class' => 'btn btn-primary']) ?>
-            <?= Html::a('Cancelar', ['/inscricao/default'] ,['class' => 'btn btn-danger']) ?>
+            <?= Html::a('Cancelar', ['selecaocel/gerenciarparecer'] ,['class' => 'btn btn-danger']) ?>
     </div>
 <?php ActiveForm::end(); ?>

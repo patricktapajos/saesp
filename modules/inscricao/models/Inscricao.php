@@ -6,6 +6,7 @@ use app\modules\inscricao\models\CandidatoDocumento;
 use app\modules\inscricao\models\Candidato;
 use app\modules\inscricao\models\InscricaoModalidade;
 use app\modules\aluno\models\Aluno;
+use app\modules\aluno\models\AlunoModalidade;
 use app\modules\aluno\models\AlunoSituacaoEnum;
 use app\models\Selecao;
 use app\models\PermissaoEnum;
@@ -66,7 +67,7 @@ class Inscricao extends \yii\db\ActiveRecord
             'INS_DT_CADASTRO' => 'Data de Cadastro',
             'SEL_ID' => 'Seleção',
             'INS_NUM_INSCRICAO' => 'Nº de Inscrição',
-            'ins_parecer' => 'Emissão de Parecer',
+            //'ins_parecer' => 'Emissão de Parecer',
             'INS_OBSERVACAO' => 'Observação'
         ];
     }
@@ -84,7 +85,7 @@ class Inscricao extends \yii\db\ActiveRecord
             $this->save();
         }
 
-        if($this->scenario == Inscricao::CENARIO_PARECER && $this->ins_parecer == SituacaoInscricaoEnum::DEFERIDA){
+        if($this->scenario == Inscricao::CENARIO_PARECER && $this->INS_SITUACAO == SituacaoInscricaoEnum::DEFERIDA){
             $this->inserirAluno();
         }
     }
@@ -104,13 +105,13 @@ class Inscricao extends \yii\db\ActiveRecord
 
         foreach(explode(',',$this->modalidades) as $modalidade){
             $im = new AlunoModalidade;
-            $im->MDH_ID = $modalidade;
+            $im->MDT_ID = $modalidade;
             $im->ALU_ID = $aluno->ALU_ID;
             $im->AMO_STATUS = AlunoSituacaoEnum::ATIVO;
             $im->save(false);
         }
 
-        $this->candidato->usuario->USU_PERMISSAO = PermissaoEnum::ALUNO;
+        $this->candidato->usuario->USU_PERMISSAO = PermissaoEnum::PERMISSAO_ALUNO;
         $this->candidato->usuario->save(false);
     }
 

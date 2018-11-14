@@ -281,7 +281,7 @@ class CandidatoController extends Controller
         $smods = InscricaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['INS_ID'=>$model->inscricao->INS_ID])->all();
 
         $pdf = new Pdf([
-            'mode' => Pdf::MODE_CORE, // leaner size using  standard fonts
+            //'mode' => Pdf::MODE_CORE, // leaner size using  standard fonts
             'content' => $this->renderPartial('_impressao', ['model'=>$model,'smods'=>$smods]),
             'options' => [
                 'title' => 'Sistema de Atividades Esportivas (SAESP)',

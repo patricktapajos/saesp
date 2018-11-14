@@ -85,9 +85,9 @@ class SelecaocelController extends Controller
       */
      public function actionGerenciarparecer()
      {
-        $selecao = SelecaoCel::find()->where(['CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
+        $selecaocel = SelecaoCel::find()->where(['CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
         $searchModel = new InscricaoParecerSearch();
-        $searchModel->SEL_ID = $selecao->SEL_ID;
+        $searchModel->SEL_ID = $selecaocel->SEL_ID;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
         
         if($dataProvider->getCount() == 0){
@@ -98,6 +98,7 @@ class SelecaocelController extends Controller
          return $this->render('gerenciarparecer', [
              'dataProvider' => $dataProvider,
              'searchModel'  => $searchModel,
+             'selecaocel'      => $selecaocel
          ]);
      }
 
@@ -110,15 +111,19 @@ class SelecaocelController extends Controller
     {
         $inscricao           = Inscricao::findOne($id);
         $inscricao->scenario = Inscricao::CENARIO_PARECER;
+        /*$scels               = SelecaoCel::find()
+            ->innerJoinWith(['selecaoModalidade.modalidadeDataHora.inscricaoModalidade'])
+            ->where(['SELECAO_MODALIDADE.SEL_ID'=>$selecao->SEL_ID])->all();*/
         $smods               = InscricaoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['INS_ID'=>$id])->all();
         
-        //var_dump(Yii::$app->request->post());
+        //var_dump($scels);die;
         if ($inscricao->load(Yii::$app->request->post()) && $inscricao->validate()){
             $trans = Yii::$app->db->beginTransaction();
             try{
                 $inscricao->save();
                 $trans->commit();
-                return $this->redirect(['aluno/view','id'=>$inscricao->aluno->ALU_ID]);
+                $aluno = Aluno::find()->where(['INS_ID'=>$id])->one();
+                return $this->redirect(['aluno/view','id'=>$aluno->ALU_ID]);
             }catch(\Exception $e){
                 $trans->rollBack();
                 throw $e;
