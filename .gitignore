@@ -118,6 +118,4 @@ phpunit.phar
 # local phpunit config
 /phpunit.xml
 
-
 # End of https://www.gitignore.io/api/yii2,sublimetext,visualstudiocode
-/runtime/logs/*.log

@@ -4,10 +4,12 @@ namespace app\controllers;
 
 use Yii;
 use app\models\Usuario;
+use app\models\PermissaoEnum;
 use app\models\UsuarioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * UsuarioController implements the CRUD actions for Usuario model.
@@ -24,6 +26,22 @@ class UsuarioController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel', 'esquecisenha', 'alterarsenha'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel', 'esquecisenha'],
+                        'roles' => [PermissaoEnum::PERMISSAO_ADMIN],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['alterarsenha'],
+                        'roles' => ['@'],
+                    ],
                 ],
             ],
         ];

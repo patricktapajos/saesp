@@ -14,6 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+    <?php if($model->selecao->isCadastrado()): ?>
     <p>
         <?= Html::a('Atualizar', ['update', 'id' => $model->SCEL_ID], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Excluir', ['delete', 'id' => $model->SCEL_ID], [
@@ -24,6 +25,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
         ]) ?>
     </p>
+    <?php endif; ?>
 
     <div class="form-group">
         <label>Seleção</label>

@@ -8,6 +8,9 @@ use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\PermissaoEnum;
+use yii\filters\AccessControl;
+
 
 /**
  * CelController implements the CRUD actions for Cel model.
@@ -24,6 +27,17 @@ class CelController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel'],
+                        'roles' => [PermissaoEnum::PERMISSAO_ADMIN],
+                    ]
                 ],
             ],
         ];

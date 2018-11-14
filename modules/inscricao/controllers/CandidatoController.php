@@ -19,6 +19,8 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use kartik\mpdf\Pdf;
+use yii\filters\AccessControl;
+
 /**
  * CandidatolController implements the CRUD actions for Candidato model.
  */
@@ -34,6 +36,17 @@ class CandidatoController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel','imprimir','alterarsenha'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'update', 'delete','imprimir', 'alterarsenha'],
+                        'roles' => [PermissaoEnum::PERMISSAO_CANDIDATO],
+                    ]
                 ],
             ],
         ];

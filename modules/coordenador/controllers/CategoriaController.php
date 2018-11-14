@@ -4,10 +4,13 @@ namespace app\modules\coordenador\controllers;
 
 use Yii;
 use app\modules\coordenador\models\Categoria;
+use app\models\PermissaoEnum;
 use app\modules\coordenador\models\CategoriaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+
 
 /**
  * CategoriaController implements the CRUD actions for Categoria model.
@@ -24,6 +27,17 @@ class CategoriaController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel'],
+                        'roles' => [PermissaoEnum::PERMISSAO_COORDENADOR],
+                    ]
                 ],
             ],
         ];

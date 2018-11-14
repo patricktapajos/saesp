@@ -4,10 +4,12 @@ namespace app\modules\coordenador\controllers;
 
 use Yii;
 use app\modules\coordenador\models\Modalidade;
+use app\models\PermissaoEnum;
 use app\modules\coordenador\models\ModalidadeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
 
 /**
  * ModalidadeController implements the CRUD actions for Modalidade model.
@@ -24,6 +26,17 @@ class ModalidadeController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel'],
+                        'roles' => [PermissaoEnum::PERMISSAO_COORDENADOR],
+                    ]
                 ],
             ],
         ];

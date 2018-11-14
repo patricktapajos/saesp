@@ -16,6 +16,7 @@ use app\modules\inscricao\models\InscricaoParecerSearch;
 use app\modules\inscricao\models\CandidatoDocumento;
 use app\modules\coordenador\models\Aluno;
 use app\modules\coordenador\models\Alunomodalidade;
+use app\models\PermissaoEnum;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\MethodNotAllowedHttpException;
@@ -23,6 +24,8 @@ use yii\filters\VerbFilter;
 use yii\db\Query;
 use yii\data\ActiveDataProvider;
 use kartik\mpdf\Pdf;
+use yii\filters\AccessControl;
+
 
 /**
  * SelecaoCelController implements the CRUD actions for SelecaoCel model.
@@ -39,6 +42,17 @@ class SelecaocelController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel','gerenciarparecer','parecer'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel','gerenciarparecer','parecer'],
+                        'roles' => [PermissaoEnum::PERMISSAO_COORDENADOR],
+                    ]
                 ],
             ],
         ];
@@ -75,6 +89,11 @@ class SelecaocelController extends Controller
         $searchModel = new InscricaoParecerSearch();
         $searchModel->SEL_ID = $selecao->SEL_ID;
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        
+        if($dataProvider->getCount() == 0){
+            throw new MethodNotAllowedHttpException ('Nenhum parecer a ser registrado.');
+            
+        }
 
          return $this->render('gerenciarparecer', [
              'dataProvider' => $dataProvider,

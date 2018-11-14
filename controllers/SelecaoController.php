@@ -11,6 +11,8 @@ use app\models\InscricaomodalidadeSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use app\models\PermissaoEnum;
+use yii\filters\AccessControl;
 
 /**
  * SelecaoController implements the CRUD actions for Selecao model.
@@ -28,6 +30,17 @@ class SelecaoController extends Controller
                 'actions' => [
                     'delete' => ['POST'],
                     'index' => ['GET']
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel'],
+                        'roles' => [PermissaoEnum::PERMISSAO_ADMIN],
+                    ]
                 ],
             ],
         ];

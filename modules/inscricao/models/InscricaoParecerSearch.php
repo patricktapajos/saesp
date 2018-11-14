@@ -57,7 +57,7 @@ class InscricaoParecerSearch extends Inscricao
                ->groupBy('INSCRICAO.INS_ID, USUARIO.USU_NOME, USUARIO.USU_CPF, INSCRICAO.INS_NUM_INSCRICAO, CANDIDATO.CAND_ID');*/
         
         $query = Inscricao::find()->joinWith([
-                    'candidato','candidato.usuario','inscricaomodalidade.modalidadeDataHora.selecaoModalidade.modalidade.cel'
+                    'candidato','candidato.usuario','inscricaomodalidade.modalidadeDataHora.selecaoModalidade.cel'
                 ])
                 ->select('INSCRICAO.INS_ID, USUARIO.USU_NOME, USUARIO.USU_CPF, INSCRICAO.INS_NUM_INSCRICAO,INSCRICAO.INS_SITUACAO, CANDIDATO.CAND_ID')
                ->groupBy('INSCRICAO.INS_ID, USUARIO.USU_NOME, USUARIO.USU_CPF, INSCRICAO.INS_NUM_INSCRICAO,INSCRICAO.INS_SITUACAO, CANDIDATO.CAND_ID');

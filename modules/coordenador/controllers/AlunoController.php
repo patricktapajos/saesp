@@ -4,10 +4,13 @@ namespace app\modules\coordenador\controllers;
 
 use Yii;
 use app\modules\aluno\models\Aluno;
+use app\models\PermissaoEnum;
 use app\modules\aluno\models\AlunoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+
 
 /**
  * AlunoController implements the CRUD actions for Aluno model.
@@ -24,6 +27,17 @@ class AlunoController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'delete' => ['POST'],
+                ],
+            ],
+            'access' => [
+                'class' => AccessControl::className(),
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel'],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel'],
+                        'roles' => [PermissaoEnum::PERMISSAO_COORDENADOR],
+                    ]
                 ],
             ],
         ];
