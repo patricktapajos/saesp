@@ -26,10 +26,12 @@ $this->registerJs("
     };   
 
     function validarModalidadeAquatica(attribute, value) {
+        vue2.verificaLaudoAquatico();
         return vue2.contModalidadesAquaticas > 1;
     };
 
     function validarHorarioModalidade(attribute, value) {
+        vue2.verificarConflitoHorario();
         return vue2.horariosComConflito;
     };
 ");
