@@ -143,6 +143,25 @@ class Candidato extends \yii\db\ActiveRecord
         return true;
     }
 
+    public function validarHorarioModalidade(){
+
+        $resultado = (new \yii\db\Query())
+            ->select(['MDS_DESCRICAO', 'MDT_HORARIO_INICIO', 'QTDE'=>'count(MODALIDADE_DATAHORA.MDT_ID)'])
+            ->from('MODALIDADE_DATAHORA')
+            ->innerJoin('MODALIDADE_DIASEMANA', 'MODALIDADE_DIASEMANA.MDT_ID = MODALIDADE_DATAHORA.MDT_ID')
+            ->where(['MODALIDADE_DATAHORA.MDT_ID'=> $this->modalidades])
+            ->groupBy(['MDS_DESCRICAO', 'MDT_HORARIO_INICIO'])->all();
+
+        foreach ($resultado as $reg) {
+            if($reg['QTDE'] > 1){
+                $this->addError($attribute, 'Uma ou mais modalidades apresentam conflito de horário.');
+                return false;
+            }
+        }
+
+        return true;
+    }
+
     public function init(){
         $this->CAND_MENOR_IDADE = '0';
         $this->CAND_IDOSO = '0';
@@ -206,7 +225,7 @@ class Candidato extends \yii\db\ActiveRecord
             }
         }
 
-        return parent::beforeSave();
+        return parent::beforeSave($insert);
     }
 
     public function getUrlFoto(){

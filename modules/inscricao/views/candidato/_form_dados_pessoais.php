@@ -31,6 +31,7 @@ $this->registerJs("
     };
 
     function validarHorarioModalidade(attribute, value) {
+        var def = $.Deferred();
         vue2.verificarConflitoHorario();
         return vue2.horariosComConflito;
     };

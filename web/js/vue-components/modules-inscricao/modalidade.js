@@ -64,14 +64,17 @@ var vue2 = new Vue({
 
 		verificarConflitoHorario:function(){
 			var self = this;
+			$("#btnsalvar").attr('disabled', true);
 			$.get(this.urlHorarioModalidades, {modalidades: this.modalidades}).then((data) => {
 				self.horariosComConflito = data;
 				if(data){
-					$("#horariovalido").val(value);
-				}else{
 					$("#horariovalido").val('');
+				}else{
+					$("#horariovalido").val('teste');
 					
 				}
+				jQuery.Deferred().resolve();
+				$("#btnsalvar").removeAttr('disabled');
 			});
 		},
 

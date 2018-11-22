@@ -62,7 +62,11 @@ InscricaoAsset::register($this);
 </div>
 <br>
 <div class="form-group">
-    <?= Html::submitButton($candidato->isNewRecord ? 'Salvar' : 'Atualizar', ['class' => $candidato->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+    <?= Html::submitButton($candidato->isNewRecord ? 'Salvar' : 'Atualizar', 
+    [
+        'class' => $candidato->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
+        'id' => 'btnsalvar',
+    ]) ?>
     <?php if(!$candidato->isNewRecord): ?>
         <?= Html::a('Visualizar', ['view', 'id' => $candidato->CAND_ID], ['class' => 'btn btn-success']) ?>
     <?php  endif; ?>

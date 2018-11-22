@@ -72,11 +72,11 @@ class Inscricao extends \yii\db\ActiveRecord
         ];
     }
 
-   public function beforeSave(){
-        if($this->isNewRecord){
+   public function beforeSave($insert){
+        if($insert){
             $this->INS_SITUACAO = SituacaoInscricaoEnum::AGUARDE;
         }
-        return parent::beforeSave();
+        return parent::beforeSave($insert);
     }
 
     public function afterSave($insert, $changedAttributes){
