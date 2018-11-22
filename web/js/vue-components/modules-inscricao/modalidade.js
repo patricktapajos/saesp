@@ -23,7 +23,7 @@ var vue2 = new Vue({
 			if($.inArray(mdh_codigo, this.modalidades) != -1 && $.inArray(mdh_codigo, this.modalidadesAquaticas) != -1){
 				this.contModalidadesAquaticas++;								
 			}else{
-				if(this.contModalidadesAquaticas > 0){
+				if(this.contModalidadesAquaticas > 0 && $.inArray(mdh_codigo, this.modalidadesAquaticas) != -1){
 					this.contModalidadesAquaticas--;
 				}
 			}

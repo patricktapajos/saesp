@@ -119,14 +119,14 @@ class RestController extends \yii\web\Controller
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
         $resultado = (new \yii\db\Query())
-            ->select(['MDS_DESCRICAO', 'MDT_HORARIO_INICIO', 'qtde_modalidade'=>'count(MODALIDADE_DATAHORA.MDT_ID)'])
+            ->select(['MDS_DESCRICAO', 'MDT_HORARIO_INICIO', 'QTDE'=>'count(MODALIDADE_DATAHORA.MDT_ID)'])
             ->from('MODALIDADE_DATAHORA')
             ->innerJoin('MODALIDADE_DIASEMANA', 'MODALIDADE_DIASEMANA.MDT_ID = MODALIDADE_DATAHORA.MDT_ID')
             ->where(['MODALIDADE_DATAHORA.MDT_ID'=> $_GET['modalidades']])
             ->groupBy(['MDS_DESCRICAO', 'MDT_HORARIO_INICIO'])->all();
 
         foreach ($resultado as $reg) {
-            if($reg['qtde_modalidade'] > 1){
+            if($reg['QTDE'] > 1){
                 return true;
             }
         }

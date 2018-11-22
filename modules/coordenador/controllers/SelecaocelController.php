@@ -161,7 +161,7 @@ class SelecaocelController extends Controller
            throw new \yii\web\HttpException(403,"Não há seleções abertas para cadastro de modalidades!");
         }
 
-        $selecao = SelecaoCel::find()->where(['CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
+        //$selecao = SelecaoCel::find()->where(['CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
         $scel = SelecaoCel::find()->where(['SEL_ID'=>Selecao::getSelecaoAtiva()->SEL_ID, 'CEL_ID'=>Yii::$app->user->identity->cel_id])->one();
 
         if($scel){
