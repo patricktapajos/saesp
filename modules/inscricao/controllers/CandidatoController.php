@@ -44,7 +44,7 @@ class CandidatoController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'update', 'delete','alterarsenha'],
+                        'actions' => ['update', 'delete','alterarsenha','view','imprimir'],
                         'roles' => [PermissaoEnum::PERMISSAO_CANDIDATO],
                     ],
                     [
