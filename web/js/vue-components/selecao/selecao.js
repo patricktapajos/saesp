@@ -77,8 +77,6 @@ var vue = new Vue({
 				self.atualizarDataCadastro();
 				self.verificarRadioHabilitado();
 			},500);	 
-
-
 			
 	  	});
 	},

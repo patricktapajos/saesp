@@ -23,6 +23,12 @@ InscricaoAsset::register($this);
         <?= $form->errorSummary([$model,$candidato,$documento]); ?>
     </div>
 
+    <div class="form-group">
+        <?php if(!$candidato->isNewRecord): ?>
+            <?= Html::a('Visualizar', ['view', 'id' => $candidato->CAND_ID], ['class' => 'btn btn-success']) ?>
+        <?php  endif; ?>
+    </div>
+
     <?php echo TabsX::widget([
             //'position'=>TabsX::POS_LEFT,
             'encodeLabels'=>false,
@@ -67,9 +73,6 @@ InscricaoAsset::register($this);
         'class' => $candidato->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
         'id' => 'btnsalvar',
     ]) ?>
-    <?php if(!$candidato->isNewRecord): ?>
-        <?= Html::a('Visualizar', ['view', 'id' => $candidato->CAND_ID], ['class' => 'btn btn-success']) ?>
-    <?php  endif; ?>
     <?= Html::a('Cancelar', ['/inscricao/default'] ,['class' => 'btn btn-danger']) ?>
 </div>
 

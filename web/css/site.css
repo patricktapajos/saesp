@@ -14,11 +14,15 @@ body {
     height: 100%;
     background-color: #3379b7c4;
     /*padding: 10px;*/
-    color: #f0f0f0;
+    /*color: #f0f0f0;*/
 }
 
 .header-user-info {
     font-size: 1.8em;
+}
+
+.dropdown-header {
+    color: #333 !important;
 }
 
 .wrap {

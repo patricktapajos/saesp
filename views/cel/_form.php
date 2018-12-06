@@ -69,9 +69,7 @@ use yii\helpers\Url;
 
         <?= $form->field($model, 'CEL_COMPLEMENTO_END')->textInput(['maxlength' => true]) ?>
 
-        <?php if(!$model->isNewRecord): ?>
-            <?= $form->field($model, 'CEL_STATUS')->dropdownList(SituacaoEnum::listar(), ['prompt' => 'Selecione >>']) ?>
-        <?php endif; ?>
+        <?= $form->field($model, 'CEL_STATUS')->dropdownList(SituacaoEnum::listar(), ['prompt' => 'Selecione >>']) ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Salvar' : 'Atualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

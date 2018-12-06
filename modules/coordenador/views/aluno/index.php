@@ -14,19 +14,37 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <!--<p>
-        <?= Html::a('Create Aluno', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>-->
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
-
-            'candidato.usuario.USU_NOME',
-            'candidato.usuario.USU_CPF',
-
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'label'=>'Nome',
+                'attribute'=>'USU_NOME',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    if($model->candidato->usuario){
+                        return $model->candidato->usuario->USU_NOME;
+                    }
+                },
+                'filter'=> Html::textInput("AlunoSearch[USU_NOME]", $searchModel->USU_NOME, ['class'=>'form-control'])
+            ],
+            [
+                'label'=>'CPF',
+                'attribute'=>'USU_CPF',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    if($model->candidato->usuario){
+                        return $model->candidato->usuario->USU_CPF;
+                    }
+                },
+                'filter'=> Html::textInput("AlunoSearch[USU_CPF]", $searchModel->USU_CPF, ['class'=>'form-control'])
+            ],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'header'=>'Ações'
+            ],
         ],
     ]); ?>
 </div>

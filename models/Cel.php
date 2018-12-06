@@ -42,7 +42,7 @@ class Cel extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['CEL_NOME','CRD_ID','_nome_coordenador'], 'required'],
+            [['CEL_NOME','CEL_STATUS','_nome_coordenador'], 'required'],
             [['CRD_ID'], 'validarCoordenador'],
             [['CRD_ID'], 'number'],
             [['CEL_NOME', 'CEL_LATITUDE', 'CEL_LONGITUDE', 'CEL_LOGRADOURO', 'CEL_BAIRRO', 'CEL_COMPLEMENTO_END','CEL_TELEFONE'], 'string', 'max' => 255],
@@ -94,10 +94,10 @@ class Cel extends \yii\db\ActiveRecord
         return parent::beforeValidate();
     }
 
-    public function init(){
+    /*public function init(){
         parent::init();
         $this->CEL_STATUS = SituacaoEnum::ATIVO;
-    }
+    }*/
 
 
     public function getCoordenador(){

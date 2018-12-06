@@ -75,10 +75,10 @@ class InscricaoParecerSearch extends Inscricao
             return $dataProvider;
         }
 
-        $query->andFilterWhere(['like', 'INS_NUM_INSCRICAO', $this->INS_NUM_INSCRICAO])
+        $query->andFilterWhere(['=', 'INS_NUM_INSCRICAO', $this->INS_NUM_INSCRICAO])
             ->andFilterWhere(['like', 'USUARIO.USU_NOME', $this->USU_NOME])
             ->andFilterWhere(['like', 'USUARIO.USU_CPF', $this->USU_CPF])
-            ->andFilterWhere(['like', 'INS_SITUACAO', $this->INS_SITUACAO])
+            ->andFilterWhere(['=', 'INS_SITUACAO', $this->INS_SITUACAO])
             ->andFilterWhere(['=','CEL.CEL_ID', Yii::$app->user->identity->cel_id])
             ->andFilterWhere(['=','SELECAO_MODALIDADE.SEL_ID', $this->SEL_ID]);
         ;

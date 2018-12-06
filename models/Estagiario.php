@@ -2,6 +2,7 @@
 
 namespace app\models;
 use app\models\Usuario;
+use app\models\Professor;
 
 use Yii;
 
@@ -45,5 +46,9 @@ class Estagiario extends \yii\db\ActiveRecord
 
     public function getUsuario(){
         return $this->hasOne(Usuario::className(), ['USU_ID'=>'USU_ID']);
+    }
+
+    public function getProfessor(){
+        return $this->hasOne(Professor::className(), ['PROF_ID'=>'PROF_ID']);
     }
 }

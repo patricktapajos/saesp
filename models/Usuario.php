@@ -33,6 +33,8 @@ class Usuario extends \yii\db\ActiveRecord
     public $_senha_atual;
     public $_nova_senha;
     public $_nova_senha_confirmacao;
+    public $_nome;
+    public $_prof_id;
     const SCENARIO_ESQUECI_SENHA = 'SCENARIO_ESQUECI_SENHA';
     const SCENARIO_ALTERAR_SENHA = 'SCENARIO_ALTERAR_SENHA';
     const SCENARIO_DEFAULT = 'SCENARIO_DEFAULT';
@@ -67,6 +69,12 @@ class Usuario extends \yii\db\ActiveRecord
             [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO','USU_SITUACAO'], 'required','on'=>[self::SCENARIO_DEFAULT,self::SCENARIO_ALTERAR]],
             [['USU_NOME', 'USU_EMAIL', 'USU_SENHA'], 'string', 'max' => 255],
             ['USU_EMAIL','email'],
+            [['_prof_id', '_nome'], 'required', 'when' => function($model) {
+                return $model->USU_PERMISSAO == PermissaoEnum::PERMISSAO_ESTAGIARIO;
+            },'whenClient'=>'function(attribute, value){ return false }',
+                'on'=>[self::SCENARIO_DEFAULT, self::SCENARIO_ALTERAR], 
+                'message'=>'É necessário relacionar o estagiário a um professor'
+            ],
             ['USU_CPF','required','on'=>[self::SCENARIO_ESQUECI_SENHA]],
             [['USU_CPF'], CpfValidator::className()],
             [['USU_CPF'], 'string', 'max' => 14],
@@ -101,7 +109,8 @@ class Usuario extends \yii\db\ActiveRecord
             'USU_SENHA' => 'Senha',
             'USU_SITUACAO' => 'Situação',
             'USU_PERMISSAO' => 'Perfil',
-            '_nova_senha_confirmacao' => 'Confirmar nova senha'
+            '_nova_senha_confirmacao' => 'Confirmar nova senha',
+            '_prof_id'=>'Professor'
         ];
     }
 
@@ -180,6 +189,7 @@ class Usuario extends \yii\db\ActiveRecord
            case PermissaoEnum::PERMISSAO_ESTAGIARIO:
                 $prof = new Estagiario();
                 $prof->USU_ID = $this->USU_ID;
+                $prof->PROF_ID = $this->_prof_id;
                 $prof->save(false);
                 break;
         }
@@ -189,19 +199,19 @@ class Usuario extends \yii\db\ActiveRecord
         
         switch ($this->USU_PERMISSAO) {
             case PermissaoEnum::PERMISSAO_ADMIN:
-                Administrador::model()->delete();
+                $this->administrador->delete();
                 break;
 
             case PermissaoEnum::PERMISSAO_COORDENADOR:
-                Coordenador::model()->delete();
+                $this->coordenador->delete();
                 break;
 
             case PermissaoEnum::PERMISSAO_PROFESSOR:
-                Professor::model()->delete();
+                $this->professor->delete();
                 break;
 
            case PermissaoEnum::PERMISSAO_ESTAGIARIO:
-                Estagiario::model()->delete();
+                $this->estagiario->delete();
                 break;
         }
     }

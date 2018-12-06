@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\modules\aluno\models\Aluno */
 
 $this->title = 'Visualizando Aluno';
-$this->params['breadcrumbs'][] = ['label' => 'Gerenciar Aluno', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Gerenciar Parecer', 'url' => ['gerenciarparecer']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="aluno-view">
@@ -15,6 +15,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
     <p>
         <?= Html::a('Imprimir Carteirinha', ['aluno/imprimircarteirinha', 'id' => $model->ALU_ID], ['class' => 'btn btn-warning']) ?>
+        <?= Html::a('Voltar', ['selecaocel/gerenciarparecer'], ['class' => 'btn btn-danger']) ?>
     </p>
     <div class="col-lg-6 col-sm-12">
         <?= DetailView::widget([

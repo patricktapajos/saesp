@@ -183,11 +183,16 @@ class UsuarioController extends Controller
      */
     public function actionDelete($id)
     {
+        $trans = Yii::$app->db->beginTransaction();
         try{
             $model=$this->findModel($id);
             $model->deletarPorPermissao();
             $model->delete();
+            $trans->commit();
+            Yii::$app->session->setFlash('success', 'Usuário excluído!');            
+            
         }catch(\Exception $e){
+            $trans->rollBack();
             Yii::$app->session->setFlash('danger', "Usuário está referenciado em alguma seleção");
         }
         

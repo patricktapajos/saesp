@@ -14,8 +14,8 @@ use app\modules\inscricao\models\InscricaoModalidade;
 use app\modules\inscricao\models\Inscricao;
 use app\modules\inscricao\models\InscricaoParecerSearch;
 use app\modules\inscricao\models\CandidatoDocumento;
-use app\modules\coordenador\models\Aluno;
-use app\modules\coordenador\models\Alunomodalidade;
+use app\modules\aluno\models\Aluno;
+use app\modules\aluno\models\Alunomodalidade;
 use app\models\PermissaoEnum;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
@@ -46,11 +46,11 @@ class SelecaocelController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel','gerenciarparecer','parecer'],
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel','gerenciarparecer','parecer','visualizaraluno'],
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel','gerenciarparecer','parecer'],
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel','gerenciarparecer','parecer','visualizaraluno'],
                         'roles' => [PermissaoEnum::PERMISSAO_COORDENADOR],
                     ]
                 ],
@@ -92,7 +92,6 @@ class SelecaocelController extends Controller
         
         if($dataProvider->getCount() == 0){
             throw new MethodNotAllowedHttpException ('Nenhum parecer a ser registrado.');
-            
         }
 
          return $this->render('gerenciarparecer', [
@@ -110,6 +109,10 @@ class SelecaocelController extends Controller
     public function actionParecer($id)
     {
         $inscricao           = Inscricao::findOne($id);
+
+        if(!$inscricao->isAguardando()){
+            throw new MethodNotAllowedHttpException ('Inscrição já recebeu parecer.');
+        }
         $inscricao->scenario = Inscricao::CENARIO_PARECER;
         /*$scels               = SelecaoCel::find()
             ->innerJoinWith(['selecaoModalidade.modalidadeDataHora.inscricaoModalidade'])
@@ -123,7 +126,13 @@ class SelecaocelController extends Controller
                 $inscricao->save();
                 $trans->commit();
                 $aluno = Aluno::find()->where(['INS_ID'=>$id])->one();
-                return $this->redirect(['aluno/view','id'=>$aluno->ALU_ID]);
+                if($aluno){
+                    Yii::$app->session->setFlash('success', "Inscrição deferida. Candidato agora é um aluno!");
+                    return $this->redirect(['visualizaraluno','id'=>$inscricao->INS_ID]);
+                }else{
+                    Yii::$app->session->setFlash('success', "Inscrição indeferida!");
+                    return $this->redirect(['gerenciarparecer']);
+                }
             }catch(\Exception $e){
                 $trans->rollBack();
                 throw $e;
@@ -132,6 +141,18 @@ class SelecaocelController extends Controller
         return $this->render('parecer', [
             'model' => $inscricao,
             'smods' => $smods,
+        ]);
+    }
+
+    public function actionVisualizaraluno($id)
+    {
+        $inscricao = Inscricao::findOne($id);
+        $model = $inscricao->aluno;
+        $smods = AlunoModalidade::find()->innerJoinWith('modalidadeDataHora')->where(['ALU_ID'=>$model->ALU_ID])->all();
+        
+        return $this->render('visualizar_aluno', [
+            'model' => $model,
+            'smods' => $smods
         ]);
     }
 

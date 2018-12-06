@@ -49,14 +49,19 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
 
             ['class' => 'yii\grid\ActionColumn',
-             'template' => '{parecer} {preimpressaocarteira}',
+              'header'=>'Ações',
+             'template' => '{parecer} {visualizar} {impressaocarteira}',
              'buttons'  => [
                'parecer'   => function ($url, $model) {
                     $url ='../selecaocel/parecer?id='.$model->INS_ID;
                     return $model->isAguardando() ? Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url,['title'=>'Parecer']):'';
                 },
-                'preimpressaocarteira'   => function ($url, $model) {
-                    $url ='../selecaocel/preimpressaocarteira?id='.$model->INS_ID;
+                'visualizar'   => function ($url, $model) {
+                    $url ='../selecaocel/visualizaraluno?id='.$model->INS_ID;
+                    return $model->isDeferido() ? Html::a('<span class="glyphicon glyphicon-eye-open"></span>', $url,['title'=>'Visualizar Aluno']): '';
+                },
+                'impressaocarteira'   => function ($url, $model) {
+                    $url ='../aluno/imprimircarteirinha?id='.$model->INS_ID;
                     return $model->isDeferido() ? Html::a('<span class="glyphicon glyphicon-print"></span>', $url,['title'=>'Impressão Carteirinha']): '';
                 }
              ]

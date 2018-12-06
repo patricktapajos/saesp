@@ -271,7 +271,6 @@ class CandidatoController extends Controller
                 'candidato' => $candidato,
                 'scels' => $scels,
                 'documento'=>$documento
-
             ]);
         }
     }

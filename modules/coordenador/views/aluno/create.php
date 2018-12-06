@@ -6,8 +6,8 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\modules\aluno\models\Aluno */
 
-$this->title = 'Create Aluno';
-$this->params['breadcrumbs'][] = ['label' => 'Alunos', 'url' => ['index']];
+$this->title = 'Cadastrar Aluno';
+$this->params['breadcrumbs'][] = ['label' => 'Gerenciar Aluno', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="aluno-create">
