@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\grid\GridView;
 use app\models\SituacaoSelecaoEnum;
 
@@ -41,7 +42,14 @@ $this->params['breadcrumbs'][] = $this->title;
 
             ['class' => 'yii\grid\ActionColumn',
             'header'=>'Ações',
+            'template'=>'{view} {update} {delete} {reabrir}',
             'options'=>['width'=>'70px'],
+            'buttons'  => [
+                'reabrir'=> function ($url, $model) {
+                     $url = Url::to('reabrir?id='.$model->SEL_ID);
+                     return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, ['title'=>'Reabrir Seleção']);
+                }
+            ],
             'visibleButtons' => [
                 'view' => function ($model) {
                     return true;
@@ -51,6 +59,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'delete' => function ($model) {
                     return !$model->isEncerrado();
+                },
+                'reabrir' => function ($model) {
+                    return $model->isEncerrado() && $model->isUltimaCadastrada();
                 },
             ]
             ],

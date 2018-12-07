@@ -31,6 +31,14 @@ var vue = new Vue({
 			});
 		},
 
+		/*atualizarDataRemanescentes: function(){
+			var self = this;
+			var dateFormat = "dd/mm/yy";
+			$("#sel_dt_vr_inicio").on("change", function() {
+				$("#sel_dt_vr_fim").datepicker("option", "minDate", self.getDate(dateFormat, this));
+			});
+		},*/
+
 		getDate: function(dateFormat, element) {
 			var date;
 			try {
@@ -66,6 +74,14 @@ var vue = new Vue({
 					$(this).attr('disabled',true);
 				});
 			}
+
+			/*let radioVagas = $("#vagasremanescentes").val();
+			if(!radioVagas || radioVagas === null){
+				$('.vagasremanescentes :radio').parent().parent().removeAttr('data-toggle');
+				$.each($('.vagasremanescentes :radio'), function(){
+					$(this).attr('disabled',true);
+				});
+			}*/
 		}
 	},
 	mounted: function(){
@@ -75,6 +91,7 @@ var vue = new Vue({
 				self.setSituacao();
 				self.atualizarDataInscricao();
 				self.atualizarDataCadastro();
+				//self.atualizarDataRemanescentes();
 				self.verificarRadioHabilitado();
 			},500);	 
 			

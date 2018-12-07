@@ -12,14 +12,25 @@ use Yii;
  * @property string $SEL_DT_FIM
  * @property string $SEL_SITUACAO
  */
-class Selecao extends \yii\db\ActiveRecord
+class Selecao extends \app\components\SAESPActiveRecord
 {
+    //const SCENARIO_VAGAS_REMANESCENTES = 'vagasremanescentes';
+    const SCENARIO_REABRIR_SELECAO = 'reabrirselecao';
+    public $justificativa;
+    
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
         return 'SELECAO';
+    }
+
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios [self::SCENARIO_REABRIR_SELECAO] = ['justificativa','SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'];
+        return $scenarios;
     }
 
     /**
@@ -29,11 +40,13 @@ class Selecao extends \yii\db\ActiveRecord
     {
         return [
             [['SEL_TITULO','SEL_DESCRICAO','SEL_SITUACAO'], 'required'],
-            [['SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'required','on'=>'default'],
+            [['SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'required','on'=>['default']],
+            [['justificativa','SEL_DT_INICIO', 'SEL_DT_FIM'], 'required','on'=>self::SCENARIO_REABRIR_SELECAO],
+            //[['SEL_DT_VR_INICIO','SEL_DT_VR_FIM'], 'required','on'=>self::SCENARIO_VAGAS_REMANESCENTES],
             [['SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'string', 'max' => 10],
             [['SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'date', 'format'=>'php:d/m/Y'],
             [['SEL_DT_INICIO', 'SEL_DT_FIM'], 'required', 'when' => function($model) {
-                return $model->SEL_SITUACAO == SituacaoSelecaoEnum::INSCRICOES_ABERTAS;
+                return $model->SEL_SITUACAO == SituacaoSelecaoEnum::INSCRICOES_ABERTAS || $model->scenario == Selecao::SCENARIO_REABRIR_SELECAO;
             }],
             [['SEL_SITUACAO'], 'string', 'max' => 30],
         ];
@@ -52,6 +65,8 @@ class Selecao extends \yii\db\ActiveRecord
             'SEL_DT_FIM' => 'Data Fim de Inscrições',
             'SEL_DT_INICIO_CAD' => 'Data Início de cadastro',
             'SEL_DT_FIM_CAD' => 'Data Fim de cadastro',
+            /*'SEL_DT_VR_INICIO' => 'Data Início Vagas Remanescentes',
+            'SEL_DT_VR_FIM' => 'Data Fim Vagas Remanescentes',*/
             'SEL_SITUACAO' => 'Situação',
         ];
     }
@@ -60,7 +75,23 @@ class Selecao extends \yii\db\ActiveRecord
         if($model->scenario == 'default'){
             $this->SEL_SITUACAO = SituacaoSelecaoEnum::CADASTRADO;
         }
+
+        // if($model->scenario == self::SCENARIO_VAGAS_REMANESCENTES){
+        //     $this->SEL_SITUACAO = SituacaoSelecaoEnum::VAGAS_REMANESCENTES_ABERTO;
+        // }
+
         return parent::beforeValidate();
+    }
+
+    public function beforeSave($insert){
+        
+        if($model->scenario == self::SCENARIO_REABRIR_SELECAO){
+            $this->getLog()->log_justificativa = $this->justificativa;
+            $this->getLog()->log_dados_antigos = json_encode($this->oldAttributes);
+            //$this->getLog()->log_dados_novos = json_encode($this->attributes);
+        }
+        
+        return parent::beforeSave($insert);
     }
 
     public function isCadastrado(){
@@ -87,6 +118,10 @@ class Selecao extends \yii\db\ActiveRecord
         return $this->SEL_SITUACAO == SituacaoSelecaoEnum::CONCLUIDO;
     }
 
+    public function isVagasRemanescentes(){
+        return $this->SEL_SITUACAO == SituacaoSelecaoEnum::VAGAS_REMANESCENTES_ABERTO || $this->SEL_SITUACAO == SituacaoSelecaoEnum::VAGAS_REMANESCENTES_ABERTO;
+    }
+
     public static function inscricoesAbertas(){
         return self::find()->where("SEL_SITUACAO=:SEL_SITUACAO and trunc(sysdate) between SEL_DT_INICIO and SEL_DT_FIM",['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();
 
@@ -107,5 +142,12 @@ class Selecao extends \yii\db\ActiveRecord
 
     public static function cadastroCEL(){
         return self::find()->where("SEL_SITUACAO=:SEL_SITUACAO and trunc(sysdate) between SEL_DT_INICIO_CAD and SEL_DT_FIM_CAD",['SEL_SITUACAO'=>SituacaoSelecaoEnum::CADASTRADO])->one();
+    }
+
+    public function isUltimaCadastrada(){
+        $sql = "SELECT MAX(SEL_ID) AS ULTIMA FROM SAESP.SELECAO";
+        $command = Yii::$app->db->createCommand($sql);
+        $resultado = $command->queryOne();
+        return $this->SEL_ID == $resultado['ULTIMA'];
     }
 }

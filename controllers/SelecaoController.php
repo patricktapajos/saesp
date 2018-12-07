@@ -34,11 +34,11 @@ class SelecaoController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel'],
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel','reabrir'],
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel'],
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel','reabrir'],
                         'roles' => [PermissaoEnum::PERMISSAO_ADMIN],
                     ]
                 ],
@@ -109,6 +109,9 @@ class SelecaoController extends Controller
         if($model->isEncerrado()){
             throw new \yii\web\HttpException(403,"Seleção encerrada.");
         }
+        if($model->isVagasRemanescentes()){
+            return $this->redirect(['vagasremanescentes', 'id'=>$id]);
+        }
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', "Seleção atualizada com sucesso!");
             return $this->redirect(['index']);
@@ -147,4 +150,43 @@ class SelecaoController extends Controller
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
+
+    public function actionReabrir($id){
+        
+        $model = $this->findModel($id);  
+        $model->setScenario(Selecao::SCENARIO_REABRIR_SELECAO);
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "Seleção atualizada com sucesso!");
+            return $this->redirect(['index']);
+        } else {
+            return $this->render('reabrir', [
+                'model' => $model,
+            ]);
+        }
+    }
+
+    // public function actionVagasremanescentes($id){
+        
+    //     $model = $this->findModel($id);  
+   
+    //     if(!$model->isEncerrado() && !$model->isVagasRemanescentes()){
+    //         throw new \yii\web\HttpException(403,"Seleção ainda não encerrada.");
+    //     }
+
+    //     $model->setScenario(Selecao::SCENARIO_VAGAS_REMANESCENTES);
+
+    //     if(!$model->isVagasRemanescentes()){
+    //         $model->SEL_SITUACAO = SituacaoSelecaoEnum::VAGAS_REMANESCENTES_ABERTO;
+    //     }
+        
+    //     if ($model->load(Yii::$app->request->post()) && $model->save()) {
+    //         Yii::$app->session->setFlash('success', "Seleção atualizada com sucesso!");
+    //         return $this->redirect(['index']);
+    //     } else {
+    //         return $this->render('vagasremanescentes', [
+    //             'model' => $model,
+    //         ]);
+    //     }
+    // }
 }
