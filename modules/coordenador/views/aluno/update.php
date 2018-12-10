@@ -15,6 +15,8 @@ $this->params['breadcrumbs'][] = ['label' => 'Atualizar Aluno'];
 
     <?= $this->render('_form', [
         'model' => $model,
+        'aluno' => $aluno,
+        'candidato'=>$candidato
     ]) ?>
 
 </div>

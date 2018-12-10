@@ -85,7 +85,7 @@ class Selecao extends \app\components\SAESPActiveRecord
 
     public function beforeSave($insert){
         
-        if($model->scenario == self::SCENARIO_REABRIR_SELECAO){
+        if($this->scenario == self::SCENARIO_REABRIR_SELECAO){
             $this->getLog()->log_justificativa = $this->justificativa;
             $this->getLog()->log_dados_antigos = json_encode($this->oldAttributes);
             //$this->getLog()->log_dados_novos = json_encode($this->attributes);
@@ -118,9 +118,9 @@ class Selecao extends \app\components\SAESPActiveRecord
         return $this->SEL_SITUACAO == SituacaoSelecaoEnum::CONCLUIDO;
     }
 
-    public function isVagasRemanescentes(){
+    /*public function isVagasRemanescentes(){
         return $this->SEL_SITUACAO == SituacaoSelecaoEnum::VAGAS_REMANESCENTES_ABERTO || $this->SEL_SITUACAO == SituacaoSelecaoEnum::VAGAS_REMANESCENTES_ABERTO;
-    }
+    }*/
 
     public static function inscricoesAbertas(){
         return self::find()->where("SEL_SITUACAO=:SEL_SITUACAO and trunc(sysdate) between SEL_DT_INICIO and SEL_DT_FIM",['SEL_SITUACAO'=>SituacaoSelecaoEnum::INSCRICOES_ABERTAS])->one();

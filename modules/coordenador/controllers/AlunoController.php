@@ -84,13 +84,17 @@ class AlunoController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Aluno();
+        $aluno = new Aluno();
+        $candidato = $model->candidato;
+        $model = $candidato->usuario;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ALU_ID]);
         } else {
             return $this->render('create', [
+                'aluno' => $aluno,
                 'model' => $model,
+                'candidato'=>$candidato
             ]);
         }
     }
@@ -103,13 +107,18 @@ class AlunoController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $aluno = $this->findModel($id);
+        $aluno->setScenario(Aluno::SCENARIO_ALTERAR);
+        $candidato = $aluno->candidato;
+        $model = $candidato->usuario;
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->ALU_ID]);
         } else {
             return $this->render('update', [
+                'aluno' => $aluno,
                 'model' => $model,
+                'candidato'=>$candidato
             ]);
         }
     }

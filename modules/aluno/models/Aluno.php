@@ -26,14 +26,24 @@ use Yii;
  * @property string $ALU_OBSERVACOES
  * @property string $ALU_ID
  */
-class Aluno extends \yii\db\ActiveRecord
+class Aluno extends \app\components\SAESPActiveRecord
 {
+    const SCENARIO_ALTERAR = 'alterar';
+    
+    public $justificativa;
     /**
      * @inheritdoc
      */
     public static function tableName()
     {
         return 'ALUNO';
+    }
+
+    public function scenarios()
+    {
+        $scenarios = parent::scenarios();
+        $scenarios [self::SCENARIO_ALTERAR] = ['justificativa','ALU_SITUACAO'];
+        return $scenarios;
     }
 
     /**
@@ -43,6 +53,7 @@ class Aluno extends \yii\db\ActiveRecord
     {
         return [
             [['CAND_ID', 'ALU_ID'], 'required'],
+            [['ALU_SITUACAO', 'justificativa'], 'required', 'on'=>self::SCENARIO_ALTERAR],
             [['CAND_ID', 'ALU_ID'], 'number'],
             [['ALU_ESTADO_CIVIL'], 'string', 'max' => 15],
             [['ALU_CPF'], 'string', 'max' => 11],
@@ -63,22 +74,9 @@ class Aluno extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'ALU_ESTADO_CIVIL' => 'Alu  Estado  Civil',
-            'ALU_CPF' => 'Alu  Cpf',
-            'ALU_LOGRADOURO' => 'Alu  Logradouro',
-            'ALU_COMPLEMENTO_END' => 'Alu  Complemento  End',
-            'ALU_CEP' => 'Alu  Cep',
-            'ALU_BAIRRO' => 'Alu  Bairro',
             'CAND_ID' => 'Candidato',
             'INS_ID' => 'Inscrição',
-            'ALU_NOME_EMERGENCIA' => 'Alu  Nome  Emergencia',
-            'ALU_TEL_EMERGENCIA' => 'Alu  Tel  Emergencia',
-            'ALU_NOME_RESPONSAVEL' => 'Alu  Nome  Responsavel',
-            'ALU_TEM_COMORBIDADE' => 'Alu  Tem  Comorbidade',
-            'ALU_COMORBIDADE_DESC' => 'Alu  Comorbidade  Desc',
-            'ALU_TEM_MEDICACAO' => 'Alu  Tem  Medicacao',
-            'ALU_MEDICACAO_DESC' => 'Alu  Medicacao  Desc',
-            'ALU_OBSERVACOES' => 'Alu  Observacoes',
+            'ALU_SITUACAO' => 'Situação',
             'ALU_ID' => 'Alu  ID',
         ];
     }
@@ -91,5 +89,16 @@ class Aluno extends \yii\db\ActiveRecord
     public function getInscricao()
     {
         return $this->hasOne(Inscricao::className(), ['CAND_ID' => 'CAND_ID']);
+    }
+
+    public function beforeSave($insert){
+        
+        if($this->scenario == self::SCENARIO_ALTERAR){
+            $this->getLog()->log_justificativa = $this->justificativa;
+            $this->getLog()->log_dados_antigos = json_encode($this->oldAttributes);
+            //$this->getLog()->log_dados_novos = json_encode($this->attributes);
+        }
+        
+        return parent::beforeSave($insert);
     }
 }

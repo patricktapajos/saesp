@@ -10,6 +10,7 @@ use app\modules\aluno\models\AlunoModalidade;
 use app\modules\aluno\models\AlunoSituacaoEnum;
 use app\models\Selecao;
 use app\models\PermissaoEnum;
+use app\models\SituacaoEnum;
 use Yii;
 
 /**
@@ -98,6 +99,7 @@ class Inscricao extends \yii\db\ActiveRecord
             $aluno = new Aluno;
             $aluno->CAND_ID              = $this->candidato->CAND_ID;
             $aluno->INS_ID               = $this->INS_ID;
+            $aluno->ALU_SITUACAO         = SituacaoEnum::ATIVO;
             $aluno->save(false);
         }else{
             $aluno = $this->aluno;
