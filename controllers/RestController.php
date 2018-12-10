@@ -254,6 +254,12 @@ class RestController extends \yii\web\Controller
                 }
             }
         }
+
+        /*echo "<pre>";
+        print_r($listaModalidades);
+        echo "</pre>";
+        die;*/
+        
         return $retorno;
     }
 

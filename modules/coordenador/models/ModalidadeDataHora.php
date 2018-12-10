@@ -92,6 +92,11 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
             return false;
         }
 
+        /*if(((int)$hora_inicio) - ((int)$hora_fim) <= 30){            
+            $this->addError($attribute, 'Este curso possui menos de 30 minutos?');
+            return false;
+        }*/
+
         return true;
     }
 
@@ -99,12 +104,8 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
         $cont = 0;
         foreach($this->quadro_modalidades as $infos){
             foreach($infos as $info){
-                if(count($info['dias']) > 0){
-                    if($this->$attribute == $info['PROF_ID'] 
-                        //&& ($this->verificarDiasIguais($this->dias, $info['dias'])
-                        //&& (($this->MDT_HORARIO_INICIO == $info['MDT_HORARIO_INICIO'] || $this->MDT_HORARIO_FIM ==  $info['MDT_HORARIO_FIM']))
-                        && $this->verificaHorariosIguais($info)
-                    ){
+                if(count($this->getDias()) > 0){
+                    if($this->$attribute == $info['PROF_ID']  && $this->verificaHorariosIguais($info)){
                         $cont++;  
                     }
                 }
@@ -120,31 +121,31 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
 
     function verificaHorariosIguais($info){
        
-        sort($info['dias']);
-        sort($this->dias);
-
-        $maior = $this->dias;
+        $maior = $this->getDias();
         $menor = $info['dias'];
+        
+        $result = array_intersect($menor, $maior);
 
-        if(count($info['dias']) > count($this->dias)){
-            $maior = $info['dias'];
-            $menor = $this->dias;
-        }
+        $menor = $result;
+        $maior = $result;
+    
 
         $contInt = 0;
         for ($i=0; $i <= count($menor) ; $i++) { 
-            if($menor[$i] == $maior[$i] && ($this->MDT_HORARIO_INICIO == $info['MDT_HORARIO_INICIO'] || $this->MDT_HORARIO_FIM == $info['MDT_HORARIO_FIM'])){
+            if(
+                $menor[$i] == $maior[$i] && ($this->MDT_HORARIO_INICIO == $info['MDT_HORARIO_INICIO'] || $this->MDT_HORARIO_FIM == $info['MDT_HORARIO_FIM']))
+            {
                 $contInt++;
             }
         }
 
-        if($contInt >= 2){
+        if($contInt > 1){
             return true;
         }
         return false;
     }
 
-    function verificarDiasIguais($array1, $array2){
+    /*function verificarDiasIguais($array1, $array2){
         $arrayIntersect1 = array_uintersect($array1, $array2, function($v1, $v2) {        
                 if ($v1===$v2) {
                     return 0;
@@ -167,7 +168,7 @@ class ModalidadeDataHora extends \yii\db\ActiveRecord
             return true;
         } 
         return false;
-    }
+    }*/
 
     public function getProfessor(){
         return $this->hasOne(Professor::className(), ['PROF_ID'=>'PROF_ID']);
