@@ -42,8 +42,8 @@ AppAsset::register($this);
         'encodeLabels' => false,
         'items' => [
             ['label' => 'Início', 'url' => ['default/index']],
-            ['label' => 'Alterar Senha', 'url' => ['candidato/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],
-            ['label' => 'Alterar Dados', 'url' => ['candidato/update?id='.Yii::$app->user->identity->id], 'visible'=>!Yii::$app->user->isGuest],
+            ['label' => 'Alterar Senha', 'url' => ['default/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],
+            ['label' => 'Alterar Dados', 'url' => ['default/update?id='.Yii::$app->user->identity->id], 'visible'=>!Yii::$app->user->isGuest],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['default/login']]
             ) : '',

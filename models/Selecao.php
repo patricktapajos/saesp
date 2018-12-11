@@ -2,6 +2,7 @@
 
 namespace app\models;
 use app\models\SituacaoSelecaoEnum;
+use app\modules\coordenador\models\SelecaoModalidade;
 use Yii;
 
 /**
@@ -149,5 +150,9 @@ class Selecao extends \app\components\SAESPActiveRecord
         $command = Yii::$app->db->createCommand($sql);
         $resultado = $command->queryOne();
         return $this->SEL_ID == $resultado['ULTIMA'];
+    }
+
+    public function getSelecoesModalidades(){
+        return $this->hasMany(SelecaoModalidade::className(), ['SEL_ID'=>'SEL_ID']);
     }
 }

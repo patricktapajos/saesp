@@ -109,9 +109,7 @@ class SelecaoController extends Controller
         if($model->isEncerrado()){
             throw new \yii\web\HttpException(403,"Seleção encerrada.");
         }
-        if($model->isVagasRemanescentes()){
-            return $this->redirect(['vagasremanescentes', 'id'=>$id]);
-        }
+        
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             Yii::$app->session->setFlash('success', "Seleção atualizada com sucesso!");
             return $this->redirect(['index']);
@@ -165,28 +163,4 @@ class SelecaoController extends Controller
             ]);
         }
     }
-
-    // public function actionVagasremanescentes($id){
-        
-    //     $model = $this->findModel($id);  
-   
-    //     if(!$model->isEncerrado() && !$model->isVagasRemanescentes()){
-    //         throw new \yii\web\HttpException(403,"Seleção ainda não encerrada.");
-    //     }
-
-    //     $model->setScenario(Selecao::SCENARIO_VAGAS_REMANESCENTES);
-
-    //     if(!$model->isVagasRemanescentes()){
-    //         $model->SEL_SITUACAO = SituacaoSelecaoEnum::VAGAS_REMANESCENTES_ABERTO;
-    //     }
-        
-    //     if ($model->load(Yii::$app->request->post()) && $model->save()) {
-    //         Yii::$app->session->setFlash('success', "Seleção atualizada com sucesso!");
-    //         return $this->redirect(['index']);
-    //     } else {
-    //         return $this->render('vagasremanescentes', [
-    //             'model' => $model,
-    //         ]);
-    //     }
-    // }
 }

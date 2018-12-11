@@ -5,6 +5,7 @@ namespace app\models;
 use Yii;
 use yii\base\Model;
 use app\models\Coordenador;
+use app\models\SituacaoEnum;
 
 /**
  * LoginForm is the model behind the login form.
@@ -34,6 +35,7 @@ class LoginForm extends Model
             // password is validated by validatePassword()
             ['password', 'validatePassword'],
             ['username', 'validarCoordenador'],
+            ['username', 'validarAtivo'],
         ];
     }
 
@@ -71,6 +73,16 @@ class LoginForm extends Model
             $coordenador = Coordenador::find()->where(['USU_ID'=>$user->id])->one();
             if($coordenador && !$coordenador->cel){
                 $this->addError($attribute, 'Coordenador não está relacionado a nenhum CEL.');
+            }
+        }
+    }
+
+    public function validarAtivo($attribute, $params){
+        if (!$this->hasErrors()) {
+            $user = $this->getUser();
+            $usuario = Usuario::findOne(['USU_ID'=>$user->id]);
+            if($usuario->USU_SITUACAO == SituacaoEnum::INATIVO){
+                $this->addError($attribute, 'Usuário está inativo e não pode acessar o sistema.');
             }
         }
     }

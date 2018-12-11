@@ -105,6 +105,10 @@ class SiteController extends Controller
         }
 
         /* Candidato não poderá se logar por aqui */
+        else if(Yii::$app->user->can(PermissaoEnum::PERMISSAO_ALUNO)){
+            $endpoint = $this->redirect(['/aluno/default']);
+        }
+
         else if(Yii::$app->user->can(PermissaoEnum::PERMISSAO_CANDIDATO)){
             $endpoint = $this->redirect(['logout']);
         }

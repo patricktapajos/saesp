@@ -55,6 +55,7 @@ AppAsset::register($this);
             ['label' => 'Seleção', 'url' => ['/selecao/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_ADMIN)],       
             ['label' => 'Seleção', 'url' => ['/coordenador/selecaocel/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
             ['label' => 'Aluno', 'url' => ['/coordenador/aluno/index'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_COORDENADOR)],
+            ['label' => 'Horário', 'url' => ['/professor/default/visualizarhorario'], 'visible'=>Yii::$app->user->can(PermissaoEnum::PERMISSAO_PROFESSOR)],
             ['label' => 'Alterar Senha', 'url' => ['/usuario/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],            
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]

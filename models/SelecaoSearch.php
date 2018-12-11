@@ -12,6 +12,7 @@ use app\models\Selecao;
  */
 class SelecaoSearch extends Selecao
 {
+    public $USU_ID;
     /**
      * @inheritdoc
      */
@@ -19,7 +20,7 @@ class SelecaoSearch extends Selecao
     {
         return [
             [['SEL_ID'], 'number'],
-            [['SEL_TITULO','SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_SITUACAO','SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD'], 'safe'],
+            [['SEL_TITULO','SEL_DT_INICIO', 'SEL_DT_FIM', 'SEL_SITUACAO','SEL_DT_INICIO_CAD','SEL_DT_FIM_CAD','USU_ID'], 'safe'],
         ];
     }
 
@@ -57,12 +58,17 @@ class SelecaoSearch extends Selecao
             return $dataProvider;
         }
 
+        if($this->USU_ID){
+            $query->joinWith(['selecoesModalidades.modalidadeDataHora.professor']);
+            $query->andFilterWhere(['like', 'PROFESSOR.USU_ID', $this->USU_ID]);
+        }
+
         $query->andFilterWhere(['like', 'SEL_DT_INICIO', $this->SEL_DT_INICIO])
             ->andFilterWhere(['like', 'SEL_DT_FIM', $this->SEL_DT_FIM])
             ->andFilterWhere(['like', 'SEL_DT_INICIO_CAD', $this->SEL_DT_INICIO_CAD])
             ->andFilterWhere(['like', 'SEL_DT_FIM_CAD', $this->SEL_DT_FIM_CAD])
             ->andFilterWhere(['like', 'SEL_TITULO', $this->SEL_TITULO])
-            ->andFilterWhere(['like', 'SEL_SITUACAO', $this->SEL_SITUACAO]);
+            ->andFilterWhere(['=', 'SEL_SITUACAO', $this->SEL_SITUACAO]);
 
         return $dataProvider;
     }
