@@ -36,25 +36,25 @@ use app\models\Log;
 	public function log(){
 
 		$this->getLog(); 
-		if($this->log->log_justificativa === null || $this->log->log_justificativa === ''){
-			$this->log->log_justificativa = 'Sem justificativa';
+		if($this->log->LOG_JUSTIFICATIVA === null || $this->log->LOG_JUSTIFICATIVA === ''){
+			$this->log->LOG_JUSTIFICATIVA = 'Sem justificativa';
 		}
-		$this->log->log_tabela = $this->tableName();
+		$this->log->LOG_TABELA = $this->tableName();
 		if($this->isNewRecord){
-			$this->log->log_acao = 'insert';
+			$this->log->LOG_ACAO = 'insert';
 		}else{
 			if($this->delete){
-				$this->log->log_acao = 'delete';
+				$this->log->LOG_ACAO = 'delete';
 			}
 			else if(strlen($this->scenario)>0){
-				$this->log->log_acao = $this->scenario;
+				$this->log->LOG_ACAO = $this->scenario;
 			}else{
-				$this->log->log_acao = 'update';
+				$this->log->LOG_ACAO = 'update';
 			}
 			if(!in_array($this->tableSchema->primaryKey)){
-				$this->log->fk_codigo = $this->getPrimaryKey();
+				$this->log->FK_CODIGO = $this->getPrimaryKey();
 			}else{
-				$this->log->fk_codigo = implode("-", $this->getPrimaryKey());
+				$this->log->FK_CODIGO = implode("-", $this->getPrimaryKey());
 			}
 		}
 
@@ -68,9 +68,9 @@ use app\models\Log;
 		parent::afterSave();
 		if($this->isNewRecord and ($this->log !== null)){
 			if(!is_array($this->tableSchema->primaryKey)){
-				$this->log->fk_codigo = $this->getPrimaryKey();
+				$this->log->FK_CODIGO = $this->getPrimaryKey();
 			}else{
-				$this->log->fk_codigo = implode("-", $this->getPrimaryKey());
+				$this->log->FK_CODIGO = implode("-", $this->getPrimaryKey());
 			}
 			return $this->log->update();
 		}
