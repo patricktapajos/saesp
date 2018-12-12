@@ -37,8 +37,11 @@ class Candidato extends \yii\db\ActiveRecord
     /* Lista de modalidades selecionadas, atributo utilizado para validação */
     public $modalidades;
     public $modalidade;
+
     public $validoaquatico;
     public $horariovalido;
+
+    public $idade;
 
     /* Atributo utilizado para verificação de alteração de foto do candidato */
     public $photo;
@@ -60,6 +63,7 @@ class Candidato extends \yii\db\ActiveRecord
             [['CAND_ESTADO_CIVIL','CAND_CEP','CAND_LOGRADOURO','CAND_BAIRRO'], 'required','message'=>'{attribute} obrigatório'],
             [['modalidades'], 'required','message'=>'{attribute} obrigatório'],
             [['modalidades'], "validarModalidadeAquatica"],
+
             /* Gambiarra para chamar a validação de modalidades aquáticas no cliente */            
             [['validoaquatico'], 'required',
                 'whenClient'=>"validarModalidadeAquatica", 
@@ -68,6 +72,10 @@ class Candidato extends \yii\db\ActiveRecord
             [['horariovalido'], 'required',
                 'whenClient'=>"validarHorarioModalidade", 
                 'message'=>'Uma ou mais modalidades estão em conflito de horário.'],
+            /* Gambiarra para chamar a validação de idade (7 anos) */ 
+            [['idade'], 'required',
+                'whenClient'=>"validarIdadeMinima", 
+                'message'=>'Candidato não possui a idade mínima para participar (7 anos).'],
 
             ['CAND_NOME_RESPONSAVEL', 'required', 'when' => function($model) {
                 return $model->CAND_MENOR_IDADE == '1';

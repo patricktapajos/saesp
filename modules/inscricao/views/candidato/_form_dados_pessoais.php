@@ -35,6 +35,10 @@ $this->registerJs("
         vue2.verificarConflitoHorario();
         return vue2.horariosComConflito;
     };
+
+    function validarIdadeMinima(attribute, value){
+        return !vue.idade_minima;
+    };
 ");
 
  ?>
@@ -45,6 +49,8 @@ $this->registerJs("
             <div>
                 <?= Html::hiddenInput('Candidato[CAND_MENOR_IDADE]', $candidato->CAND_MENOR_IDADE, ['id'=>'CAND_MENOR_IDADE']); ?>
                 <?= Html::hiddenInput('Candidato[CAND_IDOSO]', $candidato->CAND_IDOSO, ['id'=>'CAND_IDOSO']); ?>
+                <?= $form->field($candidato, 'idade')->hiddenInput(['id'=>'idade'])->label(false); ?>
+                
             </div>
 
             <div class="form-group">

@@ -6,6 +6,7 @@ var vue = new Vue({
 		show_pcd: '0',
 		show_comorbidade: '0',
 		show_medicacao: '0',
+		idade_minima: true,
 		imagem: $().getUrl()+'/images/semdoc2.png'
 	},
 	methods:{
@@ -41,9 +42,16 @@ var vue = new Vue({
 	    },
 
 	    verificarIdade: function(){
+
+			this.idade_minima = true;
 			let idade = this.calcularIdade();
 			if(!idade) return;
-			if(idade < 18){
+
+			if(idade < 7){
+				this.idade_minima = false;
+			}
+
+			else if(idade >= 7 && idade < 18){
 				this.show_responsavel = '1';
 				this.show_idoso = '0';
 	        	$('#foto-idoso')[0].src = this.imagem;
@@ -117,6 +125,13 @@ var vue = new Vue({
 	        	$('#DOC_LAUDO_PCD_URL_AUX').val('');
 	        	$('#DOC_LAUDO_PCD_URL_AUX').trigger('change');
 	        	$('#CAND_PCD_DESC').val('');
+			}
+		},
+		idade_minima: function(value){
+			if(value){
+				$('#idade').val('1');
+			}else{
+				$('#idade').val('');
 			}
 		}
 	}
