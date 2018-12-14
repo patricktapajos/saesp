@@ -1,6 +1,8 @@
 <?php
 
 use yii\helpers\Html;
+use app\assets\UsuarioAsset;
+UsuarioAsset::register($this);
 
 
 /* @var $this yii\web\View */

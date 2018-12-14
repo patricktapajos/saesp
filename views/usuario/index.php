@@ -5,6 +5,8 @@ use yii\grid\GridView;
 use app\models\SexoEnum;
 use app\models\PermissaoEnum;
 use app\models\SituacaoEnum;
+use yii\helpers\Url;
+
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\models\UsuarioSearch */
@@ -55,7 +57,17 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter'=> Html::dropDownList("UsuarioSearch[USU_SITUACAO]", $searchModel->USU_SITUACAO, SituacaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
             ],
-            ['class' => 'yii\grid\ActionColumn'],
+            ['class' => 'yii\grid\ActionColumn',
+                'header'=>'Ações',
+                'template'=>'{view} {update} {delete} {alterarpermissao}',
+                'options'=>['width'=>'90px'],
+                'buttons'  => [
+                    'alterarpermissao'=> function ($url, $model) {
+                        $url = Url::to('alterarpermissao?id='.$model->USU_ID);
+                        return Html::a('<span class="glyphicon glyphicon-user"></span>', $url, ['title'=>'Alterar Permissão']);
+                    }
+                ]
+            ],
         ],
     ]); ?>
 </div>

@@ -30,11 +30,11 @@ class UsuarioController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel', 'esquecisenha', 'alterarsenha'],
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel', 'esquecisenha', 'alterarsenha','alterarpermissao'],
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel', 'esquecisenha'],
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel', 'esquecisenha','alterarpermissao'],
                         'roles' => [PermissaoEnum::PERMISSAO_ADMIN],
                     ],
                     [
@@ -175,6 +175,21 @@ class UsuarioController extends Controller
         }
     }
 
+    public function actionAlterarpermissao($id){
+
+        $model = Usuario::findOne($id);
+        $model->setScenario(Usuario::SCENARIO_ALTERAR_PERMISSAO);
+
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->save();
+            return $this->redirect(['index']);
+        } else {
+            return $this->render('permissao', [
+                'model' => $model,
+            ]);
+        }
+    }
+
     /**
      * Deletes an existing Usuario model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
@@ -193,7 +208,8 @@ class UsuarioController extends Controller
             
         }catch(\Exception $e){
             $trans->rollBack();
-            Yii::$app->session->setFlash('danger', "Usuário está referenciado em alguma seleção");
+            //throw $e;
+            Yii::$app->session->setFlash('danger', "Usuário está referenciado em alguma seleção. Apesar disso, você pode inativar este usuário, retirando seu acesso ao sistema.");
         }
         
         return $this->redirect(['index']);

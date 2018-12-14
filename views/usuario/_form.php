@@ -6,8 +6,7 @@ use app\models\PermissaoEnum;
 use app\models\SituacaoEnum;
 use app\models\SexoEnum;
 use yii\helpers\Url;
-use app\assets\UsuarioAsset;
-UsuarioAsset::register($this);
+
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Usuario */
@@ -46,7 +45,7 @@ UsuarioAsset::register($this);
 
         <?= $form->field($model, 'USU_SEXO')->radioList(SexoEnum::listar()) ?>
         
-        <?php  if($model->isNewRecord): ?>
+        <?php if($model->isNewRecord): ?>
             <?= $form->field($model, 'USU_PERMISSAO')->dropDownList(PermissaoEnum::listar(), [
                     'id'=>'USU_PERMISSAO','prompt'=>'Selecione >>','v-on:change'=>'verificarPermissao()']) ?>
 
@@ -73,7 +72,34 @@ UsuarioAsset::register($this);
 
             <?= $form->field($model, '_prof_id')->hiddenInput(['id'=>'_prof_id'])->label(false); ?>
             <span class="text-danger" id="msgerro"></span>
+            
         <?php  endif; ?>
+
+        <?php if($model->isEstagiario()): ?>
+                
+                <span class="text-danger">> Inicie digitando no campo a seguir, uma lista deve aparecer com o nome do professor. Caso não apareça, você deve cadastrá-lo antes. </span>
+        
+                <?= $form->field($model, '_nome')->widget(\yii\jui\AutoComplete::classname(), [
+                    'clientOptions' => [
+                        'source' => Url::to(['/rest/professores']),
+                        'minLength'=>'3',
+                        'select'=>new yii\web\JsExpression("function(event, ui) {
+                            $('#_prof_id').val(ui.item.id);
+                        }"),
+                        'change'=>new yii\web\JsExpression("function(event, ui) {
+                            if(!ui.item){
+                                $('#msgerro').text('Professor não encontrado');
+                            }else{
+                                $('#msgerro').text('');
+                            }
+                            $('#_prof_id').val(ui.item? ui.item.id : '' );}"),
+                    ],
+                    'options'=>['class'=>'form-control']
+                ]) ?>
+
+            <?= $form->field($model, '_prof_id')->hiddenInput(['id'=>'_prof_id'])->label(false); ?>
+            <span class="text-danger" id="msgerro"></span>
+        <?php endif; ?>
 
        
     </div>

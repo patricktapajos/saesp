@@ -28,17 +28,19 @@ use Yii;
  * @property string $USU_PERMISSAO
  * @property  $
  */
-class Usuario extends \yii\db\ActiveRecord
-{
+class Usuario extends \app\components\SAESPActiveRecord {
+
     public $_senha_atual;
     public $_nova_senha;
     public $_nova_senha_confirmacao;
     public $_nome;
     public $_prof_id;
-    const SCENARIO_ESQUECI_SENHA = 'SCENARIO_ESQUECI_SENHA';
-    const SCENARIO_ALTERAR_SENHA = 'SCENARIO_ALTERAR_SENHA';
-    const SCENARIO_DEFAULT = 'SCENARIO_DEFAULT';
-    const SCENARIO_ALTERAR = 'SCENARIO_ALTERAR';
+    public $justificativa;
+    const SCENARIO_ESQUECI_SENHA        = 'SCENARIO_ESQUECI_SENHA';
+    const SCENARIO_ALTERAR_SENHA        = 'SCENARIO_ALTERAR_SENHA';
+    const SCENARIO_DEFAULT              = 'SCENARIO_DEFAULT';
+    const SCENARIO_ALTERAR              = 'SCENARIO_ALTERAR';
+    const SCENARIO_ALTERAR_PERMISSAO    = 'SCENARIO_ALTERAR_PERMISSAO';
     
     /**
      * @inheritdoc
@@ -51,7 +53,10 @@ class Usuario extends \yii\db\ActiveRecord
     public function scenarios()
     {
         $scenarios = parent::scenarios();
+        $scenarios [self::SCENARIO_DEFAULT] = ['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_PERMISSAO','USU_DT_NASC', 'USU_SITUACAO','_prof_id', '_nome'];
+        $scenarios [self::SCENARIO_ALTERAR] = ['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC', 'USU_SITUACAO','_prof_id', '_nome'];
         $scenarios [self::SCENARIO_ESQUECI_SENHA] = ['USU_CPF'];
+        $scenarios [self::SCENARIO_ALTERAR_PERMISSAO] = ['USU_PERMISSAO','justificativa'];
         $scenarios [self::SCENARIO_ALTERAR_SENHA] = ['USU_CPF','_senha_atual','_nova_senha','_nova_senha_confirmacao'];
         return $scenarios;
     }
@@ -66,13 +71,14 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_PERMISSAO','USU_SITUACAO'], 'required','on'=>[self::SCENARIO_DEFAULT,self::SCENARIO_ALTERAR]],
+            [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_SITUACAO'], 'required','on'=>[self::SCENARIO_DEFAULT,self::SCENARIO_ALTERAR]],
+            [['USU_PERMISSAO'], 'required','on'=>[self::SCENARIO_DEFAULT]],
             [['USU_NOME', 'USU_EMAIL', 'USU_SENHA'], 'string', 'max' => 255],
             ['USU_EMAIL','email'],
-            [['_prof_id', '_nome'], 'required', 'when' => function($model) {
+            [['_prof_id'], 'required', 'when' => function($model) {
                 return $model->USU_PERMISSAO == PermissaoEnum::PERMISSAO_ESTAGIARIO;
             },'whenClient'=>'function(attribute, value){ return false }',
-                'on'=>[self::SCENARIO_DEFAULT, self::SCENARIO_ALTERAR], 
+                'on'=>[self::SCENARIO_DEFAULT, self::SCENARIO_ALTERAR, self::SCENARIO_ALTERAR_PERMISSAO], 
                 'message'=>'É necessário relacionar o estagiário a um professor'
             ],
             ['USU_CPF','required','on'=>[self::SCENARIO_ESQUECI_SENHA]],
@@ -81,10 +87,14 @@ class Usuario extends \yii\db\ActiveRecord
             [['USU_DT_NASC'], 'string', 'max' => 10],
             [['USU_DT_NASC'], 'date', 'format'=>'php:d/m/Y'],
             [['USU_SEXO'], 'string', 'max' => 15],
-            [['USU_TELEFONE_1', 'USU_TELEFONE_2', 'USU_SITUACAO'], 'string', 'max' => 14],
+            [['USU_TELEFONE_1', 'USU_TELEFONE_2', 'USU_SITUACAO'], 'string', 'max' => 16],
             [['USU_PERMISSAO'], 'string', 'max' => 20],
             [['USU_NOME'], 'trim'],
-            [['USU_CPF','USU_NOME'], 'unique','on'=>[self::SCENARIO_DEFAULT,self::SCENARIO_ALTERAR]],
+            [['USU_NOME','USU_CPF'], 'unique','on'=>[self::SCENARIO_DEFAULT,self::SCENARIO_ALTERAR]],
+            //[['USU_NOME'], 'unique','on'=>[self::SCENARIO_DEFAULT,self::SCENARIO_ALTERAR]],
+            //[['USU_CPF'], 'unique','on'=>[self::SCENARIO_DEFAULT]],
+            [['USU_PERMISSAO','justificativa'], 'required','on'=>[self::SCENARIO_ALTERAR_PERMISSAO]],
+            //[['USU_CPF'], 'validarPermissaoUnica','on'=>[self::SCENARIO_DEFAULT, self::SCENARIO_ALTERAR_PERMISSAO]],
             [['USU_CPF','_senha_atual', '_nova_senha', '_nova_senha_confirmacao'], 'required', 'on'=>[self::SCENARIO_ALTERAR_SENHA]],
             ['_nova_senha_confirmacao', 'compare', 'compareAttribute' => '_nova_senha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
             [['_nova_senha'],'validaNovaSenha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
@@ -225,14 +235,34 @@ class Usuario extends \yii\db\ActiveRecord
             $this->USU_SENHA = md5($this->_nova_senha);
         }
 
+        if($this->scenario == self::SCENARIO_ALTERAR_PERMISSAO){
+            $this->getLog()->LOG_JUSTIFICATIVA = $this->justificativa;
+            if($this->oldAttributes['USU_PERMISSAO'] == $this->attributes['USU_PERMISSAO']){
+                $this->salvarUsuarioPorPermissao();
+            }
+        }
+
+        $this->getLog()->LOG_DADOS_ANTIGOS = json_encode($this->oldAttributes);
+
         return parent::beforeSave($insert);
     }
+
 
     public function afterSave($insert, $changedAttributes){
         if($insert){
             $this->salvarUsuarioPorPermissao();
             $this->enviarSenhaEmail($this->_senha_atual);
         }
+    }
+
+    public function afterFind(){
+        if($this->isEstagiario()){
+            $estagiario = Estagiario::find()->where('USU_ID =:USU_ID',[':USU_ID'=>$this->USU_ID])->one();
+            $professor = Professor::findOne($estagiario->PROF_ID);
+            $this->_prof_id = $estagiario->PROF_ID;
+            $this->_nome = $professor->usuario->USU_NOME;
+        }
+        return parent::afterFind();
     }
 
     public function getSexoText(){
@@ -309,6 +339,20 @@ class Usuario extends \yii\db\ActiveRecord
         return true;
     }
 
+    public function validarPermissaoUnica($attribute, $params){
+        $u = self::find()->where("USU_CPF =:CPF and USU_PERMISSAO =:PERMISSAO and USU_SITUACAO =:SITUACAO", [
+            ':CPF'=>$this->USU_CPF,
+            ':PERMISSAO'=>$this->USU_PERMISSAO,
+            ':SITUACAO'=>SituacaoEnum::ATIVO
+        ])->one();
+        if(!$u){
+            return true;
+        }
+
+        $this->addError($this->$attribute, 'Um usuário com este CPF já possui esta permissão.');
+        return false;
+    }
+
     public function getUsuario(){
         return $this->hasOne(Usuario::className(), ['USU_ID'=>'USU_ID']);
     }
@@ -316,5 +360,9 @@ class Usuario extends \yii\db\ActiveRecord
     public function ativos()
     {
         return $this->andWhere(['USU_SITUACAO' => SituacaoEnum::ATIVO]);
+    }
+
+    public function isEstagiario(){
+        return $this->USU_PERMISSAO == PermissaoEnum::PERMISSAO_ESTAGIARIO;
     }
 }
