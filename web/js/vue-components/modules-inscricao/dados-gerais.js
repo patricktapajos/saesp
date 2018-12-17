@@ -6,7 +6,7 @@ var vue = new Vue({
 		show_pcd: '0',
 		show_comorbidade: '0',
 		show_medicacao: '0',
-		idade_minima: true,
+		idade_minima: '',
 		imagem: $().getUrl()+'/images/semdoc2.png'
 	},
 	methods:{
@@ -45,6 +45,7 @@ var vue = new Vue({
 
 			this.idade_minima = true;
 			let idade = this.calcularIdade();
+			
 			if(!idade) return;
 
 			if(idade < 7){
