@@ -85,6 +85,11 @@ class UsuarioController extends Controller
         $model = new Usuario();
         $model->setScenario(Usuario::SCENARIO_DEFAULT);
 
+        /*echo "<pre>";
+        print_r(Yii::$app->request->post());
+        echo "</pre>";
+        die;*/
+
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
             $trans = Yii::$app->db->beginTransaction();
             try{

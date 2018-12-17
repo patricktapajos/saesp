@@ -53,8 +53,8 @@ class Usuario extends \app\components\SAESPActiveRecord {
     public function scenarios()
     {
         $scenarios = parent::scenarios();
-        $scenarios [self::SCENARIO_DEFAULT] = ['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_PERMISSAO','USU_DT_NASC', 'USU_SITUACAO','_prof_id', '_nome'];
-        $scenarios [self::SCENARIO_ALTERAR] = ['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC', 'USU_SITUACAO','_prof_id', '_nome'];
+        $scenarios [self::SCENARIO_DEFAULT] = ['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_PERMISSAO','USU_DT_NASC', 'USU_SITUACAO','_prof_id', '_nome','USU_TELEFONE_1', 'USU_TELEFONE_2'];
+        $scenarios [self::SCENARIO_ALTERAR] = ['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC', 'USU_SITUACAO','_prof_id', '_nome','USU_TELEFONE_1', 'USU_TELEFONE_2'];
         $scenarios [self::SCENARIO_ESQUECI_SENHA] = ['USU_CPF'];
         $scenarios [self::SCENARIO_ALTERAR_PERMISSAO] = ['USU_PERMISSAO','justificativa'];
         $scenarios [self::SCENARIO_ALTERAR_SENHA] = ['USU_CPF','_senha_atual','_nova_senha','_nova_senha_confirmacao'];

@@ -75,7 +75,7 @@ use yii\helpers\Url;
             
         <?php  endif; ?>
 
-        <?php if($model->isEstagiario()): ?>
+        <?php if($model->isEstagiario() && !$model->isNewRecord): ?>
                 
                 <span class="text-danger">> Inicie digitando no campo a seguir, uma lista deve aparecer com o nome do professor. Caso não apareça, você deve cadastrá-lo antes. </span>
         

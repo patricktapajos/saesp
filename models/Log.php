@@ -69,7 +69,7 @@ class Log extends \yii\db\ActiveRecord
     }
 
     public function init(){
-        $this->LOG_USUARIO = Yii::$app->user->identity->id;	
+        $this->LOG_USUARIO = Yii::$app->user->identity->id?Yii::$app->user->identity->id:'SAESP_DEFAULT';	
         $this->LOG_MAC = Utils::getMac();
         $this->LOG_IP = Utils::getIP();
 		return parent::init();
