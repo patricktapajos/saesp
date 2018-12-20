@@ -15,7 +15,7 @@ use app\modules\inscricao\models\Inscricao;
 use app\modules\inscricao\models\InscricaoParecerSearch;
 use app\modules\inscricao\models\CandidatoDocumento;
 use app\modules\aluno\models\Aluno;
-use app\modules\aluno\models\Alunomodalidade;
+use app\modules\aluno\models\AlunoModalidade;
 use app\models\PermissaoEnum;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

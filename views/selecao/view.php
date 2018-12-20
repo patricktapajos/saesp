@@ -35,8 +35,6 @@ $this->params['breadcrumbs'][] = $this->title;
             'SEL_DT_FIM_CAD',
             'SEL_DT_INICIO',
             'SEL_DT_FIM',
-            'SEL_DT_VR_INICIO',
-            'SEL_DT_VR_FIM',
             [
                 'label'=>'Situação',
                 'attribute'=>'SEL_SITUACAO',
