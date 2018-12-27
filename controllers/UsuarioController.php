@@ -34,13 +34,18 @@ class UsuarioController extends Controller
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel', 'esquecisenha','alterarpermissao'],
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel','alterarpermissao'],
                         'roles' => [PermissaoEnum::PERMISSAO_ADMIN],
                     ],
                     [
                         'allow' => true,
-                        'actions' => ['alterarsenha'],
+                        'actions' => ['alterarsenha','esquecisenha'],
                         'roles' => ['@'],
+                    ],
+                    [
+                        'allow' => true,
+                        'actions' => ['esquecisenha'],
+                        'roles' => ['?'],
                     ],
                 ],
             ],
@@ -159,7 +164,7 @@ class UsuarioController extends Controller
             return $this->redirect(['site/login']);
         } else {
             return $this->render('esqueci_senha', [
-                'model' => $model,
+                'model' => $model
             ]);
         }
     }

@@ -27,7 +27,7 @@ use app\models\SituacaoEnum;
     </div>
     
     <div class="form-group">
-        <?= Html::submitButton($aluno->isNewRecord ? 'Salvar' : 'Atualizar', ['class' => $aluno->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton('Salvar', ['class' =>'btn btn-success']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

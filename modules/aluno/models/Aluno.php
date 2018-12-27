@@ -94,8 +94,8 @@ class Aluno extends \app\components\SAESPActiveRecord
     public function beforeSave($insert){
         
         if($this->scenario == self::SCENARIO_ALTERAR){
-            $this->getLog()->log_justificativa = $this->justificativa;
-            $this->getLog()->log_dados_antigos = json_encode($this->oldAttributes);
+            $this->getLog()->LOG_JUSTIFICATIVA = $this->justificativa;
+            $this->getLog()->LOG_DADOS_ANTIGOS = json_encode($this->oldAttributes);
             //$this->getLog()->log_dados_novos = json_encode($this->attributes);
         }
         

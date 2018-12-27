@@ -34,11 +34,11 @@ class AlunoController extends Controller
             ],
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel','imprimircarteirinha'],
+                'only' => ['index', 'create', 'update', 'view','delete', 'findmodel','imprimircarteirinha','atualizarsituacao'],
                 'rules' => [
                     [
                         'allow' => true,
-                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel','imprimircarteirinha'],
+                        'actions' => ['index', 'create','view','update', 'delete', 'findmodel','imprimircarteirinha','atualizarsituacao'],
                         'roles' => [PermissaoEnum::PERMISSAO_COORDENADOR],
                     ]
                 ],
@@ -119,6 +119,21 @@ class AlunoController extends Controller
                 'aluno' => $aluno,
                 'model' => $model,
                 'candidato'=>$candidato
+            ]);
+        }
+    }
+
+    public function actionAtualizarsituacao($id)
+    {
+        $aluno = $this->findModel($id);
+        $aluno->setScenario(Aluno::SCENARIO_ALTERAR);
+
+        if ($aluno->load(Yii::$app->request->post()) && $aluno->save()) {
+            Yii::$app->session->setFlash('success', "Registro atualizado com sucesso!");            
+            return $this->redirect(['index']);
+        } else {
+            return $this->render('update', [
+                'aluno' => $aluno,
             ]);
         }
     }

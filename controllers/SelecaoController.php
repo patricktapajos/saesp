@@ -128,8 +128,16 @@ class SelecaoController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
-
+        $trans = Yii::$app->db->beginTransaction();
+        
+        try{
+            $this->findModel($id)->delete();
+            $trans->commit();
+            Yii::$app->session->setFlash('success', 'Seleção excluída!');    
+        }catch(\Exception $e){
+            $trans->rollBack();
+            Yii::$app->session->setFlash('danger', "Seleção já está relacionada a algum CEL e não pode ser excluída.");
+        }
         return $this->redirect(['index']);
     }
 

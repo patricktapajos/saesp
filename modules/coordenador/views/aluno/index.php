@@ -1,7 +1,9 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\grid\GridView;
+use app\models\SituacaoInscricaoEnum;
 
 /* @var $this yii\web\View */
 /* @var $searchModel app\modules\aluno\models\AlunoSearch */
@@ -30,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'filter'=> Html::textInput("AlunoSearch[USU_NOME]", $searchModel->USU_NOME, ['class'=>'form-control'])
             ],
+            
             [
                 'label'=>'CPF',
                 'attribute'=>'USU_CPF',
@@ -42,8 +45,26 @@ $this->params['breadcrumbs'][] = $this->title;
                 'filter'=> Html::textInput("AlunoSearch[USU_CPF]", $searchModel->USU_CPF, ['class'=>'form-control'])
             ],
             [
+                'label'=>'Situação',
+                'attribute'=>'ALU_SITUACAO',
+                'format' => 'raw',
+                'value' => function ($model) {
+                    return $model->ALU_SITUACAO;
+                },
+                'filter'=> Html::dropDownList("AlunoSearch[ALU_SITUACAO]", $searchModel->ALU_SITUACAO, SituacaoInscricaoEnum::listar(), ['class'=>'form-control','prompt'=>'Selecione'])
+                
+            ],
+            [
                 'class' => 'yii\grid\ActionColumn',
-                'header'=>'Ações'
+                'header'=>'Ações',
+                'options'=>['width'=>'70px'],
+                'template' => '{view} {status} {delete}',
+                'buttons'  => [
+                        'status'=> function ($url, $model) {
+                            $url = Url::to('atualizarsituacao?id='.$model->ALU_ID);
+                            return Html::a('<span class="glyphicon glyphicon-pencil"></span>', $url, ['title'=>'Atualizar Situação']);
+                        }
+                    ]
             ],
         ],
     ]); ?>

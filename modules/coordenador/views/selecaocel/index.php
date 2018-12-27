@@ -51,11 +51,11 @@ $this->params['breadcrumbs'][] = $this->title;
              'options'=>['width'=>'70px'],
              'template' => '{update} {gerenciarparecer} {view}',
              'buttons'  => [
-               'gerenciarparecer'=> function ($url, $model) {
-                    $url = Url::to('gerenciarparecer');
-                    return Html::a('<span class="glyphicon glyphicon-list-alt"></span>', $url, ['title'=>'Gerenciar Parecer']);
-               }
-            ],
+                    'gerenciarparecer'=> function ($url, $model) {
+                        $url = Url::to('gerenciarparecer');
+                        return Html::a('<span class="glyphicon glyphicon-list-alt"></span>', $url, ['title'=>'Gerenciar Parecer']);
+                    }
+                ],
             'visibleButtons' => [
                 'update' => function ($model) {
                     if($model->selecao){
