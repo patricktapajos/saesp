@@ -12,7 +12,7 @@
 
 	public static function listar(){
 		return [
-			PermissaoEnum::PERMISSAO_ADMIN => 'Administrador',
+			PermissaoEnum::PERMISSAO_ADMIN => 'Gerente',
 			PermissaoEnum::PERMISSAO_COORDENADOR => 'Coordenador',
       		PermissaoEnum::PERMISSAO_ESTAGIARIO  => 'Estagiário',
 			PermissaoEnum::PERMISSAO_PROFESSOR => 'Professor',
@@ -21,7 +21,7 @@
 
 	public static function listarSearch(){
 		return [
-			PermissaoEnum::PERMISSAO_ADMIN => 'Administrador',
+			PermissaoEnum::PERMISSAO_ADMIN => 'Gerente',
 			PermissaoEnum::PERMISSAO_COORDENADOR => 'Coordenador',
       	    PermissaoEnum::PERMISSAO_ESTAGIARIO => 'Estagiario',
 			PermissaoEnum::PERMISSAO_PROFESSOR => 'Professor',

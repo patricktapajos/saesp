@@ -2,12 +2,14 @@
 
 namespace app\models;
 use app\models\Usuario;
+use app\models\PermissaoEnum;
 
 class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
 {
     public $id;
     public $name;
     public $username;
+    public $rule;
     public $cel_nome;
     public $cel_id;
     public $password;
@@ -22,9 +24,10 @@ class User extends \yii\base\BaseObject implements \yii\web\IdentityInterface
         $model = Usuario::findOne(['USU_ID'=>$id]);
         if($model){
             $user = new User;
+            $user->id = $id;
             $user->name = $model->USU_NOME;
             $user->username = $model->USU_CPF;
-            $user->id = $id;
+            $user->rule = PermissaoEnum::listar()[$model->USU_PERMISSAO];
             /* Verifica se usuário é coordenador e está relacionado a um CEL para pegar o id (do CEL) */
             if($model->coordenador){
                 $user->cel_nome = $model->coordenador->cel->CEL_NOME;

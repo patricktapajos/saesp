@@ -2,7 +2,24 @@ html,
 body {
     height: 100%;
     /*background-color: #036ff61a;*/
-    background-color: rgba(245, 245, 245, 0.25);
+    /*background-color: rgba(245, 245, 245, 0.25);*/
+}
+
+.bg {
+    height: auto;
+    width: 15%;
+    opacity: .18;
+    position: fixed;
+    background-size: cover;
+    /* left: 25%; */
+    bottom: 60px;
+    /* display: block; */
+}
+
+@media(max-width:768px) {
+    .bg {
+        display: none;
+    }
 }
 
 .ui-datepicker table {
@@ -38,9 +55,13 @@ body {
 
 .footer {
     height: 60px;
-    background-color: #4d4d4d;
+    background-color: #076793;
     padding-top: 20px;
     color: #f0f0f0;
+}
+
+.powered > a {
+    color: #39b54a !important;
 }
 
 .jumbotron {
@@ -154,8 +175,8 @@ a.desc:after {
  }
  
 .logo-central{
-    width: 30%;
-    height: 30%;
+    width: 35%;
+    height: 35%;
     display: block;
     margin: auto;
 }
@@ -167,8 +188,8 @@ a.desc:after {
     }
 
     .logo-central{
-        width: 25%;
-        height: 25%;
+        width: 45%;
+        height: 45%;
         display: block;
         margin: 0 auto;
     }
@@ -184,7 +205,7 @@ a.desc:after {
         position: absolute;
     }
     .navbar-sys-name:before {
-        content: "SAESP";
+        content: "";
         visibility: visible;
     }
 
@@ -197,7 +218,30 @@ a.desc:after {
     }
 }
 
+@media (max-width: 425px){
+    .logo-central{
+        width: 75%;
+        height: 75%;
+        display: block;
+        margin: 0 auto;
+    }
 
+    h1 {
+        font-size: 25px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    .dropdown-header {
+        color: white !important;
+    }
+
+    .powered {
+        display: none;
+    }
+}
 
 .sys-navbar {
     background-color: rgb(8, 103, 148)/*rgba(48, 20, 97, 0.9)*/;
@@ -241,8 +285,8 @@ div.tabs-krajee > .nav > li > a:hover {
 
 .navbar-logo {
     height: 48px;
-    width: 48px;
-    background: url(../images/simbolo-logo.png);
+    width: 156px;
+    background: url(../images/logo_2017_2020.png);
     background-size: cover;
     margin-top : -13px;
 }

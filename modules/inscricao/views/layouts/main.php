@@ -31,7 +31,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => '<div class="pull-left navbar-logo"></div><span class="navbar-sys-name">'.Yii::$app->name.'</span>',
+        'brandLabel' => '<div class="pull-left navbar-logo"></div><span class="navbar-sys-name"></span>',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'sys-navbar navbar-fixed-top',
@@ -62,6 +62,15 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
+    
+    <div class="col-lg-12">
+        <div class="text-left">
+            <?= Html::img('@web/images/simbolo-logo.png', ['class'=>'bg']); ?>
+        </div>
+        <div class="text-right" style="margin-right: 15%">
+            <?= Html::img('@web/images/simbolo-logo.png', ['class'=>'bg']); ?>
+        </div>
+    </div>
 
     <div class="container">
         <?= Breadcrumbs::widget([

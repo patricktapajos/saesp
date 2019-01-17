@@ -28,10 +28,12 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
+
 <div class="wrap">
+    
     <?php
     NavBar::begin([
-        'brandLabel' => '<div class="pull-left navbar-logo"></div><span class="navbar-sys-name">'.Yii::$app->name.'</span>',
+        'brandLabel' => '<div class="pull-left navbar-logo"></div><span class="navbar-sys-name"></span>',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'sys-navbar navbar-fixed-top',
@@ -69,6 +71,7 @@ AppAsset::register($this);
                         ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p><p>CEL: '.Yii::$app->user->identity->cel_nome.'</p>']
                         :
                         ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p>'],
+                        ['label' =>'<p>Permissão: '.Yii::$app->user->identity->rule.'</p>'],
                         '<li class="divider"></li>',                         
                         ['label' =>'Sair', 'url'=>['/site/logout']],
                     ],
@@ -78,6 +81,15 @@ AppAsset::register($this);
     ]);
     NavBar::end();
     ?>
+    <div class="col-lg-12">
+        <div class="text-left">
+            <?= Html::img('@web/images/simbolo-logo.png', ['class'=>'bg']); ?>
+        </div>
+        <div class="text-right" style="margin-right: 15%">
+            <?= Html::img('@web/images/simbolo-logo.png', ['class'=>'bg']); ?>
+        </div>
+    </div>
+
     <div class="container">
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
@@ -90,9 +102,9 @@ AppAsset::register($this);
 <footer class="footer">
     <div class="container">
 
-        <p class="pull-left">&copy; SUBTI <?= date('Y') ?></p>
+        <p class="pull-left">&copy; SUBTI & SEMJEL - Secretaria Municipal de Esporte e Lazer</p>
 
-        <p class="pull-right"><?= Yii::powered() ?></p>
+        <p class="pull-right powered"><?= Yii::powered() ?></p>
     </div>
 </footer>
 

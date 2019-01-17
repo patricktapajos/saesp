@@ -34,7 +34,7 @@ $this->title = 'SAESP';
                     <div class="col-lg-12 text-center">
                         <?= Html::img('@web/images/simbolo-logo.png', ['class'=>'logo-central']); ?>
                         <h1>Olá, <?= Yii::$app->user->identity->name != null?Yii::$app->user->identity->name:'Visitante' ?>!</h1>
-                        <h2>Bem vindo ao módulo de Administração do sistema</h2>
+                        <h2>Bem vindo ao módulo de Gerenciamento do Sistema</h2>
                     </div>
                 </div>
             </div>
