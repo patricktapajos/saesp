@@ -6,7 +6,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Cel */
 
-$this->title = 'Cadastrar CEL';
+$this->title = 'Cadastrar CEL (Centro de Ensino e Lazer)';
 $this->params['breadcrumbs'][] = ['label' => 'Gerenciar CEL', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
