@@ -11,16 +11,22 @@ var vue = new Vue({
             }else{
                 this.estagiario = false                
             }
-        }
+        },
+        configFotoListener: function(){
+	    	$(".urlfoto").on('change', function(f){
+	    		var input = $(this)[0];
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $("#foto-"+input.id)[0].src = e.target.result;
+                };
+                reader.readAsDataURL(this.files[0]);
+			});
+	    }
     },
     mounted: function(){
 		this.$nextTick(function () { 
-            var permissao = $('#USU_PERMISSAO').val() 
-            if(permissao == 'ESTAGIARIO'){
-                this.estagiario = true
-            }else{
-                this.estagiario = false                
-            }
+            this.verificarPermissao();
+            this.configFotoListener();
 	  	});
 	},
 });

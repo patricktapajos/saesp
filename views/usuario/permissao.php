@@ -54,8 +54,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <?= $form->field($model, '_prof_id')->hiddenInput(['id'=>'_prof_id'])->label(false); ?>
             <span class="text-danger" id="msgerro"></span>
 
-              
-            
         </div>
 
         <?= $form->field($model, 'justificativa')->textarea() ?>

@@ -58,7 +58,14 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             'USU_TELEFONE_1',
             'USU_TELEFONE_2',
+            [
+                'label'=>'Foto',
+                'attribute'=>'USU_URL_FOTO',
+                'value' => function ($model) {
+                    return  $model->getUrlFoto();
+               },
+                'format' => ['image'],
+            ]
         ],
     ]) ?>
-
 </div>

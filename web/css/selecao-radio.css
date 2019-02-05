@@ -7,14 +7,14 @@
 .switch.btn:active, .switch.btn.active, .switch.btn.active:hover, .switch.btn.active:checked {
     border: 1px solid #d4d4d4;
     color: white;
-    background-color: rgb(72, 146, 76) !important;
+    background-color: rgb(72, 123, 146) !important;
     z-index: 0;
 } 
 
 .switch.btn, .switch.btn:hover {
     border: 1px solid #d4d4d4;
     color: white;
-    background-color: rgb(38, 78, 82) !important;
+    background-color: rgb(236, 92, 56) !important;
 } 
 
 .switch {

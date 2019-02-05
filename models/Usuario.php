@@ -11,6 +11,7 @@ use app\models\PermissaoEnum;
 use app\models\SituacaoEnum;
 use yiibr\brvalidator\CpfValidator;
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "usuario".
@@ -35,6 +36,7 @@ class Usuario extends \app\components\SAESPActiveRecord {
     public $_nova_senha_confirmacao;
     public $_nome;
     public $_prof_id;
+    public $photo;
     public $justificativa;
     const SCENARIO_ESQUECI_SENHA        = 'SCENARIO_ESQUECI_SENHA';
     const SCENARIO_ALTERAR_SENHA        = 'SCENARIO_ALTERAR_SENHA';
@@ -54,7 +56,7 @@ class Usuario extends \app\components\SAESPActiveRecord {
     {
         $scenarios = parent::scenarios();
         $scenarios [self::SCENARIO_DEFAULT] = ['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_PERMISSAO','USU_DT_NASC', 'USU_SITUACAO','_prof_id', '_nome','USU_TELEFONE_1', 'USU_TELEFONE_2'];
-        $scenarios [self::SCENARIO_ALTERAR] = ['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC', 'USU_SITUACAO','_prof_id', '_nome','USU_TELEFONE_1', 'USU_TELEFONE_2'];
+        $scenarios [self::SCENARIO_ALTERAR] = ['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC', 'USU_SITUACAO', 'USU_TELEFONE_1', 'USU_TELEFONE_2'];
         $scenarios [self::SCENARIO_ESQUECI_SENHA] = ['USU_CPF'];
         $scenarios [self::SCENARIO_ALTERAR_PERMISSAO] = ['USU_PERMISSAO','justificativa'];
         $scenarios [self::SCENARIO_ALTERAR_SENHA] = ['USU_CPF','_senha_atual','_nova_senha','_nova_senha_confirmacao'];
@@ -72,7 +74,7 @@ class Usuario extends \app\components\SAESPActiveRecord {
     {
         return [
             [['USU_NOME', 'USU_CPF', 'USU_EMAIL', 'USU_SEXO', 'USU_DT_NASC','USU_SITUACAO'], 'required','on'=>[self::SCENARIO_DEFAULT,self::SCENARIO_ALTERAR]],
-            [['USU_PERMISSAO'], 'required','on'=>[self::SCENARIO_DEFAULT]],
+            [['USU_PERMISSAO'], 'required','on'=>[self::SCENARIO_DEFAULT, self::SCENARIO_ALTERAR_PERMISSAO]],
             [['USU_NOME', 'USU_EMAIL', 'USU_SENHA'], 'string', 'max' => 255],
             ['USU_EMAIL','email'],
             [['_prof_id'], 'required', 'when' => function($model) {
@@ -119,6 +121,7 @@ class Usuario extends \app\components\SAESPActiveRecord {
             'USU_SENHA' => 'Senha',
             'USU_SITUACAO' => 'Situação',
             'USU_PERMISSAO' => 'Perfil',
+            'USU_URL_FOTO' => 'Foto',
             '_nova_senha_confirmacao' => 'Confirmar nova senha',
             '_prof_id'=>'Professor'
         ];
@@ -262,6 +265,7 @@ class Usuario extends \app\components\SAESPActiveRecord {
             $this->_prof_id = $estagiario->PROF_ID;
             $this->_nome = $professor->usuario->USU_NOME;
         }
+        $this->photo = $this->USU_URL_FOTO;
         return parent::afterFind();
     }
 
@@ -339,19 +343,19 @@ class Usuario extends \app\components\SAESPActiveRecord {
         return true;
     }
 
-    public function validarPermissaoUnica($attribute, $params){
-        $u = self::find()->where("USU_CPF =:CPF and USU_PERMISSAO =:PERMISSAO and USU_SITUACAO =:SITUACAO", [
-            ':CPF'=>$this->USU_CPF,
-            ':PERMISSAO'=>$this->USU_PERMISSAO,
-            ':SITUACAO'=>SituacaoEnum::ATIVO
-        ])->one();
-        if(!$u){
-            return true;
-        }
+    // public function validarPermissaoUnica($attribute, $params){
+    //     $u = self::find()->where("USU_CPF =:CPF and USU_PERMISSAO =:PERMISSAO and USU_SITUACAO =:SITUACAO", [
+    //         ':CPF'=>$this->USU_CPF,
+    //         ':PERMISSAO'=>$this->USU_PERMISSAO,
+    //         ':SITUACAO'=>SituacaoEnum::ATIVO
+    //     ])->one();
+    //     if(!$u){
+    //         return true;
+    //     }
 
-        $this->addError($this->$attribute, 'Um usuário com este CPF já possui esta permissão.');
-        return false;
-    }
+    //     $this->addError($this->$attribute, 'Um usuário com este CPF já possui esta permissão.');
+    //     return false;
+    // }
 
     public function getUsuario(){
         return $this->hasOne(Usuario::className(), ['USU_ID'=>'USU_ID']);
@@ -364,5 +368,23 @@ class Usuario extends \app\components\SAESPActiveRecord {
 
     public function isEstagiario(){
         return $this->USU_PERMISSAO == PermissaoEnum::PERMISSAO_ESTAGIARIO;
+    }
+
+    public function setArquivo(){
+        $this->USU_URL_FOTO = UploadedFile::getInstance($this, 'USU_URL_FOTO');
+    }
+
+    public function upload(){
+        if($this->USU_URL_FOTO != null){
+            $this->USU_URL_FOTO->saveAs('uploads/' . $this->USU_URL_FOTO->baseName . '.' . $this->USU_URL_FOTO->extension);
+        }
+    }
+
+    public function getUrlFoto(){
+        $photo = '/images/semfoto.png';
+        if($this->USU_URL_FOTO){
+            $photo = '/uploads/'.$this->USU_URL_FOTO;
+        }
+        return Yii::$app->request->baseUrl.$photo;
     }
 }

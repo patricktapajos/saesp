@@ -90,14 +90,11 @@ class UsuarioController extends Controller
         $model = new Usuario();
         $model->setScenario(Usuario::SCENARIO_DEFAULT);
 
-        /*echo "<pre>";
-        print_r(Yii::$app->request->post());
-        echo "</pre>";
-        die;*/
-
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->setArquivo();
             $trans = Yii::$app->db->beginTransaction();
             try{
+                $model->upload();
                 $model->save();
                 $trans->commit();
                 Yii::$app->session->setFlash('success', "Usuário cadastrado com sucesso!");
@@ -106,7 +103,6 @@ class UsuarioController extends Controller
             }catch(\Exception $e){
                 $trans->rollBack();
                 throw $e;
-
             }
 
         } else {
@@ -127,7 +123,10 @@ class UsuarioController extends Controller
         $model = $this->findModel($id);
         $model->setScenario(Usuario::SCENARIO_ALTERAR);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->setArquivo();
+            $model->upload();
+            $model->save();
             Yii::$app->session->setFlash('success', "Usuário atualizado com sucesso!");            
             return $this->redirect(['view', 'id' => $model->USU_ID]);
         } else {
