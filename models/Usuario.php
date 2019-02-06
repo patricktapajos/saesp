@@ -101,6 +101,7 @@ class Usuario extends \app\components\SAESPActiveRecord {
             ['_nova_senha_confirmacao', 'compare', 'compareAttribute' => '_nova_senha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
             [['_nova_senha'],'validaNovaSenha','on'=>[self::SCENARIO_ALTERAR_SENHA]],
             [['_senha_atual'],'validaSenhaAntiga','on'=>[self::SCENARIO_ALTERAR_SENHA]],
+            [['USU_URL_FOTO'], 'file', 'skipOnError' => true, 'skipOnEmpty' => true, 'extensions' => 'png, jpg'],
         ];
     }
 
@@ -156,14 +157,6 @@ class Usuario extends \app\components\SAESPActiveRecord {
     * Fim das Relations
     *
     */
-
-    /*public function validarHostEmail($attribute, $params){
-        if(strpos( $this->$attribute, 'pmm.am.gov.br' ) !== false){
-            return true;
-        }
-        $this->addError($attribute, 'O email deve ser institucional (@pmm.am.gov.br)');
-        return false;
-    }*/
 
     public function beforeValidate(){
         
@@ -342,20 +335,6 @@ class Usuario extends \app\components\SAESPActiveRecord {
         }
         return true;
     }
-
-    // public function validarPermissaoUnica($attribute, $params){
-    //     $u = self::find()->where("USU_CPF =:CPF and USU_PERMISSAO =:PERMISSAO and USU_SITUACAO =:SITUACAO", [
-    //         ':CPF'=>$this->USU_CPF,
-    //         ':PERMISSAO'=>$this->USU_PERMISSAO,
-    //         ':SITUACAO'=>SituacaoEnum::ATIVO
-    //     ])->one();
-    //     if(!$u){
-    //         return true;
-    //     }
-
-    //     $this->addError($this->$attribute, 'Um usuário com este CPF já possui esta permissão.');
-    //     return false;
-    // }
 
     public function getUsuario(){
         return $this->hasOne(Usuario::className(), ['USU_ID'=>'USU_ID']);

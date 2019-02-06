@@ -18,7 +18,8 @@ UsuarioAsset::register($this);
 
     <?php $form = ActiveForm::begin([
         'id'=>'usuario-form',
-        'options' => ['enctype' => 'multipart/form-data']]); ?>
+        'options' => ['enctype' => 'multipart/form-data']
+    ]); ?>
 
         <div class="alert-danger">
             <?= $form->errorSummary([$model]); ?>
@@ -113,9 +114,9 @@ UsuarioAsset::register($this);
         <?php endif; ?>       
 
     <div class="img-usuario-cover">
-            <img src="<?= $model->getUrlFoto(); ?>" id="foto-user" class="img-documentacao" />
-        </div>
-            <?= $form->field($model, 'USU_URL_FOTO')->fileInput(['class'=>'urlfoto','id'=>'user']); ?>
+        <img src="<?= $model->getUrlFoto(); ?>" id="foto-user" class="img-documentacao" />
+    </div>
+        <?= $form->field($model, 'USU_URL_FOTO')->fileInput(['class'=>'urlfoto','id'=>'user']); ?>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Salvar' : 'Atualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

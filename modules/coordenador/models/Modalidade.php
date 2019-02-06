@@ -2,8 +2,8 @@
 
 namespace app\modules\coordenador\models;
 use app\models\Cel;
-
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "MODALIDADE".
@@ -15,6 +15,8 @@ use Yii;
  */
 class Modalidade extends \yii\db\ActiveRecord
 {
+    public $photo;
+
     /**
      * @inheritdoc
      */
@@ -33,6 +35,7 @@ class Modalidade extends \yii\db\ActiveRecord
             [['MOD_NOME', 'MOD_DESCRICAO','CAT_ID'], 'required'],
             [['MOD_NOME', 'MOD_DESCRICAO'], 'string', 'max' => 255],
             [['CEL_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Cel::className(), 'targetAttribute' => ['CEL_ID' => 'CEL_ID']],
+            [['MOD_URL_FOTO'], 'file', 'skipOnError' => true, 'skipOnEmpty' => true, 'extensions' => 'png, jpg']
         ];
     }
 
@@ -47,6 +50,7 @@ class Modalidade extends \yii\db\ActiveRecord
             'MOD_ID' => 'Código',
             'CEL_ID' => 'CEL',
             'CAT_ID' => 'Categoria',
+            'MOD_URL_FOTO' => 'Ícone',
 
         ];
     }
@@ -64,14 +68,26 @@ class Modalidade extends \yii\db\ActiveRecord
         return $this->hasOne(Categoria::className(), ['CAT_ID' => 'CAT_ID']);
     }
 
-    /*public function getModalidadeDataHora(){
-        return $this->hasOne(ModalidadeDataHora::className(), ['MOD_ID'=>'MOD_ID']);
-    }*/
+    public function afterFind(){
+        $this->photo = $this->MOD_URL_FOTO;
+        return parent::afterFind();
+    }
 
-    /*public function beforeSave(){
-        if($this->isNewRecord){
-            $this->CEL_ID = Yii::$app->user->identity->cel_id;    
+    public function setArquivo(){
+        $this->MOD_URL_FOTO = UploadedFile::getInstance($this, 'MOD_URL_FOTO');
+    }
+
+    public function upload(){
+        if($this->MOD_URL_FOTO != null){
+            $this->MOD_URL_FOTO->saveAs('uploads/' . $this->MOD_URL_FOTO->baseName . '.' . $this->MOD_URL_FOTO->extension);
         }
-        return parent::beforeSave();
-    }*/
+    }
+
+    public function getUrlFoto(){
+        $photo = '/images/semicone.png';
+        if($this->MOD_URL_FOTO){
+            $photo = '/uploads/'.$this->MOD_URL_FOTO;
+        }
+        return Yii::$app->request->baseUrl.$photo;
+    }
 }

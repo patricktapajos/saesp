@@ -35,6 +35,14 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function ($model) {
                      return  $model->cel->CEL_NOME;
                 }
+            ],
+            [
+                'label'=>'Ícone',
+                'attribute'=>'MOD_URL_FOTO',
+                'value' => function ($model) {
+                    return  $model->getUrlFoto();
+               },
+                'format' => ['image'],
             ]
         ],
     ]) ?>
