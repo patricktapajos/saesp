@@ -28,66 +28,57 @@ AppAsset::register($this);
 <body>
 <?php $this->beginBody() ?>
 
-<div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => '<div class="pull-left navbar-logo"></div><span class="navbar-sys-name"></span>',
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'sys-navbar navbar-fixed-top',
-        ],
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'encodeLabels' => false,
-        'items' => [
-            ['label' => 'Início', 'url' => ['default/index']],
-            ['label' => 'Alterar Senha', 'url' => ['candidato/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],
-            ['label' => 'Alterar Dados', 'url' => ['candidato/update?id='.Yii::$app->user->identity->id], 'visible'=>!Yii::$app->user->isGuest],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['default/login']]
-            ) : '',
-            ['label' => '<i class="glyphicon glyphicon-user"></i>',             
-                'url' => ['#'],
-                'items' => [
-                    '<li class="dropdown-header header-user-info">Informações</li>',
-                    '<li class="divider"></li>', 
-                    ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p>'],
-                    '<li class="divider"></li>',                     
-                    ['label' =>'Sair', 'url'=>['default/logout']],                        
-                ],
-                'visible'=>!Yii::$app->user->isGuest
-            ]
-        ],
-    ]);
-    NavBar::end();
-    ?>
-    
-    <div class="col-lg-12">
-        <div class="text-left">
-            <?= Html::img('@web/images/simbolo-logo.png', ['class'=>'bg']); ?>
+    <div class="wrap">
+        <?php
+        NavBar::begin([
+            'brandLabel' => '<div class="pull-left navbar-logo"></div><span class="navbar-sys-name"></span>',
+            'brandUrl' => Yii::$app->homeUrl,
+            'options' => [
+                'class' => 'sys-navbar navbar-fixed-top',
+            ],
+        ]);
+        echo Nav::widget([
+            'options' => ['class' => 'navbar-nav navbar-right'],
+            'encodeLabels' => false,
+            'items' => [
+                ['label' => 'Início', 'url' => ['default/index']],
+                ['label' => 'Alterar Senha', 'url' => ['candidato/alterarsenha'], 'visible'=>!Yii::$app->user->isGuest],
+                ['label' => 'Alterar Dados', 'url' => ['candidato/update?id='.Yii::$app->user->identity->id], 'visible'=>!Yii::$app->user->isGuest],
+                Yii::$app->user->isGuest ? (
+                    ['label' => 'Login', 'url' => ['default/login']]
+                ) : '',
+                ['label' => '<i class="glyphicon glyphicon-user"></i>',             
+                    'url' => ['#'],
+                    'items' => [
+                        '<li class="dropdown-header header-user-info">Informações</li>',
+                        '<li class="divider"></li>', 
+                        ['label' =>'<p>Usuário: '.Yii::$app->user->identity->name.'</p>'],
+                        '<li class="divider"></li>',                     
+                        ['label' =>'Sair', 'url'=>['default/logout']],                        
+                    ],
+                    'visible'=>!Yii::$app->user->isGuest
+                ]
+            ],
+        ]);
+        NavBar::end();
+        ?>
+        
+        <div class="container">
+            <?= Breadcrumbs::widget([
+                'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+            ]) ?>
+            <?= Alert::widget() ?>
+            <?= $content ?>
         </div>
-        <div class="text-right" style="margin-right: 15%">
-            <?= Html::img('@web/images/simbolo-logo.png', ['class'=>'bg']); ?>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-left">&copy; SUBTI <?= date('Y') ?></p>
+
+            <p class="pull-right"><?= Yii::powered() ?></p>
         </div>
-    </div>
-
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= Alert::widget() ?>
-        <?= $content ?>
-    </div>
-</div>
-
-<footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; SUBTI <?= date('Y') ?></p>
-
-        <p class="pull-right"><?= Yii::powered() ?></p>
-    </div>
-</footer>
+    </footer>
 
 <?php $this->endBody() ?>
 </body>

@@ -24,11 +24,11 @@
         		<tr>
         			<td><?php echo $scel->cel->CEL_NOME; ?></td>
 					<td colspan="5">
-						<table class="table table-modalidade-inner table-acao table-responsive">
+						<table class="table table-modalidade-inner">
 							<tbody>
 								<?php foreach ($scel->selecaoModalidade as $sm) : ?>
 									<tr>
-										<td><?php echo $sm->modalidade->MOD_NOME; ?></td>
+										<td class="field-modalidade"><?php echo $sm->modalidade->MOD_NOME; ?></td>
 										<td colspan="4">
 											<table class="table-inner">
 												<tbody>

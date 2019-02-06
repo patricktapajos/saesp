@@ -4,7 +4,7 @@ body {
     /*background-color: #036ff61a;*/
     /*background-color: rgba(245, 245, 245, 0.25);*/
     background-color: #ecf0f5;
-    background-image: url(/images/esportes.png);
+    background-image: url(../images/esportes.png);
     background-size: cover;
 }
 
@@ -674,4 +674,13 @@ input[type="checkbox"] {
 .panel-title {
     font-size: 1.75em;
     text-align: center;
+}
+
+.field-modalidade {
+    width: 255px;
+    vertical-align: middle;
+}
+
+.table-modalidade-inner{
+    margin: -9px -6px -8px 9px;
 }
