@@ -426,7 +426,10 @@ a.icone-index:hover {
 .buttons{
     text-align: right;
     position: relative;
+    top: -40px;
+    margin-top: -30px;
     left: 5px;
+    /*right: 5px;*/
     float: right;
 }
 
@@ -481,8 +484,8 @@ a.icone-index:hover {
 
 
 .table-complement > tbody > tr > td {
-   /*padding: 2px 6px 2px 6px;*/
-   padding: 8px 6px 9px 5px;
+   padding: 0px 6px 0px 6px;
+   /* padding: 2% 0 2% 0; */
 }
 
 .table-inner > tbody > tr > td {
@@ -521,9 +524,9 @@ th.field {
 }
 
 td.field { 
-    min-width: 300px;
-    width: 300px;
-    height: 90px; 
+    min-width: 289px;
+    width: 289px;
+    height: 108px; 
 }
 
 th.field_x { 

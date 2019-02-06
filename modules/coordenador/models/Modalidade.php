@@ -2,6 +2,7 @@
 
 namespace app\modules\coordenador\models;
 use app\models\Cel;
+use app\modules\coordenador\models\Nivel;
 use Yii;
 use yii\web\UploadedFile;
 
@@ -34,6 +35,8 @@ class Modalidade extends \yii\db\ActiveRecord
             [['MOD_ID'], 'unique', 'message'=>'Modalidade com este nome já cadastrada'],
             [['MOD_NOME', 'MOD_DESCRICAO','CAT_ID'], 'required'],
             [['MOD_NOME', 'MOD_DESCRICAO'], 'string', 'max' => 255],
+            [['MOD_LIMITE_IDADE'], 'string', 'max' => 1],
+            [['MOD_IDADE_MIN', 'MOD_IDADE_MAX','NIV_ID'], 'number'],
             [['CEL_ID'], 'exist', 'skipOnError' => true, 'targetClass' => Cel::className(), 'targetAttribute' => ['CEL_ID' => 'CEL_ID']],
             [['MOD_URL_FOTO'], 'file', 'skipOnError' => true, 'skipOnEmpty' => true, 'extensions' => 'png, jpg']
         ];
@@ -50,7 +53,10 @@ class Modalidade extends \yii\db\ActiveRecord
             'MOD_ID' => 'Código',
             'CEL_ID' => 'CEL',
             'CAT_ID' => 'Categoria',
+            'NIV_ID' => 'Nível',
             'MOD_URL_FOTO' => 'Ícone',
+            'MOD_IDADE_MIN' => 'Idade Mínima',
+            'MOD_IDADE_MAX' => 'Idade Máxima',
 
         ];
     }
@@ -63,9 +69,12 @@ class Modalidade extends \yii\db\ActiveRecord
         return $this->hasMany(SelecaoModalidade::className(), ['MOD_ID'=>'MOD_ID']);
     }
 
-     public function getCategoria()
-    {
+    public function getCategoria(){
         return $this->hasOne(Categoria::className(), ['CAT_ID' => 'CAT_ID']);
+    }
+
+    public function getNivel(){
+        return $this->hasOne(Nivel::className(), ['NIV_ID' => 'NIV_ID']);
     }
 
     public function afterFind(){
@@ -89,5 +98,16 @@ class Modalidade extends \yii\db\ActiveRecord
             $photo = '/uploads/'.$this->MOD_URL_FOTO;
         }
         return Yii::$app->request->baseUrl.$photo;
+    }
+
+    public function beforeSave($insert){
+        
+        if(!$insert){
+            if($this->MOD_URL_FOTO == null){
+                $this->MOD_URL_FOTO = $this->photo;
+            }
+        }
+
+        return parent::beforeSave($insert);
     }
 }

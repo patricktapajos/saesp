@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\modules\coordenador\models\Categoria;
+use app\modules\coordenador\models\Nivel;
 use yii\helpers\Url;
 
 $this->registerJs(
@@ -30,6 +31,7 @@ $this->registerJs(
     <div class="alert-danger">
         <?= $form->errorSummary([$model]); ?>
     </div>
+    
     <?php if($model->isNewRecord): ?>
         <?= $form->field($model, 'MOD_NOME')->widget(\yii\jui\AutoComplete::classname(), [
             'clientOptions' => [
@@ -47,15 +49,32 @@ $this->registerJs(
     <?php else: ?>
         <?= $form->field($model,'MOD_NOME')->textInput(['id'=>'MOD_NOME']); ?>
     <?php endif; ?>
-    
+
     <?= $form->field($model, 'MOD_DESCRICAO')->textInput(['maxlength' => true]) ?>
 
-	<?= $form->field($model, 'CAT_ID')->dropDownList(Categoria::listar(),['prompt'=>'Selecione >>']) ?>
+    <div class="row">
+        <div class="col-lg-6 col-sm-12">
+            <?= $form->field($model, 'CAT_ID')->dropDownList(Categoria::listar(),['prompt'=>'Selecione >>']) ?>
+        </div>
+        <div class="col-lg-6 col-sm-12">
+            <?= $form->field($model, 'NIV_ID')->dropDownList(Nivel::listar(),['prompt'=>'Selecione >>']) ?>   
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-sm-12">
+            <?= $form->field($model, 'MOD_IDADE_MIN')->textInput(['type' => 'number']) ?>
+        </div>
+        <div class="col-lg-3 col-sm-12">
+            <?= $form->field($model, 'MOD_IDADE_MAX')->textInput(['type' => 'number']) ?>   
+        </div>
+    </div>
 
+    <?= $form->field($model, 'MOD_URL_FOTO')->fileInput(['class'=>'urlfoto','id'=>'mod']); ?>
     <div class="img-modalidade-cover">
         <img src="<?= $model->getUrlFoto(); ?>" id="foto-mod" class="img-icone" />
     </div>
-    <?= $form->field($model, 'MOD_URL_FOTO')->fileInput(['class'=>'urlfoto','id'=>'mod']); ?>
+    
+    <br>
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Salvar' : 'Atualizar', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>

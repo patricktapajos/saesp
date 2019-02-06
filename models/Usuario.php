@@ -227,6 +227,12 @@ class Usuario extends \app\components\SAESPActiveRecord {
             $this->_senha_atual = $this->gerarSenha();
         }
 
+        if(!$insert){
+            if($this->USU_URL_FOTO == null){
+                $this->USU_URL_FOTO = $this->photo;
+            }
+        }
+
         if($this->scenario == self::SCENARIO_ALTERAR_SENHA){
             $this->USU_SENHA = md5($this->_nova_senha);
         }

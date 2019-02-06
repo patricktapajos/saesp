@@ -36,7 +36,7 @@ class CategoriaController extends Controller
                     [
                         'allow' => true,
                         'actions' => ['index', 'create','view','update', 'delete', 'findmodel'],
-                        'roles' => [PermissaoEnum::PERMISSAO_COORDENADOR],
+                        'roles' => [PermissaoEnum::PERMISSAO_COORDENADOR, PermissaoEnum::PERMISSAO_ADMIN],
                     ]
                 ],
             ],

@@ -58,7 +58,12 @@ class RestController extends \yii\web\Controller
 	 public function actionModalidades(){
 	 	Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         $modalidades = Modalidade::find()->orderBy(['MOD_NOME'=>SORT_ASC])->all();
-        return $modalidades;
+        $mods = [];
+        foreach($modalidades as $n=>$modalidade){
+            $mods[$n] = $modalidade->attributes;
+            $mods[$n]['nivel'] = $modalidade->nivel->NIV_DESCRICAO;
+        }
+        return $mods;
     }
 
     public function actionAlterarmodalidades(){

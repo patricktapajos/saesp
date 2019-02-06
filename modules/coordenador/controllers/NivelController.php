@@ -3,21 +3,21 @@
 namespace app\modules\coordenador\controllers;
 
 use Yii;
-use app\modules\coordenador\models\Modalidade;
-use app\models\PermissaoEnum;
-use app\modules\coordenador\models\ModalidadeSearch;
+use app\modules\coordenador\models\Nivel;
+use app\modules\coordenador\models\NivelSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use app\models\PermissaoEnum;
 
 /**
- * ModalidadeController implements the CRUD actions for Modalidade model.
+ * NivelController implements the CRUD actions for Nivel model.
  */
-class ModalidadeController extends Controller
+class NivelController extends Controller
 {
     /**
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function behaviors()
     {
@@ -35,7 +35,7 @@ class ModalidadeController extends Controller
                     [
                         'allow' => true,
                         'actions' => ['index', 'create','view','update', 'delete', 'findmodel'],
-                        'roles' => [PermissaoEnum::PERMISSAO_COORDENADOR, PermissaoEnum::PERMISSAO_ADMIN],
+                        'roles' => [PermissaoEnum::PERMISSAO_ADMIN],
                     ]
                 ],
             ],
@@ -43,12 +43,12 @@ class ModalidadeController extends Controller
     }
 
     /**
-     * Lists all Modalidade models.
+     * Lists all Nivel models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ModalidadeSearch();
+        $searchModel = new NivelSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -58,9 +58,10 @@ class ModalidadeController extends Controller
     }
 
     /**
-     * Displays a single Modalidade model.
+     * Displays a single Nivel model.
      * @param string $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
@@ -70,81 +71,72 @@ class ModalidadeController extends Controller
     }
 
     /**
-     * Creates a new Modalidade model.
+     * Creates a new Nivel model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Modalidade();
-        $model->CEL_ID = Yii::$app->user->identity->cel_id;    
+        $model = new Nivel();
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $model->setArquivo();
-            $model->upload();
-            $model->save();
-            Yii::$app->session->setFlash('success', "Modalidade cadastrada com sucesso!");
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "Nível cadastrado com sucesso!");
             return $this->redirect(['index']);
-        } else {
-            return $this->render('create', [
-                'model' => $model,
-            ]);
         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
     }
 
     /**
-     * Updates an existing Modalidade model.
+     * Updates an existing Nivel model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param string $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            $model->setArquivo();
-            $model->upload();
-            $model->save();
-            Yii::$app->session->setFlash('success', "Modalidade atualizada com sucesso!");
-            return $this->redirect(['view', 'id' => $model->MOD_ID]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', "Nível atualizado com sucesso!");
+            return $this->redirect(['index']);
         }
+
+        return $this->render('update', [
+            'model' => $model,
+        ]);
     }
 
     /**
-     * Deletes an existing Modalidade model.
+     * Deletes an existing Nivel model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param string $id
      * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
     {
-        try{
-            $this->findModel($id)->delete();
-        }catch(\Exception $e){
-            Yii::$app->session->setFlash('danger', "Modalidade está referenciada em alguma seleção");
-        }
+        $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
     }
 
     /**
-     * Finds the Modalidade model based on its primary key value.
+     * Finds the Nivel model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param string $id
-     * @return Modalidade the loaded model
+     * @return Nivel the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Modalidade::findOne($id)) !== null) {
+        if (($model = Nivel::findOne($id)) !== null) {
             return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
         }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
     }
 }

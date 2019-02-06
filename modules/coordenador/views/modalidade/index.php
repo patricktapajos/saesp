@@ -25,7 +25,10 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
             'MOD_NOME',
             'MOD_DESCRICAO',
-            ['class' => 'yii\grid\ActionColumn'],
+            [
+                'class' => 'yii\grid\ActionColumn',
+                'header'=>'Ações'
+            ],
         ],
     ]); ?>
 </div>

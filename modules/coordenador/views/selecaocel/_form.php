@@ -66,7 +66,15 @@ if($model->isNewRecord){
         <tbody>
             <tr v-for="(mod, m) in modalidades">
                 <td class="field_date">
-                    <span>{{ mod.MOD_NOME }}</span>
+                    <p>
+                        <b>Descrição: </b> {{ mod.MOD_NOME }}
+                    </p>
+                    <p>
+                        <b>Idade: </b> de {{ mod.MOD_IDADE_MIN }} a {{ mod.MOD_IDADE_MAX }}
+                    </p>
+                    <p>
+                        <b>Nível:</b> {{ mod.nivel }}
+                    </p>
                     <input type="hidden" v-model="mod.MOD_ID" :name="'SelecaoCel[modalidades]['+m+'][MOD_ID]'" />
                     <input type="hidden" v-model="mod.SMOD_ID" :name="'SelecaoCel[modalidades]['+m+'][SMOD_ID]'" />
                     <div class="buttons">
